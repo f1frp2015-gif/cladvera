@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmMono.variable}`} data-region="US">
+    <html lang="en" className={`${dmSans.variable} ${dmMono.variable}`} data-region="US" suppressHydrationWarning>
       <head>
         <script id="region-bootstrap" dangerouslySetInnerHTML={{ __html: regionBootstrapScript }} />
       </head>

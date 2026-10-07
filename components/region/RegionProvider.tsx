@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useSyncExternalStore } from "react";
 import type { Region } from "@/content/data/regions";
 
 export const REGION_STORAGE_KEY = "cladvera_region";
@@ -15,37 +15,37 @@ const RegionContext = createContext<RegionContextValue>({
   setRegion: () => undefined,
 });
 
-function readStoredRegion(): Region | null {
-  try {
-    const stored = window.localStorage.getItem(REGION_STORAGE_KEY);
-    return stored === "US" || stored === "CA" ? stored : null;
-  } catch {
-    return null;
-  }
+// The source of truth is <html data-region>, set before hydration by the
+// inline bootstrap script and updated by setRegion. React reads it as an
+// external store so no state is copied inside an effect.
+const listeners = new Set<() => void>();
+
+function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => {
+    listeners.delete(listener);
+  };
 }
 
-/**
- * Holds the visitor's country choice. The inline script in app/layout.tsx
- * applies the stored choice to <html data-region> before first paint; this
- * provider keeps React state and storage in step after hydration.
- */
-export function RegionProvider({ children }: { children: React.ReactNode }) {
-  const [region, setRegionState] = useState<Region>("US");
+function getSnapshot(): Region {
+  return document.documentElement.dataset.region === "CA" ? "CA" : "US";
+}
 
-  useEffect(() => {
-    const stored = readStoredRegion();
-    if (stored) setRegionState(stored);
-    else document.documentElement.dataset.region = "US";
-  }, []);
+function getServerSnapshot(): Region {
+  return "US";
+}
+
+export function RegionProvider({ children }: { children: React.ReactNode }) {
+  const region = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const setRegion = useCallback((next: Region) => {
-    setRegionState(next);
     document.documentElement.dataset.region = next;
     try {
       window.localStorage.setItem(REGION_STORAGE_KEY, next);
     } catch {
       // Storage may be unavailable (private mode); the attribute still applies.
     }
+    listeners.forEach((listener) => listener());
   }, []);
 
   return <RegionContext.Provider value={{ region, setRegion }}>{children}</RegionContext.Provider>;

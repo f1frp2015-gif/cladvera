@@ -1,19 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ctaNav, mainNav } from "@/content/data/navigation";
 import { site } from "@/content/data/site";
 import RegionSwitch from "@/components/region/RegionSwitch";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  // The menu is open only for the path it was opened on, so navigating closes it.
+  const [openOnPath, setOpenOnPath] = useState<string | null>(null);
+  const open = openOnPath === pathname;
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
@@ -79,7 +77,7 @@ export default function Header() {
           className="rounded-control border border-line px-[12px] py-[8px] text-f14 font-medium lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpenOnPath(open ? null : pathname)}
         >
           {open ? "Close" : "Menu"}
         </button>

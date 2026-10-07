@@ -9,10 +9,10 @@ import { site } from "@/content/data/site";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Phenolic HPL, UHPC, ACM and wood veneer panels for US and Canadian fabricators, distributors and contractors, supplied from China with test reports, stock and lead times.";
+  "Phenolic HPL, UHPC, ACM and wood veneer panels for US and Canadian fabricators and distributors, with test status, stock and lead times.";
 
 export const metadata = buildPageMetadata({
-  title: `${site.brand} | Architectural Panels for Fabricators and Distributors`,
+  title: `${site.brand} | Architectural Panels for US and Canada`,
   description,
   path: "/",
 });

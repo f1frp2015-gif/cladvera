@@ -6,7 +6,7 @@ import { materials } from "@/content/data/materials";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Panel finishes for ACM, phenolic HPL, wood veneer and UHPC: colour, gloss, texture, grain direction and variation class, each on its own page with sample options.";
+  "Panel finishes for ACM, phenolic HPL, veneer and UHPC: colour, gloss, texture, grain direction and variation class, each with samples.";
 
 export const metadata = buildPageMetadata({
   title: "Panel Finishes, Textures and Color Variation",

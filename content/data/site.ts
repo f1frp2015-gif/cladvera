@@ -14,7 +14,11 @@ export const site = {
   tagline:
     "Specification-ready architectural panels for North American fabricators, distributors and contractors",
   /** Set NEXT_PUBLIC_SITE_URL on Vercel once a domain is attached. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cladvera.vercel.app",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "https://cladvera.vercel.app"),
   /**
    * "draft" renders the pre-launch notice and sends noindex. Set
    * NEXT_PUBLIC_SITE_STAGE=live on the production deployment to remove both.

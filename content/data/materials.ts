@@ -80,7 +80,7 @@ export const materials: Material[] = [
     shortName: "Phenolic HPL",
     metaTitle: "Exterior Phenolic HPL Panels | Compact Laminate Cladding",
     metaDescription:
-      "Exterior-grade phenolic (HPL) compact laminate panels in 6 to 12 mm for rainscreen cladding and soffits, supplied to US and Canadian fabricators with data sheets.",
+      "Exterior phenolic (HPL) compact laminate panels, 6 to 12 mm, for rainscreen cladding and soffits, supplied to US and Canadian fabricators.",
     definition:
       "Exterior phenolic panels are compact high-pressure laminates (HPL): layers of kraft paper saturated with phenolic resin and a decorative face, pressed into a dense, self-supporting sheet for rainscreen cladding and soffits.",
     use: ["exterior", "interior"],
@@ -182,7 +182,7 @@ export const materials: Material[] = [
     shortName: "UHPC",
     metaTitle: "UHPC Facade Panels | Thin Ultra High Performance Concrete",
     metaDescription:
-      "Thin UHPC facade panels, 15 to 30 mm, with textured or smooth faces, supplied to North American projects together with a precaster or engineer of record for anchors.",
+      "Thin UHPC facade panels, 15 to 30 mm, smooth or textured, supplied to North American projects with a precaster or engineer for the anchors.",
     definition:
       "UHPC facade panels are thin cladding panels cast from ultra high performance concrete, a fibre-reinforced mix with compressive strength above 120 MPa that allows 15 to 30 mm panels without conventional reinforcement.",
     use: ["exterior", "interior"],
@@ -284,7 +284,7 @@ export const materials: Material[] = [
     shortName: "ACM",
     metaTitle: "Aluminum Composite (ACM) Panels | FR Core, 4 mm",
     metaDescription:
-      "Aluminum composite panels with FR mineral-filled core, 4 mm, PVDF coated, for commercial interiors and low-rise exteriors, supplied to US and Canadian fabricators.",
+      "Aluminum composite panels with FR core, 4 mm, PVDF coated, for commercial interiors and low-rise exteriors, for US and Canadian fabricators.",
     definition:
       "Aluminum composite material (ACM) panels are two aluminum skins bonded to a polyethylene or mineral-filled fire-retardant core, routed and folded by fabricators into wall panel systems; the International Building Code groups them under metal composite material (MCM).",
     use: ["interior", "exterior"],
@@ -389,7 +389,7 @@ export const materials: Material[] = [
     shortName: "Wood veneer",
     metaTitle: "Wood Veneer Panels for Interior and Exterior Walls",
     metaDescription:
-      "Real wood veneer panels on a phenolic compact core for interior and exterior walls, approved on range samples, with Lacey Act and formaldehyde documentation per shipment.",
+      "Real wood veneer panels on a phenolic core for interior and exterior walls, approved on range samples, with Lacey Act data per shipment.",
     definition:
       "Wood veneer panels are real wood veneers bonded to a phenolic compact core (exterior and interior) or, for Canada only, to an MDF or plywood core (interior), protected by a UV-cured overlay and approved on range samples because every sheet differs.",
     use: ["interior", "exterior"],
@@ -484,7 +484,7 @@ export const materials: Material[] = [
     shortName: "Interior HPL",
     metaTitle: "Interior HPL Panels | Decorative Laminate Wall Panels",
     metaDescription:
-      "Interior HPL and compact laminate wall panels for commercial spaces: decors, gloss levels, substrates and flame-spread data for millwork and fit-out contractors.",
+      "Interior HPL and compact laminate wall panels for commercial spaces: decors, gloss levels, substrates and flame-spread data for millwork shops.",
     definition:
       "Interior HPL panels are decorative high-pressure laminates, either thin HPL bonded to a substrate by the millwork shop or self-supporting compact laminate from 3 mm, used for commercial wall panels, feature walls and wet areas.",
     use: ["interior"],

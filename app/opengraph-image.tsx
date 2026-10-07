@@ -23,13 +23,13 @@ export default function Image() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 36, fontWeight: 700 }}>
           <div style={{ width: 36, height: 36, background: "#8f3f1b", borderRadius: 6 }} />
-          {site.brand}
+          <div style={{ display: "flex" }}>{site.brand}</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <div style={{ fontSize: 54, fontWeight: 700, lineHeight: 1.1, maxWidth: 1000 }}>
+          <div style={{ display: "flex", fontSize: 54, fontWeight: 700, lineHeight: 1.1, maxWidth: 1000 }}>
             Architectural panels for North American fabricators, distributors and contractors
           </div>
-          <div style={{ fontSize: 26, color: "#c9ccd1" }}>Phenolic HPL · UHPC · ACM · Wood veneer · {site.origin}</div>
+          <div style={{ display: "flex", fontSize: 26, color: "#c9ccd1" }}>{`Phenolic HPL · UHPC · ACM · Wood veneer · ${site.origin}`}</div>
         </div>
       </div>
     ),

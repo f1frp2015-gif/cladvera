@@ -24,7 +24,12 @@ export async function generateMetadata({ params }: { params: Params }) {
     .join(" and ")} panels. ${finish.gloss}; ${finish.texture.toLowerCase()}; ${finish.directional ? "directional" : "non-directional"}. Samples and range sets on request.`;
   return buildPageMetadata({
     title: title.slice(0, 60),
-    description: description.length > 160 ? `${description.slice(0, 157)}...` : description.padEnd(120, " ").trimEnd(),
+    description:
+      description.length > 160
+        ? `${description.slice(0, 157)}...`
+        : description.length < 120
+          ? `${description} Data sheets on request.`
+          : description,
     path: `/finishes/${finish.code.toLowerCase()}`,
   });
 }

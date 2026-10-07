@@ -6,7 +6,7 @@ import { materials, materialsForRegion } from "@/content/data/materials";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Exterior cladding and interior wall panels compared by material: phenolic HPL compact laminate, UHPC, aluminum composite (ACM) and real wood veneer, with duty and code notes.";
+  "Exterior cladding and interior panels by material: phenolic HPL, UHPC, ACM and real wood veneer, with duty and building code notes.";
 
 export const metadata = buildPageMetadata({
   title: "Architectural Panels by Material: HPL, UHPC, ACM, Veneer",
