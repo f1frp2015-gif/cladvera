@@ -76,7 +76,7 @@ export default function MaterialPage({ slug }: { slug: MaterialSlug }) {
           ))}
         </div>
         {finishes.length > 0 ? (
-          <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-[12px] sm:gap-[16px] lg:grid-cols-4">
             {finishes.map((f) => (
               <FinishCard key={f.code} finish={f} />
             ))}

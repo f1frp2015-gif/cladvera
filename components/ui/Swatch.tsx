@@ -21,7 +21,7 @@ export function FinishCard({ finish }: { finish: Finish }) {
       className="group block rounded-card border border-line bg-paper p-[12px] transition-shadow hover:border-line-strong hover:shadow-card"
     >
       <Swatch finish={finish} />
-      <div className="mt-[10px] flex items-start justify-between gap-[8px]">
+      <div className="mt-[10px] flex flex-wrap items-start justify-between gap-[6px]">
         <div>
           <p className="font-mono text-f12 text-ink-3">{finish.code}</p>
           <p className="text-f16 font-semibold group-hover:text-accent">{finish.name}</p>

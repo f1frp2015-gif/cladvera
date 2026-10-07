@@ -63,7 +63,7 @@ export default function Page() {
         <p className="max-w-[760px] text-f14 text-ink-2">Decide horizontal or vertical grain per elevation before the layout is drawn. Number every sheet to the drawing, keep one direction per wall, and stagger printed decors so repeats do not align across neighbouring sheets.</p>
       </Section>
       <Section title="Finishes" tone="muted">
-        <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-[12px] sm:gap-[16px] lg:grid-cols-4">
           {items.map((f) => <FinishCard key={f.code} finish={f} />)}
         </div>
       </Section>
