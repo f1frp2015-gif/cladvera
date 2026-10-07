@@ -41,7 +41,7 @@ const faq = [
   },
   {
     q: "Is HPL wood grain real wood?",
-    a: "No. Wood-grain HPL carries a printed decor paper, usually with an embossed pore texture. Real wood is offered as veneer on a phenolic core, which needs range samples and Lacey Act declarations.",
+    a: "No. Wood-grain HPL carries a printed decor paper, usually with an embossed pore texture. Real wood is offered as veneer on a high-pressure thermoset core, which needs range samples and Lacey Act declarations.",
   },
   {
     q: "How do ACM, HPL and UHPC compare on weight per square foot?",

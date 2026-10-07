@@ -389,14 +389,15 @@ export const materials: Material[] = [
     shortName: "Wood veneer",
     metaTitle: "Wood Veneer Panels for Interior and Exterior Walls",
     metaDescription:
-      "Real wood veneer panels on a phenolic core for interior and exterior walls, approved on range samples, with Lacey Act data per shipment.",
+      "Real wood veneer panels on a high-pressure core for interior and exterior walls, approved on range samples, with Lacey Act data per shipment.",
     definition:
-      "Wood veneer panels are real wood veneers bonded to a phenolic compact core (exterior and interior) or, for Canada only, to an MDF or plywood core (interior), protected by a UV-cured overlay and approved on range samples because every sheet differs.",
+      "Wood veneer panels are real wood veneers impregnated with resin and pressed onto a high-pressure thermoset core (exterior and interior) or, for Canada only, onto an MDF or plywood core (interior), with an electron-beam-cured surface, and approved on range samples because every sheet differs.",
     use: ["interior", "exterior"],
     rank: { US: 4, CA: 2 },
     intro: [
       "Real veneer gives a facade or lobby wall natural variation that printed decors cannot. The trade-off is documentation: species and country of harvest are declared for every shipment, and the core material decides which duty and emission rules apply.",
       "For the United States only the phenolic-core construction is offered, and its tariff classification is being confirmed by ruling before prices are published. Veneer on MDF or plywood cores is within the scope of the 2026 hardwood and decorative plywood antidumping and countervailing duty orders and is not shipped to the United States.",
+      "On the current mill line the natural veneer is impregnated with a weather-resistant resin and a polymer resin, and the face is cured by electron beam (EB) rather than UV lamps. The mill also makes interior fire-retardant and acoustic versions of the panel. Grades, thicknesses and species are being confirmed against the mill data sheet before they are listed.",
     ],
     supply: {
       US: {
@@ -405,8 +406,8 @@ export const materials: Material[] = [
           "Not offered: veneer on MDF or plywood cores (AD/CVD scope).",
         ],
         dutyNote:
-          "Phenolic-core veneer panels may classify under heading 3921 (laminated plastics) or 4412 (veneered panels). A CBP binding ruling and, if needed, a Commerce scope ruling are being sought; until they are published no US price or MOQ is quoted for this line.",
-        tariffReference: ["3921.90.50 or 4412.99 (pending ruling)"],
+          "Veneer panels on a high-pressure thermoset core may classify under heading 3921 (laminated plastics), 4411 (fibreboard) or 4412 (veneered panels), depending on whether the core is kraft paper or wood fibre. A wood-fibre core raises the risk of falling within the hardwood and decorative plywood orders, which name MDF cores. A CBP binding ruling and, if needed, a Commerce scope ruling are being sought; until they are published no US price or MOQ is quoted for this line.",
+        tariffReference: ["3921.90.50, 4411 or 4412.99 (pending ruling)"],
       },
       CA: {
         scenarios: [
@@ -419,24 +420,25 @@ export const materials: Material[] = [
     },
     specs: [
       { label: "Face", value: "Natural wood veneer 0.5 to 0.6 mm; species list per data sheet", confirmed: false },
-      { label: "Core (exterior and interior)", value: "Phenolic compact core, 6, 8 and 10 mm", confirmed: false },
+      { label: "Core (exterior and interior)", value: "High-pressure thermoset core; the mill describes it as heat-cured wood-fibre board. Kraft-paper or wood-fibre composition being confirmed. 6, 8 and 10 mm", confirmed: false },
       { label: "Core (interior, Canada only)", value: "MDF or plywood, 16 and 18 mm, certified under SOR/2021-148", confirmed: false },
-      { label: "Protection", value: "UV-cured exterior-grade overlay; matte", confirmed: false },
+      { label: "Surface", value: "Veneer impregnated with a weather-resistant resin and a polymer resin; electron-beam (EB) cured face; matte", confirmed: false },
       { label: "Sheet size", value: "Up to 1,220 × 2,440 mm (48 × 96 in); larger formats on request", confirmed: false },
       { label: "Cuts", value: "Rift, quarter and crown cut; sequence-matched sets on request", confirmed: false },
+      { label: "Grades on the mill line", value: "Exterior cladding and landscape panels; interior fire-retardant panels; interior acoustic panels", confirmed: false },
       { label: "Variation", value: "Natural; approved on a signed master plus a range set of at least five pieces", confirmed: true },
       { label: "Declarations", value: "Species (scientific name) and country of harvest per shipment for the Lacey Act", confirmed: true },
     ],
     finishFamilies: ["natural-veneer"],
     systems: [
-      "Exposed-fastener rainscreen with sliding-point fixings (phenolic core).",
-      "Concealed undercut anchors on 8 and 10 mm phenolic core.",
+      "Exposed-fastener rainscreen with sliding-point fixings (thermoset core).",
+      "Concealed undercut anchors on 8 and 10 mm thermoset core (TBC per mill data).",
       "Interior Z-clip and French cleat systems (all cores).",
     ],
     fabrication: [
       "Cut face-up with a scoring blade; CNC routing for cut-outs.",
       "Keep the grain direction consistent per elevation; sheets are numbered to the layout drawing.",
-      "Exterior edges sealed by the overlay system; interior MDF-core edges banded or sealed.",
+      "Exterior edges sealed per the mill data sheet (TBC); interior MDF-core edges banded or sealed.",
     ],
     stock: {
       note: "No stock. Veneer is sourced per order so that species, cut and range can be approved first.",
@@ -446,6 +448,7 @@ export const materials: Material[] = [
     },
     documents: [
       { name: "Technical data sheet", status: "in-progress" },
+      { name: "Mill product catalogue, English edition", status: "in-progress" },
       { name: "Species and range-sample guide", status: "in-progress" },
       { name: "Lacey Act declaration template", status: "in-progress" },
       { name: "Formaldehyde emission test (ASTM E1333 / D6007)", status: "planned" },
@@ -454,7 +457,7 @@ export const materials: Material[] = [
     faq: [
       {
         q: "Can wood veneer be used outside?",
-        a: "Yes, when the veneer is bonded to a phenolic compact core and protected by an exterior-grade overlay, and the wall assembly follows the combustible exterior wall covering rules of the building code. Veneer on MDF or plywood is for interiors only.",
+        a: "Yes, when the veneer is resin-impregnated, pressed onto a high-pressure thermoset core and finished with an exterior-grade cured face, and the wall assembly follows the combustible exterior wall covering rules of the building code. Veneer on MDF or plywood is for interiors only.",
       },
       {
         q: "How much natural variation should I expect?",
@@ -465,8 +468,12 @@ export const materials: Material[] = [
         a: "Veneer is real wood with natural variation, and it needs an overlay, range samples and species declarations. Printed wood-grain HPL is uniform within a decor, has a stated repeat and needs none of the wood documentation. The comparison page sets out structure, variation, warranty and maintenance side by side.",
       },
       {
-        q: "Why is the US version limited to the phenolic core?",
-        a: "Veneered panels on MDF, particleboard or plywood cores are within the scope of the 2026 antidumping and countervailing duty orders on hardwood and decorative plywood from China. The phenolic-core construction is outside wood-core plywood as a product, but its classification is being confirmed by ruling before it is priced for the United States.",
+        q: "Why is the US version limited to the high-pressure thermoset core?",
+        a: "Veneered panels on MDF, particleboard or plywood cores are within the scope of the 2026 antidumping and countervailing duty orders on hardwood and decorative plywood from China. A high-pressure thermoset core is a different product, but if that core is mainly wood fibre the scope question is closer, so its classification is being confirmed by ruling before it is priced for the United States.",
+      },
+      {
+        q: "What is an electron-beam-cured veneer surface?",
+        a: "Electron-beam (EB) curing hardens the resin on the face with a beam of electrons instead of UV light or heat. The surface performance it gives this panel, such as abrasion, stain and weathering results, is published on the data sheet once confirmed.",
       },
     ],
     masterformat: ["06 42 00 Wood Paneling", "06 42 16 Wood Veneer Paneling", "07 42 43 Composite Wall Panels (exterior)"],

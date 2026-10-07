@@ -42,7 +42,7 @@ export const mainNav: NavGroup[] = [
       {
         label: "Wood Veneer Panels",
         href: "/materials/wood-veneer-panels",
-        description: "Real veneer on phenolic core; classification pending for the US",
+        description: "Real veneer on a thermoset core; classification pending for the US",
       },
       {
         label: "Interior HPL Panels",

@@ -14,7 +14,7 @@ export const metadata = buildPageMetadata({
 });
 
 const rows = [
-  { label: "Structure", veneer: "Real wood veneer on a phenolic core under a UV overlay", hpl: "Printed decor paper in a phenolic compact laminate", acm: "Printed coating on aluminum skins" },
+  { label: "Structure", veneer: "Resin-impregnated real wood veneer on a high-pressure thermoset core, electron-beam-cured face", hpl: "Printed decor paper in a phenolic compact laminate", acm: "Printed coating on aluminum skins" },
   { label: "Texture", veneer: "Open pore under the overlay", hpl: "Embossed pore, flat panel", acm: "Smooth" },
   { label: "Repeat", veneer: "None; every sheet differs", hpl: "Stated per decor", acm: "Stated per finish" },
   { label: "Variation class", veneer: variationLabel.natural, hpl: variationLabel.moderate, acm: variationLabel.moderate },
@@ -25,7 +25,7 @@ const rows = [
 ];
 
 const faq = [
-  { q: "Is HPL wood grain real wood?", a: "No. It is a printed decor paper pressed into the laminate, usually with an embossed pore. Real wood is offered as veneer on a phenolic core." },
+  { q: "Is HPL wood grain real wood?", a: "No. It is a printed decor paper pressed into the laminate, usually with an embossed pore. Real wood is offered as veneer on a high-pressure thermoset core." },
   { q: "Wood veneer vs HPL for exterior cladding: how do they compare?", a: "Veneer gives natural variation and needs range samples and Lacey Act declarations; printed HPL is uniform within a decor, has a stated repeat and needs no wood documentation." },
   { q: "How do I control grain direction across a facade?", a: "Choose horizontal or vertical grain per elevation, number sheets to the layout drawing, and stagger sheets so pattern repeats do not line up across adjacent panels." },
   { q: "How much variation should I expect in veneer?", a: "Enough that a single chip cannot represent an order. Approval is on a signed master and a range set of at least five pieces." },
