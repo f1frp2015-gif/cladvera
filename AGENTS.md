@@ -12,6 +12,7 @@ This version has breaking changes. APIs, conventions and file structure may diff
 
 # Deployment target (do not change)
 
-- Vercel account: `f1frp2015-6628`, at the top level of that account. Project name: `cladvera`. Never create or deploy this site under any other Vercel account, team or project, including the team that hosts f1composite.
+- Vercel scope: the team `ori-project-workspace` (https://vercel.com/ori-project-workspace), under the owner's account `f1frp2015-6628`. Project name: `cladvera`, a project of its own.
+- The same team hosts the f1composite project. Never deploy this site into the f1composite project or any other existing project, and never into another Vercel account or team.
 - Git source: GitHub `f1frp2015-gif/cladvera`, production branch `main`. Root Directory `./` (the Next.js app is at the repository root).
 - Changes reach production only through GitHub: branch, pull request, Vercel preview, merge to `main`. No `vercel --prod` from a local tree.
