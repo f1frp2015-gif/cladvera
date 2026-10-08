@@ -125,7 +125,7 @@ export const complianceRows: ComplianceRow[] = [
   },
   {
     id: "veneer-phenolic",
-    product: "Real wood veneer on phenolic compact core",
+    product: "Real wood veneer on high-pressure thermoset core",
     materialSlug: "wood-veneer-panels",
     cells: {
       e84: inProgress("Material-level test; class to be published."),
@@ -135,7 +135,7 @@ export const complianceRows: ComplianceRow[] = [
       s102: inProgress("Flame-spread rating to be published."),
       e136: na("Combustible by definition."),
       e330: planned("Tested with the attachment system named on /systems/."),
-      formaldehyde: inProgress("Phenolic core is expected to fall outside TSCA Title VI and SOR/2021-148; written confirmation is being sought and emission data will be published regardless."),
+      formaldehyde: inProgress("Core composition is being confirmed. A kraft-paper phenolic core is expected to fall outside TSCA Title VI and SOR/2021-148; a wood-fibre core is assessed as a composite wood product. Emission data will be published either way."),
       lacey: inProgress("Species (scientific name) and country of harvest declared per shipment; declarations drafted per species."),
     },
   },

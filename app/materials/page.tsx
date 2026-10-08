@@ -15,7 +15,7 @@ export const metadata = buildPageMetadata({
 });
 
 const matrix = [
-  { label: "Typical thickness", values: ["6 to 12 mm", "15 to 30 mm", "4 mm (3 and 6 on request)", "6 to 10 mm (phenolic core)"] },
+  { label: "Typical thickness", values: ["6 to 12 mm", "15 to 30 mm", "4 mm (3 and 6 on request)", "6 to 10 mm (thermoset core, TBC)"] },
   { label: "Weight", values: ["≈ 11.5 kg/m² at 8 mm", "≈ 36 to 72 kg/m²", "≈ 5.5 to 7.6 kg/m²", "≈ 9 to 14 kg/m²"] },
   { label: "Combustibility", values: ["Combustible; assembly test above 40 ft", "Noncombustible", "FR core; assembly test above 40 ft", "Combustible; assembly test above 40 ft"] },
   { label: "US duty layers", values: ["General + §301", "General + §301", "General + §301 + §232 (full value)", "Pending ruling"] },

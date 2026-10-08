@@ -75,7 +75,7 @@ export default function Page() {
         </div>
       </Section>
       <Section title="Interior finishes">
-        <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-[12px] sm:gap-[16px] lg:grid-cols-4">
           {interiorFinishes.map((f) => <FinishCard key={f.code} finish={f} />)}
         </div>
       </Section>

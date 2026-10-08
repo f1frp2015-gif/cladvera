@@ -26,7 +26,7 @@ const part2Steps = [
 const faq = [
   {
     q: "Which facade materials combine wood warmth with a clean panelized elevation?",
-    a: "Three routes: real veneer on a phenolic compact core for natural variation, printed wood-grain phenolic (HPL) panels for a uniform decor with a stated repeat, and wood-grain ACM where a folded metal panel system is already specified. The wood-grain finishes page compares structure, texture, repeat and documentation.",
+    a: "Three routes: real veneer on a high-pressure thermoset core for natural variation, printed wood-grain phenolic (HPL) panels for a uniform decor with a stated repeat, and wood-grain ACM where a folded metal panel system is already specified. The wood-grain finishes page compares structure, texture, repeat and documentation.",
   },
   {
     q: "What should I include in a sample request?",
@@ -57,7 +57,7 @@ export default function Page() {
       />
 
       <Section title="Palette builder" lede="Up to 10 finishes per sample set across any materials. Printed pattern and real texture are labelled separately.">
-        <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-[12px] sm:gap-[16px] lg:grid-cols-5">
           {palette.map((f) => (
             <FinishCard key={f.code} finish={f} />
           ))}

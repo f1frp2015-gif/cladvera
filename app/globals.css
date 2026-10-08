@@ -108,6 +108,14 @@ html[data-region="CA"] [data-region-block="US"] {
     vertical-align: top;
   }
 
+  /* On phones, tables with four or more columns scroll sideways inside their
+     overflow wrapper instead of squeezing every column to a few words. */
+  @media (width < 40rem) {
+    .overflow-x-auto > table:has(thead th:nth-child(4)) {
+      min-width: 640px;
+    }
+  }
+
   .prose-site :is(h2) {
     font-size: var(--text-f24);
     line-height: 1.25;

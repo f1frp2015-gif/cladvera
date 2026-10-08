@@ -43,7 +43,7 @@ export default function Page() {
         if (items.length === 0) return null;
         return (
           <Section key={family.slug} id={family.slug} title={family.name} lede={family.description} tone="muted">
-            <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-[12px] sm:gap-[16px] lg:grid-cols-4">
               {items.map((f) => (
                 <FinishCard key={f.code} finish={f} />
               ))}

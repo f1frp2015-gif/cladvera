@@ -125,7 +125,7 @@ export default async function Page({ params }: { params: Params }) {
 
       {/* 4 Pairings */}
       <Section title="Pairs with" lede="Material identity and the edge between materials stay visible in the recommended combinations.">
-        <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-[12px] sm:gap-[16px] lg:grid-cols-4">
           {pairings.map((f) => (
             <FinishCard key={f.code} finish={f} />
           ))}
