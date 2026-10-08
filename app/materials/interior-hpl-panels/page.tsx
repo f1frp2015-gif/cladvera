@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
-import CompactwoodInquiryLink from "@/components/compactwood/CompactwoodInquiryLink";
-import { Badge, Callout, PageHeader, Section } from "@/components/ui";
+import { CollectionNextSteps } from "@/components/catalog/ProductJourney";
+import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
+import { productRequestHref } from "@/content/data/catalog";
 import {
   compactwoodExteriorPath,
   compactwoodImages,
@@ -29,8 +30,8 @@ export default function Page() {
         eyebrow="Interior panels · related high-pressure range"
         title="Compactwood interior decorative boards"
         lede="Compactwood describes an interior board made by curing a decorative surface with a wood-fiber or glass-fiber core under heat and pressure. The public product page does not classify this line as HPL; request the exact construction and grade for an HPL specification."
-        crumbs={[{ name: "Compactwood interior boards", path }]}
-        actions={<CompactwoodInquiryLink productName="interior paste special board" />}
+        crumbs={[{ name: "Products", path: "/products" }, { name: "Compactwood interior boards", path }]}
+        actions={<><Cta href={productRequestHref("compactwood-interior")}>Request project pricing</Cta><Cta href={productRequestHref("compactwood-interior", "sample")} variant="secondary">Request a sample</Cta></>}
       >
         <div className="mt-[16px] flex flex-wrap gap-[6px]"><Badge>Manufacturer: Tianjin Zhonglong Industrial</Badge><Badge tone="pending">HPL grade: confirm by SKU</Badge></div>
       </PageHeader>
@@ -59,6 +60,7 @@ export default function Page() {
       <Section title="Manufacturer source">
         <a href={compactwoodSources.interiorProduct} target="_blank" rel="noopener noreferrer" className="inline-block rounded-card border border-line p-[18px] text-f14 font-semibold hover:border-line-strong">Compactwood paste special board ↗</a>
       </Section>
+      <CollectionNextSteps category="interior-board" />
     </>
   );
 }

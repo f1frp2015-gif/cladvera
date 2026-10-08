@@ -1,8 +1,8 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import TaktlVisual from "@/components/taktl/TaktlVisual";
-import TaktlInquiryLink from "@/components/taktl/TaktlInquiryLink";
-import { Badge, Callout, PageHeader, Section } from "@/components/ui";
+import { CollectionNextSteps } from "@/components/catalog/ProductJourney";
+import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
 import { taktlColors, taktlFinishes, taktlProducts, taktlSources, taktlTextures } from "@/content/data/taktl";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
@@ -23,8 +23,8 @@ export default function Page() {
         eyebrow="TAKTL · architectural UHPC"
         title="TAKTL architectural UHPC products"
         lede="Cladvera supplies TAKTL facade elements, specialty surfaces, custom elements and attachment hardware for project inquiries. Explore the range and discuss your drawings, finishes and schedule with our team."
-        crumbs={[{ name: "TAKTL products", path: "/suppliers/taktl" }]}
-        actions={<TaktlInquiryLink />}
+        crumbs={[{ name: "Products", path: "/products" }, { name: "TAKTL products", path: "/suppliers/taktl" }]}
+        actions={<><Cta href="/products?manufacturer=TAKTL">Select TAKTL products</Cta><Cta href="/technical-resources" variant="secondary">Technical documents</Cta></>}
       >
         <div className="mt-[18px] flex flex-wrap gap-[6px]">
           <Badge>Manufacturer: TAKTL, USA</Badge>
@@ -86,6 +86,7 @@ export default function Page() {
         </p>
         <a href={taktlSources.finishes} target="_blank" rel="noopener noreferrer" className="mt-[14px] inline-block text-f14 font-medium text-accent underline underline-offset-4">View TAKTL finish information ↗</a>
       </Section>
+      <CollectionNextSteps category="uhpc" />
     </>
   );
 }

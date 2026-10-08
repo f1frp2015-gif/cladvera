@@ -27,9 +27,9 @@ export default function Image() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <div style={{ display: "flex", fontSize: 54, fontWeight: 700, lineHeight: 1.1, maxWidth: 1000 }}>
-            Architectural panels for North American fabricators, distributors and contractors
+            Architectural materials, from selection to project supply
           </div>
-          <div style={{ display: "flex", fontSize: 26, color: "#c9ccd1" }}>{`Phenolic HPL · UHPC · ACM · Wood veneer · ${site.origin}`}</div>
+          <div style={{ display: "flex", fontSize: 26, color: "#c9ccd1" }}>{"UHPC · Metal composite · HPL · Custom GFRP"}</div>
         </div>
       </div>
     ),

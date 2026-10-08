@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
-import CompactwoodInquiryLink from "@/components/compactwood/CompactwoodInquiryLink";
-import { Badge, Callout, PageHeader, Section } from "@/components/ui";
+import { CollectionNextSteps } from "@/components/catalog/ProductJourney";
+import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
+import { productRequestHref } from "@/content/data/catalog";
 import {
   compactwoodExteriorPath as path,
   compactwoodExteriorProductPath,
@@ -29,8 +30,8 @@ export default function Page() {
         eyebrow="HPL · manufacturer range"
         title="Compactwood exterior wood-fiber HPL"
         lede="A high-pressure wood-fiber laminate described by Compactwood for building facades. Cladvera can source the range for project review; the exact panel construction and documentation are confirmed with each inquiry."
-        crumbs={[{ name: "Compactwood exterior HPL", path }]}
-        actions={<CompactwoodInquiryLink productName="exterior wood-fiber HPL facade board" />}
+        crumbs={[{ name: "Products", path: "/products" }, { name: "Compactwood exterior HPL", path }]}
+        actions={<><Cta href={productRequestHref("compactwood-exterior")}>Request project pricing</Cta><Cta href={productRequestHref("compactwood-exterior", "sample")} variant="secondary">Request a sample</Cta></>}
       >
         <div className="mt-[16px] flex flex-wrap gap-[6px]">
           <Badge>Manufacturer: Tianjin Zhonglong Industrial</Badge>
@@ -75,6 +76,7 @@ export default function Page() {
         </div>
         <p className="mt-[18px] text-f14 text-ink-2">For interior work, see the <Link href={compactwoodInteriorPath} className="font-medium text-accent hover:underline">Compactwood high-pressure decorative board</Link>. Its exact HPL classification remains to be confirmed by product.</p>
       </Section>
+      <CollectionNextSteps category="hpl" />
     </>
   );
 }

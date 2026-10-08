@@ -1,102 +1,46 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
-import { Cta, Faq, LinkCard, PageHeader, Section, StatusBadge, Steps } from "@/components/ui";
-import { materials } from "@/content/data/materials";
+import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
+import { catalogProducts, productRequestHref } from "@/content/data/catalog";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-const description =
-  "Data sheets, CSI specifications, CAD and BIM, test reports, warranty and comparison data for panel submittals, organised as a 13.1A set.";
+const path = "/technical-resources";
+const description = "Find available manufacturer panel documents and request product-specific data, test reports and attachment information for architectural and procurement review.";
+export const metadata = buildPageMetadata({ title: "Panel Documents and Technical Resources | Cladvera", description, path });
 
-export const metadata = buildPageMetadata({
-  title: "Technical Resources: Data Sheets, Specs, CAD and Reports",
-  description,
-  path: "/technical-resources",
-});
-
-const attachmentSet = [
-  { label: "A. Product data sheets", body: "One per material and thickness, with the specification rows published on each material page and their confirmation status.", href: "/materials" },
-  { label: "B. Three-part specifications", body: "By MasterFormat section: 07 42 43, 07 42 13.23, 09 78 23, 06 42 16 and 03 45 00. Drafts in progress; status per material below.", href: "/materials" },
-  { label: "C. CAD and BIM", body: "DWG and PDF details per attachment system and Revit families are planned; ARCAT and BIMobject listings follow once files are released.", href: "/systems" },
-  { label: "D. Test reports", body: "Published with report numbers and laboratory names on the compliance matrix.", href: "/compliance" },
-  { label: "E. Warranty", body: "Draft terms with the responsible North American party to be named.", href: "/warranty" },
-  { label: "F. Comparison data", body: "ACM vs HPL vs UHPC and UHPC vs GFRC, with the figures a reviewer needs for an equal-or-better judgement.", href: "/resources/acm-vs-hpl-vs-uhpc" },
-  { label: "G. HTML specification tables", body: "Every material page carries its specification table in HTML so reviewers and AI tools can read it without a PDF.", href: "/materials/exterior-hpl-panels" },
-];
-
-const substitutionSteps = [
-  { title: "Confirm the basis of design", body: "Identify the specified product, section and the performance the specification relies on." },
-  { title: "Download the attachment set", body: "Data sheet, specification, CAD, test reports and warranty for the proposed panel." },
-  { title: "Attach comparison data", body: "Side-by-side figures from the comparison pages and the spec table, with unconfirmed rows marked." },
-  { title: "State warranty equivalence", body: "CSI Form 13.1A asks for the same warranty as the specified product; use the draft terms and the responsible party." },
-  { title: "Submit through Division 01", body: "Substitution requests go through Section 01 25 00 on CSI Form 13.1A, within the period the project allows." },
-];
-
-const faq = [
-  {
-    q: "Where can I download Revit families, CAD details and spec sheets?",
-    a: "CAD details per attachment system and Revit families are planned and will be published here and on ARCAT and BIMobject once released. Data sheets are published per material as they are confirmed. Nothing is gated behind a form.",
-  },
-  {
-    q: "Which specification section applies to each material?",
-    a: "ACM: 07 42 43 Composite Wall Panels or 07 42 13.23 Metal Composite Material Wall Panels. Exterior phenolic (HPL): 07 42 43 or 07 46 00. Interior HPL: 09 78 23 Phenolic Interior Wall Paneling. Wood veneer: 06 42 16 Wood Veneer Paneling. UHPC: 03 45 00 Precast Architectural Concrete.",
-  },
-  {
-    q: "Are downloads gated?",
-    a: "No. Every document on this page is open. The only form on the site that asks for details is the quote request, because a quote needs drawings and a delivery term.",
-  },
+const reviewSet = [
+  { title: "Product identity and construction", body: "Name the manufacturer, family, offered grade, core, faces, thickness, size and finish. Record the document date and revision." },
+  { title: "Performance evidence", body: "Request relevant reports for the actual construction and project jurisdiction. Match the test method, specimen, results and assembly to the proposal." },
+  { title: "Interfaces and installation", body: "Coordinate fixing details, supporting structure, joints, movement, substrate and installation responsibilities. Request project details where needed." },
+  { title: "Samples and closeout", body: "Agree physical finish references, mock-up requirements, care guidance and warranty terms for the ordered product." },
 ];
 
 export default function Page() {
   return (
     <>
-      <JsonLd data={buildWebPageSchema({ name: "Technical resources", description, path: "/technical-resources", type: "CollectionPage" })} />
-      <PageHeader
-        eyebrow="Technical"
-        title="Technical resources"
-        lede="Organised the way a substitution request wants them: data sheets, three-part specifications, CAD and BIM, test reports, warranty and comparison data. Downloads are open."
-        crumbs={[{ name: "Technical resources", path: "/technical-resources" }]}
-        actions={<Cta href="/compliance">Compliance matrix</Cta>}
-      />
+      <JsonLd data={buildWebPageSchema({ name: "Panel documents and technical resources", description, path, type: "CollectionPage" })} />
+      <PageHeader eyebrow="Technical review" title="Connect each product to its evidence" lede="Open the listed source documents or request information for a named product. Check document revision and applicability to the exact construction before specification or order." crumbs={[{ name: "Technical resources", path }]} actions={<><Cta href="/products">Find a product</Cta><Cta href="/request-quote?intent=documents" variant="secondary">Request a document package</Cta></>} />
 
-      <Section title="The attachment set">
-        <div className="grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
-          {attachmentSet.map((item) => (
-            <LinkCard key={item.label} href={item.href} title={item.label} description={item.body} />
-          ))}
-        </div>
-      </Section>
-
-      <Section title="Documents by material" lede="Status is per document. In-progress documents are being prepared from mill data; planned documents follow the assembly tests." tone="muted">
+      <Section title="Documents by product" lede="Direct document links are shown where a file has been identified. A manufacturer product page provides context; a document request confirms what can be supplied for your project.">
         <div className="grid gap-[16px] md:grid-cols-2">
-          {materials.map((m) => (
-            <div key={m.slug} className="rounded-card border border-line bg-paper p-[20px]">
-              <h3 className="text-f18 font-semibold">
-                <Link href={`/materials/${m.slug}`} className="hover:text-accent">{m.name}</Link>
-              </h3>
-              <p className="mt-[4px] font-mono text-f12 text-ink-3">{m.masterformat.join(" · ")}</p>
-              <ul className="mt-[12px] grid gap-[8px]">
-                {m.documents.map((d) => (
-                  <li key={d.name} className="flex items-start justify-between gap-[12px] text-f14">
-                    <span>
-                      <span className="text-ink">{d.name}</span>
-                      {d.note && <span className="block text-f12 text-ink-3">{d.note}</span>}
-                    </span>
-                    <StatusBadge status={d.status} />
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {catalogProducts.map((product) => (
+            <article key={product.id} className="flex flex-col rounded-card border border-line p-[20px]">
+              <p className="font-mono text-f12 text-accent">{product.manufacturer}</p><h2 className="mt-[6px] text-f20 font-semibold"><Link href={product.path} className="hover:text-accent">{product.name}</Link></h2><p className="mt-[10px] text-f14 text-ink-2">{product.documentation}</p>
+              <div className="mt-[16px]"><Badge tone={product.documentUrl ? "accent" : "neutral"}>{product.documentUrl ? "Source document linked" : "Product-specific documents on request"}</Badge></div>
+              <div className="mt-auto flex flex-wrap items-center gap-[16px] pt-[20px] text-f14">
+                {product.documentUrl && <a href={product.documentUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-accent underline underline-offset-4">{product.documentLabel ?? "Open source document"} ↗</a>}
+                <Link href={productRequestHref(product.id, "documents")} className="font-semibold text-accent underline underline-offset-4">Request documents</Link><Link href={product.path} className="text-ink-2 underline underline-offset-4">Product details</Link>
+              </div>
+            </article>
           ))}
         </div>
       </Section>
 
-      <Section title="How to submit a substitution request">
-        <Steps steps={substitutionSteps} />
+      <Section title="Build a review package" tone="muted" lede="Select the information required by the design team and project contract. Availability and scope are confirmed for the named product.">
+        <div className="grid gap-[16px] md:grid-cols-2">{reviewSet.map((item) => <div key={item.title} className="rounded-card border border-line bg-paper p-[20px]"><h2 className="text-f18 font-semibold">{item.title}</h2><p className="mt-[8px] text-f14 text-ink-2">{item.body}</p></div>)}</div>
+        <div className="mt-[20px]"><Callout title="CAD, BIM and specification files">Include the required file format and intended use in a document request. Available files, product coverage and revision are confirmed by the source. A linked product data sheet does not imply that CAD, BIM or a project specification is also available.</Callout></div>
       </Section>
-
-      <Section tone="muted">
-        <Faq items={faq} />
-      </Section>
+      <Section title="Use the documents in the next decision"><div className="flex flex-wrap gap-[12px]"><Cta href="/architects">Architect selection workflow</Cta><Cta href="/procurement" variant="secondary">Procurement checklist</Cta><Cta href="/compare" variant="ghost">Compare product families →</Cta></div></Section>
     </>
   );
 }

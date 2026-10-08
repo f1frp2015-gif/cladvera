@@ -12,7 +12,7 @@ export const site = {
   brandNote:
     "Cladvera is a working name pending trademark clearance. Change `site.brand` once the name is confirmed.",
   tagline:
-    "Specification-ready architectural panels for North American fabricators, distributors and contractors",
+    "Architectural panels and custom elements for design teams, buyers, fabricators and contractors",
   /** Set NEXT_PUBLIC_SITE_URL on Vercel once a domain is attached. */
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??

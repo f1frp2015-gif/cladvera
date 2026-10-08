@@ -1,8 +1,9 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import TaktlVisual from "@/components/taktl/TaktlVisual";
-import TaktlInquiryLink from "@/components/taktl/TaktlInquiryLink";
-import { Badge, Callout, PageHeader, Section } from "@/components/ui";
+import ProductJourney from "@/components/catalog/ProductJourney";
+import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
+import { catalogProducts, productRequestHref } from "@/content/data/catalog";
 import { findTaktlProduct, taktlProducts, type TaktlProductSlug } from "@/content/data/taktl";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
@@ -18,6 +19,7 @@ export function taktlProductMetadata(slug: TaktlProductSlug) {
 export default function TaktlProductPage({ slug }: { slug: TaktlProductSlug }) {
   const product = findTaktlProduct(slug);
   const path = `/suppliers/taktl/${slug}`;
+  const catalogProduct = catalogProducts.find(item => item.path === path)!;
 
   return (
     <>
@@ -27,10 +29,11 @@ export default function TaktlProductPage({ slug }: { slug: TaktlProductSlug }) {
         title={product.name}
         lede={product.summary}
         crumbs={[
+          { name: "Products", path: "/products" },
           { name: "TAKTL products", path: "/suppliers/taktl" },
           { name: product.name, path },
         ]}
-        actions={<TaktlInquiryLink productName={product.name} />}
+        actions={<><Cta href={productRequestHref(catalogProduct.id)}>Request project pricing</Cta><Cta href={productRequestHref(catalogProduct.id, "sample")} variant="secondary">Request a sample</Cta></>}
       >
         <div className="mt-[16px]"><Badge>{product.type}</Badge></div>
       </PageHeader>
@@ -92,9 +95,9 @@ export default function TaktlProductPage({ slug }: { slug: TaktlProductSlug }) {
         </div>
       </Section>
 
-      <Section title="More TAKTL products" tone="muted">
+      <Section title="More TAKTL panel families" tone="muted">
         <div className="grid gap-[16px] md:grid-cols-2 lg:grid-cols-4">
-          {taktlProducts.filter((item) => item.slug !== slug).map((item) => (
+          {taktlProducts.filter((item) => item.slug !== slug && item.slug !== "hardware").map((item) => (
             <Link key={item.slug} href={`/suppliers/taktl/${item.slug}`} className="rounded-card border border-line bg-paper p-[16px] hover:border-line-strong hover:shadow-card">
               <span className="font-mono text-f12 text-ink-3">{item.type}</span>
               <span className="mt-[4px] block text-f16 font-semibold">{item.name} →</span>
@@ -102,6 +105,7 @@ export default function TaktlProductPage({ slug }: { slug: TaktlProductSlug }) {
           ))}
         </div>
       </Section>
+      <ProductJourney productId={catalogProduct.id} />
     </>
   );
 }

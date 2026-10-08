@@ -1,7 +1,8 @@
 import Image from "next/image";
 import JsonLd from "@/components/seo/JsonLd";
-import CompactwoodInquiryLink from "@/components/compactwood/CompactwoodInquiryLink";
-import { Badge, Callout, PageHeader, Section } from "@/components/ui";
+import ProductJourney from "@/components/catalog/ProductJourney";
+import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
+import { productRequestHref } from "@/content/data/catalog";
 import {
   compactwoodExteriorPath,
   compactwoodExteriorProductPath as path,
@@ -28,8 +29,8 @@ export default function Page() {
         eyebrow="Compactwood · exterior HPL"
         title="Wood-fiber HPL facade board"
         lede="Compactwood explicitly calls this a high-pressure laminate wood-fiber board for building curtain walls. The description below reflects its published product and installation pages; ordered dimensions and test evidence are requested by project."
-        crumbs={[{ name: "Compactwood exterior HPL", path: compactwoodExteriorPath }, { name: "Wood-fiber facade board", path }]}
-        actions={<CompactwoodInquiryLink productName="wood-fiber HPL facade board" />}
+        crumbs={[{ name: "Products", path: "/products" }, { name: "Compactwood exterior HPL", path: compactwoodExteriorPath }, { name: "Wood-fiber facade board", path }]}
+        actions={<><Cta href={productRequestHref("compactwood-exterior")}>Request project pricing</Cta><Cta href={productRequestHref("compactwood-exterior", "sample")} variant="secondary">Request a sample</Cta></>}
       >
         <div className="mt-[16px]"><Badge>Manufacturer-described HPL construction</Badge></div>
       </PageHeader>
@@ -68,6 +69,7 @@ export default function Page() {
           <a href={compactwoodSources.installation} target="_blank" rel="noopener noreferrer" className="hover:underline">Installation overview ↗</a>
         </div>
       </Section>
+      <ProductJourney productId="compactwood-exterior" />
     </>
   );
 }

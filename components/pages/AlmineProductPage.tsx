@@ -1,8 +1,9 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
-import AlmineInquiryLink from "@/components/almine/AlmineInquiryLink";
+import ProductJourney from "@/components/catalog/ProductJourney";
 import AlmineVisual from "@/components/almine/AlmineVisual";
-import { Badge, Callout, PageHeader, Section } from "@/components/ui";
+import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
+import { catalogProducts, productRequestHref } from "@/content/data/catalog";
 import { almineProducts, findAlmineProduct, type AlmineProductSlug } from "@/content/data/almine";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
@@ -18,6 +19,7 @@ export function almineProductMetadata(slug: AlmineProductSlug) {
 export default function AlmineProductPage({ slug }: { slug: AlmineProductSlug }) {
   const product = findAlmineProduct(slug);
   const path = `/materials/acm-panels/${slug}`;
+  const catalogProduct = catalogProducts.find(item => item.path === path)!;
 
   return (
     <>
@@ -26,8 +28,8 @@ export default function AlmineProductPage({ slug }: { slug: AlmineProductSlug })
         eyebrow="ALMINE · metal composite panel"
         title={product.name}
         lede={product.summary}
-        crumbs={[{ name: "ACM / MCM panels", path: "/materials/acm-panels" }, { name: product.name, path }]}
-        actions={<AlmineInquiryLink productName={product.name} />}
+        crumbs={[{ name: "Products", path: "/products" }, { name: "ACM / MCM panels", path: "/materials/acm-panels" }, { name: product.name, path }]}
+        actions={<><Cta href={productRequestHref(catalogProduct.id)}>Request project pricing</Cta><Cta href={productRequestHref(catalogProduct.id, "sample")} variant="secondary">Request a sample</Cta></>}
       >
         <div className="mt-[16px]"><Badge>{product.category}</Badge></div>
       </PageHeader>
@@ -81,6 +83,7 @@ export default function AlmineProductPage({ slug }: { slug: AlmineProductSlug })
           ))}
         </div>
       </Section>
+      <ProductJourney productId={catalogProduct.id} />
     </>
   );
 }

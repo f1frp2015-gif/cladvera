@@ -1,7 +1,8 @@
 import Image from "next/image";
 import JsonLd from "@/components/seo/JsonLd";
-import CompactwoodInquiryLink from "@/components/compactwood/CompactwoodInquiryLink";
-import { Badge, Callout, PageHeader, Section } from "@/components/ui";
+import ProductJourney from "@/components/catalog/ProductJourney";
+import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
+import { productRequestHref } from "@/content/data/catalog";
 import {
   compactwoodImages,
   compactwoodInteriorPath,
@@ -27,8 +28,8 @@ export default function Page() {
         eyebrow="Compactwood · interior decorative panel"
         title="Paste special board"
         lede="A high-pressure-cured decorative board from Compactwood for interior surfaces. Its public description offers wood-fiber or glass-fiber core construction; the ordered core and HPL classification need product-specific confirmation."
-        crumbs={[{ name: "Compactwood interior boards", path: compactwoodInteriorPath }, { name: "Paste special board", path }]}
-        actions={<CompactwoodInquiryLink productName="paste special board" />}
+        crumbs={[{ name: "Products", path: "/products" }, { name: "Compactwood interior boards", path: compactwoodInteriorPath }, { name: "Paste special board", path }]}
+        actions={<><Cta href={productRequestHref("compactwood-interior")}>Request project pricing</Cta><Cta href={productRequestHref("compactwood-interior", "sample")} variant="secondary">Request a sample</Cta></>}
       >
         <div className="mt-[16px]"><Badge tone="pending">HPL designation not stated on manufacturer product page</Badge></div>
       </PageHeader>
@@ -62,6 +63,7 @@ export default function Page() {
       </Section>
 
       <Section title="Manufacturer source"><a href={compactwoodSources.interiorProduct} target="_blank" rel="noopener noreferrer" className="text-f14 font-semibold text-accent hover:underline">Paste special board product page ↗</a></Section>
+      <ProductJourney productId="compactwood-interior" />
     </>
   );
 }

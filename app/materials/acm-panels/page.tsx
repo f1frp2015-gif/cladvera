@@ -1,8 +1,8 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
-import AlmineInquiryLink from "@/components/almine/AlmineInquiryLink";
+import { CollectionNextSteps } from "@/components/catalog/ProductJourney";
 import AlmineVisual from "@/components/almine/AlmineVisual";
-import { Badge, Callout, PageHeader, Section } from "@/components/ui";
+import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
 import { almineProducts, almineSourceUrl, almineTechnicalSources } from "@/content/data/almine";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
@@ -24,8 +24,8 @@ export default function Page() {
         eyebrow="ACM / MCM · manufacturer range"
         title="ALMINE metal composite panels"
         lede="Three products from ALMINE's A-grade fireproof metal composite range: an architectural A2 panel, a rail and tunnel panel, and a medical panel. Review the manufacturer information and request the exact construction and test documents for your project."
-        crumbs={[{ name: "ACM / MCM panels", path }]}
-        actions={<AlmineInquiryLink />}
+        crumbs={[{ name: "Products", path: "/products" }, { name: "ACM / MCM panels", path }]}
+        actions={<><Cta href="/products?category=mcm">Select metal composite panels</Cta><Cta href="/technical-resources" variant="secondary">Technical documents</Cta></>}
       >
         <div className="mt-[16px] flex flex-wrap gap-[6px]">
           <Badge>Manufacturer: Jiangsu ALMINE, China</Badge>
@@ -75,6 +75,7 @@ export default function Page() {
           ))}
         </div>
       </Section>
+      <CollectionNextSteps category="mcm" />
     </>
   );
 }

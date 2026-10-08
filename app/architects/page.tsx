@@ -1,122 +1,54 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
-import { Callout, Cta, Faq, LinkCard, PageHeader, Section, Steps } from "@/components/ui";
-import { FinishCard } from "@/components/ui/Swatch";
-import { finishes } from "@/content/data/finishes";
-import { materials } from "@/content/data/materials";
-import { site } from "@/content/data/site";
+import { Callout, Cta, LinkCard, PageHeader, Section } from "@/components/ui";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-const description =
-  "Finish palettes, CSI sections, HTML spec tables, colour-variation guidance and sample sets for architects specifying imported panels.";
+const path = "/architects";
+const description = "Move from architectural intent to a coordinated panel specification: compare products, request samples, review evidence and prepare a procurement handoff.";
 
-export const metadata = buildPageMetadata({
-  title: "For Architects and Designers: Palettes, Specs and Samples",
-  description,
-  path: "/architects",
-});
+export const metadata = buildPageMetadata({ title: "Architects: Select and Specify Panels | Cladvera", description, path });
 
-const part2Steps = [
-  { title: "Name the product by construction", body: "Material, core, thickness, face and surface system from the data sheet, not a brand adjective." },
-  { title: "State the performance basis", body: "Cite the material tests and the assembly route (NFPA 285 or CAN/ULC S134) the project needs; check the compliance matrix for what exists." },
-  { title: "Define colour control", body: "Master and range samples, direction, batch allocation and the ASTM D2244 conditions from the colour-variation guide." },
-  { title: "Attach the 13.1A set", body: "Data sheet, specification, CAD, test reports, warranty and comparison data, with unconfirmed values marked." },
-];
-
-const faq = [
-  {
-    q: "Which facade materials combine wood warmth with a clean panelized elevation?",
-    a: "Real veneer gives natural variation, while printed wood-grain phenolic HPL offers a repeating decor. The wood-grain finishes page compares their structure and documentation. Wood-grain availability in ALMINE's metal composite range has not been verified.",
-  },
-  {
-    q: "What should I include in a sample request?",
-    a: "Your role, company and shipping address, the finish codes (up to 10 per set), interior or exterior use and, if known, the project name, stage and area. Range sets for veneer and UHPC are requested separately from chips.",
-  },
-  {
-    q: "Can I compare ACM, veneer and UHPC samples for one project?",
-    a: "HPL, veneer and UHPC sample requests can be discussed together. For ALMINE metal composite panels, ask for the current color card and confirm the offered SKU and sample availability first.",
-  },
+const stages = [
+  { title: "Define the application", input: "Project location, building use, exterior or interior exposure, design intent and delivery stage.", decision: "Which materials and product families warrant review for this use?", output: "An application brief and initial product shortlist.", href: "/applications", action: "Explore applications" },
+  { title: "Compare the shortlisted products", input: "Panel construction, appearance, geometry, attachment approach and available documentation.", decision: "Which options meet the design intent, and what remains to be confirmed?", output: "A comparison with open questions assigned to the project team or supplier.", href: "/compare", action: "Compare products" },
+  { title: "Review samples and visual intent", input: "Named product, finish preference, texture, viewing conditions and any mock-up requirement.", decision: "What sample or mock-up is needed to approve the visual range?", output: "A recorded finish selection and an agreed sample or mock-up scope.", href: "/samples", action: "Request samples" },
+  { title: "Coordinate technical evidence", input: "Exact construction, current product data, relevant test reports, substrate and attachment details.", decision: "Does the submitted evidence address the proposed product and complete project assembly?", output: "A reviewed specification basis, responsibilities and unresolved items.", href: "/technical-resources", action: "Review documents" },
+  { title: "Hand over a defined procurement package", input: "Product and finish schedule, elevations or part drawings, quantities, approved samples and required documents.", decision: "Can the buyer request comparable quotes against the same scope?", output: "An RFQ package with drawing revisions, exclusions and approvals clearly recorded.", href: "/procurement", action: "Prepare the procurement handoff" },
 ];
 
 export default function Page() {
-  const palette = finishes.slice(0, 10);
   return (
     <>
-      <JsonLd data={buildWebPageSchema({ name: "For architects and designers", description, path: "/architects" })} />
-      <PageHeader
-        eyebrow="Architects and designers"
-        title="Specify with confidence"
-        lede="Finish palettes across four materials, specification resources organised for substitution review, and sample sets that arrive with their range samples and data."
-        crumbs={[{ name: "Architects", path: "/architects" }]}
-        actions={
-          <>
-            <Cta href="/samples">Build a sample set</Cta>
-            <Cta href="/technical-resources" variant="secondary">Technical resources</Cta>
-          </>
-        }
-      />
+      <JsonLd data={buildWebPageSchema({ name: "Panel selection for architects", description, path })} />
+      <PageHeader eyebrow="For architects and designers" title="From design intent to a defined panel specification" lede="Start with the application, compare the available families, then coordinate samples and technical evidence before handing a defined scope to procurement." crumbs={[{ name: "Architects", path }]} actions={<><Cta href="/products">Find products</Cta><Cta href="/compare" variant="secondary">Compare options</Cta></>} />
 
-      <Section title="Palette builder" lede="Up to 10 finishes per sample set across any materials. Printed pattern and real texture are labelled separately.">
-        <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-5">
-          {palette.map((f) => (
-            <FinishCard key={f.code} finish={f} />
+      <Section title="A decision at each stage" lede="Use the stage that matches your project. Technical review, sampling and budgeting may run in parallel.">
+        <ol className="grid gap-[20px]">
+          {stages.map((stage, index) => (
+            <li key={stage.title} className="grid gap-[20px] rounded-card border border-line bg-paper p-[20px] md:grid-cols-[0.8fr_1.4fr] md:p-[28px]">
+              <div><p className="font-mono text-f12 text-accent">{String(index + 1).padStart(2, "0")}</p><h2 className="mt-[6px] text-f20 font-semibold">{stage.title}</h2><div className="mt-[16px]"><Cta href={stage.href} variant="ghost">{stage.action} →</Cta></div></div>
+              <dl className="grid gap-[12px] text-f14">
+                <div><dt className="font-semibold">Bring</dt><dd className="mt-[3px] text-ink-2">{stage.input}</dd></div>
+                <div><dt className="font-semibold">Decide</dt><dd className="mt-[3px] text-ink-2">{stage.decision}</dd></div>
+                <div><dt className="font-semibold">Record</dt><dd className="mt-[3px] text-ink-2">{stage.output}</dd></div>
+              </dl>
+            </li>
           ))}
-        </div>
-        <div className="mt-[16px]"><Cta href="/finishes" variant="ghost">All finishes →</Cta></div>
+        </ol>
       </Section>
 
-      <Section title="Specification resources" tone="muted">
-        <div className="grid gap-[16px] md:grid-cols-2 lg:grid-cols-4">
-          <LinkCard href="/technical-resources" title="CSI sections" description={materials.map((m) => `${m.shortName}: ${m.masterformat[0]}`).join(". ")} />
-          <LinkCard href="/materials" title="HTML specification tables" description="Every material page carries its specification rows with their confirmation status." />
-          <LinkCard href="/resources/panel-color-variation" title="Colour variation guide" description="Master and range samples, lighting mock-up, ASTM D2244 and D523 conditions." />
-          <LinkCard href="/systems" title="CAD and BIM (planned)" description="DWG and PDF details per system and Revit families follow the assembly tests." />
-        </div>
-      </Section>
-
-      <Section title="Compliance summary and substitution">
-        <div className="grid gap-[24px] md:grid-cols-[1fr_1.2fr]">
-          <Callout title="What exists today">
-            Material-level tests are in progress and assembly tests are scheduled; nothing is listed yet. The <Link href="/compliance" className="underline">compliance matrix</Link> shows each cell with its status and what is not claimed.
-          </Callout>
-          <div>
-            <h3 className="mb-[12px] text-f18 font-semibold">How to write Part 2 and submit a substitution</h3>
-            <Steps steps={part2Steps} />
-          </div>
-        </div>
-      </Section>
-
-      <Section title="Sampling channels" tone="muted">
+      <Section title="Keep product, surface and attachment decisions connected" tone="muted">
         <div className="grid gap-[16px] md:grid-cols-3">
-          <Callout title="Chips">Free colour chips for coated and printed finishes, dispatched within two business days after verification.</Callout>
-          <Callout title="Range sets">Five-piece range sets for natural veneer and UHPC, so approval is on the range, not one chip.</Callout>
-          <Callout title="Confirmation panels">A4 or 12 × 12 in panels for mock-ups, charged and credited against the order.</Callout>
+          <LinkCard href="/products" title="Select the construction" description="Compare UHPC, metal composite, exterior HPL, interior decorative boards and custom GFRP elements by their documented applications." />
+          <LinkCard href="/samples" title="Record the visual reference" description="Name the manufacturer, product, finish and sample revision. Request a range or mock-up where the design needs one." />
+          <LinkCard href="/technical-resources" title="Coordinate the assembly" description="Match product data to the offered construction and coordinate joints, fixing points, supporting structure and project requirements." />
         </div>
-        <p className="mt-[12px] text-f12 text-ink-3">A Material Bank listing is planned once a North American shipping point exists; it is not in place yet.</p>
+        <div className="mt-[20px]"><Callout title="Before the specification is issued">Confirm the named product, construction, finish and relevant document revisions. The project design team reviews suitability and assembly evidence. A family name or manufacturer marketing claim alone does not resolve those decisions.</Callout></div>
       </Section>
 
-      <Section title="Case details">
-        <p className="max-w-[760px] text-f14 text-ink-2">Corner, return and joint details are published per delivered project. None are listed yet.</p>
-      </Section>
-
-      <Section title="Lunch-and-learn and design assist" tone="muted">
-        <p className="max-w-[760px] text-f14 text-ink-2">
-          Online sessions on material selection, colour control and substitution documentation are offered by request. Write to <a href={`mailto:${site.contact.email}?subject=Design%20assist`} className="underline">{site.contact.email}</a>.
-        </p>
-      </Section>
-
-      <Section>
-        <Faq items={faq} />
-      </Section>
-
-      <Section tone="dark">
-        <div className="flex flex-wrap items-center justify-between gap-[12px]">
-          <p className="text-f18 font-semibold">Start with a sample set and the attachment set.</p>
-          <div className="flex gap-[8px]">
-            <Cta href="/samples">Build a sample set</Cta>
-            <Cta href="/contact" variant="secondary">Contact</Cta>
-          </div>
-        </div>
+      <Section title="Ready for a project discussion?">
+        <p className="max-w-[760px] text-f16 text-ink-2">Send the project use, location, current drawings, selected families and open technical questions. The <Link href="/request-quote" className="text-accent underline underline-offset-4">project request</Link> can start with a document review or budget inquiry while remaining selections are developed.</p>
+        <div className="mt-[20px] flex flex-wrap gap-[12px]"><Cta href="/request-quote?intent=documents">Request a technical review</Cta><Cta href="/procurement" variant="secondary">Procurement process</Cta></div>
       </Section>
     </>
   );
