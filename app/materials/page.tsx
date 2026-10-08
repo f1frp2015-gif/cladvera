@@ -6,7 +6,7 @@ import { materials, materialsForRegion } from "@/content/data/materials";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Exterior cladding and interior panels by material: phenolic HPL, UHPC, ACM and real wood veneer, with duty and building code notes.";
+  "Explore Compactwood wood fiber HPL, UHPC, ALMINE metal composite and veneer panels, with product-specific documentation and project review notes.";
 
 export const metadata = buildPageMetadata({
   title: "Architectural Panels by Material: HPL, UHPC, ACM, Veneer",
@@ -15,13 +15,13 @@ export const metadata = buildPageMetadata({
 });
 
 const matrix = [
-  { label: "Typical thickness", values: ["6 to 12 mm", "15 to 30 mm", "ALMINE SKU data sheet required", "6 to 10 mm (phenolic core)"] },
-  { label: "Weight", values: ["≈ 11.5 kg/m² at 8 mm", "≈ 36 to 72 kg/m²", "ALMINE SKU data sheet required", "≈ 9 to 14 kg/m²"] },
-  { label: "Combustibility", values: ["Combustible; assembly test above 40 ft", "Noncombustible", "ALMINE A2 claim; obtain report and assembly evidence", "Combustible; assembly test above 40 ft"] },
-  { label: "US duty layers", values: ["General + §301", "General + §301", "Confirm classification and duties per SKU", "Pending ruling"] },
-  { label: "Canada duty layers", values: ["MFN + GST", "MFN + GST", "Confirm classification and duties per SKU", "MFN + GST"] },
-  { label: "Wood documentation", values: ["None", "None", "No wood described; verify SKU", "Lacey Act; formaldehyde if wood core"] },
-  { label: "Variation class", values: ["Uniform or printed", "Natural", "Confirm finish and approval sample", "Natural"] },
+  { label: "Typical thickness", values: ["Compactwood SKU data sheet required", "15 to 30 mm", "ALMINE SKU data sheet required", "6 to 10 mm (phenolic core)"] },
+  { label: "Weight", values: ["Request measured mass for selected panel", "≈ 36 to 72 kg/m²", "ALMINE SKU data sheet required", "≈ 9 to 14 kg/m²"] },
+  { label: "Combustibility", values: ["Compactwood cites GB 8624 B1/B2; request reports and assembly evidence", "Noncombustible", "ALMINE A2 claim; obtain report and assembly evidence", "Combustible; assembly test above 40 ft"] },
+  { label: "US duty layers", values: ["Confirm classification and duties per SKU", "General + §301", "Confirm classification and duties per SKU", "Pending ruling"] },
+  { label: "Canada duty layers", values: ["Confirm classification and duties per SKU", "MFN + GST", "Confirm classification and duties per SKU", "MFN + GST"] },
+  { label: "Wood documentation", values: ["Wood fiber core; confirm origin and declaration requirements", "None", "No wood described; verify SKU", "Lacey Act; formaldehyde if wood core"] },
+  { label: "Variation class", values: ["Confirm selected finish and approval sample", "Natural", "Confirm finish and approval sample", "Natural"] },
 ];
 
 const order = ["exterior-hpl-panels", "uhpc-panels", "acm-panels", "wood-veneer-panels"] as const;
@@ -34,7 +34,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Materials"
         title="Exterior cladding and interior panels by material"
-        lede="Four lines, each with its own page for specifications, finishes, test status, stock and documents. The order below follows the country you selected: the lowest-friction line first."
+        lede="Four material lines with product information, document status and project review notes. Confirm construction, availability and applicable requirements for each ordered panel."
         crumbs={[{ name: "Materials", path: "/materials" }]}
         actions={
           <>
@@ -48,7 +48,7 @@ export default function Page() {
         <RegionBlock us={<MaterialGrid region="US" />} ca={<MaterialGrid region="CA" />} />
       </Section>
 
-      <Section title="Material matrix" lede="Planning values for comparison; the material pages carry the specification rows and their confirmation status." tone="muted">
+      <Section title="Material matrix" lede="Planning comparison only; request the selected manufacturer's current SKU data sheet and project documents." tone="muted">
         <div className="overflow-x-auto rounded-card border border-line bg-paper">
           <table className="w-full text-f14">
             <thead>
@@ -105,9 +105,9 @@ function MaterialGrid({ region }: { region: "US" | "CA" }) {
           description={m.definition}
           meta={
             <>
-              <Badge tone={index === 0 ? "accent" : "neutral"}>{index === 0 ? "Lead line" : `Rank ${index + 1}`}</Badge>
+              <Badge tone={index === 0 ? "accent" : "neutral"}>{index === 0 ? "Featured" : `Line ${index + 1}`}</Badge>
               <Badge>{m.use.join(" / ")}</Badge>
-              {m.priority === "P1" && <Badge tone="pending">Phase 2</Badge>}
+              {m.priority === "P1" && <Badge tone="pending">Confirm SKU</Badge>}
             </>
           }
         />

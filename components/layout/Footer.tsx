@@ -4,27 +4,31 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { footerNav } from "@/content/data/navigation";
 import { site } from "@/content/data/site";
-import { isAlminePath, isPublishedPath } from "@/content/data/publication";
+import { isAlminePath, isCompactwoodPath, isPublishedPath } from "@/content/data/publication";
 import { taktlInquiryHref } from "@/lib/taktl-inquiry";
 import { almineInquiryHref } from "@/lib/almine-inquiry";
+import { compactwoodInquiryHref } from "@/lib/compactwood-inquiry";
 
 export default function Footer() {
   const pathname = usePathname();
   if (site.stage === "draft" && isPublishedPath(pathname)) {
-    const inquiryHref = isAlminePath(pathname) ? almineInquiryHref() : taktlInquiryHref();
+    const inquiryHref = isCompactwoodPath(pathname) ? compactwoodInquiryHref() : isAlminePath(pathname) ? almineInquiryHref() : taktlInquiryHref();
     return (
       <footer className="border-t border-line bg-slate text-paper">
         <div className="site-container grid gap-[20px] py-[40px] md:grid-cols-2">
           <div>
             <p className="text-f18 font-semibold">Cladvera · product collections</p>
-            <p className="mt-[8px] max-w-[520px] text-f14 text-paper/70">TAKTL and ALMINE are the named manufacturers of the products shown here. Cladvera handles project inquiries. Final construction, documentation and availability are confirmed for each project.</p>
+            <p className="mt-[8px] max-w-[520px] text-f14 text-paper/70">TAKTL, ALMINE and Compactwood are the named manufacturers of the products shown here. Cladvera handles project inquiries. Final construction, documentation and availability are confirmed for each project.</p>
           </div>
           <div className="grid content-start gap-[8px] text-f14 md:justify-items-end">
             <Link href="/suppliers/taktl" className="hover:underline">Explore TAKTL products</Link>
             <Link href="/materials/acm-panels" className="hover:underline">Explore ALMINE panels</Link>
+            <Link href="/materials/exterior-hpl-panels" className="hover:underline">Explore Compactwood HPL</Link>
+            <Link href="/materials/interior-hpl-panels" className="hover:underline">Explore Compactwood interior boards</Link>
             <a href={inquiryHref} className="hover:underline">Email {site.contact.email}</a>
             <a href="https://www.taktl-llc.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">TAKTL manufacturer site ↗</a>
             <a href="https://www.alminecn.com/En/Products/?id=3" target="_blank" rel="noopener noreferrer" className="hover:underline">ALMINE manufacturer catalogue ↗</a>
+            <a href="https://www.compactwood.cn/cn/products.php" target="_blank" rel="noopener noreferrer" className="hover:underline">Compactwood manufacturer catalogue ↗</a>
           </div>
           <p className="text-f12 text-paper/60 md:col-span-2">© {new Date().getFullYear()} {site.brand}. Manufacturer names and product imagery belong to their respective owners.</p>
         </div>

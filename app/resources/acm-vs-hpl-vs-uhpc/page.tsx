@@ -4,7 +4,7 @@ import { Callout, Cta, Faq, PageHeader, Section } from "@/components/ui";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Compare metal composite panels, phenolic HPL and UHPC for cladding. ALMINE panel dimensions, face metal, test reports and import costs require SKU review.";
+  "Compare ALMINE metal composite, Compactwood wood fiber HPL and UHPC cladding by construction, project documents, attachment and import requirements.";
 
 export const metadata = buildPageMetadata({
   title: "ACM vs HPL vs UHPC Cladding Panels Compared",
@@ -13,21 +13,21 @@ export const metadata = buildPageMetadata({
 });
 
 const rows: Array<{ label: string; acm: string; hpl: string; uhpc: string }> = [
-  { label: "Material", acm: "ALMINE describes metal faces over an inorganic core; confirm whether the ordered faces are aluminum", hpl: "Phenolic resin and kraft paper compact laminate with a decorative face", uhpc: "Fibre-reinforced ultra high performance concrete" },
-  { label: "Thickness", acm: "Request the ordered SKU data sheet", hpl: "6, 8, 10 and 12 mm (TBC)", uhpc: "15 to 30 mm (TBC)" },
-  { label: "Weight", acm: "Request measured mass for the ordered construction", hpl: "≈ 11.5 kg/m² at 8 mm, 2.4 lb/ft² (TBC)", uhpc: "≈ 36 to 72 kg/m², 7.4 to 14.7 lb/ft² (TBC)" },
-  { label: "Fire route (US)", acm: "Confirm panel classification and complete wall-assembly requirements for the project", hpl: "Combustible wall covering; NFPA 285 assembly above 40 ft on Type I to IV", uhpc: "Noncombustible panel" },
-  { label: "Fire route (Canada)", acm: "Confirm panel test report and wall-assembly requirements for the project", hpl: "CAN/ULC S134 assembly on noncombustible construction", uhpc: "Noncombustible panel" },
-  { label: "Interior use", acm: "Yes", hpl: "Yes", uhpc: "Yes (feature walls)" },
-  { label: "Attachment", acm: "Request manufacturer details for the selected panel and engineered assembly", hpl: "Exposed fasteners with sliding points, or undercut anchors from 8 mm", uhpc: "Cast-in inserts or undercut anchors under delegated design" },
-  { label: "Directional finishes", acm: "Confirm current color card and physical samples", hpl: "Wood-grain decors", uhpc: "Ribbed and board-formed" },
-  { label: "Variation class", acm: "Confirm by finish and batch", hpl: "Uniform or printed with a stated repeat", uhpc: "Natural; approved on range samples" },
-  { label: "Sheet or panel size", acm: "Request available formats for the ordered SKU", hpl: "Up to 1,530 × 3,050 mm (TBC)", uhpc: "Up to 1,200 × 3,000 mm standard (TBC)" },
-  { label: "US duty layers (China origin)", acm: "Confirm classification, origin and current tariff treatment", hpl: "General + Section 301", uhpc: "General + Section 301" },
-  { label: "Canada duty layers", acm: "Confirm classification, origin and current tariff treatment", hpl: "MFN + GST", uhpc: "MFN + GST" },
-  { label: "Wood documentation", acm: "Confirm SKU material declaration", hpl: "None", uhpc: "None" },
-  { label: "Main cost driver", acm: "Panel build-up, finish, fabrication, shipping and current duties", hpl: "Thickness, decor and cut-to-size work", uhpc: "Moulds, panel count and freight weight" },
-  { label: "Best for", acm: "Review by panel and project use", hpl: "Wood and solid decors with the fewest import barriers", uhpc: "Noncombustible, textured, mineral facades" },
+  { label: "Material", acm: "ALMINE describes metal faces over an inorganic core; confirm whether the ordered faces are aluminum", hpl: "Compactwood describes a resin-impregnated wood fiber kraft core with a decorative face", uhpc: "Fibre-reinforced ultra high performance concrete" },
+  { label: "Thickness", acm: "Request the ordered SKU data sheet", hpl: "Request the selected Compactwood SKU data sheet", uhpc: "15 to 30 mm (TBC)" },
+  { label: "Weight", acm: "Request measured mass for the ordered construction", hpl: "Request measured mass for the selected construction and thickness", uhpc: "≈ 36 to 72 kg/m², 7.4 to 14.7 lb/ft² (TBC)" },
+  { label: "Fire route (US)", acm: "Confirm panel classification and complete wall-assembly requirements for the project", hpl: "Request product-specific fire reports and project-required wall-assembly evidence", uhpc: "Noncombustible panel" },
+  { label: "Fire route (Canada)", acm: "Confirm panel test report and wall-assembly requirements for the project", hpl: "Request product-specific surface and wall-assembly evidence for the project", uhpc: "Noncombustible panel" },
+  { label: "Interior use", acm: "Yes", hpl: "Confirm use of the selected facade panel; Compactwood also lists separate interior boards", uhpc: "Yes (feature walls)" },
+  { label: "Attachment", acm: "Request manufacturer details for the selected panel and engineered assembly", hpl: "Request Compactwood's current facade fixing details and project engineering review", uhpc: "Cast-in inserts or undercut anchors under delegated design" },
+  { label: "Directional finishes", acm: "Confirm current color card and physical samples", hpl: "Manufacturer describes wood-look surfaces; confirm selected finish direction and sample", uhpc: "Ribbed and board-formed" },
+  { label: "Variation class", acm: "Confirm by finish and batch", hpl: "Confirm from current finish card and approval sample", uhpc: "Natural; approved on range samples" },
+  { label: "Sheet or panel size", acm: "Request available formats for the ordered SKU", hpl: "Request formats for the selected Compactwood SKU", uhpc: "Up to 1,200 × 3,000 mm standard (TBC)" },
+  { label: "US duty layers (China origin)", acm: "Confirm classification, origin and current tariff treatment", hpl: "Confirm classification, origin and current tariff treatment", uhpc: "General + Section 301" },
+  { label: "Canada duty layers", acm: "Confirm classification, origin and current tariff treatment", hpl: "Confirm classification, origin and current tariff treatment", uhpc: "MFN + GST" },
+  { label: "Wood documentation", acm: "Confirm SKU material declaration", hpl: "Wood fiber core; confirm material origin and declaration requirements", uhpc: "None" },
+  { label: "Main cost driver", acm: "Panel build-up, finish, fabrication, shipping and current duties", hpl: "Confirm panel build-up, finish, fabrication, shipping and duties", uhpc: "Moulds, panel count and freight weight" },
+  { label: "Best for", acm: "Review by panel and project use", hpl: "Review wood-look facade options against selected panel and project requirements", uhpc: "Noncombustible, textured, mineral facades" },
 ];
 
 const faq = [
@@ -41,11 +41,11 @@ const faq = [
   },
   {
     q: "Is HPL wood grain real wood?",
-    a: "No. Wood-grain HPL carries a printed decor paper, usually with an embossed pore texture. Real wood is offered as veneer on a phenolic core, which needs range samples and Lacey Act declarations.",
+    a: "The face construction depends on the selected Compactwood product. Its exterior HPL page describes a decorative face over a wood fiber core; request the exact face construction and any wood-origin documentation before specifying a finish.",
   },
   {
     q: "How do ACM, HPL and UHPC compare on weight per square foot?",
-    a: "Weight depends on the exact core, faces and thickness. ALMINE has not published a verified weight for these three panels on its public product page; request the ordered SKU data sheet before comparing weights.",
+    a: "Weight depends on the exact core, faces and thickness. Request measured mass for the ordered ALMINE and Compactwood constructions before comparing them with the proposed UHPC panel.",
   },
 ];
 
@@ -61,17 +61,17 @@ export default function Page() {
       />
       <Section>
         <p className="max-w-[820px] text-f18 text-ink-2">
-          Compare appearance, weight, fire documentation, attachment and landed cost for the exact panel and project. ALMINE lists an architectural A2 panel, a transit panel and a medical panel in its metal composite range. Its public catalogue does not establish each product&apos;s aluminum face construction, dimensions or North American assembly acceptance.
+          Compare appearance, weight, fire documentation, attachment and landed cost for the exact panel and project. ALMINE lists architectural, transit and medical metal composite panels; Compactwood lists a wood fiber HPL facade panel. Their public product descriptions do not establish dimensions or North American wall-assembly acceptance for every ordered construction.
         </p>
       </Section>
-      <Section title="Side by side" lede="The ALMINE column requires a product-specific data sheet and test reports. Other planning values marked TBC also require verification." tone="muted">
+      <Section title="Side by side" lede="Request product-specific data sheets and reports for the selected ALMINE and Compactwood panels. Other planning values marked TBC also require verification." tone="muted">
         <div className="overflow-x-auto rounded-card border border-line bg-paper">
           <table className="w-full text-f14">
             <thead>
               <tr className="border-b border-line bg-paper-2 text-left">
                 <th className="px-[12px] py-[10px] font-medium">Property</th>
                 <th className="px-[12px] py-[10px] font-medium"><Link href="/materials/acm-panels" className="hover:text-accent">ALMINE metal composite</Link></th>
-                <th className="px-[12px] py-[10px] font-medium"><Link href="/materials/exterior-hpl-panels" className="hover:text-accent">Phenolic HPL</Link></th>
+                <th className="px-[12px] py-[10px] font-medium"><Link href="/materials/exterior-hpl-panels" className="hover:text-accent">Compactwood wood fiber HPL</Link></th>
                 <th className="px-[12px] py-[10px] font-medium"><Link href="/materials/uhpc-panels" className="hover:text-accent">UHPC</Link></th>
               </tr>
             </thead>

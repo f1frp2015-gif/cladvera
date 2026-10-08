@@ -6,7 +6,7 @@ import { materials } from "@/content/data/materials";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Illustrative HPL, veneer and UHPC finishes, plus guidance for requesting ALMINE's current metal-panel color card, offered SKU and approval samples.";
+  "Illustrative veneer and UHPC finishes; request current Compactwood HPL and ALMINE metal-panel colour cards, selected SKUs and approval samples.";
 
 export const metadata = buildPageMetadata({
   title: "Panel Finishes, Textures and Color Variation",
@@ -21,12 +21,12 @@ export default function Page() {
       <PageHeader
         eyebrow="Finishes"
         title="Finishes, textures and colour variation"
-        lede="The finish entries below are pre-launch placeholders for HPL, veneer and UHPC. ALMINE metal-panel finishes require a current color card, offered SKU and approval samples."
+        lede="The swatches below are pre-launch placeholders for veneer and UHPC. Compactwood HPL and ALMINE metal-panel finishes require current colour cards, selected SKUs and approval samples."
         crumbs={[{ name: "Finishes", path: "/finishes" }]}
         actions={<Cta href="/samples">Build a sample set</Cta>}
       >
         <div className="mt-[16px] flex flex-wrap gap-[6px]">
-          {materials.filter((m) => m.slug !== "acm-panels").map((m) => (
+          {materials.filter((m) => m.slug === "uhpc-panels" || m.slug === "wood-veneer-panels").map((m) => (
             <Badge key={m.slug}>{m.shortName}</Badge>
           ))}
         </div>
@@ -34,7 +34,7 @@ export default function Page() {
 
       <Section>
         <Callout tone="warn" title="Finish data pending">
-          Codes, names and swatches below are placeholders for other material lines. No ALMINE metal-panel finishes are listed. Request its current color card, confirm the offered panel SKU and coating, and approve a physical sample before selection.
+          Codes, names and swatches below are placeholders for veneer and UHPC. No Compactwood HPL or ALMINE metal-panel finish SKU is listed here. Request each manufacturer&apos;s current colour card, confirm the selected construction and approve a physical sample.
         </Callout>
       </Section>
 

@@ -5,15 +5,17 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ctaNav, mainNav } from "@/content/data/navigation";
 import { site } from "@/content/data/site";
-import { isAlminePath, isPublishedPath } from "@/content/data/publication";
+import { isAlminePath, isCompactwoodPath, isPublishedPath } from "@/content/data/publication";
 import { taktlInquiryHref } from "@/lib/taktl-inquiry";
 import { almineInquiryHref } from "@/lib/almine-inquiry";
+import { compactwoodInquiryHref } from "@/lib/compactwood-inquiry";
 import RegionSwitch from "@/components/region/RegionSwitch";
 
 export default function Header() {
   const pathname = usePathname();
   const publishedLaunch = site.stage === "draft" && isPublishedPath(pathname);
-  const inquiryHref = isAlminePath(pathname) ? almineInquiryHref() : taktlInquiryHref();
+  const inquiryHref = isCompactwoodPath(pathname) ? compactwoodInquiryHref() : isAlminePath(pathname) ? almineInquiryHref() : taktlInquiryHref();
+  const brandHref = isCompactwoodPath(pathname) ? "/materials/exterior-hpl-panels" : isAlminePath(pathname) ? "/materials/acm-panels" : "/suppliers/taktl";
   // The menu is open only for the path it was opened on, so navigating closes it.
   const [openOnPath, setOpenOnPath] = useState<string | null>(null);
   const open = openOnPath === pathname;
@@ -21,7 +23,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
       <div className="site-container flex h-[64px] items-center justify-between gap-[16px]">
-        <Link href={publishedLaunch ? "/suppliers/taktl" : "/"} className="flex items-center gap-[10px] text-f18 font-semibold tracking-tight">
+        <Link href={publishedLaunch ? brandHref : "/"} className="flex items-center gap-[10px] text-f18 font-semibold tracking-tight">
           <span aria-hidden="true" className="inline-block h-[22px] w-[22px] rounded-[4px] bg-accent" />
           {site.brand}
         </Link>
@@ -30,6 +32,8 @@ export default function Header() {
           <nav aria-label="Main" className="hidden items-center gap-[18px] lg:flex">
             <Link href="/suppliers/taktl" className="text-f14 font-medium text-ink-2 hover:text-ink">TAKTL products</Link>
             <Link href="/materials/acm-panels" className="text-f14 font-medium text-ink-2 hover:text-ink">ALMINE panels</Link>
+            <Link href="/materials/exterior-hpl-panels" className="text-f14 font-medium text-ink-2 hover:text-ink">Compactwood HPL</Link>
+            <Link href="/materials/interior-hpl-panels" className="text-f14 font-medium text-ink-2 hover:text-ink">Compactwood interior</Link>
             <a href={inquiryHref} className="rounded-control bg-accent px-[14px] py-[8px] text-f14 font-semibold text-paper hover:bg-accent-hover">Project inquiry</a>
           </nav>
         ) : <nav aria-label="Main" className="hidden items-center gap-[4px] lg:flex">
@@ -101,6 +105,8 @@ export default function Header() {
               <div className="grid gap-[10px]">
                 <Link href="/suppliers/taktl" className="py-[6px] text-f16 font-semibold">TAKTL products</Link>
                 <Link href="/materials/acm-panels" className="py-[6px] text-f16 font-semibold">ALMINE panels</Link>
+                <Link href="/materials/exterior-hpl-panels" className="py-[6px] text-f16 font-semibold">Compactwood HPL</Link>
+                <Link href="/materials/interior-hpl-panels" className="py-[6px] text-f16 font-semibold">Compactwood interior</Link>
                 <a href={inquiryHref} className="rounded-control bg-accent px-[12px] py-[8px] text-center text-f14 font-semibold text-paper">Project inquiry</a>
               </div>
             ) : <>

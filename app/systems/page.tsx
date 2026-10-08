@@ -5,7 +5,7 @@ import { materials } from "@/content/data/materials";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Attachment systems for phenolic HPL, UHPC, ACM and veneer panels, and who is responsible for panels, anchors, fire performance and install.";
+  "Attachment and design responsibilities for Compactwood HPL, UHPC, metal composite and veneer panels, with product-specific fixing details to confirm.";
 
 export const metadata = buildPageMetadata({
   title: "Systems: Compatible Attachment and Design Responsibility",
@@ -28,9 +28,9 @@ const responsibility: Array<{ item: string; owners: Party[]; note: string }> = [
 
 const principles = [
   { title: "Drained and back-ventilated cavity", body: "Rainscreen panels sit in front of a drained, ventilated cavity over the water-resistive barrier and insulation; the panel is not the weather barrier." },
-  { title: "Sliding points for phenolic HPL", body: "Compact laminate moves with humidity; one fixed point per sheet and oversized holes elsewhere let it move without buckling." },
+  { title: "Compactwood facade attachment", body: "Compactwood describes a ventilated exterior rainscreen. Request the fixing, cavity and movement details for the exact wood fiber HPL panel and project substrate." },
   { title: "Metal composite attachment", body: "Confirm the offered ALMINE panel's fabrication limits and compatible attachment details before selecting a tray or other system. The project engineer reviews the complete wall assembly." },
-  { title: "Undercut anchors for 8 mm HPL and UHPC", body: "Concealed fixings use undercut anchors or cast-in inserts; positions and pull-out values belong to the engineer's design." },
+  { title: "Concealed anchor design", body: "Confirm whether the selected panel and manufacturer details permit concealed anchors. Positions and pull-out values belong to the project engineer's design." },
 ];
 
 export default function Page() {

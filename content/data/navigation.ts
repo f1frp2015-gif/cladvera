@@ -25,9 +25,9 @@ export const mainNav: NavGroup[] = [
     href: "/materials",
     links: [
       {
-        label: "Exterior Phenolic (HPL) Panels",
+        label: "Compactwood Exterior HPL Panels",
         href: "/materials/exterior-hpl-panels",
-        description: "Compact laminate for facades, soffits and cladding",
+        description: "Wood-fiber high-pressure laminate for facades",
       },
       {
         label: "UHPC Facade Panels",
@@ -50,9 +50,9 @@ export const mainNav: NavGroup[] = [
         description: "Real veneer on phenolic core; classification pending for the US",
       },
       {
-        label: "Interior HPL Panels",
+        label: "Compactwood Interior Decorative Boards",
         href: "/materials/interior-hpl-panels",
-        description: "Decorative laminate panels for commercial interiors",
+        description: "High-pressure-cured panels; HPL grade to confirm",
       },
       {
         label: "Compare ACM, HPL and UHPC",
@@ -109,12 +109,12 @@ export const footerNav: Array<{ heading: string; links: NavLink[] }> = [
   {
     heading: "Materials",
     links: [
-      { label: "Exterior phenolic (HPL) panels", href: "/materials/exterior-hpl-panels" },
+      { label: "Compactwood exterior HPL", href: "/materials/exterior-hpl-panels" },
       { label: "UHPC facade panels", href: "/materials/uhpc-panels" },
       { label: "TAKTL architectural UHPC", href: "/suppliers/taktl" },
       { label: "ALMINE ACM / MCM panels", href: "/materials/acm-panels" },
       { label: "Wood veneer panels", href: "/materials/wood-veneer-panels" },
-      { label: "Interior HPL panels", href: "/materials/interior-hpl-panels" },
+      { label: "Compactwood interior boards", href: "/materials/interior-hpl-panels" },
       { label: "Finishes", href: "/finishes" },
     ],
   },
@@ -168,7 +168,8 @@ export interface RouteEntry {
 export const routes: RouteEntry[] = [
   { path: "/", title: "Home", priority: "P0", changeFrequency: "weekly", index: true },
   { path: "/materials", title: "Materials", priority: "P0", changeFrequency: "monthly", index: true },
-  { path: "/materials/exterior-hpl-panels", title: "Exterior Phenolic (HPL) Panels", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/materials/exterior-hpl-panels", title: "Compactwood Exterior HPL Panels", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/materials/exterior-hpl-panels/wood-fiber-facade", title: "Compactwood Wood-Fiber HPL Facade Board", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/materials/uhpc-panels", title: "UHPC Facade Panels", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/suppliers/taktl", title: "TAKTL Architectural UHPC", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/suppliers/taktl/facade-elements", title: "TAKTL A|UHPC Facade Elements", priority: "P1", changeFrequency: "monthly", index: true },
@@ -181,7 +182,8 @@ export const routes: RouteEntry[] = [
   { path: "/materials/acm-panels/tunnel-traffic", title: "ALMINE Tunnel Traffic Panels", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/materials/acm-panels/medical-antibacterial", title: "ALMINE Medical Antibacterial Panels", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/materials/wood-veneer-panels", title: "Wood Veneer Panels", priority: "P0", changeFrequency: "monthly", index: true },
-  { path: "/materials/interior-hpl-panels", title: "Interior HPL Panels", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/materials/interior-hpl-panels", title: "Compactwood Interior Decorative Boards", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/materials/interior-hpl-panels/paste-special-board", title: "Compactwood Paste Special Board", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/finishes", title: "Finishes", priority: "P0", changeFrequency: "weekly", index: true },
   { path: "/finishes/wood-grain", title: "Wood-Grain Finishes", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/finishes/textured-concrete", title: "Concrete Textures", priority: "P1", changeFrequency: "monthly", index: true },

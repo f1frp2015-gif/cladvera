@@ -5,7 +5,7 @@ import { materials } from "@/content/data/materials";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Fabrication guidance for ACM, phenolic HPL, veneer and UHPC panels: routing, blades, fixing holes, protective film, files and marking.";
+  "Fabrication guidance for ALMINE metal composite, Compactwood wood fiber HPL, veneer and UHPC panels, with tools, edges and fixing details to confirm.";
 
 export const metadata = buildPageMetadata({
   title: "Fabrication: Routing, Cutting, Film and File Formats",
@@ -21,9 +21,9 @@ const parameters: Record<string, Array<{ label: string; value: string; confirmed
     { label: "Protective film", value: "Follow the product-specific removal and handling instructions", confirmed: false },
   ],
   "exterior-hpl-panels": [
-    { label: "Blades", value: "Carbide or diamond-tipped; feed rate TBC per thickness", confirmed: false },
-    { label: "Fixing holes", value: "Oversized sliding-point holes; diameter per fastener and system TBC", confirmed: false },
-    { label: "Edges", value: "Chamfer 1 to 2 mm; no edge banding required", confirmed: false },
+    { label: "Cutting tools", value: "Request Compactwood's instructions for the selected wood fiber HPL construction", confirmed: false },
+    { label: "Fixing holes", value: "Confirm hole pattern, diameter and movement allowance against the selected facade system", confirmed: false },
+    { label: "Edges", value: "Request edge machining, sealing and tolerance instructions for the ordered panel", confirmed: false },
   ],
   "wood-veneer-panels": [
     { label: "Cutting", value: "Scoring blade, face up; CNC routing for cut-outs", confirmed: false },
@@ -34,8 +34,8 @@ const parameters: Record<string, Array<{ label: string; value: string; confirmed
     { label: "Anchors", value: "Drilled per the anchor manufacturer's procedure; cast-in inserts preferred", confirmed: true },
   ],
   "interior-hpl-panels": [
-    { label: "Thin HPL", value: "Balanced construction with a backer; substrate supplied by the millwork shop", confirmed: true },
-    { label: "Compact", value: "CNC routing; chamfered edges; no edge banding", confirmed: false },
+    { label: "Core and form", value: "Compactwood describes glass fiber or wood fiber indoor boards; confirm the ordered construction and whether it is classified as HPL", confirmed: false },
+    { label: "Cutting and edges", value: "Request product-specific cutting, edge and bonding instructions before fabrication", confirmed: false },
   ],
 };
 
