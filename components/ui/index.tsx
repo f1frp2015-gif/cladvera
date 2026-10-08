@@ -165,6 +165,7 @@ export function Badge({ tone = "neutral", children }: { tone?: BadgeTone; childr
 
 const statusTone: Record<ComplianceStatus | DocumentStatus, BadgeTone> = {
   available: "ok",
+  unverified: "warn",
   "in-progress": "pending",
   planned: "neutral",
   "not-applicable": "neutral",
@@ -172,6 +173,7 @@ const statusTone: Record<ComplianceStatus | DocumentStatus, BadgeTone> = {
 
 const statusText: Record<ComplianceStatus | DocumentStatus, string> = {
   available: "Available",
+  unverified: "Not verified",
   "in-progress": "In progress",
   planned: "Planned",
   "not-applicable": "Not applicable",

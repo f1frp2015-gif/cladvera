@@ -46,9 +46,9 @@ export const site = {
    * repeated on /supply-and-delivery/ and in llms.txt.
    */
   commitments: [
-    "Drawings-based project quotes within two business days; budget ranges within one business day without drawings.",
-    "Sample sets dispatched within two business days after a 48-hour verification of the request.",
-    "Every SKU ships with a document pack: commercial invoice, packing list, origin statement, bill of materials and the test reports listed on /compliance/.",
+    "Project quote timing is confirmed after drawings, sourcing and the requested panel construction are reviewed.",
+    "Sample availability and dispatch timing are confirmed for the requested product and finish.",
+    "Shipment documents and available product test reports are confirmed for the ordered SKU and project requirements.",
     "Duties, taxes and brokerage are payable by the importer; quotes state the Incoterm and what it excludes.",
   ],
   /** Claims the site must not make. Rendered on /compliance/. */

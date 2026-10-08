@@ -29,7 +29,7 @@ const responsibility: Array<{ item: string; owners: Party[]; note: string }> = [
 const principles = [
   { title: "Drained and back-ventilated cavity", body: "Rainscreen panels sit in front of a drained, ventilated cavity over the water-resistive barrier and insulation; the panel is not the weather barrier." },
   { title: "Sliding points for phenolic HPL", body: "Compact laminate moves with humidity; one fixed point per sheet and oversized holes elsewhere let it move without buckling." },
-  { title: "Route and return for ACM", body: "ACM is routed, folded into a tray and fixed through returns to the fabricator's extrusion system in dry-joint or wet-seal versions." },
+  { title: "Metal composite attachment", body: "Confirm the offered ALMINE panel's fabrication limits and compatible attachment details before selecting a tray or other system. The project engineer reviews the complete wall assembly." },
   { title: "Undercut anchors for 8 mm HPL and UHPC", body: "Concealed fixings use undercut anchors or cast-in inserts; positions and pull-out values belong to the engineer's design." },
 ];
 

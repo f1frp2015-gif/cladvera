@@ -15,13 +15,13 @@ export const metadata = buildPageMetadata({
 });
 
 const matrix = [
-  { label: "Typical thickness", values: ["6 to 12 mm", "15 to 30 mm", "4 mm (3 and 6 on request)", "6 to 10 mm (phenolic core)"] },
-  { label: "Weight", values: ["≈ 11.5 kg/m² at 8 mm", "≈ 36 to 72 kg/m²", "≈ 5.5 to 7.6 kg/m²", "≈ 9 to 14 kg/m²"] },
-  { label: "Combustibility", values: ["Combustible; assembly test above 40 ft", "Noncombustible", "FR core; assembly test above 40 ft", "Combustible; assembly test above 40 ft"] },
-  { label: "US duty layers", values: ["General + §301", "General + §301", "General + §301 + §232 (full value)", "Pending ruling"] },
-  { label: "Canada duty layers", values: ["MFN + GST", "MFN + GST", "MFN + 25 % surtax + GST", "MFN + GST"] },
-  { label: "Wood documentation", values: ["None", "None", "None", "Lacey Act; formaldehyde if wood core"] },
-  { label: "Variation class", values: ["Uniform or printed", "Natural", "Uniform or printed", "Natural"] },
+  { label: "Typical thickness", values: ["6 to 12 mm", "15 to 30 mm", "ALMINE SKU data sheet required", "6 to 10 mm (phenolic core)"] },
+  { label: "Weight", values: ["≈ 11.5 kg/m² at 8 mm", "≈ 36 to 72 kg/m²", "ALMINE SKU data sheet required", "≈ 9 to 14 kg/m²"] },
+  { label: "Combustibility", values: ["Combustible; assembly test above 40 ft", "Noncombustible", "ALMINE A2 claim; obtain report and assembly evidence", "Combustible; assembly test above 40 ft"] },
+  { label: "US duty layers", values: ["General + §301", "General + §301", "Confirm classification and duties per SKU", "Pending ruling"] },
+  { label: "Canada duty layers", values: ["MFN + GST", "MFN + GST", "Confirm classification and duties per SKU", "MFN + GST"] },
+  { label: "Wood documentation", values: ["None", "None", "No wood described; verify SKU", "Lacey Act; formaldehyde if wood core"] },
+  { label: "Variation class", values: ["Uniform or printed", "Natural", "Confirm finish and approval sample", "Natural"] },
 ];
 
 const order = ["exterior-hpl-panels", "uhpc-panels", "acm-panels", "wood-veneer-panels"] as const;

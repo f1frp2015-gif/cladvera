@@ -18,18 +18,18 @@ export const metadata = buildPageMetadata({
 
 const modes = [
   { mode: "Full sheets", included: "Sheets to the data-sheet size, protective film, crate, document pack", excluded: "Cutting, routing, installation", use: "Fabricators with their own CNC; stocking distributors" },
-  { mode: "Cut to size", included: "Parts to the cut list, numbered, pre-drilled where specified", excluded: "Routing and folding (ACM), installation", use: "Installers without a shop; phased projects" },
-  { mode: "Fabricated panels", included: "Routed and returned ACM trays or drilled HPL panels to the fabricator's drawings, where stated", excluded: "Sub-frame, anchors, installation", use: "Contractors with an approved system and drawings" },
+  { mode: "Cut to size", included: "Parts to the cut list, numbered, pre-drilled where specified", excluded: "Routing and folding unless confirmed for the ordered panel; installation", use: "Installers without a shop; phased projects" },
+  { mode: "Fabricated panels", included: "Fabrication only where confirmed for the material, offered SKU and approved drawings", excluded: "Sub-frame, anchors, installation", use: "Contractors with an approved system and drawings" },
 ];
 
 const faq = [
   {
     q: "Can panels be supplied as full sheets or cut-to-size parts?",
-    a: "Both. Full sheets for fabricators and distributors, cut-to-size parts to a cut list for installers, and fabricated ACM trays or drilled HPL panels where the page for that material says so. Installation is never included.",
+    a: "Full sheets, cut-to-size parts and fabricated panels are discussed against the specific material and order. ALMINE panel formats and fabrication limits need confirmation before an ACM tray or other part is offered. Installation is not included.",
   },
   {
     q: "What information is needed to order ACM sheets for fabrication?",
-    a: "Core (FR or PE), total thickness and skin thickness, finish code, sheet width and length, quantity, film requirements, the destination country and port, the Incoterm and the importer of record.",
+    a: "Send the project location and use, desired panel format, quantity, finish preference, drawings, required test reports and schedule. Face metal, core, fabrication limits and shipping terms can then be confirmed for the offered ALMINE construction.",
   },
   {
     q: "What is the minimum order?",

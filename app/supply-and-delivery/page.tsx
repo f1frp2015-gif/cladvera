@@ -17,11 +17,11 @@ export const metadata = buildPageMetadata({
 });
 
 const importerPays = [
-  "Customs duty at the general (MFN) rate",
-  "Section 301 duties (United States)",
-  "Section 232 aluminum duties on ACM (United States)",
+  "Customs duty at the rate applicable to the exact classified SKU",
+  "Any additional US duties that apply to the classified SKU and origin",
+  "Any aluminum-related US measures and reporting if the actual product is in scope",
   "Antidumping and countervailing duty cash deposits where a product is within scope",
-  "The China surtax on ACM (Canada)",
+  "Any Canadian surtax that applies to the classified SKU and origin",
   "GST or HST and state or provincial taxes",
   "Merchandise processing and harbor maintenance fees (United States)",
   "ISF filing, brokerage and inland freight",
@@ -29,18 +29,18 @@ const importerPays = [
 
 const documentPack = [
   "Commercial invoice and packing list",
-  "Origin statement and “Made in China” marking on crates and sheets",
-  "Bill of materials per product",
-  "Aluminum smelt and cast country information for ACM (Section 232 declarations and Canadian SOR/2025-154 traceability)",
+  "Origin statement and product or packaging marking required for the shipment",
+  "Product composition or bill of materials as applicable",
+  "Metal composition and origin records if required for the classified SKU",
   "Wood species scientific name and country of harvest for veneer (Lacey Act declaration data)",
   "Formaldehyde test report and third-party certifier certificate where a wood core is used",
   "ISPM 15 packaging declaration",
-  "Fire and performance test reports listed on the compliance matrix",
+  "Product-specific fire and performance reports when available and required for the project",
 ];
 
 const timeline = [
   { title: "Sample approval", body: "Master and range samples signed; mock-up where required." },
-  { title: "Production", body: "Per the lead time on the stock page; batch and sheet numbers recorded." },
+  { title: "Production", body: "Lead time confirmed for the ordered construction, finish and quantity; batch and sheet identification agreed where needed." },
   { title: "Booking", body: "Container or LCL booked; freight re-confirmed against the quote." },
   { title: "Ocean transit", body: "25 to 40 days typical depending on the lane (TBC per booking)." },
   { title: "Clearance", body: "The importer's broker files entry; documents are issued before arrival." },
@@ -49,16 +49,16 @@ const timeline = [
 
 const faq = [
   {
-    q: "What is the lead time for ACM or HPL panels from China to the United States or Canada?",
-    a: "Production is 3 to 7 weeks depending on the material and whether colours are standard or custom, plus 14 to 42 days of ocean transit depending on the port, plus clearance and inland delivery. Sample approval comes first. The stock page lists both components per line.",
+    q: "What is the lead time for an ALMINE or HPL project shipment?",
+    a: "Production availability and lead time are confirmed for the ordered panel, finish and quantity. Ocean transit, clearance and inland delivery are quoted for the planned route and shipment. The stock page records what is currently known for each line.",
   },
   {
     q: "Who pays duties and taxes?",
-    a: "The importer. Quotes are FOB, CIF, CFR or DAP; DDP is not offered. The duty layers that apply to each material in each country are summarised on the material pages and confirmed by the importer's broker.",
+    a: "The importer. The quote states the available Incoterm and what it excludes; DDP is not offered. The importer's broker confirms classification, origin and current duty treatment for the exact ordered SKU.",
   },
   {
     q: "What documents come with a shipment?",
-    a: "The document pack listed on this page: invoice, packing list, origin statement, bill of materials, aluminum smelt and cast information for ACM, wood declarations for veneer, formaldehyde documents where a wood core is used, the ISPM 15 declaration and the test reports.",
+    a: "The document set is confirmed for the ordered SKU and shipment. Invoice, packing, origin, composition, metal or wood records, packaging declarations and product test reports are requested as applicable; the importer's broker and project team identify the required items.",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function Page() {
             </ul>
           </Callout>
           <Callout title="Not offered: DDP" tone="warn">
-            Classification, antidumping and countervailing duty deposits and Section 232 declarations must be made by a resident importer with a customs broker. A delivered-duty-paid price would hide those decisions, so it is not quoted.
+            Classification, applicable trade-remedy deposits and any metal-origin reporting are determined for the exact SKU with the importer&apos;s broker. A delivered-duty-paid price would hide those decisions, so it is not quoted.
           </Callout>
         </div>
       </Section>
@@ -105,7 +105,7 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section title="Seller document pack">
+      <Section title="Shipment documentation to confirm" lede="The final set depends on the ordered SKU, origin, destination and broker instructions; the items below are requested as applicable.">
         <ul className="grid gap-[6px] text-f14 text-ink-2 md:grid-cols-2">
           {documentPack.map((d) => (
             <li key={d} className="flex gap-[8px]"><span aria-hidden="true" className="text-accent">▪</span>{d}</li>

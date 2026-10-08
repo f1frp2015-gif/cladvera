@@ -3,13 +3,13 @@ import type { MaterialSlug } from "./materials";
 /**
  * Compliance status matrix rendered on /compliance/ and on each material page.
  *
- * Every cell starts as "in-progress", "planned" or "not-applicable". A cell
+ * Every cell starts as "unverified", "in-progress", "planned" or "not-applicable". A cell
  * becomes "available" only when a report number, the testing laboratory and
  * the assembly description can be published with it. Nothing here implies a
  * listing that has not been issued.
  */
 
-export type ComplianceStatus = "available" | "in-progress" | "planned" | "not-applicable";
+export type ComplianceStatus = "available" | "unverified" | "in-progress" | "planned" | "not-applicable";
 
 export type ComplianceColumnId =
   | "e84"
@@ -56,7 +56,20 @@ export interface ComplianceRow {
 
 const inProgress = (note?: string): ComplianceCell => ({ status: "in-progress", note });
 const planned = (note?: string): ComplianceCell => ({ status: "planned", note });
+const unverified = (note?: string): ComplianceCell => ({ status: "unverified", note });
 const na = (note?: string): ComplianceCell => ({ status: "not-applicable", note });
+
+const almineReportStatus: Record<ComplianceColumnId, ComplianceCell> = {
+  e84: unverified("Request the report for the exact ALMINE panel and finish."),
+  nfpa285: unverified("No verified complete wall-assembly report is listed for the proposed project construction."),
+  listing: unverified("No North American listing number is confirmed for the proposed SKU."),
+  s134: unverified("Request Canadian wall-assembly evidence if the project requires it."),
+  s102: unverified("Request the product-specific flame-spread report."),
+  e136: unverified("ALMINE describes an inorganic A2 core; confirm the test method and report for the ordered construction."),
+  e330: unverified("Panel and attachment structural test evidence to confirm for the project system."),
+  formaldehyde: na("No composite wood component is described; verify the actual construction."),
+  lacey: na("No real wood component is described; verify the actual construction."),
+};
 
 export const complianceRows: ComplianceRow[] = [
   {
@@ -92,36 +105,22 @@ export const complianceRows: ComplianceRow[] = [
     },
   },
   {
-    id: "acm-fr",
-    product: "Aluminum composite (ACM) panels, FR mineral-filled core, 4 mm",
+    id: "almine-a2",
+    product: "ALMINE A2 Fireproof Metal Composite Panel",
     materialSlug: "acm-panels",
-    cells: {
-      e84: inProgress("Material-level test; class to be published."),
-      nfpa285: planned("Assembly test scheduled after the HPL assembly; until then sold for interiors and exterior walls below 40 ft only."),
-      listing: planned("ICC-ES ESL/ESR under AC25 after the assembly test."),
-      s134: planned("Canadian assembly test; Canadian ACM brands hold QAI listings on this basis."),
-      s102: inProgress("Flame-spread rating to be published."),
-      e136: planned("Core noncombustibility, where a project specifies it."),
-      e330: planned("Tested with the route-and-return system named on /systems/."),
-      formaldehyde: na("No wood content."),
-      lacey: na("No wood content."),
-    },
+    cells: almineReportStatus,
   },
   {
-    id: "acm-pe",
-    product: "Aluminum composite (ACM) panels, standard PE core",
+    id: "almine-tunnel",
+    product: "ALMINE Tunnel Traffic Dedicated Panel",
     materialSlug: "acm-panels",
-    cells: {
-      e84: inProgress("Material-level test; interior class to be published."),
-      nfpa285: na("Not offered for exterior walls where NFPA 285 applies."),
-      listing: na("Not offered for exterior use above 40 ft."),
-      s134: na("Not offered for noncombustible construction."),
-      s102: inProgress("Flame-spread rating to be published."),
-      e136: na("Polyethylene core is combustible."),
-      e330: na("Interior and low-rise signage-free uses only."),
-      formaldehyde: na("No wood content."),
-      lacey: na("No wood content."),
-    },
+    cells: almineReportStatus,
+  },
+  {
+    id: "almine-medical",
+    product: "ALMINE Medical Antibacterial Special Panel",
+    materialSlug: "acm-panels",
+    cells: almineReportStatus,
   },
   {
     id: "veneer-phenolic",
@@ -175,6 +174,7 @@ export const complianceRows: ComplianceRow[] = [
 
 export const complianceStatusLabel: Record<ComplianceStatus, string> = {
   available: "Available",
+  unverified: "Not verified",
   "in-progress": "In progress",
   planned: "Planned",
   "not-applicable": "Not applicable",

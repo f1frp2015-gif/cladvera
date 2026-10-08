@@ -40,9 +40,9 @@ export const mainNav: NavGroup[] = [
         description: "TAKTL facade panels, specialty surfaces and hardware through Cladvera",
       },
       {
-        label: "Aluminum Composite (ACM) Panels",
+        label: "ALMINE ACM / MCM panels",
         href: "/materials/acm-panels",
-        description: "FR core for interiors and low-rise exteriors",
+        description: "A2 architectural, tunnel and medical metal composite panels",
       },
       {
         label: "Wood Veneer Panels",
@@ -57,7 +57,7 @@ export const mainNav: NavGroup[] = [
       {
         label: "Compare ACM, HPL and UHPC",
         href: "/resources/acm-vs-hpl-vs-uhpc",
-        description: "Thickness, weight, fire tests and cost bands side by side",
+        description: "Panel build-up, documentation and project factors side by side",
       },
       {
         label: "Commercial Interior Wall Panels",
@@ -71,7 +71,7 @@ export const mainNav: NavGroup[] = [
     href: "/finishes",
     links: [
       { label: "All finishes", href: "/finishes", description: "Filter by material and interior or exterior use" },
-      { label: "Wood-grain finishes", href: "/finishes/wood-grain", description: "Real veneer, printed decor and wood-grain ACM compared" },
+      { label: "Wood-grain finishes", href: "/finishes/wood-grain", description: "Real veneer and printed HPL decor compared" },
       { label: "Concrete textures", href: "/finishes/textured-concrete", description: "Smooth, sandblasted, ribbed and board-formed UHPC" },
     ],
   },
@@ -112,7 +112,7 @@ export const footerNav: Array<{ heading: string; links: NavLink[] }> = [
       { label: "Exterior phenolic (HPL) panels", href: "/materials/exterior-hpl-panels" },
       { label: "UHPC facade panels", href: "/materials/uhpc-panels" },
       { label: "TAKTL architectural UHPC", href: "/suppliers/taktl" },
-      { label: "Aluminum composite (ACM) panels", href: "/materials/acm-panels" },
+      { label: "ALMINE ACM / MCM panels", href: "/materials/acm-panels" },
       { label: "Wood veneer panels", href: "/materials/wood-veneer-panels" },
       { label: "Interior HPL panels", href: "/materials/interior-hpl-panels" },
       { label: "Finishes", href: "/finishes" },
@@ -176,7 +176,10 @@ export const routes: RouteEntry[] = [
   { path: "/suppliers/taktl/sola", title: "TAKTL SOLA Self-Cleaning Panels", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/suppliers/taktl/custom-elements", title: "TAKTL Custom Elements", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/suppliers/taktl/hardware", title: "TAKTL Hardware", priority: "P1", changeFrequency: "monthly", index: true },
-  { path: "/materials/acm-panels", title: "Aluminum Composite (ACM) Panels", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/materials/acm-panels", title: "ALMINE Metal Composite (ACM / MCM)", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/materials/acm-panels/a2-fireproof", title: "ALMINE A2 Metal Composite Panels", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/materials/acm-panels/tunnel-traffic", title: "ALMINE Tunnel Traffic Panels", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/materials/acm-panels/medical-antibacterial", title: "ALMINE Medical Antibacterial Panels", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/materials/wood-veneer-panels", title: "Wood Veneer Panels", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/materials/interior-hpl-panels", title: "Interior HPL Panels", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/finishes", title: "Finishes", priority: "P0", changeFrequency: "weekly", index: true },

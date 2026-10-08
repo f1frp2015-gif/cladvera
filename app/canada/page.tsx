@@ -6,17 +6,17 @@ import { regions } from "@/content/data/regions";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "What differs for Canadian buyers: CAD quotes, the 25 percent surtax on ACM, CAN/ULC S134 and S102, GST and Buy Canadian limits.";
+  "Canadian project notes for metal composite and other panels: confirm the ordered SKU's classification, origin and current import treatment with a broker.";
 
 export const metadata = buildPageMetadata({
-  title: "Panels for Canada: Surtax, CAN/ULC S134 and GST Notes",
+  title: "Panels for Canada: Import and Code Notes",
   description,
   path: "/canada",
 });
 
 const differences = [
   "Quotes in CAD with metric units; imperial in brackets.",
-  "ACM carries the 25 percent surtax under the China Surtax Order (2024); phenolic HPL, UHPC and veneer panels do not.",
+  "For ALMINE metal composite panels, confirm the exact SKU's classification, origin, current surtax treatment and taxes with the importer's broker before quoting.",
   "Exterior use on noncombustible construction needs a CAN/ULC S134 assembly test; interiors and combustible construction use CAN/ULC S102 ratings.",
   "GST applies at import; HST or PST by province.",
   "Not for federal contracts covered by the Buy Canadian policy.",
@@ -25,8 +25,8 @@ const differences = [
 
 const faq = [
   {
-    q: "Does the 25 percent surtax apply to phenolic (HPL) panels?",
-    a: "No. The China Surtax Order (2024) covers steel and aluminum products, including aluminum sheet under heading 7606 used for ACM. Phenolic compact laminate (heading 3921), UHPC (heading 6810) and veneered panels are outside it.",
+    q: "How is surtax treatment checked for a Canadian panel shipment?",
+    a: "Ask the importer's broker to classify the exact SKU and confirm its face metal, full construction, origin and current Canadian tariff and surtax treatment before quotation. Do not infer treatment from an ACM or MCM category name.",
   },
   {
     q: "Is NFPA 285 accepted in Canada?",
@@ -34,7 +34,7 @@ const faq = [
   },
   {
     q: "What documents are provided for a Canadian project?",
-    a: "The seller document pack (invoice, packing list, origin statement, bill of materials, aluminum smelt and cast information for ACM, species and origin declarations for veneer, formaldehyde documents where a wood core is used, ISPM 15 declaration) plus the test reports listed on the compliance page. Code applicability is confirmed by the project's professionals.",
+    a: "The document set is confirmed for the ordered SKU and shipment. Request invoice and packing details, origin and composition records, any applicable metal or wood documentation, and product-specific test reports. The importer's broker and project team confirm what is required.",
   },
 ];
 

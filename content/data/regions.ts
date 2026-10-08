@@ -36,7 +36,7 @@ export const regions: Record<Region, RegionProfile> = {
     label: "United States",
     ports: ["Los Angeles / Long Beach", "Houston", "New York / New Jersey", "Savannah"],
     dutyNote:
-      "China-origin panels entering the United States carry the general rate plus Section 301 duties, and aluminum composite panels also carry Section 232 aluminum duties assessed on the full customs value. Veneered panels on wood-based cores fall within the 2026 hardwood and decorative plywood antidumping and countervailing duty orders. Classification and rates are confirmed with the importer's broker before an order; the HTS references on each material page are for orientation only.",
+      "For a proposed panel shipment, the importer's broker confirms the exact SKU's classification, origin and current duty, trade-remedy and reporting treatment before a landed quote. ALMINE's public metal-composite category does not establish aluminum faces or a particular US duty layer.",
     codeNote:
       "Exterior use on Type I to IV buildings above 40 ft requires an NFPA 285 tested, listed or engineered wall assembly under the International Building Code. Below that height, and on Type V buildings, panels are specified on material-level data (ASTM E84, ASTM E136 where relevant). Interior finishes follow IBC Chapter 8 flame-spread classes.",
     procurementNote:
@@ -50,7 +50,7 @@ export const regions: Record<Region, RegionProfile> = {
     label: "Canada",
     ports: ["Vancouver", "Toronto (via Montreal or rail)", "Montreal"],
     dutyNote:
-      "Phenolic (HPL), UHPC and veneered panels enter Canada at the MFN rate plus GST. Aluminum composite panels from China carry the 25 percent surtax under the China Surtax Order (2024), and aluminum smelted or cast in China is traced even when routed through third countries. Classification and rates are confirmed with the importer's broker before an order.",
+      "For a proposed panel shipment, the importer's broker confirms the exact SKU's classification, origin, current tariff and surtax treatment, and any metal-origin reporting before a landed quote. ALMINE's public metal-composite category does not establish aluminum faces or a particular Canadian duty layer.",
     codeNote:
       "Exterior use on buildings required to be of noncombustible construction needs a CAN/ULC S134 tested wall assembly under the National Building Code (3.1.5.5), with storey and sprinkler conditions. Combustible construction and interiors follow CAN/ULC S102 flame-spread limits. NFPA 285 data is not assumed to be accepted in place of S134.",
     procurementNote:

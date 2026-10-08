@@ -42,7 +42,7 @@ export default function Page() {
 
       <Section>
         <Callout title="Stock locations">
-          Mill stock is held in China. There is no North American warehouse yet; a third-party warehouse for a short list of 8 mm phenolic decors and 4 mm FR ACM colours is under evaluation and will be listed here with its location when confirmed.
+          Stock location and availability must be confirmed for each ordered product. A third-party North American warehouse is under evaluation and will be listed here with its location and stocked products when confirmed.
         </Callout>
       </Section>
 

@@ -29,7 +29,7 @@ export interface Faq {
   a: string;
 }
 
-export type DocumentStatus = "available" | "in-progress" | "planned";
+export type DocumentStatus = "available" | "unverified" | "in-progress" | "planned";
 
 export interface DocumentItem {
   name: string;
@@ -280,98 +280,82 @@ export const materials: Material[] = [
   {
     slug: "acm-panels",
     priority: "P0",
-    name: "Aluminum Composite (ACM) Panels",
-    shortName: "ACM",
-    metaTitle: "Aluminum Composite (ACM) Panels | FR Core, 4 mm",
+    name: "ALMINE Metal Composite (ACM / MCM) Panels",
+    shortName: "ACM / MCM",
+    metaTitle: "ALMINE Metal Composite Panels | ACM / MCM",
     metaDescription:
-      "Aluminum composite panels with FR core, 4 mm, PVDF coated, for commercial interiors and low-rise exteriors, for US and Canadian fabricators.",
+      "ALMINE metal composite panels include A2 architectural, tunnel traffic and medical variants. Confirm the aluminum-face construction and test data for each project.",
     definition:
-      "Aluminum composite material (ACM) panels are two aluminum skins bonded to a polyethylene or mineral-filled fire-retardant core, routed and folded by fabricators into wall panel systems; the International Building Code groups them under metal composite material (MCM).",
+      "ALMINE publishes an A-grade fireproof metal composite panel range with an inorganic core and metal faces, plus tunnel and medical variants. ACM denotes an aluminum-faced construction; confirm the face metal for the ordered SKU.",
     use: ["interior", "exterior"],
     rank: { US: 3, CA: 2 },
     intro: [
-      "ACM is the panel most fabricators already run, which makes it the easiest to qualify and the hardest to land: China-origin ACM entering the United States carries Section 232 aluminum duty on the full customs value on top of Section 301, so the US offer is limited to interiors, exterior walls below 40 ft, and private-label supply to distributors who import on their own account.",
-      "In Canada the surtax is 25 percent and Canadian fabricator-installers already run imported private-label ACM, so the Canadian offer covers the full range once a CAN/ULC S134 assembly test is published.",
+      "ALMINE lists A2 fireproof, rail/tunnel and medical panels in its metal composite product category. The public catalogue describes the core and intended uses but does not provide a complete data sheet for each construction.",
+      "Project selection starts with the actual face metal, panel build-up, finish, test reports and assembly details. Cladvera confirms sourcing, terms and applicable import treatment for the proposed SKU before quotation.",
     ],
     supply: {
       US: {
         scenarios: [
-          "Interior wall panels, column covers and ceilings (standard or FR core).",
-          "Exterior walls below 40 ft on Type I to IV buildings and on Type V buildings (FR core).",
-          "Private-label full sheets for stocking fabricator-distributors who import on their own account.",
-          "Exterior walls above 40 ft only after an NFPA 285 assembly listing is published on /compliance/.",
+          "Discuss interior architectural applications after the panel's interior finish reports are reviewed.",
+          "Exterior use requires project-specific review of the actual panel and complete proposed wall assembly.",
         ],
         dutyNote:
-          "General rate plus Section 301 duties plus Section 232 aluminum duties assessed on the full customs value (ACM with skins over 0.2 mm is classified under heading 7606). Landed cost is quoted against the current rates and is only competitive for interiors and private-label volumes.",
-        tariffReference: ["7606.12.30 (aluminum alloy plates, sheets and strip, over 0.2 mm, clad)", "7607.20 for foil-skinned signage grades, which we do not offer"],
+          "Tariff classification and current duty layers depend on the ordered face metal and panel construction. The importer's broker confirms them before a landed quote.",
+        tariffReference: ["Product-specific classification pending"],
       },
       CA: {
         scenarios: [
-          "Interior wall panels and ceilings.",
-          "Exterior cladding on combustible construction and Part 9 buildings (FR core).",
-          "Noncombustible construction after a CAN/ULC S134 assembly test.",
-          "Private-label supply to fabricator-installers.",
+          "Discuss interior applications after the product's fire and finish reports are reviewed.",
+          "Exterior and noncombustible-construction applications require assembly evidence accepted by the project authority.",
         ],
         dutyNote:
-          "MFN Free plus the 25 percent surtax under the China Surtax Order (2024), plus GST. Aluminum smelted or cast in China is traced regardless of where the panel is laminated.",
-        tariffReference: ["7606.12.00 (Canadian tariff; listed in the China Surtax Order)"],
+          "The importer's broker confirms classification, surtax treatment and taxes for the actual construction and shipment.",
+        tariffReference: ["Product-specific classification pending"],
       },
     },
     specs: [
-      { label: "Total thickness", value: "4 mm standard; 3 mm interior and 6 mm on request", confirmed: false },
-      { label: "Aluminum skins", value: "0.50 mm / 0.50 mm, alloy 3003 H16 or 3105 H16; 0.30 mm interior grade on request", confirmed: false },
-      { label: "Core", value: "FR mineral-filled polyethylene; standard PE core for interior use only", confirmed: false },
-      { label: "Sheet width", value: "1,220 and 1,500 mm (48 and 59 in); 1,575 mm (62 in) on request", confirmed: false },
-      { label: "Sheet length", value: "Up to 5,000 mm (197 in); cut to length", confirmed: false },
-      { label: "Coating", value: "PVDF (70 percent resin) two or three coat to AAMA 2605; FEVE for high-gloss colours", confirmed: false },
-      { label: "Weight", value: "Approx. 5.5 kg/m² (PE core) to 7.6 kg/m² (FR core) at 4 mm (1.1 to 1.6 lb/ft²)", confirmed: false },
-      { label: "Tolerances", value: "Thickness ±0.2 mm; width ±2 mm; length ±3 mm", confirmed: false },
-      { label: "Protective film", value: "Peelable film with direction arrows on the decorative face", confirmed: true },
+      { label: "Core", value: "ALMINE describes an inorganic core for its A2 fireproof metal composite panel; exact formulation and report to confirm", confirmed: false },
+      { label: "Face metal", value: "Two metal faces are described; confirm aluminum alloy, face thickness and back skin for the ordered SKU", confirmed: false },
+      { label: "Total thickness and formats", value: "Request the product-specific data sheet and available size schedule", confirmed: false },
+      { label: "Coating and colors", value: "Request the current color card, coating specification and physical approval samples", confirmed: false },
+      { label: "Weight and tolerances", value: "Confirm from the ordered panel's data sheet", confirmed: false },
+      { label: "Fire and assembly evidence", value: "Request classification and complete wall-assembly reports for the target jurisdiction", confirmed: false },
     ],
-    finishFamilies: ["solid", "metallic", "wood-grain", "stone-look"],
+    finishFamilies: [],
     systems: [
-      "Route-and-return dry joint rainscreen (fabricator's extrusion system).",
-      "Wet-seal route-and-return with sealant joints.",
-      "Interior clip systems for wall panels and column covers.",
+      "Attachment system and fixing design must be selected for the actual ALMINE panel construction and project wall.",
     ],
     fabrication: [
-      "V-groove routing to a 0.3 to 0.5 mm remaining skin, then fold; radius and groove data on /fabrication/.",
-      "Rivet or screw to returns; stiffeners bonded with structural tape or adhesive per the system.",
-      "Install metallic and brushed finishes in one direction per elevation; arrows are printed on the film.",
+      "Request product-specific cutting, routing, bending, handling and protective-film instructions before fabrication.",
     ],
     stock: {
-      note: "No North American stock. Standard white and charcoal in 4 mm FR are planned for a stock programme once a third-party warehouse is confirmed.",
-      moq: "180 m² per finish (TBC); a 40 ft container holds roughly 1,100 to 1,300 m² of 4 mm sheets depending on width (TBC).",
-      leadTime: "Production 3 to 5 weeks for standard colours, 5 to 7 weeks for custom colours, plus ocean transit (TBC).",
-      perCrate: "Sheet count per crate by width and length on /stock-and-lead-times/ (TBC).",
+      note: "Stock location and availability for the ALMINE range: to confirm by product and finish.",
+      moq: "To confirm for the requested panel and finish.",
+      leadTime: "To confirm after ALMINE checks the ordered construction and quantity.",
+      perCrate: "Packing list and crate details to confirm with the order.",
     },
     documents: [
-      { name: "Technical data sheet (FR and PE core)", status: "in-progress" },
-      { name: "CSI 07 42 43 Composite Wall Panels specification", status: "planned" },
-      { name: "Fabrication manual (routing, folding, film)", status: "in-progress" },
-      { name: "Test reports", status: "in-progress", note: "Published with report numbers on /compliance/." },
-      { name: "Coating warranty document", status: "planned" },
+      { name: "Product-specific technical data sheet", status: "unverified" },
+      { name: "Fire classification and application test reports", status: "unverified", note: "Report numbers and tested constructions to be verified." },
+      { name: "Fabrication and installation guide", status: "unverified" },
+      { name: "Finish samples and coating specification", status: "unverified" },
     ],
     faq: [
       {
-        q: "What is ACM? Is ACM the same as ACP or MCM?",
-        a: "ACM (aluminum composite material) is two aluminum skins bonded to a polyethylene or mineral-filled core. ACP is the same product under the name used in the UK, India and by exporters. MCM (metal composite material) is the International Building Code's wider term that also covers copper, zinc and stainless-steel skins; ACM is the aluminum-skinned subset.",
+        q: "Is every ALMINE metal composite panel an ACM panel?",
+        a: "No. ALMINE describes a metal composite range with two metal faces. ACM specifically requires aluminum faces. Confirm the face metal and complete panel build-up on the data sheet for the ordered product.",
       },
       {
-        q: "Is ACM fire rated? Does it meet NFPA 285?",
-        a: "A panel is not fire rated on its own. The FR core version is tested at material level (ASTM E84, ASTM E136 for the core) and the complete wall assembly is tested to NFPA 285 for use above 40 ft on Type I to IV buildings. Our material tests are in progress and the assembly test is scheduled; the status is on /compliance/, and until it is published we sell for interiors and walls below 40 ft.",
+        q: "Does ALMINE's A2 product name establish North American approval?",
+        a: "No. Request the classification report and the exact tested panel construction, then check the complete proposed wall assembly and local code requirements with the design team and authority having jurisdiction.",
       },
       {
-        q: "4 mm vs 6 mm ACM: which should I specify?",
-        a: "4 mm is the standard for wall panels up to typical rainscreen module sizes. 6 mm is specified for larger panel spans, flatter appearance on large metallic surfaces or higher wind loads. The fabricator's system data decides; we supply both.",
+        q: "Which ALMINE panel variants are listed here?",
+        a: "The manufacturer's A-grade fireproof metal composite range lists an architectural A2 panel, a rail and tunnel traffic panel, and a medical antibacterial panel. Each needs a product-specific data sheet and applicable test reports.",
       },
       {
-        q: "What are the sheet sizes?",
-        a: "Planned widths are 1,220 and 1,500 mm (48 and 59 in) with lengths cut to order up to 5,000 mm. Width availability per finish is confirmed on the data sheet.",
-      },
-      {
-        q: "How much does ACM cost per square foot?",
-        a: "Material cost depends on core, coating, colour, width and quantity; fabricated and installed costs depend on the system and the project. For imports into the United States the duty stack is the largest single item, so we quote landed cost rather than FOB. The pricing guide lists the factors.",
+        q: "Are panel sizes, finishes and prices published?",
+        a: "The public ALMINE category page does not provide a complete size and price schedule for these products. Share drawings and a target finish so the construction, availability and quote basis can be confirmed.",
       },
     ],
     masterformat: ["07 42 43 Composite Wall Panels", "07 42 13.23 Metal Composite Material Wall Panels"],
@@ -380,7 +364,7 @@ export const materials: Material[] = [
       secondary: ["aluminum composite material", "ACM cladding", "fire retardant ACM panels", "4mm ACM panels", "ACM panel specifications", "aluminum composite panel price", "ACM panel cost per square foot", "ACM panel system", "acp sheet"],
     },
     caveat:
-      "In the United States the offer is limited to interiors, exterior walls below 40 ft and private-label volumes until the NFPA 285 assembly listing is published and the duty position is confirmed per order.",
+      "ALMINE's catalogue is a manufacturer source. Confirm the actual aluminum-face SKU, sourcing status, product reports and project wall-assembly evidence before treating it as an orderable ACM system.",
   },
   {
     slug: "wood-veneer-panels",

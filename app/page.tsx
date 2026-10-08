@@ -51,8 +51,8 @@ export default function Home() {
               Specification-ready architectural panels for US and Canadian fabricators, distributors and contractors
             </h1>
             <p className="mt-[16px] max-w-[640px] text-f18 text-ink-2">
-              Exterior phenolic compact panels, UHPC facade panels, aluminum composite and real-wood veneer, supplied from audited
-              Chinese mills with the test reports, tariff guidance, stock and lead times you can put in a submittal.
+              Exterior phenolic compact panels, UHPC facade panels, metal composite panels and real-wood veneer, with
+              product-specific construction, test status, sourcing and lead times confirmed before a submittal.
             </p>
             <div className="mt-[24px] flex flex-wrap gap-[12px]">
               <Cta href="/samples">Request samples</Cta>
@@ -162,7 +162,7 @@ export default function Home() {
         <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
           <LinkCard href="/technical-resources" title="Data sheets and CSI sections" description="Per material and thickness." />
           <LinkCard href="/compliance" title="Compliance matrix" description="Test status by product, country and assembly, with what is not claimed." />
-          <LinkCard href="/resources/acm-vs-hpl-vs-uhpc" title="ACM vs HPL vs UHPC" description="Thickness, weight, fire route and cost bands side by side." />
+          <LinkCard href="/resources/acm-vs-hpl-vs-uhpc" title="ACM vs HPL vs UHPC" description="Panel build-up, documentation and project factors side by side." />
           <LinkCard href="/resources/panel-color-variation" title="Colour variation" description="Master and range samples, lighting and ΔE conditions." />
         </div>
       </Section>

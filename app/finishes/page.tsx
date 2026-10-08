@@ -6,7 +6,7 @@ import { materials } from "@/content/data/materials";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Panel finishes for ACM, phenolic HPL, veneer and UHPC: colour, gloss, texture, grain direction and variation class, each with samples.";
+  "Illustrative HPL, veneer and UHPC finishes, plus guidance for requesting ALMINE's current metal-panel color card, offered SKU and approval samples.";
 
 export const metadata = buildPageMetadata({
   title: "Panel Finishes, Textures and Color Variation",
@@ -21,20 +21,20 @@ export default function Page() {
       <PageHeader
         eyebrow="Finishes"
         title="Finishes, textures and colour variation"
-        lede="Every finish is listed with its gloss, texture, direction and variation class, and whether range samples are issued. Printed patterns and real surface texture are labelled separately."
+        lede="The finish entries below are pre-launch placeholders for HPL, veneer and UHPC. ALMINE metal-panel finishes require a current color card, offered SKU and approval samples."
         crumbs={[{ name: "Finishes", path: "/finishes" }]}
         actions={<Cta href="/samples">Build a sample set</Cta>}
       >
         <div className="mt-[16px] flex flex-wrap gap-[6px]">
-          {materials.map((m) => (
+          {materials.filter((m) => m.slug !== "acm-panels").map((m) => (
             <Badge key={m.slug}>{m.shortName}</Badge>
           ))}
         </div>
       </PageHeader>
 
       <Section>
-        <Callout tone="warn" title="Placeholder library">
-          Codes, names and swatches illustrate the structure. Real SKUs with photographed swatches, full-sheet images and gloss readings replace them before launch.
+        <Callout tone="warn" title="Finish data pending">
+          Codes, names and swatches below are placeholders for other material lines. No ALMINE metal-panel finishes are listed. Request its current color card, confirm the offered panel SKU and coating, and approve a physical sample before selection.
         </Callout>
       </Section>
 

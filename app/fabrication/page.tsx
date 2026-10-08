@@ -15,10 +15,10 @@ export const metadata = buildPageMetadata({
 
 const parameters: Record<string, Array<{ label: string; value: string; confirmed: boolean }>> = {
   "acm-panels": [
-    { label: "V-groove routing", value: "Route to leave 0.3 to 0.5 mm of the inner skin; 90° or 135° cutter per return angle", confirmed: false },
-    { label: "Fold radius", value: "Per cutter profile; data sheet value TBC", confirmed: false },
-    { label: "Rivet or screw spacing on returns", value: "Per the fabricator's system; typical spacing TBC", confirmed: false },
-    { label: "Protective film", value: "Remove within the period stated on the data sheet after installation (TBC)", confirmed: false },
+    { label: "Face metal and panel build-up", value: "Confirm the ordered ALMINE construction before selecting tools or a forming method", confirmed: false },
+    { label: "Routing and bending", value: "Request product-specific machining limits and fold details from ALMINE", confirmed: false },
+    { label: "Fixings and spacing", value: "Use the selected system's engineered details for the actual panel and substrate", confirmed: false },
+    { label: "Protective film", value: "Follow the product-specific removal and handling instructions", confirmed: false },
   ],
   "exterior-hpl-panels": [
     { label: "Blades", value: "Carbide or diamond-tipped; feed rate TBC per thickness", confirmed: false },

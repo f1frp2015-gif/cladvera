@@ -74,7 +74,7 @@ export default function QuoteRequestForm() {
       <FormSection step={2} title="Scope">
         <CheckboxGroup legend="Materials" name="materials" options={materials.map((m) => ({ value: m.slug, label: m.shortName }))} />
         <div className="grid gap-[14px] sm:grid-cols-2">
-          <Field label="Finish codes" name="finish_codes" placeholder="e.g. HP-NO11, AC-CH02" />
+          <Field label="Finish code or colour preference" name="finish_codes" placeholder="e.g. manufacturer code or target colour" />
           <Field label="Thickness" name="thickness" placeholder="e.g. 8 mm" />
           <Field label="Estimated area" name="area" required placeholder="e.g. 12,000 ft² or 1,100 m²" />
           <Select

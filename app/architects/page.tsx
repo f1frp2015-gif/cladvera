@@ -26,7 +26,7 @@ const part2Steps = [
 const faq = [
   {
     q: "Which facade materials combine wood warmth with a clean panelized elevation?",
-    a: "Three routes: real veneer on a phenolic compact core for natural variation, printed wood-grain phenolic (HPL) panels for a uniform decor with a stated repeat, and wood-grain ACM where a folded metal panel system is already specified. The wood-grain finishes page compares structure, texture, repeat and documentation.",
+    a: "Real veneer gives natural variation, while printed wood-grain phenolic HPL offers a repeating decor. The wood-grain finishes page compares their structure and documentation. Wood-grain availability in ALMINE's metal composite range has not been verified.",
   },
   {
     q: "What should I include in a sample request?",
@@ -34,7 +34,7 @@ const faq = [
   },
   {
     q: "Can I compare ACM, veneer and UHPC samples for one project?",
-    a: "Yes. One sample set can mix materials, up to 10 finishes, so a lobby and its facade can be judged together under the same light.",
+    a: "HPL, veneer and UHPC sample requests can be discussed together. For ALMINE metal composite panels, ask for the current color card and confirm the offered SKU and sample availability first.",
   },
 ];
 
