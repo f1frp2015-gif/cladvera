@@ -1,3 +1,5 @@
+import { catalogCategories } from "./catalog";
+
 /**
  * Navigation and the route registry.
  *
@@ -19,8 +21,17 @@ export interface NavGroup {
   links: NavLink[];
 }
 
+export const productNavLinks: NavLink[] = [
+  { label: "All products", href: "/products", description: "Browse and compare the complete product library" },
+  ...catalogCategories.map(category => ({
+    label: category.label,
+    href: `/products?category=${category.id}`,
+    description: category.description,
+  })),
+];
+
 export const mainNav: NavGroup[] = [
-  { label: "Products", href: "/products", links: [] },
+  { label: "Products", href: "/products", links: productNavLinks },
   { label: "Applications", href: "/applications", links: [] },
   { label: "Architects", href: "/architects", links: [] },
   { label: "Procurement", href: "/procurement", links: [] },
