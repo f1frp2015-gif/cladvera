@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import JsonLd from "@/components/seo/JsonLd";
 import RegionBlock from "@/components/region/RegionBlock";
 import { Badge, Cta, LinkCard, Section, Steps } from "@/components/ui";
@@ -34,6 +35,7 @@ const steps = [
 ];
 
 export default function Home() {
+  if (site.stage === "draft") redirect("/suppliers/taktl");
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: site.brand, description, path: "/" })} />
