@@ -1,6 +1,7 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import TaktlVisual from "@/components/taktl/TaktlVisual";
+import TaktlInquiryLink from "@/components/taktl/TaktlInquiryLink";
 import { Badge, Callout, PageHeader, Section } from "@/components/ui";
 import { findTaktlProduct, taktlProducts, type TaktlProductSlug } from "@/content/data/taktl";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
@@ -11,7 +12,6 @@ export function taktlProductMetadata(slug: TaktlProductSlug) {
     title: product.metaTitle,
     description: product.metaDescription,
     path: `/suppliers/taktl/${slug}`,
-    noindex: true,
   });
 }
 
@@ -23,20 +23,21 @@ export default function TaktlProductPage({ slug }: { slug: TaktlProductSlug }) {
     <>
       <JsonLd data={buildWebPageSchema({ name: product.name, description: product.metaDescription, path, type: "ItemPage" })} />
       <PageHeader
-        eyebrow="TAKTL · manufacturer reference"
+        eyebrow="TAKTL · available through Cladvera"
         title={product.name}
         lede={product.summary}
         crumbs={[
-          { name: "TAKTL reference", path: "/suppliers/taktl" },
+          { name: "TAKTL products", path: "/suppliers/taktl" },
           { name: product.name, path },
         ]}
+        actions={<TaktlInquiryLink productName={product.name} />}
       >
         <div className="mt-[16px]"><Badge>{product.type}</Badge></div>
       </PageHeader>
 
       <Section>
         <div className="grid items-start gap-[24px] lg:grid-cols-[1.1fr_1fr]">
-          <TaktlVisual visual={product.visual} className="h-[280px] md:h-[360px]" />
+          <TaktlVisual visual={product.visual} imageUrl={product.imageUrl} imageAlt={product.imageAlt} className="h-[280px] md:h-[360px]" />
           <div>
             <h2 className="mb-[16px] text-f24 font-semibold">Manufacturer facts</h2>
             <dl className="divide-y divide-line rounded-card border border-line">
@@ -85,8 +86,8 @@ export default function TaktlProductPage({ slug }: { slug: TaktlProductSlug }) {
           )}
         </div>
         <div className="mt-[20px]">
-          <Callout title="Reference status">
-            This page documents a TAKTL-branded product. Cladvera sourcing, pricing, stock, samples and project support for this line are not yet confirmed. TAKTL performance and approvals do not transfer to Cladvera&apos;s own UHPC panels.
+          <Callout title="Specify and order through Cladvera">
+            Send us the project drawings, location, target finish and schedule to request TAKTL product pricing and samples. Availability, lead time and final details are confirmed for each project. TAKTL performance and approvals apply only to the named manufacturer products and proposed assemblies.
           </Callout>
         </div>
       </Section>

@@ -1,33 +1,34 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import TaktlVisual from "@/components/taktl/TaktlVisual";
+import TaktlInquiryLink from "@/components/taktl/TaktlInquiryLink";
 import { Badge, Callout, PageHeader, Section } from "@/components/ui";
 import { taktlColors, taktlFinishes, taktlProducts, taktlSources, taktlTextures } from "@/content/data/taktl";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "A source-linked reference to TAKTL architectural UHPC facade panels, KORSA aggregate, SOLA, custom elements and hardware, with color and texture options.";
+  "Explore TAKTL architectural UHPC facade panels, KORSA aggregate, SOLA, custom elements and hardware through Cladvera. Request project pricing and samples.";
 
 export const metadata = buildPageMetadata({
-  title: "TAKTL Architectural UHPC Products | Reference Catalogue",
+  title: "TAKTL Architectural UHPC Products | Cladvera",
   description,
   path: "/suppliers/taktl",
-  noindex: true,
 });
 
 export default function Page() {
   return (
     <>
-      <JsonLd data={buildWebPageSchema({ name: "TAKTL product reference", description, path: "/suppliers/taktl", type: "CollectionPage" })} />
+      <JsonLd data={buildWebPageSchema({ name: "TAKTL architectural UHPC products", description, path: "/suppliers/taktl", type: "CollectionPage" })} />
       <PageHeader
-        eyebrow="Manufacturer reference"
+        eyebrow="TAKTL · architectural UHPC"
         title="TAKTL architectural UHPC products"
-        lede="Five manufacturer product and accessory groups, with direct links to TAKTL's current pages and documents. Colors, textures and finishes are choices within the panel system."
-        crumbs={[{ name: "TAKTL reference", path: "/suppliers/taktl" }]}
+        lede="Cladvera supplies TAKTL facade elements, specialty surfaces, custom elements and attachment hardware for project inquiries. Explore the range and discuss your drawings, finishes and schedule with our team."
+        crumbs={[{ name: "TAKTL products", path: "/suppliers/taktl" }]}
+        actions={<TaktlInquiryLink />}
       >
         <div className="mt-[18px] flex flex-wrap gap-[6px]">
           <Badge>Manufacturer: TAKTL, USA</Badge>
-          <Badge tone="warn">Cladvera sourcing TBC</Badge>
+          <Badge tone="accent">Project inquiries through Cladvera</Badge>
         </div>
       </PageHeader>
 
@@ -35,7 +36,7 @@ export default function Page() {
         <div className="grid gap-[16px] md:grid-cols-2 xl:grid-cols-3">
           {taktlProducts.map((product) => (
             <Link key={product.slug} href={`/suppliers/taktl/${product.slug}`} className="group overflow-hidden rounded-card border border-line bg-paper hover:border-line-strong hover:shadow-card">
-              <TaktlVisual visual={product.visual} className="h-[170px] rounded-none border-0 border-b border-line" />
+              <TaktlVisual visual={product.visual} imageUrl={product.imageUrl} imageAlt={product.imageAlt} className="h-[170px] rounded-none border-0 border-b border-line" />
               <div className="p-[18px]">
                 <p className="font-mono text-f12 uppercase tracking-[0.06em] text-ink-3">{product.type}</p>
                 <h2 className="mt-[5px] text-f20 font-semibold group-hover:text-accent">{product.name} →</h2>
@@ -47,8 +48,8 @@ export default function Page() {
       </Section>
 
       <Section>
-        <Callout title="How to use this catalogue">
-          These are TAKTL-branded manufacturer references, not confirmed Cladvera SKUs. Product facts are summarized in original wording; product photography, test reports and downloadable files remain on TAKTL&apos;s site. Verify current specifications and availability with TAKTL.
+        <Callout title="Plan a TAKTL project with Cladvera">
+          Share project location, panel area, drawings, finish preferences and schedule. We will confirm availability, samples, lead time and pricing for your scope. TAKTL specifications and performance claims apply to its named products and must be checked against the current manufacturer documents and proposed wall assembly.
         </Callout>
       </Section>
 

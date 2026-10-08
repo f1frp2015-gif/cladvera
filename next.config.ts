@@ -37,6 +37,7 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [60, 75, 85],
+    remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io", pathname: "/images/wn1bezw7/production/**" }],
   },
   async headers() {
     return [

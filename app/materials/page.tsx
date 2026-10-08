@@ -82,12 +82,12 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section title="Manufacturer reference" tone="muted">
+      <Section title="TAKTL collection" tone="muted">
         <LinkCard
           href="/suppliers/taktl"
-          title="TAKTL architectural UHPC catalogue"
-          description="A source-linked reference to TAKTL facade panels, KORSA, SOLA, custom elements and hardware. Cladvera sourcing for these products is not yet confirmed."
-          meta={<Badge tone="warn">External manufacturer</Badge>}
+          title="TAKTL architectural UHPC products"
+          description="TAKTL facade panels, KORSA, SOLA, custom elements and hardware are available for project inquiries through Cladvera. Specifications and lead times are confirmed by product and project."
+          meta={<Badge tone="accent">Manufacturer collection</Badge>}
         />
       </Section>
     </>

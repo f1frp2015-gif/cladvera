@@ -2,8 +2,8 @@
  * Site identity and supply facts.
  *
  * Everything here is read by the layout, metadata, structured data, llms.txt
- * and the forms. Values marked TBC are placeholders for launch: replace them
- * with verified facts before NEXT_PUBLIC_SITE_STAGE is set to "live".
+ * and the forms. Values marked TBC remain draft placeholders; the TAKTL
+ * collection is published separately until the wider site is verified.
  */
 
 export const site = {
@@ -20,8 +20,8 @@ export const site = {
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "https://cladvera.vercel.app"),
   /**
-   * "draft" renders the pre-launch notice and sends noindex. Set
-   * NEXT_PUBLIC_SITE_STAGE=live on the production deployment to remove both.
+   * "draft" keeps the wider site in pre-launch status. The TAKTL collection
+   * has its own publication exception. Use "live" after full-site verification.
    */
   stage: process.env.NEXT_PUBLIC_SITE_STAGE === "live" ? "live" : "draft",
   origin: "Made in China. Supplied to the United States and Canada.",

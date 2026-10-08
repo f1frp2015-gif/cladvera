@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { TaktlProduct } from "@/content/data/taktl";
 
 const backgrounds: Record<TaktlProduct["visual"], string> = {
@@ -10,19 +11,30 @@ const backgrounds: Record<TaktlProduct["visual"], string> = {
 
 export default function TaktlVisual({
   visual,
+  imageUrl,
+  imageAlt,
   className = "",
 }: {
   visual: TaktlProduct["visual"];
+  imageUrl: string;
+  imageAlt: string;
   className?: string;
 }) {
   return (
     <div
-      aria-hidden="true"
       className={`relative overflow-hidden rounded-card border border-line ${className}`}
       style={{ background: backgrounds[visual] }}
     >
+      <Image
+        src={imageUrl}
+        alt={imageAlt}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        className="object-cover"
+        unoptimized
+      />
       <span className="absolute bottom-[10px] left-[10px] rounded-tag bg-paper/90 px-[8px] py-[3px] font-mono text-f12 text-ink-2">
-        Diagrammatic illustration · not a sample
+        Image: TAKTL
       </span>
     </div>
   );

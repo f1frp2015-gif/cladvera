@@ -1,8 +1,32 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { footerNav } from "@/content/data/navigation";
 import { site } from "@/content/data/site";
+import { isTaktlPath } from "@/content/data/publication";
+import { taktlInquiryHref } from "@/lib/taktl-inquiry";
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (site.stage === "draft" && isTaktlPath(pathname)) {
+    return (
+      <footer className="border-t border-line bg-slate text-paper">
+        <div className="site-container grid gap-[20px] py-[40px] md:grid-cols-2">
+          <div>
+            <p className="text-f18 font-semibold">Cladvera · TAKTL products</p>
+            <p className="mt-[8px] max-w-[520px] text-f14 text-paper/70">TAKTL is the manufacturer. Cladvera handles project inquiries. Final product details, availability and attachment design are confirmed for each project.</p>
+          </div>
+          <div className="grid content-start gap-[8px] text-f14 md:justify-items-end">
+            <Link href="/suppliers/taktl" className="hover:underline">Explore TAKTL products</Link>
+            <a href={taktlInquiryHref()} className="hover:underline">Email {site.contact.email}</a>
+            <a href="https://www.taktl-llc.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">TAKTL manufacturer site ↗</a>
+          </div>
+          <p className="text-f12 text-paper/60 md:col-span-2">© {new Date().getFullYear()} {site.brand}. TAKTL marks and product imagery belong to their respective owner.</p>
+        </div>
+      </footer>
+    );
+  }
   return (
     <footer className="border-t border-line bg-slate text-paper">
       <div className="site-container py-[48px]">

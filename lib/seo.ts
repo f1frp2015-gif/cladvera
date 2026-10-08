@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/content/data/site";
+import { isTaktlPath } from "@/content/data/publication";
 
 export const SITE_URL = site.url;
 
@@ -13,7 +14,7 @@ export const organizationSchema = {
   "@id": `${SITE_URL}/#organization`,
   name: site.brand,
   url: SITE_URL,
-  description: `${site.brand} supplies exterior phenolic (HPL) compact panels, UHPC facade panels, aluminum composite (ACM) panels and real-wood veneer panels from audited Chinese mills to fabricators, distributors and contractors in the United States and Canada.`,
+  description: `${site.brand} supplies architectural panel lines for North American projects, including China-sourced core ranges and TAKTL architectural UHPC products.`,
   areaServed: [
     { "@type": "Country", name: "United States" },
     { "@type": "Country", name: "Canada" },
@@ -72,7 +73,7 @@ function enforceSeoLimits(path: string, title: string, description: string) {
 /**
  * Page metadata with the same guard rails as f1composite.com: titles at most
  * 60 characters and descriptions between 120 and 160, enforced at build time.
- * While `site.stage` is "draft" every page is sent as noindex.
+ * While `site.stage` is "draft", only the TAKTL collection is indexable.
  */
 export function buildPageMetadata({
   title,
@@ -84,7 +85,7 @@ export function buildPageMetadata({
   enforceSeoLimits(path, title, description);
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
-  const blockIndexing = noindex || site.stage === "draft";
+  const blockIndexing = noindex || (site.stage === "draft" && !isTaktlPath(path));
 
   return {
     title: { absolute: title },

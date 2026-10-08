@@ -1,11 +1,15 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { site } from "@/content/data/site";
+import { isTaktlPath } from "@/content/data/publication";
 
 /**
- * Shown on every page while NEXT_PUBLIC_SITE_STAGE is not "live". Pages are
- * also sent as noindex in that state (lib/seo.ts).
+ * Shown on draft pages. The published TAKTL collection is exempt.
  */
 export default function DraftNotice() {
-  if (site.stage !== "draft") return null;
+  const pathname = usePathname();
+  if (site.stage !== "draft" || isTaktlPath(pathname)) return null;
   return (
     <div className="bg-warn-bg text-warn">
       <div className="site-container py-[8px] text-f12 font-medium">

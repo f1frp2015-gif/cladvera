@@ -1,8 +1,7 @@
 /**
- * Attributed manufacturer reference. These are TAKTL products, not confirmed
- * Cladvera SKUs. Keep this separate from the China-sourced material catalogue.
- * Text is newly written from the linked manufacturer pages; no TAKTL imagery
- * or downloaded documents are stored in this repository.
+ * TAKTL-branded products offered for project inquiries through Cladvera.
+ * Manufacturer specifications remain distinct from Cladvera's core ranges.
+ * Product text is original; photos link to TAKTL-hosted assets.
  */
 
 export type TaktlProductSlug =
@@ -25,6 +24,8 @@ export interface TaktlProduct {
   sourceUrl: string;
   documentUrl?: string;
   documentLabel?: string;
+  imageUrl: string;
+  imageAlt: string;
   visual: "ribs" | "aggregate" | "light" | "form" | "hardware";
 }
 
@@ -35,7 +36,7 @@ export const taktlProducts: TaktlProduct[] = [
     type: "Architectural UHPC panels",
     summary:
       "TAKTL's core architectural concrete panel system for exterior envelopes and selected interior spaces. Project layouts, texture, color and attachment are coordinated with the manufacturer.",
-    metaTitle: "TAKTL A|UHPC Facade Elements | Manufacturer Reference",
+    metaTitle: "TAKTL A|UHPC Facade Elements | Cladvera",
     metaDescription:
       "Explore TAKTL A|UHPC facade panels, standard dimensions, colors, textures and attachment choices. Manufacturer facts are linked for project verification.",
     facts: [
@@ -49,6 +50,8 @@ export const taktlProducts: TaktlProduct[] = [
     sourceUrl: "https://www.taktl-llc.com/facade-elements/",
     documentUrl: "https://cdn.sanity.io/files/wn1bezw7/production/569e0de535607fb0c294b44de3f8120ba64b872f.pdf",
     documentLabel: "TAKTL product data sheet",
+    imageUrl: "https://cdn.sanity.io/images/wn1bezw7/production/8958f593775c567c5f3e90571d26bc5daf8aaec9-2500x1406.jpg",
+    imageAlt: "TAKTL architectural UHPC facade elements",
     visual: "ribs",
   },
   {
@@ -57,7 +60,7 @@ export const taktlProducts: TaktlProduct[] = [
     type: "Exposed aggregate UHPC",
     summary:
       "KORSA is TAKTL's decorative aggregate option. Mineral aggregate is incorporated into the panel face and revealed in the finish, adding depth and variation to the UHPC surface.",
-    metaTitle: "TAKTL KORSA Aggregate Panels | Manufacturer Reference",
+    metaTitle: "TAKTL KORSA Aggregate Panels | Cladvera",
     metaDescription:
       "Review TAKTL KORSA exposed aggregate panel options, A01 through A05, and the manufacturer design guide. Confirm samples and availability with TAKTL.",
     facts: [
@@ -71,6 +74,8 @@ export const taktlProducts: TaktlProduct[] = [
     sourceUrl: "https://www.taktl-llc.com/korsa-aggregate/",
     documentUrl: "https://cdn.sanity.io/files/wn1bezw7/production/58de072fee9a0a91ce563ebd38446d3ae5f02021.pdf",
     documentLabel: "KORSA panel design guide",
+    imageUrl: "https://cdn.sanity.io/images/wn1bezw7/production/06c77f8c0648877936d98330688b04448e169f5b-1300x547.jpg",
+    imageAlt: "TAKTL KORSA exposed aggregate panel surface",
     visual: "aggregate",
   },
   {
@@ -79,7 +84,7 @@ export const taktlProducts: TaktlProduct[] = [
     type: "Specialty UHPC facade panels",
     summary:
       "SOLA is TAKTL's light-activated facade panel line using its proprietary SC+ technology. The manufacturer publishes two surface options and separate performance test information.",
-    metaTitle: "TAKTL SOLA Self-Cleaning Panels | Manufacturer Reference",
+    metaTitle: "TAKTL SOLA Self-Cleaning Panels | Cladvera",
     metaDescription:
       "See TAKTL SOLA S01 and S02 facade panel options, standard thickness and format, and links to the manufacturer's product data and test information.",
     facts: [
@@ -93,6 +98,8 @@ export const taktlProducts: TaktlProduct[] = [
     sourceUrl: "https://www.taktl-llc.com/sola/",
     documentUrl: "https://cdn.sanity.io/files/wn1bezw7/production/69dd58abd7c75fc41b972fe8b11accf352c97cd6.pdf",
     documentLabel: "SOLA product data sheet",
+    imageUrl: "https://cdn.sanity.io/images/wn1bezw7/production/36e5922ff5c9b3e15074cf96af193a5be3dadada-1500x750.jpg",
+    imageAlt: "TAKTL SOLA self-cleaning architectural panels",
     visual: "light",
   },
   {
@@ -101,7 +108,7 @@ export const taktlProducts: TaktlProduct[] = [
     type: "Project-developed UHPC forms",
     summary:
       "TAKTL develops custom textures and forms with design teams. A pattern or tool is translated into a production mold, then coordinated with panel geometry and project requirements.",
-    metaTitle: "TAKTL Custom UHPC Elements | Manufacturer Reference",
+    metaTitle: "TAKTL Custom UHPC Elements | Cladvera",
     metaDescription:
       "Explore TAKTL's custom UHPC texture and form process, from original pattern to production mold. Each element is developed for a specific project.",
     facts: [
@@ -112,6 +119,8 @@ export const taktlProducts: TaktlProduct[] = [
     applications: ["Project-specific facade relief", "Special architectural elements", "Bespoke surface patterns"],
     options: ["Natural-material impressions", "Machined profiles", "Combined macro and micro textures"],
     sourceUrl: "https://www.taktl-llc.com/taktl-custom-elements/",
+    imageUrl: "https://cdn.sanity.io/images/wn1bezw7/production/6056491d05f748886873cf2662546db22bfd4fc9-2400x1600.jpg",
+    imageAlt: "Custom architectural elements by TAKTL",
     visual: "form",
   },
   {
@@ -120,7 +129,7 @@ export const taktlProducts: TaktlProduct[] = [
     type: "Panel attachment components",
     summary:
       "Manufacturer-specific rails, clips, anchors and visible fasteners support TAKTL panel installation. The attachment layout is selected for the panel and engineered wall assembly.",
-    metaTitle: "TAKTL Panel Hardware | Manufacturer Reference",
+    metaTitle: "TAKTL Panel Hardware | Cladvera",
     metaDescription:
       "Review TAKTL panel attachment components, including concealed rail and clip systems and visible fasteners. Final selection follows project engineering.",
     facts: [
@@ -131,6 +140,8 @@ export const taktlProducts: TaktlProduct[] = [
     applications: ["Concealed rainscreen attachment", "Visible-fastener rainscreens", "Panel subframe coordination"],
     options: ["Concealed clips and rails", "Mechanical undercut anchors", "Visible fasteners"],
     sourceUrl: "https://www.taktl-llc.com/taktl-hardware/",
+    imageUrl: "https://cdn.sanity.io/images/wn1bezw7/production/3ee7545c9f37cdafd44a97685ba09d604f52b018-2560x1440.jpg",
+    imageAlt: "TAKTL facade panel attachment hardware",
     visual: "hardware",
   },
 ];
