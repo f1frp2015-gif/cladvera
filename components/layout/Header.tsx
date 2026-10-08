@@ -5,13 +5,15 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ctaNav, mainNav } from "@/content/data/navigation";
 import { site } from "@/content/data/site";
-import { isTaktlPath } from "@/content/data/publication";
+import { isAlminePath, isPublishedPath } from "@/content/data/publication";
 import { taktlInquiryHref } from "@/lib/taktl-inquiry";
+import { almineInquiryHref } from "@/lib/almine-inquiry";
 import RegionSwitch from "@/components/region/RegionSwitch";
 
 export default function Header() {
   const pathname = usePathname();
-  const taktlLaunch = site.stage === "draft" && isTaktlPath(pathname);
+  const publishedLaunch = site.stage === "draft" && isPublishedPath(pathname);
+  const inquiryHref = isAlminePath(pathname) ? almineInquiryHref() : taktlInquiryHref();
   // The menu is open only for the path it was opened on, so navigating closes it.
   const [openOnPath, setOpenOnPath] = useState<string | null>(null);
   const open = openOnPath === pathname;
@@ -19,15 +21,16 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
       <div className="site-container flex h-[64px] items-center justify-between gap-[16px]">
-        <Link href={taktlLaunch ? "/suppliers/taktl" : "/"} className="flex items-center gap-[10px] text-f18 font-semibold tracking-tight">
+        <Link href={publishedLaunch ? "/suppliers/taktl" : "/"} className="flex items-center gap-[10px] text-f18 font-semibold tracking-tight">
           <span aria-hidden="true" className="inline-block h-[22px] w-[22px] rounded-[4px] bg-accent" />
           {site.brand}
         </Link>
 
-        {taktlLaunch ? (
+        {publishedLaunch ? (
           <nav aria-label="Main" className="hidden items-center gap-[18px] lg:flex">
             <Link href="/suppliers/taktl" className="text-f14 font-medium text-ink-2 hover:text-ink">TAKTL products</Link>
-            <a href={taktlInquiryHref()} className="rounded-control bg-accent px-[14px] py-[8px] text-f14 font-semibold text-paper hover:bg-accent-hover">Project inquiry</a>
+            <Link href="/materials/acm-panels" className="text-f14 font-medium text-ink-2 hover:text-ink">ALMINE panels</Link>
+            <a href={inquiryHref} className="rounded-control bg-accent px-[14px] py-[8px] text-f14 font-semibold text-paper hover:bg-accent-hover">Project inquiry</a>
           </nav>
         ) : <nav aria-label="Main" className="hidden items-center gap-[4px] lg:flex">
           {mainNav.map((group) =>
@@ -63,7 +66,7 @@ export default function Header() {
           )}
         </nav>}
 
-        {!taktlLaunch && <div className="hidden items-center gap-[10px] lg:flex">
+        {!publishedLaunch && <div className="hidden items-center gap-[10px] lg:flex">
           <RegionSwitch compact />
           {ctaNav.map((link, index) => (
             <Link
@@ -94,10 +97,11 @@ export default function Header() {
       {open && (
         <div id="mobile-nav" className="border-t border-line bg-paper lg:hidden">
           <div className="site-container max-h-[calc(100vh-64px)] overflow-y-auto py-[16px]">
-            {taktlLaunch ? (
+            {publishedLaunch ? (
               <div className="grid gap-[10px]">
                 <Link href="/suppliers/taktl" className="py-[6px] text-f16 font-semibold">TAKTL products</Link>
-                <a href={taktlInquiryHref()} className="rounded-control bg-accent px-[12px] py-[8px] text-center text-f14 font-semibold text-paper">Project inquiry</a>
+                <Link href="/materials/acm-panels" className="py-[6px] text-f16 font-semibold">ALMINE panels</Link>
+                <a href={inquiryHref} className="rounded-control bg-accent px-[12px] py-[8px] text-center text-f14 font-semibold text-paper">Project inquiry</a>
               </div>
             ) : <>
             <div className="mb-[16px] flex items-center justify-between gap-[12px]">

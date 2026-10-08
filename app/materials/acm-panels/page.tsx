@@ -24,7 +24,7 @@ export default function Page() {
         eyebrow="ACM / MCM · manufacturer range"
         title="ALMINE metal composite panels"
         lede="Three products from ALMINE's A-grade fireproof metal composite range: an architectural A2 panel, a rail and tunnel panel, and a medical panel. Review the manufacturer information and request the exact construction and test documents for your project."
-        crumbs={[{ name: "Materials", path: "/materials" }, { name: "ACM / MCM panels", path }]}
+        crumbs={[{ name: "ACM / MCM panels", path }]}
         actions={<AlmineInquiryLink />}
       >
         <div className="mt-[16px] flex flex-wrap gap-[6px]">

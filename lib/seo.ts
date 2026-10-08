@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/content/data/site";
-import { isTaktlPath } from "@/content/data/publication";
+import { isPublishedPath } from "@/content/data/publication";
 
 export const SITE_URL = site.url;
 
@@ -73,7 +73,7 @@ function enforceSeoLimits(path: string, title: string, description: string) {
 /**
  * Page metadata with the same guard rails as f1composite.com: titles at most
  * 60 characters and descriptions between 120 and 160, enforced at build time.
- * While `site.stage` is "draft", only the TAKTL collection is indexable.
+ * While `site.stage` is "draft", only published collections are indexable.
  */
 export function buildPageMetadata({
   title,
@@ -85,7 +85,7 @@ export function buildPageMetadata({
   enforceSeoLimits(path, title, description);
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
-  const blockIndexing = noindex || (site.stage === "draft" && !isTaktlPath(path));
+  const blockIndexing = noindex || (site.stage === "draft" && !isPublishedPath(path));
 
   return {
     title: { absolute: title },
