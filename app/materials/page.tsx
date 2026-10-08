@@ -81,6 +81,15 @@ export default function Page() {
           <LinkCard href="/compliance" title="Exterior walls" description="What each material needs for low-rise and high-rise exterior use in the United States and Canada." />
         </div>
       </Section>
+
+      <Section title="Manufacturer reference" tone="muted">
+        <LinkCard
+          href="/suppliers/taktl"
+          title="TAKTL architectural UHPC catalogue"
+          description="A source-linked reference to TAKTL facade panels, KORSA, SOLA, custom elements and hardware. Cladvera sourcing for these products is not yet confirmed."
+          meta={<Badge tone="warn">External manufacturer</Badge>}
+        />
+      </Section>
     </>
   );
 }

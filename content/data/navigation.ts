@@ -35,6 +35,11 @@ export const mainNav: NavGroup[] = [
         description: "Thin ultra high performance concrete, with an engineering partner",
       },
       {
+        label: "TAKTL product reference",
+        href: "/suppliers/taktl",
+        description: "Attributed manufacturer catalogue; Cladvera sourcing to confirm",
+      },
+      {
         label: "Aluminum Composite (ACM) Panels",
         href: "/materials/acm-panels",
         description: "FR core for interiors and low-rise exteriors",
@@ -106,6 +111,7 @@ export const footerNav: Array<{ heading: string; links: NavLink[] }> = [
     links: [
       { label: "Exterior phenolic (HPL) panels", href: "/materials/exterior-hpl-panels" },
       { label: "UHPC facade panels", href: "/materials/uhpc-panels" },
+      { label: "TAKTL product reference", href: "/suppliers/taktl" },
       { label: "Aluminum composite (ACM) panels", href: "/materials/acm-panels" },
       { label: "Wood veneer panels", href: "/materials/wood-veneer-panels" },
       { label: "Interior HPL panels", href: "/materials/interior-hpl-panels" },
@@ -164,6 +170,12 @@ export const routes: RouteEntry[] = [
   { path: "/materials", title: "Materials", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/materials/exterior-hpl-panels", title: "Exterior Phenolic (HPL) Panels", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/materials/uhpc-panels", title: "UHPC Facade Panels", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/suppliers/taktl", title: "TAKTL Product Reference", priority: "P1", changeFrequency: "monthly", index: false },
+  { path: "/suppliers/taktl/facade-elements", title: "TAKTL A|UHPC Facade Elements", priority: "P1", changeFrequency: "monthly", index: false },
+  { path: "/suppliers/taktl/korsa-aggregate", title: "TAKTL KORSA Aggregate Panels", priority: "P1", changeFrequency: "monthly", index: false },
+  { path: "/suppliers/taktl/sola", title: "TAKTL SOLA Self-Cleaning Panels", priority: "P1", changeFrequency: "monthly", index: false },
+  { path: "/suppliers/taktl/custom-elements", title: "TAKTL Custom Elements", priority: "P1", changeFrequency: "monthly", index: false },
+  { path: "/suppliers/taktl/hardware", title: "TAKTL Hardware", priority: "P1", changeFrequency: "monthly", index: false },
   { path: "/materials/acm-panels", title: "Aluminum Composite (ACM) Panels", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/materials/wood-veneer-panels", title: "Wood Veneer Panels", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/materials/interior-hpl-panels", title: "Interior HPL Panels", priority: "P1", changeFrequency: "monthly", index: true },

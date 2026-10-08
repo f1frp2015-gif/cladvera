@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <p className="text-f18 font-semibold">{site.brand}</p>
             <p className="mt-[8px] text-f14 text-paper/70">{site.tagline}</p>
-            <p className="mt-[16px] text-f12 text-paper/60">{site.origin}</p>
+            <p className="mt-[16px] text-f12 text-paper/60">Cladvera core ranges: {site.origin}</p>
           </div>
           {footerNav.map((column) => (
             <div key={column.heading}>
@@ -35,8 +35,8 @@ export default function Footer() {
               having jurisdiction and the design professionals of record. See <Link href="/compliance" className="underline">compliance</Link>.
             </p>
             <p>
-              Not for projects subject to Buy American, Build America Buy America or Buy Canadian rules. Duties and taxes are payable by
-              the importer.
+              Cladvera&apos;s China-sourced ranges are not for projects subject to Buy American, Build America Buy America or Buy Canadian rules.
+              Duties and taxes are payable by the importer.
             </p>
           </div>
           <div className="grid gap-[6px] md:text-right">
