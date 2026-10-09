@@ -35,6 +35,7 @@ export default function ProductJourney({ productId }: { productId: string }) {
           <SelectionButton productId={product.id} />
           <Cta href="/compare" variant="secondary">Compare shortlist →</Cta>
           <Link href="/procurement" className="text-f14 font-semibold text-accent hover:underline">See the procurement process →</Link>
+          {product.manufacturer !== "TAKTL" && <Link href="/sourcing/china" className="text-f14 font-semibold text-accent hover:underline">Plan sourcing from China →</Link>}
         </div>
         <div className="mt-[40px] grid gap-[28px] md:grid-cols-3 md:gap-[40px]">
           {[
@@ -70,6 +71,7 @@ export default function ProductJourney({ productId }: { productId: string }) {
             See the <Link href={product.collectionPath} className="font-semibold text-accent underline underline-offset-4">{product.manufacturer} {hardware ? "Architectural UHPC" : category?.label} collection</Link> for material context and manufacturer information.
           </p>
         )}
+        {!hardware && <p className="mb-[20px] text-f14 text-ink-2">Review material terminology and specification inputs in the <Link href="/guides/facade-materials" className="text-accent underline underline-offset-4">ACM, HPL, UHPC and GFRP selection guide</Link>.</p>}
         {related.length > 0 ? (
           <>
             {!hardware && <p className="mb-[16px] max-w-[780px] text-f14 text-ink-2">The following products share a listed application. Compare their construction, design intent and evidence before considering them for the same project.</p>}

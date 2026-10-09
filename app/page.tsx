@@ -6,8 +6,8 @@ import { Cta } from "@/components/ui";
 import { catalogCategories, catalogApplications, catalogProducts } from "@/content/data/catalog";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-const description = "Explore facade panels, interior boards and custom architectural elements in UHPC, metal composite, HPL and GFRP. Compare materials, samples and project supply.";
-export const metadata = buildPageMetadata({ title: "Facade Panels & Architectural Materials | Cladvera", description, path: "/" });
+const description = "Source facade panels and architectural materials for US and Canadian projects. Explore China-sourced HPL, metal composite and GFRP, plus the TAKTL UHPC range.";
+export const metadata = buildPageMetadata({ title: "Facade Panel Supplier & Architectural Materials | Cladvera", description, path: "/" });
 
 const process = [
   { number: "01", title: "The material.", text: "Begin with surface, structure and the character of each family.", link: "Explore the product library", href: "/products" },
@@ -82,6 +82,17 @@ export default function Page() {
       <div className="site-container py-[64px] md:py-[112px]">
         <div className="grid gap-[24px] border-t border-line-strong pt-[22px] md:grid-cols-[1fr_2fr]"><p className="eyebrow">03 / A considered process</p><h2 className="editorial-title">From first impression<br /><span className="editorial-serif">to the final detail.</span></h2></div>
         <ol className="mt-[48px] grid gap-[32px] md:mt-[64px] md:grid-cols-3">{process.map(item => <li key={item.number} className="border-t border-line pt-[16px]"><p className="font-mono text-[10px] text-accent">{item.number} /</p><h3 className="mb-[18px] mt-[28px] text-[34px] font-normal tracking-[-0.045em]">{item.title}</h3><p className="max-w-[340px] text-f16 text-ink-2">{item.text}</p><Link href={item.href} className="index-link mt-[28px] inline-flex min-h-[44px] items-center gap-[24px] border-b border-line-strong text-f14 font-medium">{item.link}<span aria-hidden="true">↗</span></Link></li>)}</ol>
+      </div>
+    </section>
+
+    <section className="border-t border-line bg-paper">
+      <div className="site-container grid gap-[32px] py-[56px] md:py-[80px] lg:grid-cols-[1fr_1.5fr] lg:gap-[96px]">
+        <div><p className="eyebrow">04 / Sourcing & supply</p><h2 className="mt-[24px] text-[36px] font-normal leading-[1.1] tracking-[-0.045em] md:text-[48px]">A clear material.<br /><span className="editorial-serif">A defined supply route.</span></h2></div>
+        <div>
+          <p className="max-w-[650px] text-f18 text-ink-2">Cladvera is an architectural panel supplier for United States and Canadian project inquiries. Explore China-sourcing options for ALMINE metal composite panels, Compactwood exterior HPL and interior boards, and custom GFRP elements. TAKTL architectural UHPC is a separately identified manufacturer range.</p>
+          <p className="mt-[18px] max-w-[650px] text-f14 text-ink-2">Confirm the manufacturing origin, offered construction, shipment route and project documents with each quotation.</p>
+          <div className="mt-[28px] flex flex-wrap gap-x-[32px] gap-y-[16px]"><Cta href="/sourcing/china" variant="ghost">Sourcing architectural panels from China ↗</Cta><Cta href="/guides/facade-materials" variant="ghost">Compare facade material types ↗</Cta></div>
+        </div>
       </div>
     </section>
 

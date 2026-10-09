@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { CollectionNextSteps } from "@/components/catalog/ProductJourney";
+import MaterialQuestions from "@/components/catalog/MaterialQuestions";
 import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
 import { productRequestHref } from "@/content/data/catalog";
 import {
@@ -14,10 +15,10 @@ import {
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Explore Compactwood's high-pressure-cured interior decorative board for walls and ceilings, with construction notes and HPL grade to confirm by SKU.";
+  "Source Compactwood interior decorative boards for walls and ceilings. Confirm wood-fiber or glass-fiber core, finishes, installation and project documents.";
 
 export const metadata = buildPageMetadata({
-  title: "Compactwood Interior Decorative Boards | Cladvera",
+  title: "Interior Decorative Panel Supplier | Cladvera",
   description,
   path,
 });
@@ -27,9 +28,9 @@ export default function Page() {
     <>
       <JsonLd data={buildWebPageSchema({ name: "Compactwood interior decorative boards", description, path, type: "CollectionPage" })} />
       <PageHeader
-        eyebrow="Interior panels · related high-pressure range"
-        title="Compactwood interior decorative boards"
-        lede="Compactwood describes an interior board made by curing a decorative surface with a wood-fiber or glass-fiber core under heat and pressure. The public product page does not classify this line as HPL; request the exact construction and grade for an HPL specification."
+        eyebrow="Compactwood · interior panel supply"
+        title="Interior decorative boards for walls and ceilings."
+        lede="Cladvera coordinates supply of Compactwood's Paste Special Board for interior projects. The manufacturer describes a decorative surface with a high-pressure-cured wood-fiber or glass-fiber core. Confirm the offered construction and grade; this line's HPL classification is not established by the public product description."
         crumbs={[{ name: "Products", path: "/products" }, { name: "Compactwood interior boards", path }]}
         actions={<><Cta href={productRequestHref("compactwood-interior")}>Request project pricing</Cta><Cta href={productRequestHref("compactwood-interior", "sample")} variant="secondary">Request a sample</Cta></>}
       >
@@ -60,6 +61,7 @@ export default function Page() {
       <Section title="Manufacturer source">
         <a href={compactwoodSources.interiorProduct} target="_blank" rel="noopener noreferrer" className="inline-block rounded-card border border-line p-[18px] text-f14 font-semibold hover:border-line-strong">Compactwood paste special board ↗</a>
       </Section>
+      <MaterialQuestions material="interior-board" />
       <CollectionNextSteps category="interior-board" />
     </>
   );

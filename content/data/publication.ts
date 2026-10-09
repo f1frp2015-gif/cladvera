@@ -7,6 +7,7 @@ export const compactwoodInteriorPath = "/materials/interior-hpl-panels";
 export const publishedCollectionPaths = [taktlPath, alminePath, compactwoodExteriorPath, compactwoodInteriorPath] as const;
 export const publishedPaths = [
   "/", "/products", "/applications", "/architects", "/procurement", "/technical-resources", "/compare", "/samples", "/request-quote",
+  "/sourcing/china", "/guides/facade-materials",
   ...publishedCollectionPaths, ...catalogProducts.map(p => p.path),
 ];
 export const alminePublishedPaths = publishedPaths.filter(p => p === alminePath || p.startsWith(`${alminePath}/`));

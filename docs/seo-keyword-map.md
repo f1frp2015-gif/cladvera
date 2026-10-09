@@ -6,13 +6,24 @@ Updated: 2026-10-09
 
 This map assigns search intent to the reviewed product catalogue. It does not claim keyword search volume, current rankings, traffic forecasts or a ranking improvement. Those need Search Console and keyword research data that were not available for this change.
 
-The catalogue currently contains 11 product families in six material/component categories. The reviewed publication set contains 24 routes, of which 21 are indexable. The comparison page and request forms remain outside the sitemap. Unreviewed legacy content retains the existing draft publication policy.
+The catalogue currently contains 11 product families in six material/component categories. The reviewed publication set contains 26 routes, of which 23 are indexable. The comparison page and request forms remain outside the sitemap. Unreviewed legacy content retains the existing draft publication policy.
+
+## Export SEO / GEO research
+
+The 2026-10-09 export round adds a source-backed [Chinese research report](建筑板材出口搜索市场调研.md) and [166-row keyword/question CSV](seo-geo-keywords.csv), covering 23 topic clusters. Priorities are relevance and evidence decisions, not measured search volume or ranking forecasts. CSV variants represent semantic intent; they are not a requirement to repeat every phrase verbatim.
+
+| New canonical route | Exclusive primary intent | Content and onward paths |
+| --- | --- | --- |
+| `/sourcing/china` | China-sourced architectural panel supplier / sourcing and import preparation | Four material RFQ groups, six named China-sourcing candidates, quote scope, origin vs dispatch, US/Canada official import sources and buyer answers. TAKTL is explicitly separate. |
+| `/guides/facade-materials` | ACM/MCM, HPL, UHPC and GFRP/GRP material comparison | Comparison matrix, definitions, exact construction questions, manufacturer sources and material/page links. Interior decorative board remains distinct. |
+
+Primary navigation exposes the sourcing hub under Procurement. Homepage, footer, procurement, architects, technical resources and product journeys link these pages where relevant. Each reviewed non-TAKTL product has a China-sourcing planning link; TAKTL retains its separate manufacturer route. The four China-associated collection pages add 16 product-family buyer answers. Both new pages add six answers each, for 28 new visible questions with matching FAQ schema. FAQ markup is descriptive; no rich-result or AI citation benefit is promised.
 
 ## Primary page map
 
 | Canonical route | Primary topic | Supporting language / intent | Useful onward links |
 | --- | --- | --- | --- |
-| `/` | Facade panels and architectural materials | Facade cladding, interior surfaces, design intent, material selection, project supply | Six material/component destinations; named study candidates; comparison; applications; architects; procurement |
+| `/` | Facade panel supplier and architectural materials | US/Canada project inquiries, China-sourced core ranges, separate TAKTL collection, design intent, material selection | Six material/component destinations; named study candidates; comparison; applications; architects; procurement |
 | `/products` | Architectural panel product finder | Browse by material, application and manufacturer; compare products | Canonical collections and product detail pages; shortlist |
 | `/suppliers/taktl` | Architectural UHPC facade panels | TAKTL, ultra-high performance concrete, concrete textures, aggregate panels | TAKTL facade elements, KORSA, SOLA, custom elements and hardware |
 | `/materials/acm-panels` | Metal composite panels | ALMINE, MCM, ACM terminology, architectural metal panels | A2, transit/tunnel and medical product families |
@@ -27,7 +38,7 @@ The catalogue currently contains 11 product families in six material/component c
 
 The map treats collection pages as material overviews and detail pages as individual products. Product names and verified manufacturer terminology remain the focus of detail-page titles. Avoid making every page compete for the same generic “facade panels” phrase.
 
-The implemented homepage title is **Facade Panels & Architectural Materials | Cladvera**. Its H1 is **Material shapes architecture.** The eyebrow identifies facade panels and architectural surfaces; the introduction names facade panels, interior boards and custom elements. UHPC, metal composite, HPL and GFRP remain explicit in the collection navigation, which links directly to reviewed material destinations. The hero also links directly to `/suppliers/taktl/facade-elements`.
+The implemented homepage title is **Facade Panel Supplier & Architectural Materials | Cladvera**. Its H1 is **Material shapes architecture.** The eyebrow identifies facade panels and architectural surfaces; the introduction names facade panels, interior boards and custom elements. UHPC, metal composite, HPL and GFRP remain explicit in the collection navigation, which links directly to reviewed material destinations. The hero also links directly to `/suppliers/taktl/facade-elements`.
 
 ## Homepage design-intent paths
 
@@ -106,7 +117,7 @@ Use short, meaningful anchor text in normal sentences. A named material or produ
 ## Metadata and crawl handling
 
 - Title, visible H1 and introductory copy should describe the same page intent. Preserve readable English rather than repeated keyword variants. Titles remain at most 60 characters and descriptions remain 120–160 characters under the repository rules. Google may generate a different result title using page and link content. [Title-link guidance](https://developers.google.com/search/docs/appearance/title-link)
-- Canonical URLs and the reviewed sitemap remain governed by existing site configuration and publication rules. No new routes or unreviewed product claims are introduced by this SEO change.
+- Canonical URLs, metadata, robots and sitemap follow the reviewed publication list in both draft and live environments. The export SEO round adds `/sourcing/china` and `/guides/facade-materials`; it does not release legacy draft routes.
 - Sitemap `lastModified` is omitted until a reliable significant-content-change date is available for each URL. Build time is not a content modification date. [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
 - Retain the existing draft exclusions for legacy `/finishes`, `/materials/uhpc-panels`, `/resources/*` and other unreviewed pages. These should receive a separate evidence/content review before publication.
 - If an excluded draft URL already appears in Search Console, review its removal/indexing state separately: Google cannot read a `noindex` directive when robots.txt blocks crawling. The present change preserves the existing publication policy. [Google noindex guidance](https://developers.google.com/search/docs/crawling-indexing/block-indexing)

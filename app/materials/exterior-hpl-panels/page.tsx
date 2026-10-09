@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { CollectionNextSteps } from "@/components/catalog/ProductJourney";
+import MaterialQuestions from "@/components/catalog/MaterialQuestions";
 import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
 import { productRequestHref } from "@/content/data/catalog";
 import {
@@ -14,10 +15,10 @@ import {
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Explore Compactwood's exterior wood-fiber HPL facade board, its manufacturer-described construction, rainscreen use and documents to confirm for each project.";
+  "Source Compactwood exterior HPL cladding for facade projects. Review wood-fiber laminate construction, rainscreen details, samples and procurement documents.";
 
 export const metadata = buildPageMetadata({
-  title: "Compactwood Exterior HPL Panels | Cladvera",
+  title: "Exterior HPL Cladding Supplier | Compactwood | Cladvera",
   description,
   path,
 });
@@ -27,9 +28,9 @@ export default function Page() {
     <>
       <JsonLd data={buildWebPageSchema({ name: "Compactwood exterior HPL panels", description, path, type: "CollectionPage" })} />
       <PageHeader
-        eyebrow="HPL · manufacturer range"
-        title="Compactwood exterior wood-fiber HPL"
-        lede="A high-pressure wood-fiber laminate described by Compactwood for building facades. Cladvera can source the range for project review; the exact panel construction and documentation are confirmed with each inquiry."
+        eyebrow="Compactwood · exterior HPL panel supply"
+        title="Exterior HPL panels for ventilated facades."
+        lede="Source Compactwood exterior high-pressure laminate (HPL) cladding through Cladvera. The Chinese manufacturer describes a wood-fiber board for building facades; confirm the exterior grade, finish schedule, attachment details and supporting reports before placing a project order."
         crumbs={[{ name: "Products", path: "/products" }, { name: "Compactwood exterior HPL", path }]}
         actions={<><Cta href={productRequestHref("compactwood-exterior")}>Request project pricing</Cta><Cta href={productRequestHref("compactwood-exterior", "sample")} variant="secondary">Request a sample</Cta></>}
       >
@@ -76,6 +77,7 @@ export default function Page() {
         </div>
         <p className="mt-[18px] text-f14 text-ink-2">For interior work, see the <Link href={compactwoodInteriorPath} className="font-medium text-accent hover:underline">Compactwood high-pressure decorative board</Link>. Its exact HPL classification remains to be confirmed by product.</p>
       </Section>
+      <MaterialQuestions material="hpl" />
       <CollectionNextSteps category="hpl" />
     </>
   );

@@ -34,7 +34,10 @@ export const mainNav: NavGroup[] = [
   { label: "Products", href: "/products", links: productNavLinks },
   { label: "Applications", href: "/applications", links: [] },
   { label: "Architects", href: "/architects", links: [] },
-  { label: "Procurement", href: "/procurement", links: [] },
+  { label: "Procurement", href: "/procurement", links: [
+    { label: "Procurement & RFQ", href: "/procurement", description: "Prepare quantities, approvals and a comparable quote" },
+    { label: "Sourcing from China", href: "/sourcing/china", description: "Product scope, export preparation and import planning" },
+  ] },
   { label: "Technical resources", href: "/technical-resources", links: [] },
 ];
 export const ctaNav: NavLink[] = [
@@ -54,12 +57,14 @@ export const footerNav: Array<{ heading: string; links: NavLink[] }> = [
   { heading: "Design & selection", links: [
     { label: "Facade & interior applications", href: "/applications" },
     { label: "Panel specification for architects", href: "/architects" },
+    { label: "Facade material selection guide", href: "/guides/facade-materials" },
     { label: "Compare shortlist", href: "/compare" },
     { label: "Technical resources", href: "/technical-resources" },
     { label: "Request samples", href: "/samples" },
   ] },
   { heading: "Project procurement", links: [
     { label: "Procurement process", href: "/procurement" },
+    { label: "Sourcing panels from China", href: "/sourcing/china" },
     { label: "Request a quote", href: "/request-quote" },
     { label: "Request documents", href: "/request-quote?intent=documents" },
   ] },
@@ -77,6 +82,8 @@ export interface RouteEntry {
 }
 
 export const routes: RouteEntry[] = [
+  { path: "/sourcing/china", title: "Sourcing Architectural Panels from China", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/guides/facade-materials", title: "Facade Material Selection Guide", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/products", title: "Product Finder", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/applications", title: "Applications", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/procurement", title: "Procurement", priority: "P0", changeFrequency: "monthly", index: true },

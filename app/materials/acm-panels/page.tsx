@@ -1,6 +1,7 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { CollectionNextSteps } from "@/components/catalog/ProductJourney";
+import MaterialQuestions from "@/components/catalog/MaterialQuestions";
 import AlmineVisual from "@/components/almine/AlmineVisual";
 import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
 import { almineProducts, almineSourceUrl, almineTechnicalSources } from "@/content/data/almine";
@@ -8,10 +9,10 @@ import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const path = "/materials/acm-panels";
 const description =
-  "Explore ALMINE A2 metal composite panels, tunnel traffic panels and medical antibacterial panels, with manufacturer sources and project verification notes.";
+  "Source ALMINE metal composite panels for facades, tunnels and healthcare interiors. Review MCM/ACM construction, samples and project documents.";
 
 export const metadata = buildPageMetadata({
-  title: "ALMINE Metal Composite Panels | Cladvera",
+  title: "Metal Composite Panel Supplier | ALMINE | Cladvera",
   description,
   path,
 });
@@ -21,15 +22,15 @@ export default function Page() {
     <>
       <JsonLd data={buildWebPageSchema({ name: "ALMINE metal composite panels", description, path, type: "CollectionPage" })} />
       <PageHeader
-        eyebrow="ACM / MCM · manufacturer range"
-        title="ALMINE metal composite panels"
-        lede="Three products from ALMINE's A-grade fireproof metal composite range: an architectural A2 panel, a rail and tunnel panel, and a medical panel. Review the manufacturer information and request the exact construction and test documents for your project."
+        eyebrow="ALMINE · metal composite panel supply"
+        title="Metal composite panels for project supply."
+        lede="Cladvera supplies ALMINE metal composite panels for architectural, transit and healthcare projects. The manufacturer is based in Jiangsu, China; export inquiries are reviewed against the exact construction, finish and project documents."
         crumbs={[{ name: "Products", path: "/products" }, { name: "ACM / MCM panels", path }]}
         actions={<><Cta href="/products?category=mcm">Select metal composite panels</Cta><Cta href="/technical-resources" variant="secondary">Technical documents</Cta></>}
       >
         <div className="mt-[16px] flex flex-wrap gap-[6px]">
           <Badge>Manufacturer: Jiangsu ALMINE, China</Badge>
-          <Badge tone="pending">Exact ACM construction: confirm by SKU</Badge>
+          <Badge tone="pending">Face metal and gauge: confirm by SKU</Badge>
         </div>
       </PageHeader>
 
@@ -75,6 +76,7 @@ export default function Page() {
           ))}
         </div>
       </Section>
+      <MaterialQuestions material="mcm" />
       <CollectionNextSteps category="mcm" />
     </>
   );

@@ -24,7 +24,7 @@ export default function Footer() {
         <div className="grid gap-x-[40px] gap-y-[36px] py-[44px] md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:py-[56px]">
           <div className="lg:pr-[32px]">
             <p className="mb-[18px] font-mono text-[10px] uppercase tracking-[0.15em] text-paper/60">Material. Surface. Form.</p>
-            <p className="max-w-[290px] text-f14 leading-[1.8] text-paper/75">Architectural panels and custom elements, from material selection to project procurement.</p>
+            <p className="max-w-[290px] text-f14 leading-[1.8] text-paper/75">Architectural panel sourcing for US and Canadian project teams. China-sourced core ranges and a separately identified TAKTL manufacturer collection.</p>
             <a href={`mailto:${site.contact.email}`} className="mt-[22px] inline-block py-[4px] text-f14 text-paper underline decoration-paper/35 underline-offset-[6px] transition-colors hover:text-paper/70">{site.contact.email}</a>
           </div>
           {footerNav.map(group => (

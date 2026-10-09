@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/content/data/site";
 import { isPublishedPath } from "@/content/data/publication";
+import { routes } from "@/content/data/navigation";
 
 export const SITE_URL = site.url;
 
@@ -14,7 +15,7 @@ export const organizationSchema = {
   "@id": `${SITE_URL}/#organization`,
   name: site.brand,
   url: SITE_URL,
-  description: `${site.brand} supplies architectural panel lines for North American projects, including China-sourced core ranges and TAKTL architectural UHPC products.`,
+  description: site.description,
   areaServed: [
     { "@type": "Country", name: "United States" },
     { "@type": "Country", name: "Canada" },
@@ -73,7 +74,8 @@ function enforceSeoLimits(path: string, title: string, description: string) {
 /**
  * Page metadata with the same guard rails as f1composite.com: titles at most
  * 60 characters and descriptions between 120 and 160, enforced at build time.
- * While `site.stage` is "draft", only published collections are indexable.
+ * Only reviewed routes marked indexable in the registry can be indexed,
+ * regardless of the site's draft/live presentation setting.
  */
 export function buildPageMetadata({
   title,
@@ -85,13 +87,13 @@ export function buildPageMetadata({
   enforceSeoLimits(path, title, description);
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
-  const blockIndexing = noindex || (site.stage === "draft" && !isPublishedPath(path));
+  const blockIndexing = noindex || !isPublishedPath(path) || !routes.some(route => route.path === path && route.index);
 
   return {
     title: { absolute: title },
     description,
     alternates: { canonical: url },
-    robots: blockIndexing ? { index: false, follow: !noindex } : { index: true, follow: true },
+    robots: blockIndexing ? { index: false, follow: !noindex } : { index: true, follow: true, "max-image-preview": "large" },
     openGraph: {
       title,
       description,

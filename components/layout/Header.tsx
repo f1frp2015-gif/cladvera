@@ -8,6 +8,7 @@ import SelectionLink from "@/components/catalog/SelectionLink";
 import BrandMark from "@/components/layout/BrandMark";
 
 function ProductNavigation({ group, active }: { group: NavGroup; active: boolean }) {
+  const materialIndex = group.href === "/products";
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -49,18 +50,18 @@ function ProductNavigation({ group, active }: { group: NavGroup; active: boolean
         <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" className={`transition-transform ${open ? "rotate-180" : ""}`}><path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
       {open && (
-        <div id={menuId} className="absolute left-0 top-[calc(100%+18px)] w-[720px] border border-line-strong border-t-2 border-t-ink bg-paper p-[28px]">
+        <div id={menuId} className={`absolute top-[calc(100%+18px)] border border-line-strong border-t-2 border-t-ink bg-paper p-[28px] ${materialIndex ? "left-0 w-[720px]" : "right-0 w-[400px]"}`}>
           <div className="mb-[12px] flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-ink-3">
-            <p>Material index</p>
-            <span>Cladvera / Collections</span>
+            <p>{materialIndex ? "Material index" : "Project supply"}</p>
+            <span>Cladvera / {materialIndex ? "Collections" : "Procurement"}</span>
           </div>
-          <ul className="grid grid-cols-2 gap-x-[24px]">
+          <ul className={`grid gap-x-[24px] ${materialIndex ? "grid-cols-2" : "grid-cols-1"}`}>
             {group.links.map((link, index) => (
-              <li key={link.href} className={index === 0 ? "col-span-2 mb-[4px] border-b border-line pb-[12px]" : "border-b border-line"}>
+              <li key={link.href} className={index === 0 && materialIndex ? "col-span-2 mb-[4px] border-b border-line pb-[12px]" : "border-b border-line"}>
                 <Link href={link.href} onClick={() => setOpen(false)} className="group flex h-full items-start gap-[14px] py-[18px] pr-[8px] transition-colors hover:text-accent focus-visible:bg-paper-2">
                   {index > 0 && <span aria-hidden="true" className="pt-[3px] font-mono text-[10px] text-ink-3">0{index}</span>}
                   <span className="flex-1">
-                    <span className={`block ${index === 0 ? "text-[30px] font-normal tracking-[-0.045em]" : "text-f16 font-medium"}`}>{link.label}</span>
+                    <span className={`block ${index === 0 && materialIndex ? "text-[30px] font-normal tracking-[-0.045em]" : "text-f16 font-medium"}`}>{link.label}</span>
                     {link.description && <span className="mt-[5px] block text-f12 leading-[1.6] text-ink-3">{link.description}</span>}
                   </span>
                   <span aria-hidden="true" className="mt-[2px] text-ink-3 transition-transform group-hover:translate-x-[3px] group-hover:text-accent">↗</span>
@@ -68,10 +69,10 @@ function ProductNavigation({ group, active }: { group: NavGroup; active: boolean
               </li>
             ))}
           </ul>
-          <div className="mt-[20px] flex items-center justify-between gap-[20px] text-f12">
+          {materialIndex && <div className="mt-[20px] flex items-center justify-between gap-[20px] text-f12">
             <span className="text-ink-3">Choose a material. Define the details.</span>
             <Link href="/compare" onClick={() => setOpen(false)} className="font-medium text-accent underline-offset-4 hover:underline">Compare your shortlist <span aria-hidden="true">→</span></Link>
-          </div>
+          </div>}
         </div>
       )}
     </div>
@@ -97,7 +98,7 @@ export default function Header() {
         </Link>
         <nav aria-label="Main" className="hidden items-center gap-[2px] xl:flex">
           {mainNav.map(item => item.links.length > 0 ? (
-            <ProductNavigation key={`${pathname}-${item.label}`} group={item} active={productsActive} />
+            <ProductNavigation key={`${pathname}-${item.label}`} group={item} active={item.href === "/products" ? productsActive : item.links.some(link => pathname === link.href)} />
           ) : (
             <Link key={item.href} href={item.href!} aria-current={pathname === item.href ? "page" : undefined} className={`px-[9px] py-[12px] text-[13px] font-medium transition-colors hover:text-accent ${pathname === item.href ? "text-accent" : "text-ink-2"}`}>{item.label}</Link>
           ))}

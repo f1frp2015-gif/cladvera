@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   description: site.tagline,
   metadataBase: new URL(site.url),
-  robots: site.stage === "draft" ? { index: false, follow: false } : { index: true, follow: true },
+  robots: { index: false, follow: false },
   openGraph: {
     type: "website",
     locale: "en_US",

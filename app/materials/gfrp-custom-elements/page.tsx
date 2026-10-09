@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ProductJourney from "@/components/catalog/ProductJourney";
+import MaterialQuestions from "@/components/catalog/MaterialQuestions";
 import JsonLd from "@/components/seo/JsonLd";
 import { Badge, Callout, Cta, KeyValueList, PageHeader, Section, Steps } from "@/components/ui";
 import {
@@ -14,10 +15,10 @@ import {
 } from "@/content/data/gfrp";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-const description = "Explore custom molded GFRP facade and architectural elements, supplier manufacturing examples, drawing requirements and a clear route to project quotation.";
+const description = "Source custom GFRP / GRP facade and architectural elements. Review molded fiberglass forms, drawing requirements, tooling and project-specific documents.";
 
 export const metadata = buildPageMetadata({
-  title: "Custom GFRP Architectural Elements | Cladvera",
+  title: "Custom GFRP / GRP Architectural Supplier | Cladvera",
   description,
   path,
 });
@@ -27,9 +28,9 @@ export default function Page() {
     <>
       <JsonLd data={buildWebPageSchema({ name: "Custom GFRP architectural elements", description, path, type: "ItemPage" })} />
       <PageHeader
-        eyebrow="GFRP · custom molded components"
-        title="Architectural forms, made to your geometry."
-        lede="Custom glass-fiber reinforced polymer elements for curved facades, soffits and sculptural surfaces. Start with your design, then coordinate the laminate, finish, connections and module sizes around the project."
+        eyebrow="GFRP / GRP · custom molded component supply"
+        title="Custom GFRP architectural elements."
+        lede="Source custom glass-fiber reinforced polymer (GFRP), also called GRP or architectural fiberglass, for curved facades, soffits and sculptural surfaces. Cladvera coordinates the supplier inquiry around your drawings, laminate, finish, connections and delivery requirements."
         crumbs={[{ name: "Products", path: "/products" }, { name: "Custom GFRP elements", path }]}
         actions={
           <>
@@ -132,6 +133,7 @@ export default function Page() {
         <p className="mt-[14px] max-w-[850px] text-f12 text-ink-3">Project and process illustrations are attributed to the supplier. They do not establish a Cladvera project delivery or a specification for a new order. The English text on this page summarizes the supplier material and identifies information needed for a custom inquiry.</p>
       </Section>
 
+      <MaterialQuestions material="gfrp" />
       <ProductJourney productId="gfrp-custom" />
     </>
   );

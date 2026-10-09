@@ -98,3 +98,22 @@ Verification:
 - Browser: product-document anchors land below both sticky navigation bars at desktop and mobile widths. ALMINE visual plates remain labeled illustrations; TAKTL and supplier imagery keep their source context.
 - Browser: combining TAKTL, exterior facades and linked files returns three document entries. The KORSA request carries the correct product and documents intent. The custom-forms application link opens the resource register with two matching families and the correct application selected.
 - No form or email was submitted, and no email draft was opened. The viewport was restored. External supplier URLs were excluded from the local link audit; no ranking or conversion improvement is claimed.
+
+
+## Export SEO and GEO implementation — 2026-10-09
+
+Goal: connect the reviewed catalogue to China-export procurement intent for United States and Canadian project inquiries, while separating named manufacturer origins.
+
+- Added `/sourcing/china` and `/guides/facade-materials`, registered and published; 26 reviewed routes, 23 indexable.
+- Four material collections gain supplier-oriented metadata and 16 visible buyer questions. New sourcing and selection guides add 12 more; all 28 answers match their FAQ JSON-LD.
+- Homepage, procurement, architects, technical resources, product journeys, footer and procurement navigation connect the new content. No TAKTL-to-China sourcing link is added to TAKTL product journeys.
+- Metadata, robots and sitemap stay restricted to reviewed content in draft and live stages. The catalogue-wide Made in China identity is removed.
+- Keyword research delivered in `seo-geo-keywords.csv`: 166 rows, 23 topic clusters, including 24 unmeasured GEO question hypotheses. Full rationale and official sources are in `建筑板材出口搜索市场调研.md`. No search-volume or ranking claims.
+
+Validation:
+
+- ESLint and TypeScript passed; 27 tests passed, including 8 crawl/schema policy tests. Production build generated 63 route outputs.
+- HTTP audit: 26 reviewed routes and 6 resource-filter cases returned 200 with one H1, valid metadata lengths, canonical/index directives; 92 unique local targets, 1,620 link occurrences and 187 fragment links had zero failures. Report: `/tmp/cladvera-http-seo-audit-3005.json`.
+- Structured-data audit parsed the six FAQ pages and matched all 28 questions and answers to visible HTML; sitemap contains 23 URLs; three representative legacy drafts remain excluded/noindex.
+- Browser: desktop Procurement menu opens within a 1,280px viewport; Escape closes it. Sourcing GFRP RFQ selects only GFRP with Quote purpose. At 320px, guide and sourcing pages have no document overflow; comparison/checklist tables are independently horizontally scrollable. Mobile menu exposes both procurement destinations and closes after navigation.
+- No email brief was prepared or sent; no personal request details entered. Deployment confirmation is recorded in the task's final result.

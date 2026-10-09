@@ -161,7 +161,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
       <Section>
         <div className="grid gap-[28px] md:grid-cols-[1fr_1.4fr] md:gap-[64px]">
           <h2 className="text-[30px] font-medium leading-[1.15] tracking-[-0.035em]">Use the evidence.<br />Define the next decision.</h2>
-          <div className="flex flex-wrap items-start gap-x-[32px] gap-y-[12px]"><Cta href="/architects" variant="ghost">Architect selection workflow ↗</Cta><Cta href="/procurement" variant="ghost">Procurement checklist ↗</Cta><Cta href="/products" variant="ghost">Product finder ↗</Cta></div>
+          <div className="flex flex-wrap items-start gap-x-[32px] gap-y-[12px]"><Cta href="/architects" variant="ghost">Architect selection workflow ↗</Cta><Cta href="/guides/facade-materials" variant="ghost">Facade material guide ↗</Cta><Cta href="/sourcing/china#import-planning" variant="ghost">China sourcing & import planning ↗</Cta><Cta href="/procurement" variant="ghost">Procurement checklist ↗</Cta><Cta href="/products" variant="ghost">Product finder ↗</Cta></div>
         </div>
       </Section>
     </>

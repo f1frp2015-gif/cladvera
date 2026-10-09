@@ -64,6 +64,7 @@ export default function Page() {
           <div className="grid gap-[28px]">
             <div className="border-t border-line-strong pt-[18px]">
               <h3 className="mb-[12px] font-mono text-[11px] uppercase tracking-[0.1em] text-ink-3">The building envelope</h3>
+              <p className="mb-[16px] text-f14 text-ink-2">Start with the <Link href="/guides/facade-materials" className="text-accent underline underline-offset-4">ACM, HPL, UHPC and GFRP material selection guide</Link> to distinguish constructions and prepare a consistent comparison.</p>
               <p className="max-w-[650px] text-f18 text-ink-2">For exterior cladding, review <Link href="/suppliers/taktl" className="text-ink underline decoration-line-strong underline-offset-4 hover:text-accent">TAKTL architectural UHPC</Link>, <Link href="/materials/acm-panels" className="text-ink underline decoration-line-strong underline-offset-4 hover:text-accent">ALMINE metal composite panels</Link> and <Link href="/materials/exterior-hpl-panels" className="text-ink underline decoration-line-strong underline-offset-4 hover:text-accent">exterior HPL facade panels</Link>. Each family has its own construction, surface options and assembly requirements.</p>
             </div>
             <div className="border-t border-line pt-[18px]">

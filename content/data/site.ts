@@ -2,8 +2,8 @@
  * Site identity and supply facts.
  *
  * Everything here is read by the layout, metadata, structured data, llms.txt
- * and the forms. Values marked TBC remain draft placeholders; the TAKTL
- * collection is published separately until the wider site is verified.
+ * and the forms. Values marked TBC remain draft placeholders. Reviewed
+ * public routes are controlled separately in publication.ts.
  */
 
 export const site = {
@@ -12,7 +12,9 @@ export const site = {
   brandNote:
     "Cladvera is a working name pending trademark clearance. Change `site.brand` once the name is confirmed.",
   tagline:
-    "Architectural panels and custom elements for design teams, buyers, fabricators and contractors",
+    "Architectural panel sourcing and China export supply for design teams, buyers, fabricators and contractors",
+  description:
+    "Cladvera coordinates architectural panel sourcing and China export supply for North American projects. TAKTL is presented as a separate manufacturer collection.",
   /** Set NEXT_PUBLIC_SITE_URL on Vercel once a domain is attached. */
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
@@ -20,11 +22,11 @@ export const site = {
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "https://cladvera.vercel.app"),
   /**
-   * "draft" keeps the wider site in pre-launch status. The TAKTL collection
-   * has its own publication exception. Use "live" after full-site verification.
+   * Controls draft presentation only. Changing this flag never publishes
+   * unreviewed routes; publication.ts remains the public-page allowlist.
    */
   stage: process.env.NEXT_PUBLIC_SITE_STAGE === "live" ? "live" : "draft",
-  origin: "Made in China. Supplied to the United States and Canada.",
+  origin: "China-sourced ranges; TAKTL is a separate manufacturer collection. Manufacturing origin is confirmed for the offered product.",
   markets: ["United States", "Canada"] as const,
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "sales@cladvera.com",
