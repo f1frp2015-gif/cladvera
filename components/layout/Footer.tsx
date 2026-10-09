@@ -25,14 +25,14 @@ export default function Footer() {
           <div className="lg:pr-[32px]">
             <p className="mb-[18px] font-mono text-[10px] uppercase tracking-[0.15em] text-paper/60">Material. Surface. Form.</p>
             <p className="max-w-[290px] text-f14 leading-[1.8] text-paper/75">Architectural panel sourcing for US and Canadian project teams. China-sourced core ranges and a separately identified TAKTL manufacturer collection.</p>
-            <a href={`mailto:${site.contact.email}`} className="mt-[22px] inline-block py-[4px] text-f14 text-paper underline decoration-paper/35 underline-offset-[6px] transition-colors hover:text-paper/70">{site.contact.email}</a>
+            <a href={`mailto:${site.contact.email}`} className="mt-[22px] inline-flex min-h-[44px] items-center py-[8px] text-f14 text-paper underline decoration-paper/35 underline-offset-[6px] transition-colors hover:text-paper/70">{site.contact.email}</a>
           </div>
           {footerNav.map(group => (
             <nav key={group.heading} aria-label={group.heading}>
               <h2 className="mb-[20px] font-mono text-[10px] uppercase tracking-[0.12em] text-paper/60">{group.heading}</h2>
-              <ul className="grid gap-[10px]">
+              <ul className="grid gap-[2px]">
                 {group.links.map(link => (
-                  <li key={link.href}><Link href={link.href} className="inline-block py-[2px] text-[13px] leading-[1.7] text-paper/80 underline-offset-[5px] transition-colors hover:text-paper hover:underline">{link.label}</Link></li>
+                  <li key={link.href}><Link href={link.href} className="flex min-h-[44px] items-center py-[8px] text-[13px] leading-[1.7] text-paper/80 underline-offset-[5px] transition-colors hover:text-paper hover:underline">{link.label}</Link></li>
                 ))}
               </ul>
             </nav>

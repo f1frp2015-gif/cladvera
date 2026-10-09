@@ -19,40 +19,45 @@ export default function Page() {
   return <>
     <JsonLd data={buildWebPageSchema({ name: "Facade panels and architectural materials", description, path: "/" })} />
     <section className="bg-paper">
-      <div className="site-container pb-[24px] pt-[28px] md:pt-[36px]">
+      <div className="site-container pb-[24px] pt-[24px] md:pt-[28px]">
         <div className="flex items-center justify-between gap-[24px] border-t border-line-strong pt-[14px]">
           <p className="eyebrow">Facade panels & architectural surfaces</p>
           <p className="hidden font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3 sm:block">Material selection / Project supply</p>
         </div>
-        <div className="grid items-end gap-[30px] pb-[40px] pt-[36px] md:grid-cols-[1fr_280px] md:gap-[40px] md:pb-[48px] md:pt-[48px] xl:grid-cols-[1fr_310px]">
-          <h1 className="architecture-title">Material shapes<br /><span className="editorial-serif text-accent">architecture.</span></h1>
-          <div className="max-w-[370px] md:pb-[7px]">
-            <p className="text-f16 text-ink-2">Facade panels, interior boards and custom elements. Explore material character, review manufacturer information and bring a considered selection into your project.</p>
-            <Link href="/products" className="index-link mt-[22px] flex min-h-[44px] items-center justify-between gap-[24px] border-b border-ink pb-[10px] text-f14 font-medium">Explore the material library <span aria-hidden="true" className="link-arrow text-f24">↗</span></Link>
+        <div className="cover-grid">
+          <div className="cover-narrative">
+            <h1 className="cover-title">Material <span className="md:block">shapes </span><span className="editorial-serif block text-accent">architecture.</span></h1>
+            <div className="mt-[24px] max-w-[360px] md:mt-[32px]">
+              <p className="text-f16 text-ink-2">Facade panels, interior surfaces and custom forms. A considered material library for architects and project teams.</p>
+              <Link href="/products" className="index-link mt-[24px] flex min-h-[48px] items-center justify-between gap-[24px] border-b border-ink pb-[10px] text-f14 font-medium">Explore the material library <span aria-hidden="true" className="link-arrow text-f24">↗</span></Link>
+              <Link href="#materials" className="index-link mt-[12px] inline-flex min-h-[44px] items-center gap-[16px] text-f12 text-ink-3">Explore by design intent <span aria-hidden="true">↓</span></Link>
+            </div>
           </div>
+          <figure className="min-w-0">
+            <div className="cover-plate">
+              <Image src={catalogProducts[0].imageUrl!} alt="Pale TAKTL architectural UHPC facade panels meeting glass and shadow at a building corner" fill sizes="(min-width: 1440px) 740px, (min-width: 768px) 54vw, calc(100vw - 40px)" className="object-cover" preload />
+              <Link href="/suppliers/taktl/facade-elements" aria-label="Explore TAKTL architectural UHPC facade elements" className="index-link absolute inset-x-[16px] bottom-[16px] flex items-center justify-between gap-[20px] bg-paper p-[16px] md:inset-x-[24px] md:bottom-[24px] md:p-[20px]">
+                <div><p className="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3">01 / Architectural UHPC</p><p className="mt-[6px] text-[20px] leading-tight tracking-[-0.03em]">Light. Surface. Shadow.</p></div>
+                <span aria-hidden="true" className="link-arrow text-[30px] font-light leading-none text-accent">↗</span>
+              </Link>
+            </div>
+            <figcaption className="border-b border-line pb-[12px] pt-[14px] text-[11px] leading-[1.6] text-ink-3">
+              <Link href="/suppliers/taktl/facade-elements" className="inline-flex min-h-[32px] items-center gap-[16px] font-medium text-ink hover:text-accent">TAKTL A|UHPC® Facade Elements <span aria-hidden="true">↗</span></Link>
+              <span className="block">Image: TAKTL manufacturer reference. Project suitability reviewed separately.</span>
+            </figcaption>
+          </figure>
         </div>
-        <figure>
-          <div className="architectural-plate">
-            <Image src={catalogProducts[0].imageUrl!} alt="Pale TAKTL architectural UHPC facade panels meeting glass and shadow at a building corner" fill sizes="(min-width: 1440px) 1344px, (min-width: 1024px) calc(100vw - 96px), 100vw" className="object-cover" preload />
-            <div aria-hidden="true" className="absolute left-[18px] top-[18px] bg-paper px-[16px] py-[12px] font-mono text-[10px] uppercase tracking-[0.08em] text-ink md:left-[24px] md:top-[24px]">In focus / Architectural UHPC</div>
-            <div aria-hidden="true" className="absolute bottom-[20px] right-[24px] h-[32px] w-[32px] border-b border-r border-white/80" />
-          </div>
-          <figcaption className="flex flex-wrap justify-between gap-x-[32px] gap-y-[6px] border-b border-line py-[14px] text-[11px] text-ink-3">
-            <Link href="/suppliers/taktl/facade-elements" className="inline-flex min-h-[28px] items-center gap-[20px] font-medium text-ink hover:text-accent">TAKTL A|UHPC® Facade Elements <span aria-hidden="true">↗</span></Link>
-            <span>Image: TAKTL manufacturer reference. Project suitability reviewed separately.</span>
-          </figcaption>
-        </figure>
       </div>
     </section>
 
     <nav aria-label="Explore material collections" className="bg-paper">
       <div className="site-container grid grid-cols-2 gap-x-[24px] pb-[24px] md:grid-cols-3 lg:grid-cols-6">
-        {catalogCategories.map((category, index) => <Link key={category.id} href={category.path} className="index-link flex min-h-[96px] flex-col justify-between gap-[10px] border-b border-line py-[18px]"><span className="font-mono text-[10px] text-ink-3">0{index + 1} /</span><span className="flex items-start justify-between gap-[12px] text-f12 font-medium">{category.label}<span aria-hidden="true" className="link-arrow text-f16">↗</span></span></Link>)}
+        {catalogCategories.map((category, index) => <Link key={category.id} href={category.path} className="index-link group flex min-h-[112px] flex-col justify-between gap-[20px] border-b border-line py-[18px]"><span className="font-mono text-[10px] text-ink-3">0{index + 1} / Collection</span><span className="flex items-start justify-between gap-[12px] text-f14 font-medium">{category.label}<span aria-hidden="true" className="link-arrow text-f16 text-ink-3 group-hover:text-accent">↗</span></span></Link>)}
       </div>
     </nav>
 
     <section id="materials" className="bg-paper">
-      <div className="site-container py-[64px] md:py-[112px]">
+      <div className="site-container py-[56px] md:py-[88px]">
         <div className="mb-[44px] grid gap-[24px] border-t border-line-strong pt-[22px] md:mb-[64px] md:grid-cols-[1fr_2fr]">
           <p className="eyebrow">01 / Material studies</p>
           <div><h2 className="editorial-title max-w-[720px]">Start with<br /><span className="editorial-serif">the architecture.</span></h2><p className="mt-[24px] max-w-[480px] text-f16 text-ink-2">Texture, rhythm, warmth or form. Follow a design direction, discover candidate materials, then bring the details into focus.</p></div>

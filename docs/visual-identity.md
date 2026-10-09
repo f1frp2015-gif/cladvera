@@ -42,7 +42,7 @@ Retain native filter controls, clear link labels, 44 px primary touch targets, k
 
 ## Design-intent homepage
 
-The hero introduces architectural UHPC through an attributed TAKTL reference and a direct link to its facade-element family. Keep the six canonical material/component links available before the editorial explorer; design intent supplements the material taxonomy.
+The hero uses an asymmetric cover: a three-line architectural headline beside a tall, attributed TAKTL reference. The image begins alongside the title on desktop, rather than beneath the opening narrative. Its caption plate links to the facade-element family; a second action leads directly to the material studies. On mobile the headline becomes two lines and the image follows the narrative. Keep the six canonical material/component links available before the editorial explorer; design intent supplements the material taxonomy.
 
 The four material studies in `content/data/design-directions.ts` each combine a design question, a source-labelled image or illustration, named candidate products and a short project-review prompt:
 
@@ -55,7 +55,15 @@ The four material studies in `content/data/design-directions.ts` each combine a 
 
 These are editorial starting points, not finish SKUs, performance recommendations or claims of material equivalence. Exterior and interior constructions remain distinct. Each study links to its candidate detail pages, primary collection and a comparison containing those product IDs.
 
-Use four tabs on desktop and a two-column tab grid on smaller screens. The explorer exposes selected tabs and associated panels, supports Left/Right and Home/End keys, and keeps inactive panels hidden. Preserve source captions when changing studies.
+Use four numbered tabs on desktop and a two-column tab grid on smaller screens. A charcoal selected tab identifies the active study. The explorer exposes selected tabs and associated panels, supports Left/Right and Home/End keys, and keeps inactive panels hidden. Preserve source captions when changing studies. Use contained framing for the wide GFRP source so its composition remains visible; image treatment can vary by source geometry.
+
+## Archive and reading pages
+
+The product finder pairs a compact introduction with a desktop filter sidebar and numbered material plates. Keep the native GET controls, result count, removable filters and source captions. The filter sidebar scrolls within short viewports; on mobile, filters precede the results. Collection links follow the archive, keeping product discovery near the top.
+
+China sourcing and facade material guides use paired editorial introductions and open numbered sections. Comparison matrices are semantic tables on desktop and labelled definition-list entries on narrower screens, keeping the full review content readable without horizontal scrolling. FAQ content and schema remain aligned.
+
+Desktop navigation dropdowns fit within the available viewport. The mobile menu closes when keyboard focus leaves the header and supports Escape from its trigger. Footer navigation targets are at least 44 px high.
 
 ## Product dossiers and technical library
 

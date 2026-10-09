@@ -1,6 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
-import { Cta, Faq, PageHeader, Section } from "@/components/ui";
+import { Breadcrumbs, Cta, Faq, Section } from "@/components/ui";
 import { catalogProducts, productRequestHref } from "@/content/data/catalog";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
@@ -33,30 +33,50 @@ const questions = [
   { q: "Does import clearance mean the panel is approved for the building?", a: "Import planning and building approval are separate reviews. The design team must match the exact product and proposed assembly to the project's jurisdiction, use and evidence requirements. A manufacturer brochure, product designation or reference project is not a project approval." },
 ];
 
+function CandidateLinks({ ids }: { ids: string[] }) {
+  return <ul className="grid gap-[6px]">{ids.map(id => {
+    const product = catalogProducts.find(item => item.id === id)!;
+    return <li key={id} className="flex flex-wrap items-baseline justify-between gap-x-[16px] gap-y-[2px] border-b border-line pb-[6px] last:border-b-0"><Link href={product.path} className="inline-flex min-h-[44px] items-center text-f14 text-ink-2 hover:text-accent">{product.name}</Link><Link href={productRequestHref(id)} aria-label={`Prepare an RFQ for ${product.name}`} className="inline-flex min-h-[44px] items-center gap-[12px] text-f12 text-accent underline underline-offset-4">Prepare RFQ <span aria-hidden="true">↗</span></Link></li>;
+  })}</ul>;
+}
+
 export default function Page() {
   return <>
     <JsonLd data={buildWebPageSchema({ name: "China-sourced architectural panels and export procurement", description, path })} />
-    <PageHeader eyebrow="China sourcing / Project supply" title="Source architectural panels from China." lede="Cladvera coordinates China-sourced metal composite panels, exterior HPL, interior decorative boards and custom GFRP for project teams in the United States and Canada. Define the product, evidence and export scope before order release." crumbs={[{ name: "China sourcing", path }]} actions={<><Cta href="/request-quote">Prepare a sourcing brief <span aria-hidden="true">↗</span></Cta><Cta href="#product-scope" variant="secondary">Review material requirements</Cta></>}>
-      <p className="mt-[24px] max-w-[740px] border-l-2 border-accent pl-[20px] text-f14 leading-[1.8] text-ink-2">Cladvera is a supplier. Manufacturing, product documentation and origin belong to the named offered product; sample availability, order scope and commercial terms are confirmed for each project.</p>
-    </PageHeader>
+    <header className="border-b border-line bg-paper">
+      <div className="site-container pb-[40px] pt-[24px] md:pb-[56px] md:pt-[32px]">
+        <div className="border-b border-line pb-[24px]"><Breadcrumbs items={[{ name: "China sourcing", path }]} /></div>
+        <div className="grid gap-[32px] pb-[36px] pt-[40px] lg:grid-cols-[1.1fr_1fr] lg:items-end lg:gap-[80px] lg:pb-[48px] lg:pt-[64px]">
+          <div><p className="eyebrow mb-[22px]">China sourcing / Project supply</p><h1 className="text-[clamp(2.5rem,5.1vw,4.5rem)] font-normal leading-[1.04] tracking-[-0.055em]">Source architectural panels<br /><span className="editorial-serif">from China.</span></h1></div>
+          <div><p className="max-w-[570px] text-f16 leading-[1.8] text-ink-2 md:text-f18">Cladvera coordinates China-sourced metal composite panels, exterior HPL, interior decorative boards and custom GFRP for project teams in the United States and Canada. Define the product, evidence and export scope before order release.</p><div className="mt-[24px] flex flex-wrap gap-[12px]"><Cta href="/request-quote">Prepare a sourcing brief <span aria-hidden="true">↗</span></Cta><Cta href="#product-scope" variant="ghost">Review material requirements <span aria-hidden="true">↓</span></Cta></div></div>
+        </div>
+        <div className="grid gap-[12px] border-t border-line pt-[20px] md:grid-cols-[160px_1fr] md:gap-[32px]"><p className="font-mono text-[10px] uppercase leading-[1.8] tracking-[0.08em] text-accent">Our role / Supplier</p><p className="max-w-[930px] text-f14 leading-[1.8] text-ink-2">Cladvera is a supplier. Manufacturing, product documentation and origin belong to the named offered product; sample availability, order scope and commercial terms are confirmed for each project.</p></div>
+      </div>
+    </header>
 
-    <nav aria-label="China sourcing page sections" className="border-b border-line">
+    <nav aria-label="China sourcing page sections" className="border-b border-line bg-paper-2">
       <div className="site-container grid grid-cols-2 gap-x-[24px] md:grid-cols-4">
-        {[{ href: "#product-scope", label: "Materials & RFQ inputs" }, { href: "#quote-scope", label: "Quote scope" }, { href: "#import-planning", label: "Import planning" }, { href: "#questions", label: "Buyer questions" }].map((item, index) => <Link key={item.href} href={item.href} className="flex min-h-[72px] items-center gap-[12px] py-[18px] text-f12 text-ink-2 hover:text-accent"><span className="font-mono text-[10px] text-accent">0{index + 1}</span>{item.label}</Link>)}
+        {[{ href: "#product-scope", label: "Materials & RFQ inputs" }, { href: "#quote-scope", label: "Quote scope" }, { href: "#import-planning", label: "Import planning" }, { href: "#questions", label: "Buyer questions" }].map((item, index) => <Link key={item.href} href={item.href} className="flex min-h-[80px] items-center gap-[12px] py-[18px] text-f12 text-ink-2 hover:text-accent"><span className="font-mono text-[10px] text-accent">0{index + 1}</span>{item.label}</Link>)}
       </div>
     </nav>
 
     <Section id="product-scope" title="A material name is the starting point." lede="Use these construction-specific inputs to turn a product reference into an RFQ. Name the exact manufacturer and family; leave unresolved items visibly marked for confirmation.">
-      <div role="region" aria-label="Material-specific sourcing checklist" tabIndex={0} className="overflow-x-auto border-y border-line-strong">
-        <table className="w-full min-w-[780px] border-collapse text-left text-f14">
+      <div className="hidden border-y border-line-strong lg:block">
+        <table className="w-full table-fixed border-collapse text-left text-f14">
           <caption className="sr-only">China-associated material ranges, RFQ inputs and evidence to review</caption>
           <thead><tr className="border-b border-line-strong"><th scope="col" className="w-[25%] py-[18px] pr-[24px] font-mono text-[10px] font-normal uppercase tracking-[0.08em] text-ink-3">Material / source</th><th scope="col" className="w-[37%] px-[24px] py-[18px] font-mono text-[10px] font-normal uppercase tracking-[0.08em] text-ink-3">Include in the RFQ</th><th scope="col" className="pl-[24px] py-[18px] font-mono text-[10px] font-normal uppercase tracking-[0.08em] text-ink-3">Evidence &amp; decisions</th></tr></thead>
           <tbody>{ranges.map(range => <tr key={range.href} className="border-b border-line last:border-b-0"><th scope="row" className="py-[24px] pr-[24px] align-top font-normal"><Link href={range.href} className={`${textLink} font-medium`}>{range.name}</Link><span className="mt-[10px] block text-f12 text-ink-3">{range.manufacturer}</span></th><td className="px-[24px] py-[24px] align-top leading-[1.8] text-ink-2">{range.inputs}</td><td className="py-[24px] pl-[24px] align-top leading-[1.8] text-ink-2">{range.evidence}</td></tr>)}</tbody>
         </table>
       </div>
-      <p className="mt-[12px] text-f12 text-ink-3 md:hidden">Scroll the checklist horizontally to read all columns.</p>
-      <div className="mt-[32px] grid gap-x-[32px] gap-y-[24px] md:grid-cols-2">
-        {ranges.map(range => <div key={range.href} className="border-t border-line pt-[18px]"><h3 className="text-f14 font-medium">Start with a named candidate</h3><ul className="mt-[12px] grid gap-[10px]">{range.ids.map(id => { const product = catalogProducts.find(item => item.id === id)!; return <li key={id} className="flex flex-wrap items-baseline justify-between gap-x-[16px] gap-y-[4px]"><Link href={product.path} className="inline-flex min-h-[44px] items-center text-f14 text-ink-2 hover:text-accent">{product.name}</Link><Link href={productRequestHref(id)} aria-label={`Prepare an RFQ for ${product.name}`} className="inline-flex min-h-[44px] items-center gap-[12px] text-f12 text-accent underline underline-offset-4">Prepare RFQ <span aria-hidden="true">↗</span></Link></li>; })}</ul></div>)}
+      <div className="grid gap-[32px] lg:hidden">
+        {ranges.map((range, index) => <article key={range.href} aria-labelledby={`sourcing-range-${index}`} className="border-t border-line-strong pt-[20px]">
+          <div className="mb-[24px] flex items-start gap-[16px]"><span aria-hidden="true" className="pt-[5px] font-mono text-[10px] text-accent">0{index + 1}</span><div><h3 id={`sourcing-range-${index}`} className="text-f24 font-normal tracking-[-0.035em]"><Link href={range.href} className="underline decoration-line-strong underline-offset-[5px] hover:text-accent">{range.name}</Link></h3><p className="mt-[10px] text-f12 text-ink-3">{range.manufacturer}</p></div></div>
+          <dl className="grid gap-[22px] sm:grid-cols-2 sm:gap-[32px]"><div><dt className="mb-[8px] font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3">Include in the RFQ</dt><dd className="text-f14 leading-[1.8] text-ink-2">{range.inputs}</dd></div><div><dt className="mb-[8px] font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3">Evidence &amp; decisions</dt><dd className="text-f14 leading-[1.8] text-ink-2">{range.evidence}</dd></div></dl>
+          <div className="mt-[24px] border-t border-line pt-[16px]"><h4 className="mb-[8px] font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3">Named candidates</h4><CandidateLinks ids={range.ids} /></div>
+        </article>)}
+      </div>
+      <div className="mt-[36px] hidden grid-cols-2 gap-x-[40px] gap-y-[28px] lg:grid">
+        {ranges.map(range => <div key={range.href} className="border-t border-line pt-[18px]"><h3 className="mb-[12px] font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3">{range.name} / Candidates</h3><CandidateLinks ids={range.ids} /></div>)}
       </div>
       <aside className="mt-[36px] grid gap-[14px] border-t border-line-strong pt-[24px] md:grid-cols-[220px_1fr] md:gap-[40px]"><h3 className="font-mono text-[11px] uppercase tracking-[0.08em]">TAKTL: a separate source</h3><p className="max-w-[800px] text-f14 leading-[1.8] text-ink-2"><Link href="/suppliers/taktl" className={textLink}>TAKTL architectural UHPC</Link> is a US manufacturer range, separate from the China-sourcing materials above. TAKTL identifies its manufacturing in Pittsburgh, Pennsylvania in its <a href="https://www.taktl-llc.com/taktl-news/" target="_blank" rel="noopener noreferrer" className={textLink}>manufacturer publications<span className="sr-only"> (opens in a new tab)</span></a>. Review its product and project supply independently.</p></aside>
       <div className="mt-[28px] flex flex-wrap gap-x-[28px] gap-y-[12px]"><Cta href="/guides/facade-materials" variant="ghost">Compare facade material routes <span aria-hidden="true">↗</span></Cta><Cta href="/technical-resources" variant="ghost">Review product documents <span aria-hidden="true">↗</span></Cta></div>
@@ -76,7 +96,7 @@ export default function Page() {
       <div className="mt-[36px] grid gap-[16px] border-t border-line-strong pt-[24px] md:grid-cols-[220px_1fr] md:gap-[40px]"><h3 className="font-mono text-[11px] uppercase tracking-[0.08em]">Confirm the packaging</h3><p className="max-w-[880px] text-f14 leading-[1.8] text-ink-2">For regulated wood crates, pallets or dunnage, confirm the destination&apos;s treatment and marking requirements. Packaging construction matters; requirements are not identical for every wood-based material. Consult <a href="https://www.aphis.usda.gov/plant-imports/wood-packaging-material" target="_blank" rel="noopener noreferrer" className={textLink}>USDA APHIS wood-packaging guidance<span className="sr-only"> (opens in a new tab)</span></a> and <a href="https://inspection.canada.ca/en/plant-health/forestry/imports/wood-packaging" target="_blank" rel="noopener noreferrer" className={textLink}>CFIA wood-packaging guidance<span className="sr-only"> (opens in a new tab)</span></a>.</p></div>
     </Section>
 
-    <Section id="questions" tone="muted"><Faq items={questions} title="Questions before sourcing panels from China" /></Section>
+    <Section id="questions" tone="muted"><div className="grid gap-[28px] lg:grid-cols-[0.55fr_1.45fr] lg:gap-[80px]"><div><p className="eyebrow">Before the order</p><p className="mt-[20px] max-w-[260px] text-[28px] leading-[1.2] tracking-[-0.04em]">Define the scope.<br /><span className="editorial-serif">Ask the next question.</span></p></div><div className="[&_dl]:rounded-none [&_dl]:border-x-0 [&_dl>div]:px-0 [&_dl>div]:py-[24px] [&_h2]:font-normal [&_h2]:tracking-[-0.035em]"><Faq items={questions} title="Questions before sourcing panels from China" /></div></div></Section>
     <Section><div className="grid gap-[28px] border-t border-ink pt-[28px] lg:grid-cols-2 lg:gap-[64px]"><h2 className="editorial-title max-w-[560px]">Make the next<br /><span className="editorial-serif">decision specific.</span></h2><div><p className="max-w-[560px] text-f16 leading-[1.8] text-ink-2">Bring the material shortlist, drawing revision, destination and required evidence. Use the project brief to identify what is known and what needs confirmation.</p><div className="mt-[24px] flex flex-wrap gap-[12px]"><Cta href="/request-quote">Prepare a project request</Cta><Cta href="/technical-resources" variant="secondary">Find technical documents</Cta></div></div></div></Section>
   </>;
 }

@@ -50,7 +50,7 @@ function ProductNavigation({ group, active }: { group: NavGroup; active: boolean
         <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" className={`transition-transform ${open ? "rotate-180" : ""}`}><path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
       {open && (
-        <div id={menuId} className={`absolute top-[calc(100%+18px)] border border-line-strong border-t-2 border-t-ink bg-paper p-[28px] ${materialIndex ? "left-0 w-[720px]" : "right-0 w-[400px]"}`}>
+        <div id={menuId} className={`absolute top-[calc(100%+18px)] max-h-[calc(100dvh-112px)] overflow-y-auto overscroll-contain border border-line-strong border-t-2 border-t-ink bg-paper p-[28px] ${materialIndex ? "left-0 w-[720px]" : "right-0 w-[400px]"}`}>
           <div className="mb-[12px] flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-ink-3">
             <p>{materialIndex ? "Material index" : "Project supply"}</p>
             <span>Cladvera / {materialIndex ? "Collections" : "Procurement"}</span>
@@ -87,7 +87,23 @@ export default function Header() {
   const productsActive = pathname === "/products" || pathname.startsWith("/materials/") || pathname.startsWith("/suppliers/");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line-strong bg-paper">
+    <header
+      className="sticky top-0 z-50 border-b border-line-strong bg-paper"
+      onBlur={event => {
+        // A null destination can come from clicking non-focusable menu space.
+        // Only dismiss when focus moves to a known element outside the header.
+        if (open && event.relatedTarget instanceof Node && !event.currentTarget.contains(event.relatedTarget)) {
+          setOpenOnPath(null);
+        }
+      }}
+      onKeyDown={event => {
+        if (event.key === "Escape" && open && !event.defaultPrevented) {
+          event.preventDefault();
+          setOpenOnPath(null);
+          mobileButtonRef.current?.focus();
+        }
+      }}
+    >
       <div className="site-container flex min-h-[72px] items-center justify-between gap-[16px] xl:min-h-[80px]">
         <Link href="/" aria-label="Cladvera home" className="flex shrink-0 items-center gap-[12px]">
           <BrandMark className="h-[33px] w-[33px] text-accent" />
@@ -113,7 +129,7 @@ export default function Header() {
         </div>
       </div>
       {open && (
-        <nav id="mobile-nav" aria-label="Mobile main" className="max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain border-t border-line-strong bg-paper xl:hidden" onKeyDown={event => { if (event.key === "Escape") { event.preventDefault(); setOpenOnPath(null); mobileButtonRef.current?.focus(); } }}>
+        <nav id="mobile-nav" aria-label="Mobile main" className="max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain border-t border-line-strong bg-paper xl:hidden">
           <div className="site-container grid gap-[4px] py-[20px]">
             {mainNav.map(item => item.links.length > 0 ? (
               <div key={item.label} className="mb-[8px] border-b border-line pb-[16px]">

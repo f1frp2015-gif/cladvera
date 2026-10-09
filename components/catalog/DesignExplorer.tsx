@@ -19,7 +19,7 @@ export default function DesignExplorer() {
 
   return (
     <div>
-      <div role="tablist" aria-label="Explore by design intent" className="mb-[32px] grid grid-cols-2 border-t border-line-strong md:mb-[40px] md:grid-cols-4">
+      <div role="tablist" aria-label="Explore by design intent" className="mb-[32px] grid grid-cols-2 gap-px border border-line-strong bg-line-strong md:mb-[48px] md:grid-cols-4">
         {designDirections.map((direction, index) => (
           <button
             key={direction.id}
@@ -30,10 +30,10 @@ export default function DesignExplorer() {
               const next = event.key === "ArrowRight" ? (index + 1) % designDirections.length : event.key === "ArrowLeft" ? (index - 1 + designDirections.length) % designDirections.length : event.key === "Home" ? 0 : event.key === "End" ? designDirections.length - 1 : null;
               if (next !== null) { event.preventDefault(); select(next, true); }
             }}
-            className={`flex min-h-[88px] flex-col items-start justify-between gap-[12px] border-b px-[14px] py-[16px] text-left transition-colors md:min-h-[100px] md:px-[20px] ${active === index ? "border-accent bg-paper-2 text-accent" : "border-line-strong text-ink-2 hover:bg-paper-2"}`}
+            className={`group flex min-h-[116px] flex-col items-start justify-between gap-[24px] px-[16px] py-[18px] text-left transition-colors md:min-h-[136px] md:px-[24px] md:py-[22px] ${active === index ? "bg-ink text-paper focus-visible:outline-[#d6ad99] focus-visible:-outline-offset-4" : "bg-paper text-ink-2 hover:bg-paper-2 focus-visible:-outline-offset-4"}`}
           >
-            <span aria-hidden="true" className="font-mono text-[10px]">0{index + 1} /</span>
-            <span className="text-f14 font-medium md:text-f16">{direction.label}</span>
+            <span aria-hidden="true" className={`flex w-full items-center justify-between font-mono text-[10px] ${active === index ? "text-[#d6ad99]" : "text-ink-3"}`}><span>0{index + 1} / Study</span><span>{active === index ? "−" : "+"}</span></span>
+            <span className="text-[18px] font-normal leading-[1.15] tracking-[-0.025em] md:text-[22px]">{direction.label}</span>
           </button>
         ))}
       </div>
@@ -45,29 +45,30 @@ export default function DesignExplorer() {
         const imageUrl = isWarm ? compactwoodImages.supplierProject : visual.imageUrl;
         return (
           <div key={direction.id} role="tabpanel" id={`direction-panel-${direction.id}`} aria-labelledby={`direction-tab-${direction.id}`} hidden={active !== index} tabIndex={0} className="focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent">
-            <div className="grid items-start gap-[32px] lg:grid-cols-[1.25fr_1fr] lg:gap-[64px]">
+            <div className="grid items-start gap-[32px] lg:grid-cols-[1.18fr_1fr] lg:gap-[64px]">
               <div>
                 <figure>
-                  <div className="relative aspect-[5/4] overflow-hidden bg-paper-2 sm:aspect-[4/3]">
+                  <div className="relative aspect-[5/4] overflow-hidden bg-paper-2 sm:aspect-[6/5]">
                     {direction.id === "planar" ? (
                       <AlmineVisual visual="a2" className="h-full w-full rounded-none border-0" />
                     ) : imageUrl ? (
-                      <Image src={imageUrl} alt={isWarm ? "Facade reference published by Compactwood; specific finish and product scope require confirmation" : visual.imageAlt || visual.name} fill sizes="(min-width: 1440px) 712px, (min-width: 1024px) 56vw, calc(100vw - 40px)" className="object-cover" />
+                      <Image src={imageUrl} alt={isWarm ? "Facade reference published by Compactwood; specific finish and product scope require confirmation" : visual.imageAlt || visual.name} fill sizes="(min-width: 1440px) 694px, (min-width: 1024px) 51vw, calc(100vw - 40px)" className={direction.id === "sculptural" ? "object-contain p-[20px] md:p-[32px]" : "object-cover"} />
                     ) : null}
                     <span aria-hidden="true" className="absolute left-[16px] top-[16px] bg-paper px-[12px] py-[8px] font-mono text-[10px]">STUDY / 0{index + 1}</span>
                   </div>
                   <figcaption className="flex flex-wrap items-start justify-between gap-x-[20px] gap-y-[8px] border-b border-line py-[12px] text-[10px] leading-[1.7] text-ink-3">
                     <span className="max-w-[370px]">{direction.id === "planar" ? "Illustration · not a finish sample or an installed project." : `Source: ${isWarm ? "Compactwood" : visual.manufacturer}. Manufacturer reference; not a Cladvera-delivered project.`}</span>
-                    <a href={source} target="_blank" rel="noopener noreferrer" className="min-h-[28px] underline underline-offset-4 hover:text-accent">View source <span aria-hidden="true">↗</span></a>
+                    <a href={source} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center gap-[8px] underline underline-offset-4 hover:text-accent">View source <span aria-hidden="true">↗</span></a>
                   </figcaption>
                 </figure>
-                <p className="mt-[24px] max-w-[560px] font-editorial text-[24px] italic leading-[1.35] tracking-[-0.025em] text-ink-2 md:text-[30px]">{direction.question}</p>
+                <p className="mt-[24px] max-w-[560px] border-l border-accent pl-[20px] font-editorial text-[24px] italic leading-[1.35] tracking-[-0.025em] text-ink-2 md:text-[30px]">{direction.question}</p>
               </div>
-              <div className="lg:pt-[12px]">
-                <p className="eyebrow mb-[18px]">A starting point for design</p>
-                <h3 className="max-w-[520px] text-[34px] font-normal leading-[1.08] tracking-[-0.045em] md:text-[44px]">{direction.title}</h3>
+              <div className="border-t border-line-strong pt-[20px] lg:pt-[24px]">
+                <p className="eyebrow mb-[20px]">The design direction / 0{index + 1}</p>
+                <h3 className="max-w-[520px] text-[36px] font-normal leading-[1.06] tracking-[-0.045em] md:text-[48px]">{direction.title}</h3>
                 <p className="mt-[20px] text-f16 leading-[1.8] text-ink-2">{direction.description}</p>
-                <div className="mb-[28px] mt-[32px] border-y border-line-strong">
+                <p className="mb-[12px] mt-[32px] font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3">Candidate materials</p>
+                <div className="mb-[28px] border-y border-line-strong">
                   {products.map(product => <Link key={product.id} href={product.path} className="group flex min-h-[82px] items-center justify-between gap-[24px] border-b border-line py-[16px] last:border-b-0"><div><span className="block font-mono text-[10px] uppercase tracking-[0.06em] text-ink-3">{product.manufacturer}</span><span className="mt-[4px] block text-f16 group-hover:text-accent">{product.name}</span></div><span aria-hidden="true" className="text-accent">↗</span></Link>)}
                 </div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-ink-3">Bring into the review</p>
