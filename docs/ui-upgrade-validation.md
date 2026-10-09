@@ -108,7 +108,7 @@ Goal: connect the reviewed catalogue to China-export procurement intent for Unit
 - Four material collections gain supplier-oriented metadata and 16 visible buyer questions. New sourcing and selection guides add 12 more; all 28 answers match their FAQ JSON-LD.
 - Homepage, procurement, architects, technical resources, product journeys, footer and procurement navigation connect the new content. No TAKTL-to-China sourcing link is added to TAKTL product journeys.
 - Metadata, robots and sitemap stay restricted to reviewed content in draft and live stages. The catalogue-wide Made in China identity is removed.
-- Keyword research delivered in `seo-geo-keywords.csv`: 166 rows, 23 topic clusters, including 24 unmeasured GEO question hypotheses. Full rationale and official sources are in `建筑板材出口搜索市场调研.md`. No search-volume or ranking claims.
+- Keyword research delivered in `seo-geo-keywords.csv`: 166 rows, 23 topic clusters, including 24 unmeasured GEO question hypotheses. Full rationale and official sources are in `architectural-panel-export-search-research.md`. No search-volume or ranking claims.
 
 Validation:
 

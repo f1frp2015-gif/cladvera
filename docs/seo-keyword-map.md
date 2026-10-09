@@ -10,7 +10,7 @@ The catalogue currently contains 11 product families in six material/component c
 
 ## Export SEO / GEO research
 
-The 2026-10-09 export round adds a source-backed [Chinese research report](建筑板材出口搜索市场调研.md) and [166-row keyword/question CSV](seo-geo-keywords.csv), covering 23 topic clusters. Priorities are relevance and evidence decisions, not measured search volume or ranking forecasts. CSV variants represent semantic intent; they are not a requirement to repeat every phrase verbatim.
+The 2026-10-09 export round adds a source-backed [English research report](architectural-panel-export-search-research.md) and [166-row keyword/question CSV](seo-geo-keywords.csv), covering 23 topic clusters. Priorities are relevance and evidence decisions, not measured search volume or ranking forecasts. CSV variants represent semantic intent; they are not a requirement to repeat every phrase verbatim.
 
 | New canonical route | Exclusive primary intent | Content and onward paths |
 | --- | --- | --- |
