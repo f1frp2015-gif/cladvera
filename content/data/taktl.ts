@@ -42,7 +42,9 @@ export const taktlProducts: TaktlProduct[] = [
     facts: [
       { label: "Standard thickness", value: "5/8 in (about 16 mm)" },
       { label: "Nominal formats", value: "48 × 120 in and 48 × 144 in" },
-      { label: "Maximum standard format", value: "60 × 144 in; confirm the project layout with TAKTL" },
+      // The current source page distinguishes standard/custom limits differently
+      // across its prose and table. Confirm the current offered format directly.
+      { label: "Standard and custom limits", value: "Format varies by construction; confirm current standard and custom limits with TAKTL" },
       { label: "Attachment", value: "Visible fasteners or concealed undercut anchors, subject to assembly design" },
     ],
     applications: ["Field-set rainscreens", "Prefabricated facade assemblies", "Interior public-space walls"],

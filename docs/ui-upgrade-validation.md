@@ -77,3 +77,24 @@ Verification:
 - The inquiry review link has `target="_blank"` and the original form retains its values after activation. The in-app test browser did not expose an additional tab, so popup creation itself is not asserted. No email draft was opened and no inquiry was sent.
 
 Release scope includes the previously deployed visual identity work and this workflow refinement. This validation record accompanies the source commit for GitHub synchronization and production release; earlier notes about unpushed source describe previous releases.
+
+## Peer-informed architectural experience — 2026-10-09
+
+Scope:
+
+- Researched official EQUITONE, Swisspearl, Trespa, Fundermax, TAKTL and Rieder pages. Evidence and implementation decisions are maintained in `建筑材料网站对标市场调研.md`.
+- Added four homepage design studies with manufacturer references, design questions, candidate products and shared comparison links.
+- Rebuilt TAKTL and ALMINE product dossiers around large visual plates, page indexes, open fact rows, design context and clearly labeled source documents. Refined the TAKTL collection and its finish references.
+- Added server-rendered technical-resource search and combined material, application and file-access filters. Direct files, manufacturer pages and project document requests have distinct labels.
+- Connected five editorial application sections to the matching product and document filters. Existing canonical URLs and publication boundaries remain unchanged.
+
+Verification:
+
+- ESLint, TypeScript, all 19 tests and whitespace checks passed. Production build passed with 61 generated outputs; the resource register now handles query filters dynamically.
+- Three duplicate ignored `.next/types/* 2.ts` files were moved to `/tmp/cladvera-peer-study-generated-types/` before rerunning TypeScript successfully. No application source was removed.
+- Local production HTTP audit: 24 reviewed routes and six resource-filter cases returned 200. Titles, descriptions, canonical URLs, single H1 and index/noindex states passed. 1,431 internal-link occurrences, 90 unique local targets and 160 fragment links resolved with no errors. Report: `/tmp/cladvera-http-seo-audit-3004.json`.
+- Browser: desktop design-study imagery and candidate links reviewed. Warm and sculptural directions select the correct products; the sculptural comparison opens GFRP and TAKTL custom elements without saving a replacement shortlist.
+- Browser: 320 px homepage, TAKTL dossier, applications and filtered resource register have no document horizontal overflow. Planar and sculptural tabs display the corresponding study. ArrowRight and End move both focus and selection correctly.
+- Browser: product-document anchors land below both sticky navigation bars at desktop and mobile widths. ALMINE visual plates remain labeled illustrations; TAKTL and supplier imagery keep their source context.
+- Browser: combining TAKTL, exterior facades and linked files returns three document entries. The KORSA request carries the correct product and documents intent. The custom-forms application link opens the resource register with two matching families and the correct application selected.
+- No form or email was submitted, and no email draft was opened. The viewport was restored. External supplier URLs were excluded from the local link audit; no ranking or conversion improvement is claimed.

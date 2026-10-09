@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import CatalogVisual from "@/components/catalog/CatalogVisual";
+import DesignExplorer from "@/components/catalog/DesignExplorer";
 import JsonLd from "@/components/seo/JsonLd";
 import { Cta } from "@/components/ui";
 import { catalogCategories, catalogApplications, catalogProducts } from "@/content/data/catalog";
@@ -9,14 +9,6 @@ import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 const description = "Explore facade panels, interior boards and custom architectural elements in UHPC, metal composite, HPL and GFRP. Compare materials, samples and project supply.";
 export const metadata = buildPageMetadata({ title: "Facade Panels & Architectural Materials | Cladvera", description, path: "/" });
 
-const materialTitles: Record<string, string> = {
-  uhpc: "Concrete, reimagined.", mcm: "Precision in layers.", hpl: "A warmer exterior.",
-  "interior-board": "An interior language.", gfrp: "Beyond the flat plane.",
-};
-const materialLayouts: Record<string, string> = {
-  uhpc: "md:col-span-7", mcm: "md:col-span-5 md:pt-[100px]", hpl: "md:col-span-4",
-  "interior-board": "md:col-span-4 md:pt-[56px]", gfrp: "md:col-span-4 md:pt-[112px]",
-};
 const process = [
   { number: "01", title: "The material.", text: "Begin with surface, structure and the character of each family.", link: "Explore the product library", href: "/products" },
   { number: "02", title: "The detail.", text: "Bring samples, drawings and assembly requirements into the conversation.", link: "Review technical resources", href: "/technical-resources" },
@@ -35,18 +27,18 @@ export default function Page() {
         <div className="grid items-end gap-[30px] pb-[40px] pt-[36px] md:grid-cols-[1fr_280px] md:gap-[40px] md:pb-[48px] md:pt-[48px] xl:grid-cols-[1fr_310px]">
           <h1 className="architecture-title">Material shapes<br /><span className="editorial-serif text-accent">architecture.</span></h1>
           <div className="max-w-[370px] md:pb-[7px]">
-            <p className="text-f16 text-ink-2">Surfaces with character. Systems with purpose. Explore facade panels, interior boards and custom elements for considered architecture.</p>
+            <p className="text-f16 text-ink-2">Facade panels, interior boards and custom elements. Explore material character, review manufacturer information and bring a considered selection into your project.</p>
             <Link href="/products" className="index-link mt-[22px] flex min-h-[44px] items-center justify-between gap-[24px] border-b border-ink pb-[10px] text-f14 font-medium">Explore the material library <span aria-hidden="true" className="link-arrow text-f24">↗</span></Link>
           </div>
         </div>
         <figure>
           <div className="architectural-plate">
             <Image src={catalogProducts[0].imageUrl!} alt="Pale TAKTL architectural UHPC facade panels meeting glass and shadow at a building corner" fill sizes="(min-width: 1440px) 1344px, (min-width: 1024px) calc(100vw - 96px), 100vw" className="object-cover" preload />
-            <div aria-hidden="true" className="absolute left-[18px] top-[18px] flex h-[42px] w-[42px] items-center justify-center bg-paper font-mono text-f12 text-ink md:left-[24px] md:top-[24px]">01</div>
+            <div aria-hidden="true" className="absolute left-[18px] top-[18px] bg-paper px-[16px] py-[12px] font-mono text-[10px] uppercase tracking-[0.08em] text-ink md:left-[24px] md:top-[24px]">In focus / Architectural UHPC</div>
             <div aria-hidden="true" className="absolute bottom-[20px] right-[24px] h-[32px] w-[32px] border-b border-r border-white/80" />
           </div>
           <figcaption className="flex flex-wrap justify-between gap-x-[32px] gap-y-[6px] border-b border-line py-[14px] text-[11px] text-ink-3">
-            <span className="font-mono uppercase tracking-[0.07em]">Material in context — Light / Surface / Space</span>
+            <Link href="/suppliers/taktl/facade-elements" className="inline-flex min-h-[28px] items-center gap-[20px] font-medium text-ink hover:text-accent">TAKTL A|UHPC® Facade Elements <span aria-hidden="true">↗</span></Link>
             <span>Image: TAKTL manufacturer reference. Project suitability reviewed separately.</span>
           </figcaption>
         </figure>
@@ -62,23 +54,13 @@ export default function Page() {
     <section id="materials" className="bg-paper">
       <div className="site-container py-[64px] md:py-[112px]">
         <div className="mb-[44px] grid gap-[24px] border-t border-line-strong pt-[22px] md:mb-[64px] md:grid-cols-[1fr_2fr]">
-          <p className="eyebrow">01 / The material collection</p>
-          <div><h2 className="editorial-title max-w-[720px]">Every surface.<br /><span className="editorial-serif">A different expression.</span></h2><p className="mt-[24px] max-w-[480px] text-f16 text-ink-2">Weight, texture, rhythm and light. Discover the material possibilities behind the spaces you imagine.</p></div>
+          <p className="eyebrow">01 / Material studies</p>
+          <div><h2 className="editorial-title max-w-[720px]">Start with<br /><span className="editorial-serif">the architecture.</span></h2><p className="mt-[24px] max-w-[480px] text-f16 text-ink-2">Texture, rhythm, warmth or form. Follow a design direction, discover candidate materials, then bring the details into focus.</p></div>
         </div>
-        <div className="grid gap-x-[32px] gap-y-[40px] md:grid-cols-12 md:gap-y-[64px]">
-          {catalogCategories.filter(category => category.id !== "hardware").map((category, index) => {
-            const product = catalogProducts.find(item => item.category === category.id)!;
-            return <Link key={category.id} href={category.path} className={`group index-link block min-w-0 ${materialLayouts[category.id]}`}>
-              <div className="mb-[12px] flex items-center justify-between border-t border-line pt-[10px] font-mono text-[10px] uppercase tracking-[0.08em] text-ink-3"><span>0{index + 1} / {category.label}</span><span aria-hidden="true">↗</span></div>
-              <CatalogVisual product={product} />
-              <h3 className="mt-[22px] text-[28px] font-normal leading-[1.15] tracking-[-0.04em] md:text-[32px]">{materialTitles[category.id]}</h3>
-              <p className="mt-[10px] max-w-[420px] text-f14 text-ink-2">{category.description}</p>
-            </Link>;
-          })}
-        </div>
+        <DesignExplorer />
         <div className="mt-[48px] grid gap-[20px] border-t border-line-strong pt-[22px] md:mt-[64px] md:grid-cols-[1fr_auto] md:items-center">
-          <p className="max-w-[590px] text-f12 text-ink-3">Manufacturer imagery and labeled illustrations. Physical samples govern finish approval. Explore attachment components alongside the selected panel system.</p>
-          <Cta href="/suppliers/taktl/hardware" variant="ghost">Attachment components <span aria-hidden="true">↗</span></Cta>
+          <p className="max-w-[590px] text-f12 text-ink-3">Explore the complete archive: 11 product families across six material and component collections. Review attachment components with the selected panel system.</p>
+          <Cta href="/products" variant="ghost">Open the complete material archive <span aria-hidden="true">↗</span></Cta>
         </div>
       </div>
     </section>
