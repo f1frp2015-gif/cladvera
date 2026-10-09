@@ -2,25 +2,24 @@
 
 @theme inline {
   /* Ink: text on light ground. */
-  --color-ink: #151a21;
-  --color-ink-2: #4a5160;
-  --color-ink-3: #6b7280;
+  --color-ink: #242722;
+  --color-ink-2: #565a52;
+  --color-ink-3: #656a60;
 
   /* Paper: page grounds. paper-2 is a warm stone tint for alternating bands. */
-  --color-paper: #ffffff;
-  --color-paper-2: #f5f4f0;
-  --color-paper-3: #e9e7e1;
+  --color-paper: #f6f4ef;
+  --color-paper-2: #eeece5;
+  --color-paper-3: #dfded5;
 
   /* Slate: dark ground for the footer and evidence bars. */
-  --color-slate: #1f2630;
-  --color-slate-2: #2b3440;
+  --color-slate: #242722;
+  --color-slate-2: #34382f;
 
-  /* Accent: oxidised copper, for primary actions and active states.
-     7.2:1 on white; accent-bg is its tint for chips and notes. */
-  --color-accent: #8f3f1b;
-  --color-accent-hover: #74321a;
-  --color-accent-bg: #faf0ea;
-  --color-accent-border: rgba(143, 63, 27, 0.28);
+  /* Terracotta, reserved for navigation cues and editorial emphasis. */
+  --color-accent: #984b37;
+  --color-accent-hover: #763827;
+  --color-accent-bg: #eee2d9;
+  --color-accent-border: rgba(152, 75, 55, 0.3);
 
   /* Status: pass, pending, caution. Text colours hold about 6:1 on white. */
   --color-ok: #1d6b47;
@@ -31,13 +30,13 @@
   --color-warn-bg: #fff7e8;
 
   /* Borders */
-  --color-line: rgba(21, 26, 33, 0.12);
-  --color-line-strong: rgba(21, 26, 33, 0.24);
+  --color-line: rgba(37, 40, 36, 0.15);
+  --color-line-strong: rgba(37, 40, 36, 0.3);
 
   /* Corners: tag for chips, control for buttons and inputs, card for panels. */
-  --radius-tag: 2px;
-  --radius-control: 6px;
-  --radius-card: 10px;
+  --radius-tag: 0px;
+  --radius-control: 0px;
+  --radius-card: 0px;
 
   --shadow-card: 0 1px 2px rgba(21, 26, 33, 0.05), 0 8px 24px rgba(21, 26, 33, 0.06);
   --shadow-pop: 0 18px 48px rgba(21, 26, 33, 0.16);
@@ -45,6 +44,7 @@
   /* next/font exposes the self-hosted files as CSS variables (app/layout.tsx). */
   --font-sans: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-dm-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-editorial: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 
   /* Type scale: each name is its pixel size. */
   --text-f12: 12px;
@@ -69,7 +69,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 108px;
+  scroll-padding-bottom: calc(110px + env(safe-area-inset-bottom));
 }
 
 body {
@@ -87,7 +88,11 @@ body {
   h2,
   h3 {
     text-wrap: balance;
+    letter-spacing: -0.025em;
   }
+
+  button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+  button:not(:disabled), summary { cursor: pointer; }
 }
 
 /* Region switch: the header sets data-region on <html>. Before hydration both
@@ -100,6 +105,65 @@ html[data-region="CA"] [data-region-block="US"] {
 
 /* Spec tables: first column names the row, the rest hold values. */
 @layer components {
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.6;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .editorial-title {
+    font-size: clamp(38px, 4.4vw, 64px);
+    line-height: 1.06;
+    font-weight: 400;
+    letter-spacing: -0.055em;
+  }
+
+  .architecture-title {
+    font-size: clamp(54px, 8.2vw, 118px);
+    line-height: 0.98;
+    font-weight: 400;
+    letter-spacing: -0.055em;
+    text-wrap: normal;
+  }
+  .editorial-serif {
+    font-family: var(--font-editorial);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.065em;
+  }
+  .architectural-plate {
+    position: relative;
+    aspect-ratio: 2.45;
+    overflow: hidden;
+    background: var(--color-paper-3);
+  }
+  .architectural-plate img { object-position: center 58%; }
+  .index-link { transition: color 180ms ease, background-color 180ms ease; }
+  .index-link:hover { color: var(--color-accent); }
+  .index-link .link-arrow { transition: transform 180ms ease; }
+  .index-link:hover .link-arrow { transform: translate(3px, -3px); }
+  @media (max-width: 767px) {
+    .architectural-plate { aspect-ratio: 1.12; }
+    .architectural-plate img { object-position: 47% center; }
+    .architecture-title { font-size: clamp(48px, 11.8vw, 88px); }
+  }
+
+  .page-intro { position: relative; overflow: hidden; }
+  .page-intro::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 auto;
+    width: 21%;
+    height: 72%;
+    pointer-events: none;
+    border-left: 1px solid var(--color-line);
+    border-top: 1px solid var(--color-line);
+  }
+  .page-intro > div { position: relative; z-index: 1; }
+
   .spec-table :is(th, td):first-child {
     white-space: nowrap;
   }
@@ -156,6 +220,14 @@ html[data-region="CA"] [data-region-block="US"] {
   outline-offset: 3px;
 }
 
+.bg-slate :where(a, button, input, select, textarea, summary):focus-visible {
+  outline-color: #d6ad99;
+}
+
+@media (max-width: 639px) {
+  input, select, textarea { font-size: 16px !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -170,18 +242,18 @@ html[data-region="CA"] [data-region-block="US"] {
   }
 }
 
-/* The one page container: 1280px wide with 20 / 24 / 32px side gutters. */
+/* A generous architectural grid with quiet, consistent page margins. */
 @utility site-container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1440px;
   margin-inline: auto;
   padding-inline: 20px;
 
   @media (width >= 40rem) {
-    padding-inline: 24px;
+    padding-inline: 32px;
   }
 
   @media (width >= 64rem) {
-    padding-inline: 32px;
+    padding-inline: 48px;
   }
 }

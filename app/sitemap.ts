@@ -5,8 +5,7 @@ import { absoluteUrl } from "@/lib/seo";
 import { site } from "@/content/data/site";
 import { isPublishedPath } from "@/content/data/publication";
 
-const lastModified = new Date();
-
+// Add lastModified only when a reliable content-change date exists per route.
 const priorityValue = { P0: 0.8, P1: 0.6, P2: 0.4 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,13 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((r) => r.index && (site.stage === "live" || isPublishedPath(r.path)))
     .map((r) => ({
       url: absoluteUrl(r.path),
-      lastModified,
       changeFrequency: r.changeFrequency,
       priority: r.path === "/" ? 1 : priorityValue[r.priority],
     }));
   const finishPages = finishes.map((f) => ({
     url: absoluteUrl(`/finishes/${f.code.toLowerCase()}`),
-    lastModified,
     changeFrequency: "monthly" as const,
     priority: 0.5,
   }));

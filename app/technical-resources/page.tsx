@@ -5,8 +5,8 @@ import { catalogProducts, productRequestHref } from "@/content/data/catalog";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const path = "/technical-resources";
-const description = "Find available manufacturer panel documents and request product-specific data, test reports and attachment information for architectural and procurement review.";
-export const metadata = buildPageMetadata({ title: "Panel Documents and Technical Resources | Cladvera", description, path });
+const description = "Find architectural panel technical documents for UHPC, metal composite, HPL and GFRP. Review manufacturer sources and request product data and test reports.";
+export const metadata = buildPageMetadata({ title: "Architectural Panel Technical Documents | Cladvera", description, path });
 
 const reviewSet = [
   { title: "Product identity and construction", body: "Name the manufacturer, family, offered grade, core, faces, thickness, size and finish. Record the document date and revision." },
@@ -19,12 +19,12 @@ export default function Page() {
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Panel documents and technical resources", description, path, type: "CollectionPage" })} />
-      <PageHeader eyebrow="Technical review" title="Connect each product to its evidence" lede="Open the listed source documents or request information for a named product. Check document revision and applicability to the exact construction before specification or order." crumbs={[{ name: "Technical resources", path }]} actions={<><Cta href="/products">Find a product</Cta><Cta href="/request-quote?intent=documents" variant="secondary">Request a document package</Cta></>} />
+      <PageHeader eyebrow="Technical resources" title="Architectural panel technical documents" lede="Find manufacturer literature for UHPC, metal composite, HPL, interior boards and custom GFRP. Request product data, test reports and attachment details for the exact construction before specification or order." crumbs={[{ name: "Technical resources", path }]} actions={<><Cta href="/products">Find a panel family</Cta><Cta href="/request-quote?intent=documents" variant="secondary">Request a document package</Cta></>} />
 
       <Section title="Documents by product" lede="Direct document links are shown where a file has been identified. A manufacturer product page provides context; a document request confirms what can be supplied for your project.">
         <div className="grid gap-[16px] md:grid-cols-2">
           {catalogProducts.map((product) => (
-            <article key={product.id} className="flex flex-col rounded-card border border-line p-[20px]">
+            <article key={product.id} id={product.id} className="flex flex-col rounded-card border border-line p-[20px]">
               <p className="font-mono text-f12 text-accent">{product.manufacturer}</p><h2 className="mt-[6px] text-f20 font-semibold"><Link href={product.path} className="hover:text-accent">{product.name}</Link></h2><p className="mt-[10px] text-f14 text-ink-2">{product.documentation}</p>
               <div className="mt-[16px]"><Badge tone={product.documentUrl ? "accent" : "neutral"}>{product.documentUrl ? "Source document linked" : "Product-specific documents on request"}</Badge></div>
               <div className="mt-auto flex flex-wrap items-center gap-[16px] pt-[20px] text-f14">

@@ -13,10 +13,10 @@ type CtaVariant = "primary" | "secondary" | "ghost";
 
 const ctaClasses: Record<CtaVariant, string> = {
   primary:
-    "bg-accent text-paper hover:bg-accent-hover border border-accent",
+    "bg-ink text-paper hover:bg-accent border border-ink hover:border-accent",
   secondary:
     "bg-paper text-ink border border-line-strong hover:border-ink",
-  ghost: "text-accent hover:text-accent-hover underline underline-offset-4 px-0",
+  ghost: "text-ink hover:text-accent border-b border-line-strong hover:border-accent px-0",
 };
 
 export function Cta({
@@ -32,8 +32,8 @@ export function Cta({
 }) {
   const base =
     variant === "ghost"
-      ? "inline-flex items-center gap-[6px] text-f14 font-medium"
-      : "inline-flex items-center justify-center gap-[8px] rounded-control px-[18px] py-[10px] text-f14 font-semibold transition-colors";
+      ? "inline-flex min-h-[44px] items-center gap-[24px] text-f14 font-medium transition-colors"
+      : "inline-flex min-h-[48px] items-center justify-center gap-[22px] rounded-control px-[22px] py-[12px] text-f14 font-medium transition-colors";
   return (
     <Link href={href} className={`${base} ${ctaClasses[variant]} ${className}`}>
       {children}
@@ -94,14 +94,14 @@ export function PageHeader({
   children?: React.ReactNode;
 }) {
   return (
-    <header className="border-b border-line bg-paper-2">
-      <div className="site-container py-[40px] md:py-[56px]">
-        {crumbs && <div className="mb-[16px]"><Breadcrumbs items={crumbs} /></div>}
+    <header className="page-intro border-b border-line bg-paper">
+      <div className="site-container pb-[48px] pt-[24px] md:pb-[72px] md:pt-[32px]">
+        {crumbs && <div className="mb-[40px] border-b border-line pb-[24px] md:mb-[56px]"><Breadcrumbs items={crumbs} /></div>}
         {eyebrow && (
-          <p className="mb-[10px] font-mono text-f12 font-medium uppercase tracking-[0.08em] text-accent">{eyebrow}</p>
+          <p className="eyebrow mb-[16px]">{eyebrow}</p>
         )}
-        <h1 className="max-w-[880px] text-f32 font-semibold md:text-f44">{title}</h1>
-        {lede && <p className="mt-[16px] max-w-[760px] text-f18 text-ink-2">{lede}</p>}
+        <h1 className="max-w-[1020px] text-[40px] font-normal leading-[1.04] tracking-[-0.055em] md:text-[64px] lg:text-[76px]">{title}</h1>
+        {lede && <p className="mt-[28px] max-w-[700px] text-f18 text-ink-2">{lede}</p>}
         {children}
         {actions && <div className="mt-[24px] flex flex-wrap gap-[12px]">{actions}</div>}
       </div>
@@ -128,10 +128,10 @@ export function Section({
     tone === "muted" ? "bg-paper-2" : tone === "dark" ? "bg-slate text-paper" : "bg-paper";
   return (
     <section id={id} className={`${toneClass} ${className}`}>
-      <div className="site-container py-[40px] md:py-[56px]">
+      <div className="site-container py-[48px] md:py-[80px]">
         {title && (
-          <div className="mb-[24px] max-w-[760px]">
-            <h2 className="text-f24 font-semibold md:text-f32">{title}</h2>
+          <div className="mb-[32px] max-w-[800px]">
+            <h2 className="text-[30px] font-normal leading-[1.12] tracking-[-0.045em] md:text-[42px]">{title}</h2>
             {lede && <p className={`mt-[10px] text-f16 ${tone === "dark" ? "text-paper/80" : "text-ink-2"}`}>{lede}</p>}
           </div>
         )}
@@ -272,10 +272,10 @@ export function LinkCard({
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col rounded-card border border-line bg-paper p-[20px] transition-shadow hover:border-line-strong hover:shadow-card"
+      className="group flex h-full flex-col border-t border-line-strong bg-paper py-[24px] pr-[20px] transition-colors hover:border-accent"
     >
       {meta && <div className="mb-[10px] flex flex-wrap gap-[6px]">{meta}</div>}
-      <h3 className="text-f18 font-semibold group-hover:text-accent">{title}</h3>
+      <h3 className="flex items-start justify-between gap-[16px] text-f20 font-medium group-hover:text-accent">{title}<span aria-hidden="true" className="text-accent">↗</span></h3>
       {description && <p className="mt-[6px] text-f14 text-ink-2">{description}</p>}
     </Link>
   );
@@ -285,9 +285,9 @@ export function Steps({ steps }: { steps: Array<{ title: string; body: string }>
   return (
     <ol className="grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
       {steps.map((step, index) => (
-        <li key={step.title} className="rounded-card border border-line bg-paper p-[20px]">
+        <li key={step.title} className="border-t border-line-strong bg-paper py-[24px] pr-[20px]">
           <p className="font-mono text-f12 font-medium text-accent">{String(index + 1).padStart(2, "0")}</p>
-          <h3 className="mt-[6px] text-f16 font-semibold">{step.title}</h3>
+          <h3 className="mt-[20px] text-f20 font-medium">{step.title}</h3>
           <p className="mt-[6px] text-f14 text-ink-2">{step.body}</p>
         </li>
       ))}

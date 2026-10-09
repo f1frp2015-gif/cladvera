@@ -5,8 +5,8 @@ import { catalogApplications, catalogProducts } from "@/content/data/catalog";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const path = "/applications";
-const description = "Explore panel families for exterior facades, interior walls, transit, healthcare and custom elements, with practical factors to review before selection.";
-export const metadata = buildPageMetadata({ title: "Architectural Panel Applications | Cladvera", description, path });
+const description = "Explore facade cladding, interior wall panels, transit, healthcare and custom architectural forms. Find material families and review project requirements.";
+export const metadata = buildPageMetadata({ title: "Facade & Interior Panel Applications | Cladvera", description, path });
 
 const reviewFactors: Record<string, string[]> = {
   facade: ["Exposure, panel layout and visual range", "Substrate, attachment, joints and drainage", "Product and complete wall-assembly evidence"],
@@ -20,7 +20,7 @@ export default function Page() {
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Architectural panel applications", description, path, type: "CollectionPage" })} />
-      <PageHeader eyebrow="Select by application" title="Start with the space, exposure and project requirements" lede="Use the application to build a shortlist, then compare each product's construction and available evidence. These groupings help product discovery; suitability is reviewed for the project." crumbs={[{ name: "Applications", path }]} actions={<><Cta href="/products">Browse all products</Cta><Cta href="/architects" variant="secondary">Selection process</Cta></>} />
+      <PageHeader eyebrow="Select by application" title="Facade and interior panel applications" lede="Start with the space and exposure. Explore exterior cladding, interior walls and ceilings, transit, healthcare and custom forms, then review each material against your project requirements." crumbs={[{ name: "Applications", path }]} actions={<><Cta href="/products">Browse all products</Cta><Cta href="/architects" variant="secondary">Panel selection guide</Cta></>} />
       <Section title="Choose an application">
         <div className="grid gap-[24px] lg:grid-cols-2">
           {catalogApplications.map((application) => {

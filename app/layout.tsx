@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import DraftNotice from "@/components/layout/DraftNotice";
+import SelectionDock from "@/components/catalog/SelectionDock";
 import JsonLd from "@/components/seo/JsonLd";
 import { RegionProvider, regionBootstrapScript } from "@/components/region/RegionProvider";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Header />
           <main id="main">{children}</main>
           <Footer />
+          <SelectionDock />
         </RegionProvider>
         <SpeedInsights />
         <Analytics />

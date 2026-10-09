@@ -1,10 +1,11 @@
+import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { Callout, Cta, LinkCard, PageHeader, Section } from "@/components/ui";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const path = "/procurement";
-const description = "Prepare a panel RFQ, compare quoted scope, coordinate approvals and plan delivery with product, quantity, drawings and documentation recorded at each stage.";
-export const metadata = buildPageMetadata({ title: "Panel Procurement and RFQ Guide | Cladvera", description, path });
+const description = "Prepare an architectural panel RFQ with material, quantities, drawings and delivery needs. Compare quoted scope, coordinate approvals and plan procurement.";
+export const metadata = buildPageMetadata({ title: "Architectural Panel Procurement & RFQ Guide | Cladvera", description, path });
 
 const rfqItems = [
   { title: "Project and destination", body: "Project name, location, building use, delivery destination and your role in the purchase." },
@@ -28,7 +29,7 @@ export default function Page() {
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Panel procurement process", description, path })} />
-      <PageHeader eyebrow="For buyers, contractors and fabricators" title="Build a clear RFQ. Buy against an agreed scope." lede="Connect the selected panel family to quantities, drawings, approval requirements and delivery needs. Each stage should leave a record the next participant can use." crumbs={[{ name: "Procurement", path }]} actions={<><Cta href="/request-quote">Prepare a project request</Cta><Cta href="/compare" variant="secondary">Compare product families</Cta></>} />
+      <PageHeader eyebrow="For buyers, contractors and fabricators" title="Architectural panel procurement, from RFQ to delivery" lede="Build a clear request for facade panels, interior boards or custom elements. Connect the selected material to quantities, drawings, approval requirements and delivery needs, then buy against an agreed scope." crumbs={[{ name: "Procurement", path }]} actions={<><Cta href="/request-quote">Prepare a panel RFQ</Cta><Cta href="/compare" variant="secondary">Compare product families</Cta></>} />
 
       <Section title="What to include in an RFQ" lede="Early budget inquiries can begin with estimates. Mark assumptions so the offered scope can be updated as the design develops.">
         <div className="grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">{rfqItems.map((item) => <div key={item.title} className="rounded-card border border-line p-[20px]"><h2 className="text-f18 font-semibold">{item.title}</h2><p className="mt-[8px] text-f14 text-ink-2">{item.body}</p></div>)}</div>
@@ -50,11 +51,11 @@ export default function Page() {
       </Section>
 
       <Section title="Coordinate bespoke elements before order release" tone="muted">
-        <p className="max-w-[820px] text-f16 text-ink-2">Custom UHPC and GFRP elements need an agreed geometry and development scope. Include interface drawings, module breakdown, fixing zones, finish references, prototype requirements and tooling ownership in the request. Confirm engineering responsibilities, acceptance criteria and approved revisions before production is released.</p>
-        <div className="mt-[20px] flex flex-wrap gap-[12px]"><Cta href="/products?application=custom">Explore custom elements</Cta><Cta href="/request-quote" variant="secondary">Discuss a custom RFQ</Cta></div>
+        <p className="max-w-[820px] text-f16 text-ink-2"><Link href="/suppliers/taktl/custom-elements" className="text-accent underline underline-offset-4">Custom UHPC elements</Link> and <Link href="/materials/gfrp-custom-elements" className="text-accent underline underline-offset-4">molded GFRP architectural forms</Link> need an agreed geometry and development scope. Include interface drawings, module breakdown, fixing zones, finish references, prototype requirements and tooling ownership in the request. Confirm engineering responsibilities, acceptance criteria and approved revisions before production is released.</p>
+        <div className="mt-[20px] flex flex-wrap gap-[12px]"><Cta href="/applications#custom">Explore custom architectural forms</Cta><Cta href="/request-quote" variant="secondary">Discuss a custom RFQ</Cta></div>
       </Section>
 
-      <Section title="Continue your project"><div className="grid gap-[16px] md:grid-cols-3"><LinkCard href="/products" title="Still selecting?" description="Find products by material, application and manufacturer, then shortlist the appropriate families." /><LinkCard href="/technical-resources" title="Need evidence?" description="Review available manufacturer documents or request a product-specific document package." /><LinkCard href="/request-quote" title="Ready to inquire?" description="Carry selected products into the project request with drawings, quantities and delivery needs." /></div></Section>
+      <Section title="Continue your project"><div className="grid gap-[16px] md:grid-cols-3"><LinkCard href="/products" title="Find architectural panels" description="Find products by material, application and manufacturer, then shortlist the appropriate families." /><LinkCard href="/technical-resources" title="Review panel technical documents" description="Review available manufacturer documents or request a product-specific document package." /><LinkCard href="/request-quote" title="Request a project quotation" description="Carry selected products into the project request with drawings, quantities and delivery needs." /></div></Section>
     </>
   );
 }

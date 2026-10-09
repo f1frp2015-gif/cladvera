@@ -1,18 +1,115 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Section, Cta, LinkCard } from "@/components/ui";
-import { catalogCategories, catalogApplications } from "@/content/data/catalog";
-import { buildPageMetadata } from "@/lib/seo";
-export const metadata = buildPageMetadata({ title: "Architectural Materials & Custom Elements | Cladvera", description: "Explore architectural UHPC, metal composite, HPL and custom GFRP. Compare product families and coordinate samples, technical documents and project procurement.", path: "/" });
+import CatalogVisual from "@/components/catalog/CatalogVisual";
+import JsonLd from "@/components/seo/JsonLd";
+import { Cta } from "@/components/ui";
+import { catalogCategories, catalogApplications, catalogProducts } from "@/content/data/catalog";
+import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
+
+const description = "Explore facade panels, interior boards and custom architectural elements in UHPC, metal composite, HPL and GFRP. Compare materials, samples and project supply.";
+export const metadata = buildPageMetadata({ title: "Facade Panels & Architectural Materials | Cladvera", description, path: "/" });
+
+const materialTitles: Record<string, string> = {
+  uhpc: "Concrete, reimagined.", mcm: "Precision in layers.", hpl: "A warmer exterior.",
+  "interior-board": "An interior language.", gfrp: "Beyond the flat plane.",
+};
+const materialLayouts: Record<string, string> = {
+  uhpc: "md:col-span-7", mcm: "md:col-span-5 md:pt-[100px]", hpl: "md:col-span-4",
+  "interior-board": "md:col-span-4 md:pt-[56px]", gfrp: "md:col-span-4 md:pt-[112px]",
+};
+const process = [
+  { number: "01", title: "The material.", text: "Begin with surface, structure and the character of each family.", link: "Explore the product library", href: "/products" },
+  { number: "02", title: "The detail.", text: "Bring samples, drawings and assembly requirements into the conversation.", link: "Review technical resources", href: "/technical-resources" },
+  { number: "03", title: "The project.", text: "Connect your design intent to quantities, documentation and delivery needs.", link: "Plan your procurement", href: "/procurement" },
+];
+
 export default function Page() {
   return <>
-    <section className="border-b border-line bg-paper-2"><div className="site-container grid items-center gap-[36px] py-[48px] md:py-[64px] lg:grid-cols-[1.1fr_0.9fr]">
-      <div><p className="font-mono text-f12 uppercase tracking-[0.1em] text-accent">Architectural materials · project supply</p><h1 className="mt-[16px] max-w-[700px] text-f44 font-semibold">From material intent<br />to a defined supply brief.</h1><p className="mt-[20px] max-w-[640px] text-f18 text-ink-2">Explore facade panels, interior surfaces and custom architectural forms. Cladvera connects product selection with the samples, documents and commercial scope your project needs.</p><div className="mt-[28px] flex flex-wrap gap-[12px]"><Cta href="/products">Explore products</Cta><Cta href="/applications" variant="secondary">Browse by application</Cta></div></div>
-      <figure className="overflow-hidden rounded-card border border-line bg-paper"><div className="relative h-[300px] md:h-[380px]"><Image src="/images/compactwood/supplier-project.jpg" alt="Facade project shown by Compactwood in its manufacturer reference gallery" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" priority /></div><figcaption className="px-[16px] py-[12px] text-f12 text-ink-3">Compactwood manufacturer project reference. Product and assembly selection are confirmed separately.</figcaption></figure>
-    </div></section>
-    <Section title="Start with a material" lede="Distinct families, clear product roles and named manufacturer sources."><div className="grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">{catalogCategories.map((c, i) => <LinkCard key={c.id} href={`/products?category=${c.id}`} title={c.label} description={c.description} meta={<span className="font-mono text-f12 text-accent">0{i + 1}</span>} />)}</div></Section>
-    <Section title="Two routes. One coordinated selection." tone="muted"><div className="grid gap-[20px] md:grid-cols-2"><LinkCard href="/architects" title="For architects & designers" description="Compare materials, establish finish intent, plan samples and identify the evidence needed for a project specification." meta="DESIGN → SPECIFICATION" /><LinkCard href="/procurement" title="For buyers & project teams" description="Turn approved intent into quantities, document requirements, scope boundaries and a request for commercial terms." meta="SCOPE → ORDER → DELIVERY" /></div></Section>
-    <Section title="Select for the application"><div className="grid gap-[12px] md:grid-cols-2 lg:grid-cols-3">{catalogApplications.map(a => <LinkCard key={a.id} href={`/products?application=${a.id}`} title={a.label} description={a.description} />)}</div></Section>
-    <Section title="Keep the decision connected" tone="muted"><ol className="grid gap-[16px] md:grid-cols-4">{[["01", "Find candidates", "Filter materials and applications.", "/products"], ["02", "Build a shortlist", "Compare the construction and document needs.", "/compare"], ["03", "Review the evidence", "Request samples and project-specific documents.", "/technical-resources"], ["04", "Define the request", "Share drawings, quantities, finish and timing.", "/request-quote"]].map(([n,title,body,href]) => <li key={n} className="rounded-card border border-line bg-paper p-[20px]"><p className="font-mono text-f12 text-accent">{n}</p><Link href={href} className="mt-[8px] block text-f18 font-semibold hover:text-accent">{title} →</Link><p className="mt-[8px] text-f14 text-ink-2">{body}</p></li>)}</ol></Section>
+    <JsonLd data={buildWebPageSchema({ name: "Facade panels and architectural materials", description, path: "/" })} />
+    <section className="bg-paper">
+      <div className="site-container pb-[24px] pt-[28px] md:pt-[36px]">
+        <div className="flex items-center justify-between gap-[24px] border-t border-line-strong pt-[14px]">
+          <p className="eyebrow">Facade panels & architectural surfaces</p>
+          <p className="hidden font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3 sm:block">Material selection / Project supply</p>
+        </div>
+        <div className="grid items-end gap-[30px] pb-[40px] pt-[36px] md:grid-cols-[1fr_280px] md:gap-[40px] md:pb-[48px] md:pt-[48px] xl:grid-cols-[1fr_310px]">
+          <h1 className="architecture-title">Material shapes<br /><span className="editorial-serif text-accent">architecture.</span></h1>
+          <div className="max-w-[370px] md:pb-[7px]">
+            <p className="text-f16 text-ink-2">Surfaces with character. Systems with purpose. Explore facade panels, interior boards and custom elements for considered architecture.</p>
+            <Link href="/products" className="index-link mt-[22px] flex min-h-[44px] items-center justify-between gap-[24px] border-b border-ink pb-[10px] text-f14 font-medium">Explore the material library <span aria-hidden="true" className="link-arrow text-f24">↗</span></Link>
+          </div>
+        </div>
+        <figure>
+          <div className="architectural-plate">
+            <Image src={catalogProducts[0].imageUrl!} alt="Pale TAKTL architectural UHPC facade panels meeting glass and shadow at a building corner" fill sizes="(min-width: 1440px) 1344px, (min-width: 1024px) calc(100vw - 96px), 100vw" className="object-cover" preload />
+            <div aria-hidden="true" className="absolute left-[18px] top-[18px] flex h-[42px] w-[42px] items-center justify-center bg-paper font-mono text-f12 text-ink md:left-[24px] md:top-[24px]">01</div>
+            <div aria-hidden="true" className="absolute bottom-[20px] right-[24px] h-[32px] w-[32px] border-b border-r border-white/80" />
+          </div>
+          <figcaption className="flex flex-wrap justify-between gap-x-[32px] gap-y-[6px] border-b border-line py-[14px] text-[11px] text-ink-3">
+            <span className="font-mono uppercase tracking-[0.07em]">Material in context — Light / Surface / Space</span>
+            <span>Image: TAKTL manufacturer reference. Project suitability reviewed separately.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav aria-label="Explore material collections" className="bg-paper">
+      <div className="site-container grid grid-cols-2 gap-x-[24px] pb-[24px] md:grid-cols-3 lg:grid-cols-6">
+        {catalogCategories.map((category, index) => <Link key={category.id} href={category.path} className="index-link flex min-h-[96px] flex-col justify-between gap-[10px] border-b border-line py-[18px]"><span className="font-mono text-[10px] text-ink-3">0{index + 1} /</span><span className="flex items-start justify-between gap-[12px] text-f12 font-medium">{category.label}<span aria-hidden="true" className="link-arrow text-f16">↗</span></span></Link>)}
+      </div>
+    </nav>
+
+    <section id="materials" className="bg-paper">
+      <div className="site-container py-[64px] md:py-[112px]">
+        <div className="mb-[44px] grid gap-[24px] border-t border-line-strong pt-[22px] md:mb-[64px] md:grid-cols-[1fr_2fr]">
+          <p className="eyebrow">01 / The material collection</p>
+          <div><h2 className="editorial-title max-w-[720px]">Every surface.<br /><span className="editorial-serif">A different expression.</span></h2><p className="mt-[24px] max-w-[480px] text-f16 text-ink-2">Weight, texture, rhythm and light. Discover the material possibilities behind the spaces you imagine.</p></div>
+        </div>
+        <div className="grid gap-x-[32px] gap-y-[40px] md:grid-cols-12 md:gap-y-[64px]">
+          {catalogCategories.filter(category => category.id !== "hardware").map((category, index) => {
+            const product = catalogProducts.find(item => item.category === category.id)!;
+            return <Link key={category.id} href={category.path} className={`group index-link block min-w-0 ${materialLayouts[category.id]}`}>
+              <div className="mb-[12px] flex items-center justify-between border-t border-line pt-[10px] font-mono text-[10px] uppercase tracking-[0.08em] text-ink-3"><span>0{index + 1} / {category.label}</span><span aria-hidden="true">↗</span></div>
+              <CatalogVisual product={product} />
+              <h3 className="mt-[22px] text-[28px] font-normal leading-[1.15] tracking-[-0.04em] md:text-[32px]">{materialTitles[category.id]}</h3>
+              <p className="mt-[10px] max-w-[420px] text-f14 text-ink-2">{category.description}</p>
+            </Link>;
+          })}
+        </div>
+        <div className="mt-[48px] grid gap-[20px] border-t border-line-strong pt-[22px] md:mt-[64px] md:grid-cols-[1fr_auto] md:items-center">
+          <p className="max-w-[590px] text-f12 text-ink-3">Manufacturer imagery and labeled illustrations. Physical samples govern finish approval. Explore attachment components alongside the selected panel system.</p>
+          <Cta href="/suppliers/taktl/hardware" variant="ghost">Attachment components <span aria-hidden="true">↗</span></Cta>
+        </div>
+      </div>
+    </section>
+
+    <section className="bg-slate text-paper">
+      <div className="site-container grid gap-[40px] py-[64px] md:py-[96px] lg:grid-cols-[1fr_1fr] lg:gap-[96px]">
+        <div className="flex flex-col items-start">
+          <p className="font-mono text-[11px] uppercase tracking-[0.13em] text-paper/65">02 / Architecture begins with a question</p>
+          <h2 className="editorial-title mt-[32px]">What will the<br /><span className="editorial-serif text-[#d6ad99]">material do?</span></h2>
+          <p className="mt-[24px] max-w-[350px] text-f16 text-paper/75">Frame a facade. Define an interior. Follow a curve. Start with the application and work toward the detail.</p>
+          <Link href="/applications" className="mt-[28px] inline-flex min-h-[44px] items-center gap-[36px] border-b border-paper/50 pb-[8px] text-f14 hover:text-[#d6ad99]">Explore architectural applications <span aria-hidden="true">↗</span></Link>
+          <svg aria-hidden="true" viewBox="0 0 320 180" fill="none" className="mt-[44px] hidden w-[260px] text-paper/30 lg:block"><path d="M0 150h320M24 0v180M296 0v180M0 30h320M80 180V65h160v115M114 65v85M148 65v85M182 65v85M216 65v85" stroke="currentColor" strokeWidth="0.6" /><path d="M80 150V65h160" stroke="#d6ad99" strokeWidth="2" /><circle cx="24" cy="30" r="4" stroke="currentColor" /><circle cx="296" cy="150" r="4" stroke="currentColor" /></svg>
+        </div>
+        <div className="border-t border-paper/40">{catalogApplications.map((application, index) => <Link key={application.id} href={`/applications#${application.id}`} className="group grid grid-cols-[24px_1fr_20px] items-start gap-[16px] border-b border-paper/20 py-[26px]"><span className="pt-[4px] font-mono text-[10px] text-paper/55">0{index + 1}</span><div><h3 className="text-[22px] font-normal leading-tight tracking-[-0.03em] group-hover:text-[#d6ad99] md:text-[26px]">{application.label}</h3><p className="mt-[10px] max-w-[340px] text-f14 text-paper/65">{application.description}</p></div><span aria-hidden="true" className="text-f20 text-paper/70">↗</span></Link>)}</div>
+      </div>
+    </section>
+
+    <section className="bg-paper">
+      <div className="site-container py-[64px] md:py-[112px]">
+        <div className="grid gap-[24px] border-t border-line-strong pt-[22px] md:grid-cols-[1fr_2fr]"><p className="eyebrow">03 / A considered process</p><h2 className="editorial-title">From first impression<br /><span className="editorial-serif">to the final detail.</span></h2></div>
+        <ol className="mt-[48px] grid gap-[32px] md:mt-[64px] md:grid-cols-3">{process.map(item => <li key={item.number} className="border-t border-line pt-[16px]"><p className="font-mono text-[10px] text-accent">{item.number} /</p><h3 className="mb-[18px] mt-[28px] text-[34px] font-normal tracking-[-0.045em]">{item.title}</h3><p className="max-w-[340px] text-f16 text-ink-2">{item.text}</p><Link href={item.href} className="index-link mt-[28px] inline-flex min-h-[44px] items-center gap-[24px] border-b border-line-strong text-f14 font-medium">{item.link}<span aria-hidden="true">↗</span></Link></li>)}</ol>
+      </div>
+    </section>
+
+    <section className="border-t border-line bg-paper-2">
+      <div className="site-container grid md:grid-cols-2">
+        {[
+          { label: "For architects & designers", title: "Keep the design intent.", copy: "Establish the material language, review the construction and identify what your specification needs.", href: "/architects", link: "The architect’s material desk" },
+          { label: "For buyers & project teams", title: "Bring the scope together.", copy: "Connect your approved shortlist to quantities, document requirements and project supply.", href: "/procurement", link: "Procurement & project supply" },
+        ].map((item, index) => <div key={item.href} className={`py-[48px] md:py-[64px] ${index ? "border-t border-line md:border-l md:border-t-0 md:pl-[64px]" : "md:pr-[64px]"}`}><p className="eyebrow">{item.label}</p><h2 className="mt-[28px] text-[32px] font-normal leading-[1.15] tracking-[-0.04em] md:text-[38px]">{item.title}</h2><p className="mt-[18px] max-w-[420px] text-f16 text-ink-2">{item.copy}</p><Cta href={item.href} variant="ghost" className="mt-[24px]">{item.link}<span aria-hidden="true">↗</span></Cta></div>)}
+      </div>
+    </section>
   </>;
 }

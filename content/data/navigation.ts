@@ -25,7 +25,7 @@ export const productNavLinks: NavLink[] = [
   { label: "All products", href: "/products", description: "Browse and compare the complete product library" },
   ...catalogCategories.map(category => ({
     label: category.label,
-    href: `/products?category=${category.id}`,
+    href: category.path,
     description: category.description,
   })),
 ];
@@ -44,15 +44,16 @@ export const ctaNav: NavLink[] = [
 export const footerNav: Array<{ heading: string; links: NavLink[] }> = [
   { heading: "Products", links: [
     { label: "All products", href: "/products" },
-    { label: "TAKTL architectural UHPC", href: "/suppliers/taktl" },
+    { label: "TAKTL UHPC facade panels", href: "/suppliers/taktl" },
     { label: "ALMINE metal composite", href: "/materials/acm-panels" },
-    { label: "Compactwood exterior HPL", href: "/materials/exterior-hpl-panels" },
+    { label: "Exterior HPL facade panels", href: "/materials/exterior-hpl-panels" },
     { label: "Compactwood interior boards", href: "/materials/interior-hpl-panels" },
     { label: "Custom GFRP elements", href: "/materials/gfrp-custom-elements" },
+    { label: "TAKTL attachment components", href: "/suppliers/taktl/hardware" },
   ] },
   { heading: "Design & selection", links: [
-    { label: "Applications", href: "/applications" },
-    { label: "For architects", href: "/architects" },
+    { label: "Facade & interior applications", href: "/applications" },
+    { label: "Panel specification for architects", href: "/architects" },
     { label: "Compare shortlist", href: "/compare" },
     { label: "Technical resources", href: "/technical-resources" },
     { label: "Request samples", href: "/samples" },

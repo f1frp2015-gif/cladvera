@@ -18,7 +18,7 @@ function load(relative) {
 }
 const { catalogProducts, catalogCategories, catalogApplications, filterCatalog, parseProductIds, productRequestHref, MAX_SELECTION } = load("content/data/catalog.ts");
 const { publishedPaths, isPublishedPath } = load("content/data/publication.ts");
-const { mainNav, footerNav, routes } = load("content/data/navigation.ts");
+const { mainNav, ctaNav, footerNav, routes } = load("content/data/navigation.ts");
 test("each catalog product has a distinct ID, canonical published page and valid taxonomy", () => {
   assert.equal(new Set(catalogProducts.map(p => p.id)).size, catalogProducts.length);
   assert.equal(new Set(catalogProducts.map(p => p.path)).size, catalogProducts.length);
@@ -30,6 +30,18 @@ test("each catalog product has a distinct ID, canonical published page and valid
     assert.ok(p.applications.every(a => catalogApplications.some(c => c.id === a)));
   }
 });
+test("material categories have unique published canonical landing pages", () => {
+  assert.equal(new Set(catalogCategories.map(category => category.path)).size, catalogCategories.length);
+  for (const category of catalogCategories) {
+    assert.equal(typeof category.path, "string", category.id);
+    const url = new URL(category.path, "https://cladvera.test");
+    assert.equal(url.origin, "https://cladvera.test", category.id);
+    assert.equal(category.path, url.pathname, `${category.id} must link to a path without query parameters or a fragment`);
+    assert.ok(isPublishedPath(category.path), category.path);
+    assert.ok(routes.some(route => route.path === category.path && route.index), `${category.path} must be a registered indexable page`);
+    assert.ok(existsSync(resolve(root, `app${category.path}/page.tsx`)), category.path);
+  }
+});
 test("application and material filters combine without mixing hardware or interior board grades", () => {
   assert.deepEqual(filterCatalog({ category: "gfrp", application: "custom" }).map(p => p.id), ["gfrp-custom"]);
   assert.deepEqual(filterCatalog({ category: "hpl", application: "interior" }), []);
@@ -37,6 +49,28 @@ test("application and material filters combine without mixing hardware or interi
   assert.ok(filterCatalog({ category: "uhpc" }).every(p => p.id !== "taktl-hardware"));
   assert.deepEqual(filterCatalog({ q: "  koRSA  " }).map(p => p.id), ["taktl-korsa"]);
   assert.deepEqual(filterCatalog({ manufacturer: "no-such-supplier" }), []);
+});
+test("search finds products using the material and application labels visitors see", () => {
+  assert.deepEqual(filterCatalog({ q: "ACM" }).map(product => product.id), ["almine-a2", "almine-tunnel", "almine-medical"]);
+  assert.deepEqual(filterCatalog({ q: "Exterior HPL" }).map(product => product.id), ["compactwood-exterior"]);
+  assert.deepEqual(filterCatalog({ q: "Interior decorative boards" }).map(product => product.id), ["compactwood-interior"]);
+  assert.deepEqual(filterCatalog({ q: "Transit & tunnels" }).map(product => product.id), ["almine-tunnel"]);
+});
+test("search handles punctuation and word order in existing product construction", () => {
+  const fiberProducts = ["compactwood-interior", "gfrp-custom"];
+  assert.deepEqual(filterCatalog({ q: "glass fiber" }).map(product => product.id), fiberProducts);
+  assert.deepEqual(filterCatalog({ q: "  GLASS–FIBER  " }).map(product => product.id), fiberProducts);
+  assert.deepEqual(filterCatalog({ q: "HPL exterior" }).map(product => product.id), ["compactwood-exterior"]);
+  assert.deepEqual(filterCatalog({ q: "HPL façade" }).map(product => product.id), ["compactwood-exterior"]);
+  assert.deepEqual(filterCatalog({ q: "thermoset glass fiber" }).map(product => product.id), ["compactwood-interior"]);
+});
+test("search terms remain constrained by every selected filter", () => {
+  assert.deepEqual(filterCatalog({ q: "ACM", category: "mcm", application: "healthcare", manufacturer: "ALMINE" }).map(product => product.id), ["almine-medical"]);
+  assert.deepEqual(filterCatalog({ q: "glass fiber", category: "gfrp", application: "facade", manufacturer: "Shandong Jinguang Group (Kinflare)" }).map(product => product.id), ["gfrp-custom"]);
+  assert.deepEqual(filterCatalog({ q: "HPL", category: "hpl", application: "interior" }), []);
+  assert.deepEqual(filterCatalog({ q: "ACM", manufacturer: "TAKTL" }), []);
+  assert.deepEqual(filterCatalog({ q: "glass fiber missingmaterial" }), []);
+  assert.deepEqual(filterCatalog({ q: " — / ", category: "hpl" }).map(product => product.id), ["compactwood-exterior"]);
 });
 test("shared shortlist accepts only known IDs, deduplicates and caps at four", () => {
   assert.deepEqual(parseProductIds("bad,taktl-facade,taktl-facade,gfrp-custom"), ["taktl-facade", "gfrp-custom"]);
@@ -53,8 +87,16 @@ test("sample, technical and quote paths carry the selected product and correct i
   }
 });
 test("public navigation and publication gates exclude unrelated draft routes", () => {
-  const links = [...mainNav.map(n => n.href), ...footerNav.flatMap(g => g.links.map(l => l.href))];
-  for (const href of links) assert.ok(isPublishedPath(href.split("?")[0]), href);
+  const links = [
+    ...mainNav.flatMap(group => [...(group.href ? [group.href] : []), ...group.links.map(link => link.href)]),
+    ...ctaNav.map(link => link.href),
+    ...footerNav.flatMap(group => group.links.map(link => link.href)),
+  ];
+  for (const href of links) {
+    const url = new URL(href, "https://cladvera.test");
+    assert.equal(url.origin, "https://cladvera.test", href);
+    assert.ok(isPublishedPath(url.pathname), href);
+  }
   for (const path of publishedPaths) assert.ok(routes.some(r => r.path === path), path);
   assert.ok(isPublishedPath("/"));
   assert.equal(isPublishedPath("/suppliers/taktl/unreviewed-product"), false);

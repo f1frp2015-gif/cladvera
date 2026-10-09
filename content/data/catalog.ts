@@ -3,12 +3,12 @@ import { almineProducts } from "./almine";
 import { compactwoodSources, compactwoodImages, compactwoodExteriorProductPath, compactwoodInteriorProductPath } from "./compactwood";
 
 export const catalogCategories = [
-  { id: "uhpc", label: "Architectural UHPC", description: "Concrete panels, aggregate surfaces and custom cast forms." },
-  { id: "mcm", label: "Metal composite (ACM / MCM)", description: "Architectural, transit and healthcare panel families." },
-  { id: "hpl", label: "Exterior HPL", description: "Decorative wood-fiber laminate for facade cladding." },
-  { id: "interior-board", label: "Interior decorative boards", description: "High-pressure-cured boards for interior surfaces." },
-  { id: "gfrp", label: "Custom GFRP", description: "Molded glass-fiber reinforced polymer architectural elements." },
-  { id: "hardware", label: "Attachment components", description: "Manufacturer-specific rails, clips, anchors and fasteners." },
+  { id: "uhpc", label: "Architectural UHPC", path: "/suppliers/taktl", description: "Concrete panels, aggregate surfaces and custom cast forms." },
+  { id: "mcm", label: "Metal composite (ACM / MCM)", path: "/materials/acm-panels", description: "Architectural, transit and healthcare panel families." },
+  { id: "hpl", label: "Exterior HPL", path: "/materials/exterior-hpl-panels", description: "Decorative wood-fiber laminate for facade cladding." },
+  { id: "interior-board", label: "Interior decorative boards", path: "/materials/interior-hpl-panels", description: "High-pressure-cured boards for interior surfaces." },
+  { id: "gfrp", label: "Custom GFRP", path: "/materials/gfrp-custom-elements", description: "Molded glass-fiber reinforced polymer architectural elements." },
+  { id: "hardware", label: "Attachment components", path: "/suppliers/taktl/hardware", description: "Manufacturer-specific rails, clips, anchors and fasteners." },
 ] as const;
 export const catalogApplications = [
   { id: "facade", label: "Exterior facades", description: "Panel geometry, weather exposure and complete wall assemblies." },
@@ -56,6 +56,20 @@ export function productRequestHref(id: string, intent: "quote" | "sample" | "doc
   return `${intent === "sample" ? "/samples" : "/request-quote"}?products=${encodeURIComponent(id)}&intent=${intent}`;
 }
 export function filterCatalog(filters: { q?: string; category?: string; application?: string; manufacturer?: string }) {
-  const q = (filters.q || "").trim().toLowerCase();
-  return catalogProducts.filter(p => (!filters.category || p.category === filters.category) && (!filters.application || p.applications.includes(filters.application)) && (!filters.manufacturer || p.manufacturer === filters.manufacturer) && (!q || `${p.name} ${p.manufacturer} ${p.summary} ${p.selectionType} ${p.category}`.toLowerCase().includes(q)));
+  const normalize = (value: string) => value.normalize("NFKD").replace(/\p{M}/gu, "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const terms = normalize(filters.q || "").split(" ").filter(Boolean);
+  return catalogProducts.filter(product => {
+    if (filters.category && product.category !== filters.category) return false;
+    if (filters.application && !product.applications.includes(filters.application)) return false;
+    if (filters.manufacturer && product.manufacturer !== filters.manufacturer) return false;
+    if (!terms.length) return true;
+
+    // Search the vocabulary shown in the catalogue without changing a product's classification.
+    const searchable = normalize([
+      product.name, product.manufacturer, product.summary, product.selectionType, product.category, product.construction,
+      catalogCategories.find(category => category.id === product.category)?.label,
+      ...product.applications.map(id => catalogApplications.find(application => application.id === id)?.label),
+    ].join(" "));
+    return terms.every(term => searchable.includes(term));
+  });
 }
