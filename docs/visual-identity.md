@@ -30,7 +30,7 @@ Use colour sparingly. Charcoal is the primary action colour; terracotta signals 
 - System editorial serif stack (Iowan Old Style / Palatino / Georgia) for selected italic headline phrases. Exact serif appearance follows the visitor’s available fonts; no third-party font request is required.
 - Maximum container width 1440 px; side margins 20 / 32 / 48 px.
 - Thin rules, square corners, open layouts. Avoid excessive boxed cards or decorative shadows.
-- The homepage pairs a large material reference with a narrower design narrative. The application page alternates image and review columns; the finder uses consistent archive entries so comparison remains practical.
+- The homepage opens with a panoramic material reference and a concise architectural narrative. The application page alternates image and review columns; the finder uses consistent archive entries so comparison remains practical.
 
 ## Images and interaction
 
@@ -42,7 +42,7 @@ Retain native filter controls, clear link labels, 44 px primary touch targets, k
 
 ## Design-intent homepage
 
-The hero uses an asymmetric cover: a three-line architectural headline beside a tall, attributed TAKTL reference. The image begins alongside the title on desktop, rather than beneath the opening narrative. Its caption plate links to the facade-element family; a second action leads directly to the material studies. On mobile the headline becomes two lines and the image follows the narrative. Keep the six canonical material/component links available before the editorial explorer; design intent supplements the material taxonomy.
+The hero uses a panoramic, attributed TAKTL reference with the architectural headline over a dark gradient. Keep the photograph legible, the headline readable and the source caption outside the image. The first action leads to the collection gallery. Three project-stage links below the cover lead to products, samples and technical resources. The six material/component collections each have a visual plate, source caption, name and concise description; they form three columns on desktop and two on narrow screens. Contain construction diagrams, attachment hardware and wide GFRP references. Label the metal composite representation as an illustration. Design-intent studies follow the collection gallery on a warm stone ground.
 
 The four material studies in `content/data/design-directions.ts` each combine a design question, a source-labelled image or illustration, named candidate products and a short project-review prompt:
 
@@ -63,11 +63,11 @@ The product finder pairs a compact introduction with a desktop filter sidebar an
 
 China sourcing and facade material guides use paired editorial introductions and open numbered sections. Comparison matrices are semantic tables on desktop and labelled definition-list entries on narrower screens, keeping the full review content readable without horizontal scrolling. FAQ content and schema remain aligned.
 
-Desktop navigation dropdowns fit within the available viewport. The mobile menu closes when keyboard focus leaves the header and supports Escape from its trigger. Footer navigation targets are at least 44 px high.
+Desktop product navigation separates material collections from design studies, applications, technical resources and samples. Keep the menu within the available viewport with internal vertical scrolling in short windows. Desktop navigation dropdowns fit within the available viewport. The mobile menu closes when keyboard focus leaves the header and supports Escape from its trigger. Footer navigation targets are at least 44 px high.
 
 ## Product dossiers and technical library
 
-TAKTL and ALMINE product pages use a material-dossier structure: overview plate, manufacturer facts or descriptions, design/project considerations, and documents. A numbered section index stays beneath the main header; it scrolls horizontally on narrow screens. Anchor spacing must account for both navigation bars.
+TAKTL and ALMINE product pages open with a split material dossier: a large image beside the product identity, summary, three existing manufacturer facts and grouped sample/document actions. Pricing is a secondary link. On mobile, the identity and actions precede the visual and facts. Retain the complete profile, design/project considerations, sources and documents below. A numbered section index stays beneath the main header; it scrolls horizontally on narrow screens. Anchor spacing must account for both navigation bars.
 
 Keep manufacturer facts in ruled definition lists and project considerations in open numbered rows. A source-file link and a request for project-specific evidence are separate actions. Use the actual manufacturer photograph where available and retain the explicit illustration label on ALMINE representations. Related families, sample requests and pricing requests retain their product identity.
 
@@ -94,3 +94,7 @@ Extend the archive language through the full selection process: image plates and
 An understated charcoal shortlist bar keeps the next action visible while browsing. Respect device safe areas and reserve scroll space for keyboard focus. Active filter labels are removable and return the visitor to the results.
 
 Project requests use three numbered, open sections: selection, project brief, and review. Distinguish contact, schedule and technical fields. Preparing a brief focuses its preview; editing invalidates it. Reviewing materials opens a separately labelled tab so the brief stays in place.
+
+## Reference-led refinement
+
+The October 2026 refinement draws on material and project-stage navigation from ALUCOBOND, architectural imagery from Ductal, and product/sample clarity from EQUITONE. Cladvera keeps its own identity and existing material evidence. See `design-reference-review.md` for the observations and source links.

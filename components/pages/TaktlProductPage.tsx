@@ -3,7 +3,7 @@ import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import ProductJourney from "@/components/catalog/ProductJourney";
 import ProductSectionNav from "@/components/catalog/ProductSectionNav";
-import { Cta, PageHeader, Section } from "@/components/ui";
+import { Breadcrumbs, Cta, Section } from "@/components/ui";
 import { catalogProducts, productRequestHref } from "@/content/data/catalog";
 import { findTaktlProduct, taktlProducts, type TaktlProductSlug } from "@/content/data/taktl";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
@@ -34,33 +34,61 @@ export default function TaktlProductPage({ slug }: { slug: TaktlProductSlug }) {
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: product.name, description: product.metaDescription, path, type: "ItemPage" })} />
-      <PageHeader
-        eyebrow={`TAKTL / Material dossier ${String(collectionIndex).padStart(2, "0")}`}
-        title={product.name}
-        lede={product.summary}
-        crumbs={[
-          { name: "Products", path: "/products" },
-          { name: "TAKTL products", path: "/suppliers/taktl" },
-          { name: product.name, path },
-        ]}
-        actions={<><Cta href={productRequestHref(catalogProduct.id)}>Request project pricing <span aria-hidden="true">↗</span></Cta><Cta href={productRequestHref(catalogProduct.id, "sample")} variant="secondary">Request a sample</Cta></>}
-      >
-        <p className="mt-[20px] font-mono text-[11px] uppercase tracking-[0.06em] text-ink-3">{product.type} <span aria-hidden="true" className="px-[10px]">/</span> Manufacturer: TAKTL</p>
-      </PageHeader>
-      <ProductSectionNav items={sections} />
-
-      <section id="product-overview" aria-label={`${product.name} overview`} className="scroll-mt-[64px]">
-        <div className="site-container py-[28px] md:py-[48px]">
-          <figure>
-            <div className="relative h-[280px] overflow-hidden bg-paper-2 md:h-[440px] xl:h-[540px]">
-              <Image src={product.imageUrl} alt={product.imageAlt} fill sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) calc(100vw - 64px), (max-width: 1439px) calc(100vw - 96px), 1344px" className="object-cover" />
+      <header id="product-overview" aria-labelledby="product-title" className="scroll-mt-[64px] border-b border-line bg-paper">
+        <div className="site-container pb-[40px] pt-[24px] md:pb-[52px] md:pt-[28px]">
+          <div className="mb-[28px] md:mb-[36px]">
+            <Breadcrumbs items={[
+              { name: "Products", path: "/products" },
+              { name: "TAKTL products", path: "/suppliers/taktl" },
+              { name: product.name, path },
+            ]} />
+          </div>
+          <div className="grid gap-[28px] lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] lg:gap-x-[48px] lg:gap-y-0 xl:gap-x-[64px]">
+            <div className="min-w-0 lg:col-start-2 lg:row-start-1">
+              <p className="eyebrow mb-[14px]">TAKTL / Material dossier {String(collectionIndex).padStart(2, "0")}</p>
+              <h1 id="product-title" className="max-w-[620px] text-[clamp(2.4rem,3.6vw,3.5rem)] font-normal leading-[1.05] tracking-[-0.05em]">{product.name}</h1>
+              <div className="mt-[16px] flex flex-wrap gap-x-[20px] gap-y-[5px] text-f12 text-ink-3">
+                <span>{product.type}</span>
+                <span>Manufacturer: <Link href="/suppliers/taktl" className="text-ink underline decoration-line-strong underline-offset-4 hover:text-accent">TAKTL</Link></span>
+              </div>
+              <p className="mt-[18px] max-w-[600px] text-f16 leading-[1.65] text-ink-2">{product.summary}</p>
+              <div className="mt-[24px] flex flex-wrap gap-[10px]">
+                <Cta href={productRequestHref(catalogProduct.id, "sample")}>Request a sample <span aria-hidden="true">↗</span></Cta>
+                <Cta href="#product-documents" variant="secondary">Technical documents <span aria-hidden="true">↓</span></Cta>
+              </div>
+              <Link href={productRequestHref(catalogProduct.id)} className="mt-[6px] inline-flex min-h-[44px] items-center gap-[20px] text-f12 text-ink-2 underline decoration-line-strong underline-offset-4 hover:text-accent">Request project pricing <span aria-hidden="true">↗</span></Link>
             </div>
-            <figcaption className="flex flex-wrap justify-between gap-[12px] border-b border-line py-[16px] font-mono text-[10px] text-ink-3">
-              <span>TAKTL / {product.type}</span><span>Image: TAKTL</span>
-            </figcaption>
-          </figure>
+            <figure className="flex min-w-0 flex-col lg:col-start-1 lg:row-span-2 lg:row-start-1">
+              <div className="relative aspect-[4/3] overflow-hidden bg-paper-2 lg:aspect-auto lg:min-h-[520px] lg:flex-1">
+                <Image
+                  src={product.imageUrl}
+                  alt={product.imageAlt}
+                  fill
+                  sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) calc(100vw - 64px), (max-width: 1439px) 50vw, 676px"
+                  preload
+                  className={isHardware ? "object-contain p-[24px]" : "object-cover"}
+                />
+              </div>
+              <figcaption className="flex flex-wrap justify-between gap-x-[20px] gap-y-[6px] border-b border-line py-[14px] font-mono text-[10px] leading-[1.5] text-ink-3">
+                <span>TAKTL / {product.type}</span><span>Image: TAKTL</span>
+              </figcaption>
+            </figure>
+            <div className="min-w-0 lg:col-start-2 lg:row-start-2 lg:pt-[24px]">
+              <p className="mb-[12px] font-mono text-[10px] uppercase tracking-[0.08em] text-ink-3">At a glance / Manufacturer facts</p>
+              <dl className="divide-y divide-line border-y border-line-strong">
+                {product.facts.slice(0, 3).map(fact => (
+                  <div key={fact.label} className="grid grid-cols-[110px_minmax(0,1fr)] gap-[16px] py-[13px] sm:grid-cols-[140px_minmax(0,1fr)]">
+                    <dt className="text-f12 font-medium">{fact.label}</dt>
+                    <dd className="text-f12 leading-[1.65] text-ink-2">{fact.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <Link href="#product-details" className="mt-[8px] inline-flex min-h-[44px] items-center gap-[16px] text-f12 text-ink-2 hover:text-accent">Full material profile and source <span aria-hidden="true">↓</span></Link>
+            </div>
+          </div>
         </div>
-      </section>
+      </header>
+      <ProductSectionNav items={sections} />
 
       <Section id="product-details" className="scroll-mt-[64px]">
         <div className="grid gap-[36px] lg:grid-cols-[0.8fr_1.3fr] lg:gap-[100px]">

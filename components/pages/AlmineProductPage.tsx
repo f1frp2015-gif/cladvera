@@ -3,7 +3,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import ProductJourney from "@/components/catalog/ProductJourney";
 import ProductSectionNav from "@/components/catalog/ProductSectionNav";
 import AlmineVisual from "@/components/almine/AlmineVisual";
-import { Cta, PageHeader, Section } from "@/components/ui";
+import { Breadcrumbs, Cta, Section } from "@/components/ui";
 import { catalogProducts, productRequestHref } from "@/content/data/catalog";
 import { almineProducts, findAlmineProduct, type AlmineProductSlug } from "@/content/data/almine";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
@@ -33,27 +33,51 @@ export default function AlmineProductPage({ slug }: { slug: AlmineProductSlug })
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: product.name, description: product.metaDescription, path, type: "ItemPage" })} />
-      <PageHeader
-        eyebrow={`ALMINE / Material dossier ${String(collectionIndex).padStart(2, "0")}`}
-        title={product.name}
-        lede={product.summary}
-        crumbs={[{ name: "Products", path: "/products" }, { name: "Metal composite panels", path: "/materials/acm-panels" }, { name: product.name, path }]}
-        actions={<><Cta href={productRequestHref(catalogProduct.id)}>Request project pricing <span aria-hidden="true">↗</span></Cta><Cta href={productRequestHref(catalogProduct.id, "sample")} variant="secondary">Request a sample</Cta></>}
-      >
-        <p className="mt-[20px] font-mono text-[11px] uppercase tracking-[0.06em] text-ink-3">{product.category} <span aria-hidden="true" className="px-[10px]">/</span> Manufacturer: ALMINE</p>
-      </PageHeader>
-      <ProductSectionNav items={sections} />
-
-      <section id="product-overview" aria-label={`${product.name} overview`} className="scroll-mt-[64px]">
-        <div className="site-container py-[28px] md:py-[48px]">
-          <figure>
-            <div role="img" aria-label={`${product.name}: illustration, not a product photograph or sample`} className="bg-paper-2 p-[16px] md:p-[28px]">
-              <AlmineVisual visual={product.visual} className="h-[240px] rounded-none border-0 md:h-[360px] xl:h-[440px]" />
+      <header id="product-overview" aria-labelledby="product-title" className="scroll-mt-[64px] border-b border-line bg-paper">
+        <div className="site-container pb-[40px] pt-[24px] md:pb-[52px] md:pt-[28px]">
+          <div className="mb-[28px] md:mb-[36px]">
+            <Breadcrumbs items={[{ name: "Products", path: "/products" }, { name: "Metal composite panels", path: "/materials/acm-panels" }, { name: product.name, path }]} />
+          </div>
+          <div className="grid gap-[28px] lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] lg:gap-x-[48px] lg:gap-y-0 xl:gap-x-[64px]">
+            <div className="min-w-0 lg:col-start-2 lg:row-start-1">
+              <p className="eyebrow mb-[14px]">ALMINE / Material dossier {String(collectionIndex).padStart(2, "0")}</p>
+              <h1 id="product-title" className="max-w-[620px] text-[clamp(2.3rem,3.3vw,3.25rem)] font-normal leading-[1.06] tracking-[-0.05em]">{product.name}</h1>
+              <div className="mt-[16px] flex flex-wrap gap-x-[20px] gap-y-[5px] text-f12 text-ink-3">
+                <span>{product.category}</span>
+                <span>Manufacturer: <Link href="/materials/acm-panels" className="text-ink underline decoration-line-strong underline-offset-4 hover:text-accent">ALMINE</Link></span>
+              </div>
+              <p className="mt-[18px] max-w-[600px] text-f16 leading-[1.65] text-ink-2">{product.summary}</p>
+              <div className="mt-[24px] flex flex-wrap gap-[10px]">
+                <Cta href={productRequestHref(catalogProduct.id, "sample")}>Request a sample <span aria-hidden="true">↗</span></Cta>
+                <Cta href="#product-documents" variant="secondary">Technical documents <span aria-hidden="true">↓</span></Cta>
+              </div>
+              <Link href={productRequestHref(catalogProduct.id)} className="mt-[6px] inline-flex min-h-[44px] items-center gap-[20px] text-f12 text-ink-2 underline decoration-line-strong underline-offset-4 hover:text-accent">Request project pricing <span aria-hidden="true">↗</span></Link>
             </div>
-            <figcaption className="flex flex-wrap justify-between gap-[12px] border-b border-line py-[16px] font-mono text-[10px] text-ink-3"><span>ALMINE / Metal composite panel family</span><span>Illustration · not a product sample</span></figcaption>
-          </figure>
+            <figure className="flex min-w-0 flex-col lg:col-start-1 lg:row-span-2 lg:row-start-1">
+              <div role="img" aria-label={`${product.name}: illustration, not a product photograph or sample`} className="relative aspect-[4/3] bg-paper-2 lg:aspect-auto lg:min-h-[520px] lg:flex-1">
+                <div className="absolute inset-[16px] md:inset-[28px]">
+                  <AlmineVisual visual={product.visual} className="h-full w-full rounded-none border-0" />
+                </div>
+              </div>
+              <figcaption className="flex flex-wrap justify-between gap-x-[20px] gap-y-[6px] border-b border-line py-[14px] font-mono text-[10px] leading-[1.5] text-ink-3"><span>ALMINE / Metal composite panel family</span><span>Illustration · not a product sample</span></figcaption>
+            </figure>
+            <div className="min-w-0 lg:col-start-2 lg:row-start-2 lg:pt-[24px]">
+              <p className="mb-[12px] font-mono text-[10px] uppercase tracking-[0.08em] text-ink-3">At a glance / Manufacturer description</p>
+              <dl className="divide-y divide-line border-y border-line-strong">
+                {product.manufacturerFacts.slice(0, 3).map(fact => (
+                  <div key={fact.label} className="grid grid-cols-[110px_minmax(0,1fr)] gap-[16px] py-[13px] sm:grid-cols-[140px_minmax(0,1fr)]">
+                    <dt className="text-f12 font-medium">{fact.label}</dt>
+                    <dd className="text-f12 leading-[1.65] text-ink-2">{fact.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-[12px] text-f12 text-ink-3">Confirm the offered panel and current data sheet.</p>
+              <Link href="#product-details" className="mt-[4px] inline-flex min-h-[44px] items-center gap-[16px] text-f12 text-ink-2 hover:text-accent">Full construction and source <span aria-hidden="true">↓</span></Link>
+            </div>
+          </div>
         </div>
-      </section>
+      </header>
+      <ProductSectionNav items={sections} />
 
       <Section id="product-details" className="scroll-mt-[64px]">
         <div className="grid gap-[36px] lg:grid-cols-[0.8fr_1.3fr] lg:gap-[100px]">

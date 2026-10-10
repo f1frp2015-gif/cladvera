@@ -7,8 +7,16 @@ import { mainNav, type NavGroup } from "@/content/data/navigation";
 import SelectionLink from "@/components/catalog/SelectionLink";
 import BrandMark from "@/components/layout/BrandMark";
 
-function ProductNavigation({ group, active }: { group: NavGroup; active: boolean }) {
+const projectPaths = [
+  { href: "/#materials", label: "Explore by design intent", description: "Start with the surface, form and character of your project." },
+  { href: "/applications", label: "Applications", description: "Find a starting point for your project context." },
+  { href: "/technical-resources", label: "Technical resources", description: "Review documents for a named material." },
+  { href: "/samples", label: "Request samples", description: "Prepare a material and finish sample brief." },
+];
+
+function ProductNavigation({ group, active, pathname }: { group: NavGroup; active: boolean; pathname: string }) {
   const materialIndex = group.href === "/products";
+  const [overviewLink, ...collectionLinks] = group.links;
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -28,7 +36,8 @@ function ProductNavigation({ group, active }: { group: NavGroup; active: boolean
       ref={containerRef}
       className="relative"
       onBlur={event => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+        // Clicking the panel's non-focusable space can leave relatedTarget null.
+        if (event.relatedTarget instanceof Node && !event.currentTarget.contains(event.relatedTarget)) setOpen(false);
       }}
       onKeyDown={event => {
         if (event.key === "Escape" && open) {
@@ -50,29 +59,74 @@ function ProductNavigation({ group, active }: { group: NavGroup; active: boolean
         <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" className={`transition-transform ${open ? "rotate-180" : ""}`}><path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
       {open && (
-        <div id={menuId} className={`absolute top-[calc(100%+18px)] max-h-[calc(100dvh-112px)] overflow-y-auto overscroll-contain border border-line-strong border-t-2 border-t-ink bg-paper p-[28px] ${materialIndex ? "left-0 w-[720px]" : "right-0 w-[400px]"}`}>
-          <div className="mb-[12px] flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-ink-3">
-            <p>{materialIndex ? "Material index" : "Project supply"}</p>
-            <span>Cladvera / {materialIndex ? "Collections" : "Procurement"}</span>
-          </div>
-          <ul className={`grid gap-x-[24px] ${materialIndex ? "grid-cols-2" : "grid-cols-1"}`}>
-            {group.links.map((link, index) => (
-              <li key={link.href} className={index === 0 && materialIndex ? "col-span-2 mb-[4px] border-b border-line pb-[12px]" : "border-b border-line"}>
-                <Link href={link.href} onClick={() => setOpen(false)} className="group flex h-full items-start gap-[14px] py-[18px] pr-[8px] transition-colors hover:text-accent focus-visible:bg-paper-2">
-                  {index > 0 && <span aria-hidden="true" className="pt-[3px] font-mono text-[10px] text-ink-3">0{index}</span>}
-                  <span className="flex-1">
-                    <span className={`block ${index === 0 && materialIndex ? "text-[30px] font-normal tracking-[-0.045em]" : "text-f16 font-medium"}`}>{link.label}</span>
-                    {link.description && <span className="mt-[5px] block text-f12 leading-[1.6] text-ink-3">{link.description}</span>}
+        <div id={menuId} className={`absolute top-[calc(100%+18px)] max-h-[calc(100dvh-104px)] overflow-y-auto overscroll-contain border border-line-strong border-t-2 border-t-ink bg-paper ${materialIndex ? "-left-[24px] w-[840px]" : "right-0 w-[400px] p-[24px]"}`}>
+          {materialIndex ? (
+            <div className="grid grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
+              <section aria-labelledby={`${menuId}-collections`} className="min-w-0 p-[24px]">
+                <div className="flex items-center justify-between gap-[16px] font-mono text-[10px] uppercase tracking-[0.12em] text-ink-3">
+                  <h2 id={`${menuId}-collections`}>Material collections</h2>
+                  <span aria-hidden="true">01 / {String(collectionLinks.length).padStart(2, "0")}</span>
+                </div>
+                <Link href={overviewLink.href} aria-current={pathname === overviewLink.href ? "page" : undefined} onClick={() => setOpen(false)} className="group mt-[12px] flex min-h-[64px] items-center justify-between gap-[20px] border-b border-line-strong pb-[16px] hover:text-accent focus-visible:bg-paper-2">
+                  <span>
+                    <span className="block text-[26px] font-normal leading-[1.2] tracking-[-0.04em]">{overviewLink.label}</span>
+                    {overviewLink.description && <span className="mt-[6px] block text-f12 leading-[1.5] text-ink-3">{overviewLink.description}</span>}
                   </span>
-                  <span aria-hidden="true" className="mt-[2px] text-ink-3 transition-transform group-hover:translate-x-[3px] group-hover:text-accent">↗</span>
+                  <span aria-hidden="true" className="text-[22px] text-accent transition-transform group-hover:translate-x-[3px]">↗</span>
                 </Link>
-              </li>
-            ))}
-          </ul>
-          {materialIndex && <div className="mt-[20px] flex items-center justify-between gap-[20px] text-f12">
-            <span className="text-ink-3">Choose a material. Define the details.</span>
-            <Link href="/compare" onClick={() => setOpen(false)} className="font-medium text-accent underline-offset-4 hover:underline">Compare your shortlist <span aria-hidden="true">→</span></Link>
-          </div>}
+                <ul className="grid grid-cols-2 gap-x-[24px]">
+                  {collectionLinks.map((link, index) => (
+                    <li key={link.href} className="border-b border-line">
+                      <Link href={link.href} aria-current={pathname === link.href ? "page" : undefined} onClick={() => setOpen(false)} className="group flex h-full min-h-[96px] items-start gap-[10px] py-[16px] hover:text-accent focus-visible:bg-paper-2">
+                        <span aria-hidden="true" className="pt-[2px] font-mono text-[10px] text-ink-3">{String(index + 1).padStart(2, "0")}</span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-f14 font-medium leading-[1.45]">{link.label}</span>
+                          {link.description && <span className="mt-[5px] block text-f12 leading-[1.5] text-ink-3">{link.description}</span>}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+              <section aria-labelledby={`${menuId}-project`} className="min-w-0 border-l border-line bg-paper-2 p-[24px]">
+                <h2 id={`${menuId}-project`} className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-3">For your project</h2>
+                <ul className="mt-[12px]">
+                  {projectPaths.map((link, index) => (
+                    <li key={link.href} className="border-b border-line">
+                      <Link href={link.href} aria-current={pathname === link.href ? "page" : undefined} onClick={() => setOpen(false)} className="group flex min-h-[60px] items-start justify-between gap-[12px] py-[14px] hover:text-accent focus-visible:bg-paper">
+                        <span>
+                          <span className={`block leading-[1.3] ${index === 0 ? "editorial-serif text-[27px] tracking-[-0.035em]" : "text-f14 font-medium"}`}>{link.label}</span>
+                          <span className="mt-[6px] block text-f12 leading-[1.5] text-ink-3">{link.description}</span>
+                        </span>
+                        <span aria-hidden="true" className="mt-[2px] text-accent transition-transform group-hover:translate-x-[3px]">↗</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/compare" aria-current={pathname === "/compare" ? "page" : undefined} onClick={() => setOpen(false)} className="mt-[12px] flex min-h-[44px] items-center justify-between gap-[16px] text-f12 font-medium text-accent underline-offset-4 hover:underline">Compare your shortlist <span aria-hidden="true">→</span></Link>
+              </section>
+            </div>
+          ) : (
+            <>
+              <div className="mb-[12px] flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-ink-3">
+                <p>Project supply</p>
+                <span>Cladvera / Procurement</span>
+              </div>
+              <ul>
+                {group.links.map(link => (
+                  <li key={link.href} className="border-b border-line">
+                    <Link href={link.href} aria-current={pathname === link.href ? "page" : undefined} onClick={() => setOpen(false)} className="group flex min-h-[44px] items-start gap-[14px] py-[18px] pr-[8px] hover:text-accent focus-visible:bg-paper-2">
+                      <span className="flex-1">
+                        <span className="block text-f16 font-medium">{link.label}</span>
+                        {link.description && <span className="mt-[5px] block text-f12 leading-[1.6] text-ink-3">{link.description}</span>}
+                      </span>
+                      <span aria-hidden="true" className="mt-[2px] text-ink-3 transition-transform group-hover:translate-x-[3px] group-hover:text-accent">↗</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       )}
     </div>
@@ -105,16 +159,16 @@ export default function Header() {
       }}
     >
       <div className="site-container flex min-h-[72px] items-center justify-between gap-[16px] xl:min-h-[80px]">
-        <Link href="/" aria-label="Cladvera home" className="flex shrink-0 items-center gap-[12px]">
+        <Link href="/" aria-label="Cladvera home" className="flex shrink-0 items-center gap-[10px] sm:gap-[12px]">
           <BrandMark className="h-[33px] w-[33px] text-accent" />
           <span className="flex flex-col gap-[5px]">
-            <span className="text-[21px] font-medium leading-none tracking-[0.055em]">CLADVERA</span>
+            <span className="text-[20px] font-medium leading-none tracking-[0.055em] sm:text-[21px]">CLADVERA</span>
             <span className="text-[8px] font-medium uppercase leading-none tracking-[0.15em] text-ink-3">Architectural materials</span>
           </span>
         </Link>
         <nav aria-label="Main" className="hidden items-center gap-[2px] xl:flex">
           {mainNav.map(item => item.links.length > 0 ? (
-            <ProductNavigation key={`${pathname}-${item.label}`} group={item} active={item.href === "/products" ? productsActive : item.links.some(link => pathname === link.href)} />
+            <ProductNavigation key={`${pathname}-${item.label}`} group={item} pathname={pathname} active={item.href === "/products" ? productsActive : item.links.some(link => pathname === link.href)} />
           ) : (
             <Link key={item.href} href={item.href!} aria-current={pathname === item.href ? "page" : undefined} className={`px-[9px] py-[12px] text-[13px] font-medium transition-colors hover:text-accent ${pathname === item.href ? "text-accent" : "text-ink-2"}`}>{item.label}</Link>
           ))}
@@ -139,6 +193,7 @@ export default function Header() {
                     <li key={link.href}><Link href={link.href} aria-current={pathname === link.href ? "page" : undefined} onClick={() => setOpenOnPath(null)} className={`flex min-h-[44px] items-center justify-between py-[11px] text-f14 hover:text-accent ${pathname === link.href ? "font-medium text-accent" : "text-ink-2"}`}>{link.label}<span aria-hidden="true" className="pl-[12px] text-ink-3">↗</span></Link></li>
                   ))}
                 </ul>
+                {item.href === "/products" && <Link href="/#materials" onClick={() => setOpenOnPath(null)} className="mt-[12px] flex min-h-[48px] items-center justify-between gap-[16px] border-t border-line pt-[12px] text-f14 font-medium text-accent hover:underline">Explore by design intent<span aria-hidden="true">↗</span></Link>}
               </div>
             ) : (
               <Link key={item.href} href={item.href!} aria-current={pathname === item.href ? "page" : undefined} onClick={() => setOpenOnPath(null)} className={`min-h-[44px] py-[10px] text-f16 font-medium hover:text-accent ${pathname === item.href ? "text-accent" : ""}`}>{item.label}</Link>
