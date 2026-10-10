@@ -1,0 +1,4571 @@
+{
+  "captured_at": "2026-10-10T13:49:44.051470+00:00",
+  "base": "https://cladvera.vercel.app",
+  "canonical_origin": "https://cladvera.vercel.app",
+  "rubric_version": 1,
+  "summary": {
+    "page_urls": 55,
+    "indexable": 23,
+    "utility": 3,
+    "redirect": 2,
+    "draft": 27,
+    "sitemap_urls": 23,
+    "average_score": 99.7,
+    "unique_link_targets_checked": 82,
+    "broken_links": 0,
+    "unreachable_indexable": []
+  },
+  "pages": [
+    {
+      "path": "/sourcing/china",
+      "url": "https://cladvera.vercel.app/sourcing/china",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "China-Sourced Architectural Panels | Cladvera",
+      "title_length": 45,
+      "description": "Source architectural panels from China with Cladvera. Plan RFQs, origin records, technical evidence and import scope for US and Canadian projects.",
+      "description_length": 146,
+      "h1": [
+        "Source architectural panels from China."
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/sourcing/china"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/guides/facade-materials",
+        "/materials/acm-panels/a2-fireproof",
+        "/materials/acm-panels/medical-antibacterial",
+        "/materials/acm-panels/tunnel-traffic",
+        "/materials/exterior-hpl-panels/wood-fiber-facade",
+        "/materials/gfrp-custom-elements",
+        "/materials/interior-hpl-panels/paste-special-board",
+        "/procurement",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/guides/facade-materials",
+      "url": "https://cladvera.vercel.app/guides/facade-materials",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "ACM, HPL, UHPC & GFRP: Facade Material Guide | Cladvera",
+      "title_length": 55,
+      "description": "Compare ACM/MCM, exterior HPL, architectural UHPC and GFRP/GRP for facade selection. Understand material names, specification inputs and sourcing questions.",
+      "description_length": 156,
+      "h1": [
+        "Facade materials, compared."
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/guides/facade-materials"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/architects",
+        "/materials/acm-panels/a2-fireproof",
+        "/materials/acm-panels/medical-antibacterial",
+        "/materials/acm-panels/tunnel-traffic",
+        "/materials/exterior-hpl-panels/wood-fiber-facade",
+        "/materials/gfrp-custom-elements",
+        "/materials/interior-hpl-panels/paste-special-board",
+        "/procurement",
+        "/sourcing/china",
+        "/suppliers/taktl/custom-elements",
+        "/suppliers/taktl/facade-elements",
+        "/suppliers/taktl/korsa-aggregate",
+        "/suppliers/taktl/sola",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/products",
+      "url": "https://cladvera.vercel.app/products",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 92,
+      "title": "Architectural Panel Product Finder | Cladvera",
+      "title_length": 45,
+      "description": "Explore architectural UHPC, metal composite, exterior HPL and custom GFRP panels. Filter by material or application and shortlist products for your project.",
+      "description_length": 156,
+      "h1": [
+        "Architectural panel product finder."
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/products"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/architects",
+        "/compare",
+        "/guides/facade-materials",
+        "/procurement",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": false
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": [
+        "Page entity present with URL and website relationship"
+      ]
+    },
+    {
+      "path": "/applications",
+      "url": "https://cladvera.vercel.app/applications",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Facade & Interior Panel Applications | Cladvera",
+      "title_length": 47,
+      "description": "Explore facade cladding, interior wall panels, transit, healthcare and custom architectural forms. Find material families and review project requirements.",
+      "description_length": 154,
+      "h1": [
+        "Facade and interior panel applications"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/applications"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "CollectionPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/architects",
+        "/materials/acm-panels/a2-fireproof",
+        "/materials/acm-panels/medical-antibacterial",
+        "/materials/acm-panels/tunnel-traffic",
+        "/materials/exterior-hpl-panels/wood-fiber-facade",
+        "/materials/gfrp-custom-elements",
+        "/materials/interior-hpl-panels/paste-special-board",
+        "/procurement",
+        "/products",
+        "/suppliers/taktl/custom-elements",
+        "/suppliers/taktl/facade-elements",
+        "/suppliers/taktl/korsa-aggregate",
+        "/suppliers/taktl/sola"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/procurement",
+      "url": "https://cladvera.vercel.app/procurement",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Architectural Panel Procurement & RFQ Guide | Cladvera",
+      "title_length": 54,
+      "description": "Prepare an architectural panel RFQ with material, quantities, drawings and delivery needs. Compare quoted scope, coordinate approvals and plan procurement.",
+      "description_length": 155,
+      "h1": [
+        "Architectural panel procurement, from RFQ to delivery"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/procurement"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/architects",
+        "/guides/facade-materials",
+        "/materials/acm-panels/a2-fireproof",
+        "/materials/acm-panels/medical-antibacterial",
+        "/materials/acm-panels/tunnel-traffic",
+        "/materials/exterior-hpl-panels/wood-fiber-facade",
+        "/materials/gfrp-custom-elements",
+        "/materials/interior-hpl-panels/paste-special-board",
+        "/sourcing/china",
+        "/suppliers/taktl/custom-elements",
+        "/suppliers/taktl/facade-elements",
+        "/suppliers/taktl/hardware",
+        "/suppliers/taktl/korsa-aggregate",
+        "/suppliers/taktl/sola",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/compare",
+      "url": "https://cladvera.vercel.app/compare",
+      "role": "utility",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Compare Your Product Shortlist | Cladvera",
+      "title_length": 41,
+      "description": "Compare shortlisted architectural materials by application, construction and documentation, then carry your selection into a sample or project quote request.",
+      "description_length": 157,
+      "h1": [
+        "Compare before you specify"
+      ],
+      "robots": "noindex, nofollow",
+      "canonical": [
+        "https://cladvera.vercel.app/compare"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/applications",
+        "/architects",
+        "/guides/facade-materials",
+        "/materials/acm-panels",
+        "/materials/acm-panels/a2-fireproof",
+        "/materials/acm-panels/medical-antibacterial",
+        "/materials/acm-panels/tunnel-traffic",
+        "/materials/exterior-hpl-panels",
+        "/materials/exterior-hpl-panels/wood-fiber-facade",
+        "/materials/gfrp-custom-elements",
+        "/materials/interior-hpl-panels",
+        "/materials/interior-hpl-panels/paste-special-board",
+        "/procurement",
+        "/products",
+        "/suppliers/taktl",
+        "/suppliers/taktl/custom-elements",
+        "/suppliers/taktl/facade-elements",
+        "/suppliers/taktl/hardware",
+        "/suppliers/taktl/korsa-aggregate",
+        "/suppliers/taktl/sola",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "exclusion_confirmed": true
+    },
+    {
+      "path": "/materials/gfrp-custom-elements",
+      "url": "https://cladvera.vercel.app/materials/gfrp-custom-elements",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Custom GFRP / GRP Architectural Supplier | Cladvera",
+      "title_length": 51,
+      "description": "Source custom GFRP / GRP facade and architectural elements. Review molded fiberglass forms, drawing requirements, tooling and project-specific documents.",
+      "description_length": 153,
+      "h1": [
+        "Custom GFRP architectural elements."
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/gfrp-custom-elements"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/architects",
+        "/guides/facade-materials",
+        "/materials/acm-panels/a2-fireproof",
+        "/materials/exterior-hpl-panels/wood-fiber-facade",
+        "/materials/interior-hpl-panels/paste-special-board",
+        "/procurement",
+        "/products",
+        "/sourcing/china",
+        "/suppliers/taktl/custom-elements",
+        "/suppliers/taktl/facade-elements",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/",
+      "url": "https://cladvera.vercel.app/",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Facade Panel Supplier & Architectural Materials | Cladvera",
+      "title_length": 58,
+      "description": "Source facade panels and architectural materials for US and Canadian projects. Explore China-sourced HPL, metal composite and GFRP, plus the TAKTL UHPC range.",
+      "description_length": 158,
+      "h1": [
+        "Material shapes architecture."
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage"
+      ],
+      "depth": 0,
+      "incoming_pages": 25,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/materials",
+      "url": "https://cladvera.vercel.app/materials",
+      "role": "redirect",
+      "status": 308,
+      "redirects": [
+        {
+          "status": 308,
+          "destination": "https://cladvera.vercel.app/products"
+        }
+      ],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Architectural Panel Product Finder | Cladvera",
+      "title_length": 45,
+      "description": "Explore architectural UHPC, metal composite, exterior HPL and custom GFRP panels. Filter by material or application and shortlist products for your project.",
+      "description_length": 156,
+      "h1": [
+        "Architectural panel product finder."
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/products"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/materials/exterior-hpl-panels",
+      "url": "https://cladvera.vercel.app/materials/exterior-hpl-panels",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Exterior HPL Cladding Supplier | Compactwood | Cladvera",
+      "title_length": 55,
+      "description": "Source Compactwood exterior HPL cladding for facade projects. Review wood-fiber laminate construction, rainscreen details, samples and procurement documents.",
+      "description_length": 157,
+      "h1": [
+        "Exterior HPL panels for ventilated facades."
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/exterior-hpl-panels"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "CollectionPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/architects",
+        "/guides/facade-materials",
+        "/materials/exterior-hpl-panels/wood-fiber-facade",
+        "/materials/interior-hpl-panels",
+        "/products",
+        "/sourcing/china",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/materials/exterior-hpl-panels/wood-fiber-facade",
+      "url": "https://cladvera.vercel.app/materials/exterior-hpl-panels/wood-fiber-facade",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Compactwood Wood-Fiber HPL Facade Board | Cladvera",
+      "title_length": 50,
+      "description": "Review Compactwood's wood-fiber HPL facade board, including its stated core, decorative surface, ventilated rainscreen approach and project document checklist.",
+      "description_length": 159,
+      "h1": [
+        "Wood-fiber HPL facade board"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/exterior-hpl-panels/wood-fiber-facade"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 10,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/materials/acm-panels/a2-fireproof",
+        "/materials/exterior-hpl-panels",
+        "/materials/gfrp-custom-elements",
+        "/products",
+        "/sourcing/china",
+        "/suppliers/taktl/korsa-aggregate",
+        "/suppliers/taktl/sola",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/materials/uhpc-panels",
+      "url": "https://cladvera.vercel.app/materials/uhpc-panels",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "UHPC Facade Panels | Thin Ultra High Performance Concrete",
+      "title_length": 57,
+      "description": "Thin UHPC facade panels, 15 to 30 mm, smooth or textured, supplied to North American projects with a precaster or engineer for the anchors.",
+      "description_length": 139,
+      "h1": [
+        "UHPC Facade Panels"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/uhpc-panels"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/suppliers/taktl",
+      "url": "https://cladvera.vercel.app/suppliers/taktl",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "TAKTL Architectural UHPC Products | Cladvera",
+      "title_length": 44,
+      "description": "Explore TAKTL architectural UHPC facade panels, KORSA aggregate, SOLA, custom elements and hardware through Cladvera. Request project pricing and samples.",
+      "description_length": 154,
+      "h1": [
+        "TAKTL architectural UHPC products"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/suppliers/taktl"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "CollectionPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/architects",
+        "/guides/facade-materials",
+        "/procurement",
+        "/products",
+        "/sourcing/china",
+        "/suppliers/taktl/custom-elements",
+        "/suppliers/taktl/facade-elements",
+        "/suppliers/taktl/hardware",
+        "/suppliers/taktl/korsa-aggregate",
+        "/suppliers/taktl/sola",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/suppliers/taktl/facade-elements",
+      "url": "https://cladvera.vercel.app/suppliers/taktl/facade-elements",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "TAKTL A|UHPC Facade Elements | Cladvera",
+      "title_length": 39,
+      "description": "Explore TAKTL A|UHPC facade panels, standard dimensions, colors, textures and attachment choices. Manufacturer facts are linked for project verification.",
+      "description_length": 153,
+      "h1": [
+        "A|UHPC\u00ae Facade Elements"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/suppliers/taktl/facade-elements"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 13,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/materials/acm-panels/a2-fireproof",
+        "/materials/acm-panels/medical-antibacterial",
+        "/materials/exterior-hpl-panels/wood-fiber-facade",
+        "/materials/interior-hpl-panels/paste-special-board",
+        "/products",
+        "/suppliers/taktl",
+        "/suppliers/taktl/custom-elements",
+        "/suppliers/taktl/hardware",
+        "/suppliers/taktl/korsa-aggregate",
+        "/suppliers/taktl/sola",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/suppliers/taktl/korsa-aggregate",
+      "url": "https://cladvera.vercel.app/suppliers/taktl/korsa-aggregate",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "TAKTL KORSA Aggregate Panels | Cladvera",
+      "title_length": 39,
+      "description": "Review TAKTL KORSA exposed aggregate panel options, A01 through A05, and the manufacturer design guide. Confirm samples and availability with TAKTL.",
+      "description_length": 148,
+      "h1": [
+        "KORSA\u2122 Aggregate Panels"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/suppliers/taktl/korsa-aggregate"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 9,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/products",
+        "/suppliers/taktl",
+        "/suppliers/taktl/facade-elements",
+        "/suppliers/taktl/hardware",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/suppliers/taktl/sola",
+      "url": "https://cladvera.vercel.app/suppliers/taktl/sola",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "TAKTL SOLA Self-Cleaning Panels | Cladvera",
+      "title_length": 42,
+      "description": "See TAKTL SOLA S01 and S02 facade panel options, standard thickness and format, and links to the manufacturer's product data and test information.",
+      "description_length": 146,
+      "h1": [
+        "SOLA\u2122 Self-Cleaning Panels"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/suppliers/taktl/sola"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": 2,
+      "incoming_pages": 8,
+      "contextual_incoming": [
+        "/applications",
+        "/products",
+        "/suppliers/taktl",
+        "/suppliers/taktl/hardware",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/suppliers/taktl/custom-elements",
+      "url": "https://cladvera.vercel.app/suppliers/taktl/custom-elements",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "TAKTL Custom UHPC Elements | Cladvera",
+      "title_length": 37,
+      "description": "Explore TAKTL's custom UHPC texture and form process, from original pattern to production mold. Each element is developed for a specific project.",
+      "description_length": 145,
+      "h1": [
+        "Custom Elements"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/suppliers/taktl/custom-elements"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 11,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/materials/gfrp-custom-elements",
+        "/procurement",
+        "/products",
+        "/suppliers/taktl",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/suppliers/taktl/hardware",
+      "url": "https://cladvera.vercel.app/suppliers/taktl/hardware",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "TAKTL Panel Hardware | Cladvera",
+      "title_length": 31,
+      "description": "Review TAKTL panel attachment components, including concealed rail and clip systems and visible fasteners. Final selection follows project engineering.",
+      "description_length": 151,
+      "h1": [
+        "TAKTL Hardware"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/suppliers/taktl/hardware"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/products",
+        "/suppliers/taktl",
+        "/suppliers/taktl/custom-elements",
+        "/suppliers/taktl/facade-elements",
+        "/suppliers/taktl/korsa-aggregate",
+        "/suppliers/taktl/sola",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/materials/acm-panels",
+      "url": "https://cladvera.vercel.app/materials/acm-panels",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Metal Composite Panel Supplier | ALMINE | Cladvera",
+      "title_length": 50,
+      "description": "Source ALMINE metal composite panels for facades, tunnels and healthcare interiors. Review MCM/ACM construction, samples and project documents.",
+      "description_length": 143,
+      "h1": [
+        "Metal composite panels for project supply."
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/acm-panels"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "CollectionPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/architects",
+        "/guides/facade-materials",
+        "/materials/acm-panels/a2-fireproof",
+        "/materials/acm-panels/medical-antibacterial",
+        "/materials/acm-panels/tunnel-traffic",
+        "/products",
+        "/sourcing/china",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/materials/acm-panels/a2-fireproof",
+      "url": "https://cladvera.vercel.app/materials/acm-panels/a2-fireproof",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "ALMINE A2 Metal Composite Panels | Cladvera",
+      "title_length": 43,
+      "description": "Review ALMINE A2 fireproof metal composite panels, their manufacturer-described construction and uses, and the project documents needed before specification.",
+      "description_length": 157,
+      "h1": [
+        "A2 Fireproof Metal Composite Panel"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/acm-panels/a2-fireproof"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 15,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/materials/acm-panels",
+        "/materials/acm-panels/medical-antibacterial",
+        "/materials/exterior-hpl-panels/wood-fiber-facade",
+        "/materials/gfrp-custom-elements",
+        "/materials/interior-hpl-panels/paste-special-board",
+        "/products",
+        "/sourcing/china",
+        "/suppliers/taktl/custom-elements",
+        "/suppliers/taktl/facade-elements",
+        "/suppliers/taktl/korsa-aggregate",
+        "/suppliers/taktl/sola",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/materials/acm-panels/tunnel-traffic",
+      "url": "https://cladvera.vercel.app/materials/acm-panels/tunnel-traffic",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "ALMINE Tunnel Traffic Panels | Cladvera",
+      "title_length": 39,
+      "description": "Explore ALMINE's tunnel and rail traffic metal composite panel, its manufacturer-described surface, and the evidence to request for transit specifications.",
+      "description_length": 155,
+      "h1": [
+        "Tunnel Traffic Dedicated Panel"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/acm-panels/tunnel-traffic"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": 2,
+      "incoming_pages": 7,
+      "contextual_incoming": [
+        "/applications",
+        "/materials/acm-panels",
+        "/products",
+        "/sourcing/china",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/materials/acm-panels/medical-antibacterial",
+      "url": "https://cladvera.vercel.app/materials/acm-panels/medical-antibacterial",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "ALMINE Medical Antibacterial Panels | Cladvera",
+      "title_length": 46,
+      "description": "Explore ALMINE's medical antibacterial metal composite panel for healthcare interiors, with manufacturer-source links and test evidence to verify before use.",
+      "description_length": 157,
+      "h1": [
+        "Medical Antibacterial Special Panel"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/acm-panels/medical-antibacterial"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": 2,
+      "incoming_pages": 7,
+      "contextual_incoming": [
+        "/applications",
+        "/materials/acm-panels",
+        "/products",
+        "/sourcing/china",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/materials/wood-veneer-panels",
+      "url": "https://cladvera.vercel.app/materials/wood-veneer-panels",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Wood Veneer Panels for Interior and Exterior Walls",
+      "title_length": 50,
+      "description": "Real wood veneer panels on a phenolic core for interior and exterior walls, approved on range samples, with Lacey Act data per shipment.",
+      "description_length": 136,
+      "h1": [
+        "Wood Veneer Panels"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/wood-veneer-panels"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/materials/interior-hpl-panels",
+      "url": "https://cladvera.vercel.app/materials/interior-hpl-panels",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Interior Decorative Panel Supplier | Cladvera",
+      "title_length": 45,
+      "description": "Source Compactwood interior decorative boards for walls and ceilings. Confirm wood-fiber or glass-fiber core, finishes, installation and project documents.",
+      "description_length": 155,
+      "h1": [
+        "Interior decorative boards for walls and ceilings."
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/interior-hpl-panels"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "CollectionPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/architects",
+        "/guides/facade-materials",
+        "/materials/exterior-hpl-panels",
+        "/materials/interior-hpl-panels/paste-special-board",
+        "/products",
+        "/sourcing/china",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/materials/interior-hpl-panels/paste-special-board",
+      "url": "https://cladvera.vercel.app/materials/interior-hpl-panels/paste-special-board",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Compactwood Paste Special Board | Cladvera",
+      "title_length": 42,
+      "description": "Review Compactwood's paste special board for interior walls and ceilings, including its core options and the HPL grade and reports to verify before use.",
+      "description_length": 152,
+      "h1": [
+        "Paste special board"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/materials/interior-hpl-panels/paste-special-board"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 7,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/materials/acm-panels/medical-antibacterial",
+        "/materials/interior-hpl-panels",
+        "/products",
+        "/sourcing/china",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/finishes",
+      "url": "https://cladvera.vercel.app/finishes",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Panel Finishes, Textures and Color Variation",
+      "title_length": 44,
+      "description": "Illustrative veneer and UHPC finishes; request current Compactwood HPL and ALMINE metal-panel colour cards, selected SKUs and approval samples.",
+      "description_length": 143,
+      "h1": [
+        "Finishes, textures and colour variation"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/finishes"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "CollectionPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/finishes/wood-grain",
+      "url": "https://cladvera.vercel.app/finishes/wood-grain",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Wood-Grain Finishes: Veneer and Printed HPL",
+      "title_length": 43,
+      "description": "Compare real veneer and printed wood-grain HPL finishes by structure, texture, repeat, variation, direction and documentation.",
+      "description_length": 126,
+      "h1": [
+        "Wood-grain finishes: real veneer and printed HPL"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/finishes/wood-grain"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "CollectionPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/finishes/textured-concrete",
+      "url": "https://cladvera.vercel.app/finishes/textured-concrete",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "UHPC Concrete Textures: Smooth, Ribbed and Board-Formed",
+      "title_length": 55,
+      "description": "UHPC panel textures from smooth to ribbed and board-formed: relief depth, light and viewing distance, pigments, pinholes and moulds.",
+      "description_length": 132,
+      "h1": [
+        "UHPC concrete textures"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/finishes/textured-concrete"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "CollectionPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/architects",
+      "url": "https://cladvera.vercel.app/architects",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Architectural Panel Selection & Specification | Cladvera",
+      "title_length": 56,
+      "description": "Select and specify architectural panels: compare facade and interior materials, review finish samples and technical evidence, and prepare a project RFQ.",
+      "description_length": 152,
+      "h1": [
+        "Architectural panel selection and specification"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/architects"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/technical-resources"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/for-contractors",
+      "url": "https://cladvera.vercel.app/for-contractors",
+      "role": "redirect",
+      "status": 308,
+      "redirects": [
+        {
+          "status": 308,
+          "destination": "https://cladvera.vercel.app/procurement"
+        }
+      ],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Architectural Panel Procurement & RFQ Guide | Cladvera",
+      "title_length": 54,
+      "description": "Prepare an architectural panel RFQ with material, quantities, drawings and delivery needs. Compare quoted scope, coordinate approvals and plan procurement.",
+      "description_length": 155,
+      "h1": [
+        "Architectural panel procurement, from RFQ to delivery"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/procurement"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/technical-resources",
+      "url": "https://cladvera.vercel.app/technical-resources",
+      "role": "indexable",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": true,
+      "score": 100,
+      "title": "Architectural Panel Technical Documents | Cladvera",
+      "title_length": 50,
+      "description": "Find architectural panel technical documents for UHPC, metal composite, HPL and GFRP. Review manufacturer sources and request product data and test reports.",
+      "description_length": 156,
+      "h1": [
+        "Architectural panel technical documents"
+      ],
+      "robots": "index, follow, max-image-preview:large",
+      "canonical": [
+        "https://cladvera.vercel.app/technical-resources"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "CollectionPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/",
+        "/applications",
+        "/architects",
+        "/guides/facade-materials",
+        "/materials/acm-panels",
+        "/materials/exterior-hpl-panels",
+        "/materials/interior-hpl-panels",
+        "/procurement",
+        "/products",
+        "/sourcing/china",
+        "/suppliers/taktl"
+      ],
+      "broken_links": [],
+      "checks": [
+        {
+          "group": "Crawl",
+          "check": "HTTP 200 at requested path",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Canonical URL crawlable",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Index permitted by HTML and HTTP",
+          "weight": 10,
+          "passed": true
+        },
+        {
+          "group": "Crawl",
+          "check": "Present once in sitemap",
+          "weight": 5,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique title within project limit",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Unique description within project limits",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Metadata",
+          "check": "Single clean self canonical",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "At least two contextual incoming pages",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Reachable within two link steps",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Contextual onward link to another search page",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Architecture",
+          "check": "Internal links and fragments resolve",
+          "weight": 4,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "One nonempty H1",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Page entity present with URL and website relationship",
+          "weight": 8,
+          "passed": true
+        },
+        {
+          "group": "Semantics",
+          "check": "Breadcrumb hierarchy (home exempt)",
+          "weight": 6,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "English document language",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Image alt attributes present (empty decorative alt allowed)",
+          "weight": 3,
+          "passed": true
+        },
+        {
+          "group": "Access",
+          "check": "Server-rendered main text",
+          "weight": 4,
+          "passed": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "path": "/compliance",
+      "url": "https://cladvera.vercel.app/compliance",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Compliance: Fire Test and Listing Status by Product",
+      "title_length": 51,
+      "description": "Fire test and listing status by panel line, country and assembly: ASTM E84, NFPA 285, CAN/ULC S134 and S102, TSCA and the Lacey Act.",
+      "description_length": 132,
+      "h1": [
+        "Compliance: test and listing status by product, country and assembly"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/compliance"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/systems",
+      "url": "https://cladvera.vercel.app/systems",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Systems: Compatible Attachment and Design Responsibility",
+      "title_length": 56,
+      "description": "Attachment and design responsibilities for Compactwood HPL, UHPC, metal composite and veneer panels, with product-specific fixing details to confirm.",
+      "description_length": 149,
+      "h1": [
+        "Systems and design responsibility"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/systems"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/fabrication",
+      "url": "https://cladvera.vercel.app/fabrication",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Fabrication: Routing, Cutting, Film and File Formats",
+      "title_length": 52,
+      "description": "Fabrication guidance for ALMINE metal composite, Compactwood wood fiber HPL, veneer and UHPC panels, with tools, edges and fixing details to confirm.",
+      "description_length": 149,
+      "h1": [
+        "Fabrication"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/fabrication"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/stock-and-lead-times",
+      "url": "https://cladvera.vercel.app/stock-and-lead-times",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Stock and Lead Times for Panels Shipped to the US and Canada",
+      "title_length": 60,
+      "description": "Stock status, minimum order and production lead time for each panel line, with typical ocean transit from China to US and Canadian ports.",
+      "description_length": 137,
+      "h1": [
+        "Stock and lead times"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/stock-and-lead-times"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/supply-and-delivery",
+      "url": "https://cladvera.vercel.app/supply-and-delivery",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Supply and Delivery: Incoterms, Duties and Documents",
+      "title_length": 52,
+      "description": "Trade terms, importer duties, the seller document pack, tariff references and lead times for panels shipped from China to the US and Canada.",
+      "description_length": 140,
+      "h1": [
+        "Supply and delivery"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/supply-and-delivery"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/warranty",
+      "url": "https://cladvera.vercel.app/warranty",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Warranty: Coating, Material and Maintenance Terms (Draft)",
+      "title_length": 57,
+      "description": "Draft warranty structure for ACM, phenolic HPL, veneer and UHPC panels: warranty party, coating and material terms, care and exclusions.",
+      "description_length": 136,
+      "h1": [
+        "Warranty"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/warranty"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/pricing-guide",
+      "url": "https://cladvera.vercel.app/pricing-guide",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Pricing Guide: Cost Drivers and Landed Cost for Panels",
+      "title_length": 54,
+      "description": "What moves a panel quote: cost drivers for ACM, phenolic HPL, veneer and UHPC, landed-cost layers by country and how quotes are built.",
+      "description_length": 134,
+      "h1": [
+        "Pricing guide"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/pricing-guide"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/canada",
+      "url": "https://cladvera.vercel.app/canada",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Panels for Canada: Import and Code Notes",
+      "title_length": 40,
+      "description": "Canadian project notes for metal composite and other panels: confirm the ordered SKU's classification, origin and current import treatment with a broker.",
+      "description_length": 153,
+      "h1": [
+        "Panels for Canadian projects"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/canada"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/samples",
+      "url": "https://cladvera.vercel.app/samples",
+      "role": "utility",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Request Material Samples & Mock-ups | Cladvera",
+      "title_length": 46,
+      "description": "Request product samples or discuss a custom mock-up with Cladvera. Include your selected materials, finish, evaluation needs and delivery destination.",
+      "description_length": 150,
+      "h1": [
+        "Plan your sample or mock-up"
+      ],
+      "robots": "noindex, nofollow",
+      "canonical": [
+        "https://cladvera.vercel.app/samples"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/architects"
+      ],
+      "broken_links": [],
+      "exclusion_confirmed": true
+    },
+    {
+      "path": "/request-quote",
+      "url": "https://cladvera.vercel.app/request-quote",
+      "role": "utility",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": true,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Project Quote & Document Requests | Cladvera",
+      "title_length": 44,
+      "description": "Prepare a product-specific project brief with quantities, drawings, finishes and technical requirements, then email Cladvera for review and pricing.",
+      "description_length": 148,
+      "h1": [
+        "Build your project request"
+      ],
+      "robots": "noindex, nofollow",
+      "canonical": [
+        "https://cladvera.vercel.app/request-quote"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "incoming_pages": 25,
+      "contextual_incoming": [
+        "/architects",
+        "/procurement",
+        "/sourcing/china"
+      ],
+      "broken_links": [],
+      "exclusion_confirmed": true
+    },
+    {
+      "path": "/about",
+      "url": "https://cladvera.vercel.app/about",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "About Cladvera: Supplier Identity and Quality Process",
+      "title_length": 53,
+      "description": "Who supplies the panels, how mills are audited and batches traced, and how to verify a building material supplier before a first order.",
+      "description_length": 135,
+      "h1": [
+        "About Cladvera"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/about"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "AboutPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/contact",
+      "url": "https://cladvera.vercel.app/contact",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Contact Cladvera: Samples, Quotes and Distribution",
+      "title_length": 50,
+      "description": "Email, phone and WhatsApp contact for sample sets, project quotes and distributor enquiries, with the reply time and working hours for North American buyers.",
+      "description_length": 157,
+      "h1": [
+        "Contact"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/contact"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "ContactPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/projects",
+      "url": "https://cladvera.vercel.app/projects",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Projects: Delivered Panel Orders and Material Details",
+      "title_length": 53,
+      "description": "Project records for delivered panel orders with location, year, scope, material and finish codes, published as deliveries complete.",
+      "description_length": 131,
+      "h1": [
+        "Projects"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/projects"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "CollectionPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/applications/interior-wall-panels",
+      "url": "https://cladvera.vercel.app/applications/interior-wall-panels",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Commercial Interior Wall Panels by Material",
+      "title_length": 43,
+      "description": "Commercial interior wall panels compared: phenolic HPL, veneer, ACM and UHPC by flame-spread class, cleanability, lighting and substrate.",
+      "description_length": 137,
+      "h1": [
+        "Commercial interior wall panels"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/applications/interior-wall-panels"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/resources/panel-color-variation",
+      "url": "https://cladvera.vercel.app/resources/panel-color-variation",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Panel Color Variation, Batch Matching and \u0394E Tolerances",
+      "title_length": 55,
+      "description": "How much colour variation is acceptable between panel batches, how master and range samples are approved, and which \u0394E conditions apply.",
+      "description_length": 136,
+      "h1": [
+        "Panel colour variation, batch matching and sample approval"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/resources/panel-color-variation"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/resources/acm-vs-hpl-vs-uhpc",
+      "url": "https://cladvera.vercel.app/resources/acm-vs-hpl-vs-uhpc",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "ACM vs HPL vs UHPC Cladding Panels Compared",
+      "title_length": 43,
+      "description": "Compare ALMINE metal composite, Compactwood wood fiber HPL and UHPC cladding by construction, project documents, attachment and import requirements.",
+      "description_length": 148,
+      "h1": [
+        "ACM vs HPL vs UHPC for exterior cladding"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/resources/acm-vs-hpl-vs-uhpc"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/resources/uhpc-vs-gfrc",
+      "url": "https://cladvera.vercel.app/resources/uhpc-vs-gfrc",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "UHPC vs GFRC Facade Panels: Not the Same Material",
+      "title_length": 49,
+      "description": "UHPC and GFRC facade panels are different materials: matrix, fibres, strength, thickness, standards and what a specifier should ask.",
+      "description_length": 132,
+      "h1": [
+        "UHPC vs GFRC facade panels"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/resources/uhpc-vs-gfrc"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/privacy",
+      "url": "https://cladvera.vercel.app/privacy",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Privacy Notice",
+      "title_length": 14,
+      "description": "What the sample and quote forms collect, how inquiry data is used and kept, which cookie-free analytics run, and how to request deletion.",
+      "description_length": 137,
+      "h1": [
+        "Privacy notice"
+      ],
+      "robots": "noindex, nofollow",
+      "canonical": [
+        "https://cladvera.vercel.app/privacy"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/finishes/vn-oak21",
+      "url": "https://cladvera.vercel.app/finishes/vn-oak21",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Rift White Oak (VN-OAK21) | Natural veneer finish",
+      "title_length": 49,
+      "description": "Rift White Oak: natural veneer finish for Wood veneer panels. Matte UV overlay, 10 to 20 GU at 60\u00b0; open pore under overlay; directional. Samples and range s...",
+      "description_length": 160,
+      "h1": [
+        "Rift White Oak"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/finishes/vn-oak21"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "Product",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/finishes/vn-wal22",
+      "url": "https://cladvera.vercel.app/finishes/vn-wal22",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "American Walnut (VN-WAL22) | Natural veneer finish",
+      "title_length": 50,
+      "description": "American Walnut: natural veneer finish for Wood veneer panels. Matte UV overlay, 10 to 20 GU at 60\u00b0; open pore under overlay; directional. Samples and range ...",
+      "description_length": 160,
+      "h1": [
+        "American Walnut"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/finishes/vn-wal22"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "Product",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/finishes/uh-sm31",
+      "url": "https://cladvera.vercel.app/finishes/uh-sm31",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Smooth Natural Grey (UH-SM31) | Concrete textures finish",
+      "title_length": 56,
+      "description": "Smooth Natural Grey: concrete textures finish for UHPC panels. Matte, sealed; smooth from steel mould; pinholes within the agreed range; non-directional. Sam...",
+      "description_length": 160,
+      "h1": [
+        "Smooth Natural Grey"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/finishes/uh-sm31"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "Product",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/finishes/uh-sb32",
+      "url": "https://cladvera.vercel.app/finishes/uh-sb32",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Sandblasted Warm Grey (UH-SB32) | Concrete textures finish",
+      "title_length": 58,
+      "description": "Sandblasted Warm Grey: concrete textures finish for UHPC panels. Matte, sealed; light sandblast exposing fine aggregate; non-directional. Samples and range s...",
+      "description_length": 160,
+      "h1": [
+        "Sandblasted Warm Grey"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/finishes/uh-sb32"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "Product",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/finishes/uh-rb33",
+      "url": "https://cladvera.vercel.app/finishes/uh-rb33",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Ribbed 20 mm (UH-RB33) | Concrete textures finish",
+      "title_length": 49,
+      "description": "Ribbed 20 mm: concrete textures finish for UHPC panels. Matte, sealed; vertical ribs 20 mm pitch, 4 mm relief; directional. Samples and range sets on request.",
+      "description_length": 158,
+      "h1": [
+        "Ribbed 20 mm"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/finishes/uh-rb33"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "Product",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    },
+    {
+      "path": "/finishes/uh-bf34",
+      "url": "https://cladvera.vercel.app/finishes/uh-bf34",
+      "role": "draft",
+      "status": 200,
+      "redirects": [],
+      "final_status": 200,
+      "crawl_allowed": false,
+      "in_sitemap": false,
+      "score": null,
+      "title": "Board-formed (UH-BF34) | Concrete textures finish",
+      "title_length": 49,
+      "description": "Board-formed: concrete textures finish for UHPC panels. Matte, sealed; timber board impression, 140 mm boards; directional. Samples and range sets on request.",
+      "description_length": 158,
+      "h1": [
+        "Board-formed"
+      ],
+      "robots": "noindex, follow",
+      "canonical": [
+        "https://cladvera.vercel.app/finishes/uh-bf34"
+      ],
+      "schemas": [
+        "WebSite",
+        "Organization",
+        "Product",
+        "ItemPage",
+        "BreadcrumbList"
+      ],
+      "depth": null,
+      "incoming_pages": 0,
+      "contextual_incoming": [],
+      "broken_links": [],
+      "exclusion_confirmed": false
+    }
+  ],
+  "query_checks": [
+    {
+      "path": "/?utm_source=seo-audit",
+      "status": 200,
+      "crawl_allowed": false,
+      "canonical": [
+        "https://cladvera.vercel.app"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ]
+    },
+    {
+      "path": "/products?category=mcm",
+      "status": 200,
+      "crawl_allowed": false,
+      "canonical": [
+        "https://cladvera.vercel.app/products"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ]
+    },
+    {
+      "path": "/technical-resources?application=facade",
+      "status": 200,
+      "crawl_allowed": false,
+      "canonical": [
+        "https://cladvera.vercel.app/technical-resources"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ]
+    },
+    {
+      "path": "/samples?products=taktl-facade&intent=sample",
+      "status": 200,
+      "crawl_allowed": false,
+      "canonical": [
+        "https://cladvera.vercel.app/samples"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ]
+    },
+    {
+      "path": "/request-quote?intent=documents",
+      "status": 200,
+      "crawl_allowed": false,
+      "canonical": [
+        "https://cladvera.vercel.app/request-quote"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ]
+    }
+  ]
+}

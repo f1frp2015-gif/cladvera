@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { Badge, Callout, Cta, Faq, PageHeader, Section } from "@/components/ui";
@@ -41,6 +43,8 @@ const faq = [
 const ca = regions.CA;
 
 export default function Page() {
+  if (!isPublishedPath("/canada")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Canada", description, path: "/canada" })} />

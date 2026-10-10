@@ -47,10 +47,11 @@ export default function Page() {
         <ol className="grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
           {procurementStages.map((stage, index) => (
             <li key={stage.title} className="rounded-card border border-line bg-paper p-[20px]">
-              <p className="font-mono text-f12 text-accent">{String(index + 1).padStart(2, "0")}</p><h2 className="mt-[6px] text-f18 font-semibold">{stage.title}</h2><p className="mt-[5px] text-f12 text-ink-3">{stage.owner}</p><p className="mt-[12px] text-f14 text-ink-2">{stage.decision}</p><p className="mt-[16px] border-t border-line pt-[12px] text-f14"><span className="font-semibold">Record: </span><span className="text-ink-2">{stage.record}</span></p>
+              <p className="font-mono text-f12 text-accent">{String(index + 1).padStart(2, "0")}</p><h3 className="mt-[6px] text-f18 font-semibold">{stage.title}</h3><p className="mt-[5px] text-f12 text-ink-3">{stage.owner}</p><p className="mt-[12px] text-f14 text-ink-2">{stage.decision}</p><p className="mt-[16px] border-t border-line pt-[12px] text-f14"><span className="font-semibold">Record: </span><span className="text-ink-2">{stage.record}</span></p>
             </li>
           ))}
         </ol>
+        <p className="mt-[28px] max-w-[860px] border-t border-line pt-[20px] text-f14 leading-[1.8] text-ink-2">Before order release, review the <Link href="/architects#specification-notes" className="text-accent underline underline-offset-4">architect&apos;s specification notes</Link>, agree <Link href="/samples" className="text-accent underline underline-offset-4">material sample requirements</Link> and assemble the <Link href="/technical-resources#review-package" className="text-accent underline underline-offset-4">technical review package</Link>. Record the approvals and unresolved items with the purchase scope.</p>
       </Section>
 
       <Section title="Compare the full quoted scope">

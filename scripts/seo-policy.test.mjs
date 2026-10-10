@@ -3,12 +3,20 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 import ts from "typescript";
 import vm from "node:vm";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const canonicalOrigin = "https://cladvera.example";
 const description = "Review architectural panel materials, manufacturer sources and project requirements before selecting a product, requesting documents or preparing a quotation.";
+const nodeRequire = createRequire(import.meta.url);
+const notFoundDigest = "NEXT_HTTP_ERROR_FALLBACK;404";
+const navigationStub = {
+  notFound() { throw Object.assign(new Error("Not found"), { digest: notFoundDigest }); },
+  permanentRedirect(location) { throw Object.assign(new Error("Permanent redirect"), { location, status: 308 }); },
+};
+const componentStubs = new Proxy({}, { get: () => () => null });
 
 function loader(stage, extraEnv = {}) {
   const cache = new Map();
@@ -17,8 +25,14 @@ function loader(stage, extraEnv = {}) {
     if (cache.has(filename)) return cache.get(filename);
     const exports = {};
     cache.set(filename, exports);
-    const code = ts.transpileModule(readFileSync(filename, "utf8"), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 } }).outputText;
-    const require = id => load(id.startsWith("@/") ? `${id.slice(2)}.ts` : resolve(dirname(filename), `${id}.ts`));
+    const code = ts.transpileModule(readFileSync(filename, "utf8"), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, jsx: ts.JsxEmit.ReactJSX } }).outputText;
+    const require = id => {
+      if (id === "next/navigation") return navigationStub;
+      if (id === "react/jsx-runtime") return nodeRequire(id);
+      // Exercise real page/data logic while excluding presentation components.
+      if (id === "next/link" || id.startsWith("@/components/")) return componentStubs;
+      return load(id.startsWith("@/") ? `${id.slice(2)}.ts` : resolve(dirname(filename), `${id}.ts`));
+    };
     vm.runInNewContext(code, { exports, require, URL, Response, console, process: { env: { NEXT_PUBLIC_SITE_STAGE: stage, NEXT_PUBLIC_SITE_URL: canonicalOrigin, ...extraEnv } } }, { filename });
     return exports;
   }
@@ -67,18 +81,45 @@ for (const stage of ["draft", "live"]) {
     }
   });
 
-  test(`${stage}: crawler policy permits reviewed paths and assets without opening drafts or facets`, () => {
+  test(`${stage}: crawler policy permits known statuses and assets without opening facets`, () => {
     const load = loader(stage);
     const rules = load("app/robots.ts").default().rules;
     assert.equal(rules.length, 1, "Existing wildcard policy applies without changing training-agent preferences");
     assert.equal(rules[0].userAgent, "*");
     assert.equal(rules[0].disallow, "/");
     const allowed = path => rules[0].allow.some(pattern => new RegExp(`^${pattern.replace(/[.+?^{}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*")}`).test(path));
-    for (const path of ["/", "/products", "/technical-resources", "/samples", "/materials/gfrp-custom-elements", "/_next/static/chunk.js", "/images/example.jpg", "/documents/example.pdf", "/icon.svg"]) {
+    const { routes } = load("content/data/navigation.ts");
+    const { finishes } = load("content/data/finishes.ts");
+    const knownPaths = [...routes.map(route => route.path), ...finishes.map(finish => `/finishes/${finish.code.toLowerCase()}`)];
+    for (const path of [...knownPaths, "/_next/static/chunk.js", "/images/example.jpg", "/documents/example.pdf", "/icon.svg"]) {
       assert.ok(allowed(path), path);
     }
-    for (const path of ["/finishes", "/compliance", "/api/request", "/products/unreviewed", "/products?category=mcm", "/technical-resources?availability=linked"]) {
+    for (const path of ["/api/request", "/products/unreviewed", "/finishes/unknown-code", "/products?category=mcm", "/technical-resources?availability=linked", "/compliance?preview=1"]) {
       assert.equal(allowed(path), false, path);
+    }
+  });
+
+  test(`${stage}: unreviewed static and finish pages stop rendering before draft content`, async () => {
+    const load = loader(stage);
+    const { routes } = load("content/data/navigation.ts");
+    const { isPublishedPath } = load("content/data/publication.ts");
+    const redirects = new Map([["/materials", "/products"], ["/for-contractors", "/procurement"]]);
+    const draftPages = routes.filter(route => !isPublishedPath(route.path) && !redirects.has(route.path));
+    assert.ok(draftPages.length > 0);
+    for (const { path } of draftPages) {
+      const page = load(`app${path}/page.tsx`);
+      assert.throws(() => page.default(), { digest: notFoundDigest }, path);
+    }
+    for (const [path, location] of redirects) {
+      assert.throws(() => load(`app${path}/page.tsx`).default(), { location, status: 308 }, path);
+    }
+    const { finishes } = load("content/data/finishes.ts");
+    const detail = load("app/finishes/[code]/page.tsx");
+    for (const code of [...finishes.map(finish => finish.code), "unknown-code"]) {
+      if (isPublishedPath(`/finishes/${code.toLowerCase()}`)) continue;
+      const props = { params: Promise.resolve({ code }) };
+      await assert.rejects(detail.default(props), { digest: notFoundDigest }, code);
+      await assert.rejects(detail.generateMetadata(props), { digest: notFoundDigest }, `${code} metadata`);
     }
   });
 }

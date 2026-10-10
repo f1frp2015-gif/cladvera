@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { Callout, Cta, Faq, PageHeader, Section } from "@/components/ui";
@@ -50,6 +52,8 @@ const faq = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/resources/acm-vs-hpl-vs-uhpc")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "ACM vs HPL vs UHPC", description, path: "/resources/acm-vs-hpl-vs-uhpc" })} />

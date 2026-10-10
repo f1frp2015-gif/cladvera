@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import JsonLd from "@/components/seo/JsonLd";
 import RegionBlock from "@/components/region/RegionBlock";
 import { Callout, Cta, Faq, PageHeader, Section } from "@/components/ui";
@@ -37,6 +39,8 @@ const faq = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/pricing-guide")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Pricing guide", description, path: "/pricing-guide" })} />

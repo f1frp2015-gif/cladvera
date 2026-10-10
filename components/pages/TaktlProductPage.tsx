@@ -132,6 +132,17 @@ export default function TaktlProductPage({ slug }: { slug: TaktlProductSlug }) {
             </ul>
           </div>
         </div>
+        <div className="mt-[40px] border-t border-line-strong pt-[28px]">
+          <h3 className="max-w-[720px] text-f24 font-medium leading-[1.25] tracking-[-0.03em]">{product.reviewGuidance.title}</h3>
+          <div className="mt-[24px] grid gap-[28px] md:grid-cols-3 md:gap-[32px]">
+            {product.reviewGuidance.items.map(item => (
+              <div key={item.title}>
+                <h4 className="text-f16 font-medium">{item.title}</h4>
+                <p className="mt-[10px] text-f14 leading-[1.7] text-ink-2">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="mt-[28px] flex flex-wrap gap-x-[32px] gap-y-[12px] border-t border-line-strong pt-[20px]">
           {isHardware ? <Link href="/suppliers/taktl/facade-elements" className="inline-flex min-h-[44px] items-center gap-[20px] text-f14 font-medium hover:text-accent">Review TAKTL facade elements <span aria-hidden="true">↗</span></Link> : <>
             <Link href="/suppliers/taktl#colors" className="inline-flex min-h-[44px] items-center gap-[20px] text-f14 font-medium hover:text-accent">Color reference <span aria-hidden="true">↗</span></Link>

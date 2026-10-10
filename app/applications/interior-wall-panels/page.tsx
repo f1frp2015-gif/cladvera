@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import RegionBlock from "@/components/region/RegionBlock";
@@ -32,6 +34,8 @@ const faq = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/applications/interior-wall-panels")) notFound();
+
   const interiorFinishes = finishes.filter((f) => f.use.includes("interior")).slice(0, 8);
   return (
     <>

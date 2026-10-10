@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { Callout, Cta, PageHeader, Section } from "@/components/ui";
@@ -28,6 +30,8 @@ const lanes = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/stock-and-lead-times")) notFound();
+
   const plannedStock = finishes.filter((f) => f.stock === "planned-stock");
   return (
     <>

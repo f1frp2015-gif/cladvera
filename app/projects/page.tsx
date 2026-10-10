@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import JsonLd from "@/components/seo/JsonLd";
 import { Badge, Cta, PageHeader, Section } from "@/components/ui";
 import { finishFamilies } from "@/content/data/finishes";
@@ -16,6 +18,8 @@ export const metadata = buildPageMetadata({
 const buildingTypes = ["Commercial", "Hospitality", "Retail", "Education and healthcare", "Multifamily"];
 
 export default function Page() {
+  if (!isPublishedPath("/projects")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Projects", description, path: "/projects", type: "CollectionPage" })} />

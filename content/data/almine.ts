@@ -15,6 +15,7 @@ export interface AlmineProduct {
   metaDescription: string;
   manufacturerFacts: Array<{ label: string; value: string }>;
   confirm: string[];
+  reviewGuidance: { title: string; items: Array<{ title: string; body: string }> };
   sourceUrl: string;
   visual: "a2" | "tunnel" | "medical";
 }
@@ -46,6 +47,23 @@ export const almineProducts: AlmineProduct[] = [
       "Fire classification report for the actual panel construction and target jurisdiction",
       "Coating, finish sample, attachment system and project-specific wall-assembly evidence",
     ],
+    reviewGuidance: {
+      "title": "Define the metal composite construction.",
+      "items": [
+        {
+          "title": "Identify the faces and core",
+          "body": "Specify the required face metal, gauge, core, overall thickness and sheet dimensions. ALMINE describes metal skins; ask for the exact construction before accepting the product against an aluminum composite material specification."
+        },
+        {
+          "title": "Match the finish and fabrication scope",
+          "body": "Provide the coating and color reference, a finish sample requirement and the panel layout. State whether the inquiry concerns flat sheets or fabricated panels, then confirm the offered scope, attachment details and supporting substrate."
+        },
+        {
+          "title": "Request the applicable fire evidence",
+          "body": "Ask for the classification report identifying the tested panel construction, method and report number. Have the design team match that evidence to the intended interior use or complete exterior wall assembly before specification."
+        }
+      ]
+    },
     sourceUrl: almineSourceUrl,
     visual: "a2",
   },
@@ -68,6 +86,23 @@ export const almineProducts: AlmineProduct[] = [
       "Fire, smoke, impact, abrasion and cleaning reports required by the transit authority",
       "Fixing details and substrate compatibility for the project environment",
     ],
+    reviewGuidance: {
+      "title": "Prepare a transit panel submission.",
+      "items": [
+        {
+          "title": "Define the installation environment",
+          "body": "Identify the rail or tunnel location, panel dimensions, face metal, finish and substrate. Include the proposed fixing details and the transit authority requirements so the offered construction can be reviewed against the actual installation."
+        },
+        {
+          "title": "Coordinate cleaning with the finish",
+          "body": "Describe the planned cleaning method and products, then request guidance for the offered surface. ALMINE describes a washable, wear-resistant face; ask for the relevant cleaning, abrasion and impact evidence instead of relying on that description alone."
+        },
+        {
+          "title": "Assemble the authority review package",
+          "body": "List the required fire, smoke and durability reports with the panel and coating identification. Check that the submitted evidence corresponds to the construction on the quotation and the fixing details proposed for the transit project."
+        }
+      ]
+    },
     sourceUrl: almineSourceUrl,
     visual: "tunnel",
   },
@@ -90,6 +125,23 @@ export const almineProducts: AlmineProduct[] = [
       "Antibacterial test method, organisms, reduction values and report validity",
       "Applicable fire and interior finish reports for the project jurisdiction",
     ],
+    reviewGuidance: {
+      "title": "Review the healthcare interior finish.",
+      "items": [
+        {
+          "title": "Define the room and cleaning requirements",
+          "body": "Identify the healthcare interior area, panel sizes, finish and intended cleaning protocol. Request the manufacturer's guidance for the proposed coating and cleaning chemicals so the facility team can review their compatibility."
+        },
+        {
+          "title": "Identify what the antibacterial report tests",
+          "body": "Request the test method, organisms, reported reduction values and tested finish, together with the report date and identification. Match those details to the offered coating when reviewing ALMINE's published antibacterial and mildew-resistant claims."
+        },
+        {
+          "title": "Review the complete interior construction",
+          "body": "Confirm the face metal, core, coating and installation details alongside the applicable fire and interior-finish reports. Keep the approved sample and report references with the panel schedule so a finish change can be reviewed before ordering."
+        }
+      ]
+    },
     sourceUrl: almineSourceUrl,
     visual: "medical",
   },

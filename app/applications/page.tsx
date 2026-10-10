@@ -29,7 +29,7 @@ export default function Page() {
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Architectural panel applications", description, path, type: "CollectionPage" })} />
-      <PageHeader eyebrow="Select by application" title="Facade and interior panel applications" lede="Start with the space and exposure. Explore exterior cladding, interior walls and ceilings, transit, healthcare and custom forms, then review each material against your project requirements." crumbs={[{ name: "Applications", path }]} actions={<><Cta href="/products">Browse all products</Cta><Cta href="/architects" variant="secondary">Panel selection guide</Cta></>} />
+      <PageHeader eyebrow="Select by application" title="Facade and interior panel applications" lede="Start with the space and exposure. Explore exterior cladding, interior walls and ceilings, transit, healthcare and custom forms, then review each material against your project requirements." crumbs={[{ name: "Applications", path }]} actions={<><Cta href="/products">Browse all products</Cta><Cta href="/architects" variant="secondary">Architect specification workflow</Cta></>} />
 
       <nav aria-label="Application index" className="border-b border-line bg-paper-2">
         <div className="site-container py-[20px] md:py-[24px]">
@@ -79,6 +79,7 @@ export default function Page() {
                   <div className={`min-w-0 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
                     <h2 id={`${application.id}-heading`} className="max-w-[560px] text-[34px] font-normal leading-[1.08] tracking-[-0.05em] md:text-[46px] lg:text-[52px]">{application.label}</h2>
                     <p className="mt-[20px] max-w-[520px] text-f16 leading-[1.8] text-ink-2">{application.description}</p>
+                    {application.id === "facade" ? <p className="mt-[16px] max-w-[520px] text-f14 leading-[1.8] text-ink-2">Compare ACM/MCM, exterior HPL, UHPC and GFRP in the <Link href="/guides/facade-materials#material-comparison" className="text-accent underline underline-offset-4">facade material selection guide</Link> before reviewing a specific construction.</p> : null}
                     <h3 className="mb-[4px] mt-[32px] font-mono text-[10px] uppercase tracking-[0.14em] text-ink-3">Design &amp; technical considerations</h3>
                     <ol className="grid">
                       {(reviewFactors[application.id] ?? []).map((factor, factorIndex) => (
@@ -119,7 +120,7 @@ export default function Page() {
       <Section tone="muted">
         <div className="grid gap-[28px] border-t border-ink pt-[28px] lg:grid-cols-[1fr_1fr] lg:gap-[64px]">
           <div><p className="eyebrow mb-[18px]">From context to specification</p><h2 className="max-w-[560px] text-[34px] font-normal leading-[1.1] tracking-[-0.045em] md:text-[46px]">Move from application to a project request.</h2></div>
-          <div><p className="max-w-[580px] text-f16 leading-[1.8] text-ink-2">Compare shortlisted families, request the samples and evidence needed by the design team, then describe the quantities, drawings and delivery needs for a quotation.</p><div className="mt-[24px] flex flex-wrap gap-[12px]"><Cta href="/compare">Compare products</Cta><Cta href="/technical-resources" variant="secondary">Review documents</Cta></div><div className="mt-[12px]"><Cta href="/procurement" variant="ghost">Procurement process <span aria-hidden="true">↗</span></Cta></div></div>
+          <div><p className="max-w-[580px] text-f16 leading-[1.8] text-ink-2">Compare shortlisted families, <Link href="/samples" className="text-accent underline underline-offset-4">request material samples</Link> and the evidence needed by the design team, then describe the quantities, drawings and delivery needs for a quotation.</p><div className="mt-[24px] flex flex-wrap gap-[12px]"><Cta href="/compare">Compare products</Cta><Cta href="/technical-resources" variant="secondary">Review documents</Cta></div><div className="mt-[12px]"><Cta href="/procurement" variant="ghost">Procurement process <span aria-hidden="true">↗</span></Cta></div></div>
         </div>
       </Section>
     </>

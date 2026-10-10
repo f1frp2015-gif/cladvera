@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import JsonLd from "@/components/seo/JsonLd";
 import { KeyValueList, LinkCard, PageHeader, Section } from "@/components/ui";
 import { site } from "@/content/data/site";
@@ -13,6 +15,8 @@ export const metadata = buildPageMetadata({
 });
 
 export default function Page() {
+  if (!isPublishedPath("/contact")) notFound();
+
   const whatsapp = site.contact.whatsapp.replace(/\D/g, "");
   return (
     <>

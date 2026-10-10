@@ -106,12 +106,15 @@ export default function AlmineProductPage({ slug }: { slug: AlmineProductSlug })
         <div className="grid gap-[36px] lg:grid-cols-[0.8fr_1.3fr] lg:gap-[100px]">
           <div>
             <p className="eyebrow mb-[20px]">02 / Project review</p>
-            <h2 className="text-[34px] font-normal leading-[1.1] tracking-[-0.04em] md:text-[46px]">Confirm before<br /><span className="editorial-serif">specification.</span></h2>
+            <h2 className="text-[34px] font-normal leading-[1.1] tracking-[-0.04em] md:text-[46px]">{product.reviewGuidance.title}</h2>
             <p className="mt-[24px] max-w-[400px] text-f16 text-ink-2">Match the proposed construction, finish and supporting evidence to the intended use.</p>
           </div>
           <ol className="divide-y divide-line border-y border-line-strong">
-            {product.confirm.map((item, index) => (
-              <li key={item} className="flex items-start gap-[24px] py-[24px]"><span aria-hidden="true" className="pt-[4px] font-mono text-[10px] text-accent">{String(index + 1).padStart(2, "0")}</span><span className="text-f16 leading-[1.7] text-ink-2">{item}</span></li>
+            {product.reviewGuidance.items.map((item, index) => (
+              <li key={item.title} className="flex items-start gap-[24px] py-[24px]">
+                <span aria-hidden="true" className="pt-[4px] font-mono text-[10px] text-accent">{String(index + 1).padStart(2, "0")}</span>
+                <div><h3 className="text-f18 font-medium">{item.title}</h3><p className="mt-[10px] text-f14 leading-[1.7] text-ink-2">{item.body}</p></div>
+              </li>
             ))}
           </ol>
         </div>

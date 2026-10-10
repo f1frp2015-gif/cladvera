@@ -1,12 +1,12 @@
 # Cladvera keyword and internal-link map
 
-Updated: 2026-10-09
+Updated: 2026-10-10
 
 ## Scope and evidence
 
 This map assigns search intent to the reviewed product catalogue. It does not claim keyword search volume, current rankings, traffic forecasts or a ranking improvement. Those need Search Console and keyword research data that were not available for this change.
 
-The catalogue currently contains 11 product families in six material/component categories. The reviewed publication set contains 26 routes, of which 23 are indexable. The comparison page and request forms remain outside the sitemap. Unreviewed legacy content retains the existing draft publication policy.
+The catalogue currently contains 11 product families in six material/component categories. The reviewed publication set contains 26 routes, of which 23 are indexable. The comparison page and request forms remain outside the sitemap. Unreviewed legacy content is now stopped by server-side publication guards and returns HTTP 404. Known legacy URLs remain crawlable so search engines can observe their status.
 
 ## Export SEO / GEO research
 
@@ -119,8 +119,8 @@ Use short, meaningful anchor text in normal sentences. A named material or produ
 - Title, visible H1 and introductory copy should describe the same page intent. Preserve readable English rather than repeated keyword variants. Titles remain at most 60 characters and descriptions remain 120–160 characters under the repository rules. Google may generate a different result title using page and link content. [Title-link guidance](https://developers.google.com/search/docs/appearance/title-link)
 - Canonical URLs, metadata, robots and sitemap follow the reviewed publication list in both draft and live environments. The export SEO round adds `/sourcing/china` and `/guides/facade-materials`; it does not release legacy draft routes.
 - Sitemap `lastModified` is omitted until a reliable significant-content-change date is available for each URL. Build time is not a content modification date. [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
-- Retain the existing draft exclusions for legacy `/finishes`, `/materials/uhpc-panels`, `/resources/*` and other unreviewed pages. These should receive a separate evidence/content review before publication.
-- If an excluded draft URL already appears in Search Console, review its removal/indexing state separately: Google cannot read a `noindex` directive when robots.txt blocks crawling. The present change preserves the existing publication policy. [Google noindex guidance](https://developers.google.com/search/docs/crawling-indexing/block-indexing)
+- Legacy `/finishes`, `/materials/uhpc-panels`, `/resources/*` and other unreviewed pages return HTTP 404. These require a separate evidence/content review before publication.
+- Known retired URLs and the `/materials` and `/for-contractors` redirect sources are crawlable so Google can observe HTTP 404/308. Query facets remain blocked. Monitor recrawling in Search Console; robots.txt alone does not remove an indexed URL. [Google noindex guidance](https://developers.google.com/search/docs/crawling-indexing/block-indexing)
 
 ## Product claims to preserve
 
@@ -133,3 +133,7 @@ Use short, meaningful anchor text in normal sentences. A named material or produ
 ## Review after deployment
 
 Inspect representative home, collection, product and workflow URLs for the intended canonical, title, description, single H1 and working internal links. Confirm the sitemap includes only the intended reviewed indexable routes. Once Search Console data is available, evaluate queries and landing pages by the topic groups above; use actual impressions, clicks and indexing reports to prioritize future content.
+
+## URL audit and October 10 refinement
+
+The [55-URL scorecard and architecture audit](seo-audit/README.md) record the before/after technical checks separately from editorial review. The product finder now has a CollectionPage entity; product and application selection link to the material guide; procurement links to sample approval, specification notes and the review package. Eight TAKTL/ALMINE details have family-specific review guidance, and the interior detail uses a clearer wall-and-ceiling-board title while preserving Paste Special Board as its manufacturer identity.

@@ -33,6 +33,7 @@ export default function Page() {
               <div>
                 <p className="mb-[20px] font-mono text-[10px] uppercase tracking-[0.13em] text-paper/85">Facade panels & architectural surfaces</p>
                 <h1 id="cover-title" className="cover-title">Material shapes <br /><span className="editorial-serif">architecture.</span></h1>
+                <p className="mt-[20px] max-w-[500px] text-f14 leading-[1.7] text-paper/90 md:text-f16">Cladvera supplies facade panels and architectural materials for US and Canadian project teams.</p>
                 <Link href="#collections" className="mt-[28px] inline-flex min-h-[48px] items-center gap-[40px] border-b border-paper/70 text-f14 font-medium transition-colors hover:text-[#ecd1bf]">Explore the collections <span aria-hidden="true" className="text-[22px]">↓</span></Link>
               </div>
               <div className="hidden border-l border-paper/40 pl-[24px] lg:block">

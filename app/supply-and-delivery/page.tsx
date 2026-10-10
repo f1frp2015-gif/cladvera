@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import RegionBlock from "@/components/region/RegionBlock";
@@ -63,6 +65,8 @@ const faq = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/supply-and-delivery")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Supply and delivery", description, path: "/supply-and-delivery" })} />

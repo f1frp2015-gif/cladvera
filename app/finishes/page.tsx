@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import JsonLd from "@/components/seo/JsonLd";
 import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
 import { FinishCard } from "@/components/ui/Swatch";
@@ -15,6 +17,8 @@ export const metadata = buildPageMetadata({
 });
 
 export default function Page() {
+  if (!isPublishedPath("/finishes")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Finishes", description, path: "/finishes", type: "CollectionPage" })} />

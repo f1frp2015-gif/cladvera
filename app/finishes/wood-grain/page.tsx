@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import JsonLd from "@/components/seo/JsonLd";
 import { Cta, Faq, PageHeader, Section } from "@/components/ui";
 import { FinishCard } from "@/components/ui/Swatch";
@@ -32,6 +34,8 @@ const faq = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/finishes/wood-grain")) notFound();
+
   const items = [...finishesInFamily("natural-veneer"), ...finishesInFamily("wood-grain")];
   return (
     <>

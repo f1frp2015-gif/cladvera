@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { Callout, Cta, PageHeader, Section, StatusBadge } from "@/components/ui";
@@ -34,6 +36,8 @@ const principles = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/systems")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Systems", description, path: "/systems" })} />

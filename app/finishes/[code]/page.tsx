@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import JsonLd from "@/components/seo/JsonLd";
 import { Badge, Callout, Cta, KeyValueList, PageHeader, Section } from "@/components/ui";
 import { FinishCard, Swatch } from "@/components/ui/Swatch";
@@ -15,6 +16,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { code } = await params;
+  if (!isPublishedPath(`/finishes/${code.toLowerCase()}`)) notFound();
   const finish = findFinish(code);
   if (!finish) return {};
   const family = finishFamilies.find((f) => f.slug === finish.family)!;
@@ -36,6 +38,7 @@ export async function generateMetadata({ params }: { params: Params }) {
 
 export default async function Page({ params }: { params: Params }) {
   const { code } = await params;
+  if (!isPublishedPath(`/finishes/${code.toLowerCase()}`)) notFound();
   const finish = findFinish(code);
   if (!finish) notFound();
   const family = finishFamilies.find((f) => f.slug === finish.family)!;

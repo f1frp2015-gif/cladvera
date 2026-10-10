@@ -12,10 +12,10 @@ import {
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Review Compactwood's paste special board for interior walls and ceilings, including its core options and the HPL grade and reports to verify before use.";
+  "Review Compactwood Paste Special Board for interior walls and ceilings, with wood- or glass-fiber core options, fixing inputs and documents to request.";
 
 export const metadata = buildPageMetadata({
-  title: "Compactwood Paste Special Board | Cladvera",
+  title: "Compactwood Interior Wall & Ceiling Board | Cladvera",
   description,
   path,
 });
@@ -23,12 +23,12 @@ export const metadata = buildPageMetadata({
 export default function Page() {
   return (
     <>
-      <JsonLd data={buildWebPageSchema({ name: "Compactwood paste special board", description, path, type: "ItemPage" })} />
+      <JsonLd data={buildWebPageSchema({ name: "Compactwood Paste Special Board for interior walls and ceilings", description, path, type: "ItemPage" })} />
       <PageHeader
-        eyebrow="Compactwood · interior decorative panel"
-        title="Paste special board"
-        lede="A high-pressure-cured decorative board from Compactwood for interior surfaces. Its public description offers wood-fiber or glass-fiber core construction; the ordered core and HPL classification need product-specific confirmation."
-        crumbs={[{ name: "Products", path: "/products" }, { name: "Compactwood interior boards", path: compactwoodInteriorPath }, { name: "Paste special board", path }]}
+        eyebrow="Compactwood · Paste Special Board"
+        title="Interior wall and ceiling board"
+        lede="Paste Special Board is Compactwood's high-pressure-cured decorative board for interior walls and ceilings. Its public description offers wood-fiber or glass-fiber core construction; the ordered core and any HPL classification require product-specific confirmation."
+        crumbs={[{ name: "Products", path: "/products" }, { name: "Compactwood interior boards", path: compactwoodInteriorPath }, { name: "Paste Special Board", path }]}
         actions={<><Cta href={productRequestHref("compactwood-interior")}>Request project pricing</Cta><Cta href={productRequestHref("compactwood-interior", "sample")} variant="secondary">Request a sample</Cta></>}
       >
         <div className="mt-[16px]"><Badge tone="pending">HPL designation not stated on manufacturer product page</Badge></div>
@@ -62,7 +62,7 @@ export default function Page() {
         <div className="mt-[20px]"><Callout title="Manufacturer claims">Compactwood lists performance benefits on its public page. Those claims should be matched to the exact board and current test documents before specification.</Callout></div>
       </Section>
 
-      <Section title="Manufacturer source"><a href={compactwoodSources.interiorProduct} target="_blank" rel="noopener noreferrer" className="text-f14 font-semibold text-accent hover:underline">Paste special board product page ↗</a></Section>
+      <Section title="Manufacturer source"><a href={compactwoodSources.interiorProduct} target="_blank" rel="noopener noreferrer" className="text-f14 font-semibold text-accent hover:underline">Paste Special Board product page ↗</a></Section>
       <ProductJourney productId="compactwood-interior" />
     </>
   );

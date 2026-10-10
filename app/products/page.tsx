@@ -2,13 +2,17 @@ import Link from "next/link";
 import { Breadcrumbs, Section } from "@/components/ui";
 import CatalogVisual from "@/components/catalog/CatalogVisual";
 import SelectionButton from "@/components/catalog/SelectionButton";
+import JsonLd from "@/components/seo/JsonLd";
 import { catalogProducts, catalogCategories, catalogApplications, filterCatalog } from "@/content/data/catalog";
-import { buildPageMetadata } from "@/lib/seo";
+import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
+
+const path = "/products";
+const description = "Explore architectural UHPC, metal composite, exterior HPL and custom GFRP panels. Filter by material or application and shortlist products for your project.";
 
 export const metadata = buildPageMetadata({
   title: "Architectural Panel Product Finder | Cladvera",
-  description: "Explore architectural UHPC, metal composite, exterior HPL and custom GFRP panels. Filter by material or application and shortlist products for your project.",
-  path: "/products",
+  description,
+  path,
 });
 
 const inputClass = "mt-[7px] min-h-[46px] w-full min-w-0 rounded-none border border-line-strong bg-paper px-[11px] py-[10px] text-f14 font-normal normal-case tracking-normal text-ink transition-colors hover:border-ink focus:border-accent";
@@ -32,6 +36,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
 
   return (
     <>
+      <JsonLd data={buildWebPageSchema({ name: "Architectural panel product finder", description, path, type: "CollectionPage" })} />
       <header className="border-b border-line bg-paper">
         <div className="site-container pb-[32px] pt-[24px] md:pb-[40px] md:pt-[28px]">
           <Breadcrumbs items={[{ name: "Products", path: "/products" }]} />
@@ -94,6 +99,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
               </div>
             </form>
             <p className="mt-[16px] max-w-[460px] text-f12 leading-[1.6] text-ink-3">Open a product for its construction, source information and documents to confirm.</p>
+            <p className="mt-[16px] max-w-[460px] border-t border-line pt-[16px] text-f12 leading-[1.7] text-ink-2">Choosing between ACM, HPL, UHPC and GFRP? <Link href="/guides/facade-materials#material-comparison" className="text-accent underline underline-offset-4">Compare facade material types</Link> before shortlisting.</p>
           </aside>
 
           <section id="catalog-results" aria-labelledby="archive-heading" className="min-w-0">
