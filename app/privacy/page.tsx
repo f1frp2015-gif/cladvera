@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import { PageHeader, Section } from "@/components/ui";
 import { site } from "@/content/data/site";
 import { buildPageMetadata } from "@/lib/seo";
@@ -11,6 +13,8 @@ export const metadata = buildPageMetadata({
 });
 
 export default function Page() {
+  if (!isPublishedPath("/privacy")) notFound();
+
   return (
     <>
       <PageHeader eyebrow="Legal" title="Privacy notice" lede="Last updated 2026-10-07." crumbs={[{ name: "Privacy", path: "/privacy" }]} />

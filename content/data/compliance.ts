@@ -3,13 +3,13 @@ import type { MaterialSlug } from "./materials";
 /**
  * Compliance status matrix rendered on /compliance/ and on each material page.
  *
- * Every cell starts as "in-progress", "planned" or "not-applicable". A cell
+ * Every cell starts as "unverified", "in-progress", "planned" or "not-applicable". A cell
  * becomes "available" only when a report number, the testing laboratory and
  * the assembly description can be published with it. Nothing here implies a
  * listing that has not been issued.
  */
 
-export type ComplianceStatus = "available" | "in-progress" | "planned" | "not-applicable";
+export type ComplianceStatus = "available" | "unverified" | "in-progress" | "planned" | "not-applicable";
 
 export type ComplianceColumnId =
   | "e84"
@@ -56,72 +56,71 @@ export interface ComplianceRow {
 
 const inProgress = (note?: string): ComplianceCell => ({ status: "in-progress", note });
 const planned = (note?: string): ComplianceCell => ({ status: "planned", note });
+const unverified = (note?: string): ComplianceCell => ({ status: "unverified", note });
 const na = (note?: string): ComplianceCell => ({ status: "not-applicable", note });
+
+const almineReportStatus: Record<ComplianceColumnId, ComplianceCell> = {
+  e84: unverified("Request the report for the exact ALMINE panel and finish."),
+  nfpa285: unverified("No verified complete wall-assembly report is listed for the proposed project construction."),
+  listing: unverified("No North American listing number is confirmed for the proposed SKU."),
+  s134: unverified("Request Canadian wall-assembly evidence if the project requires it."),
+  s102: unverified("Request the product-specific flame-spread report."),
+  e136: unverified("ALMINE describes an inorganic A2 core; confirm the test method and report for the ordered construction."),
+  e330: unverified("Panel and attachment structural test evidence to confirm for the project system."),
+  formaldehyde: na("No composite wood component is described; verify the actual construction."),
+  lacey: na("No real wood component is described; verify the actual construction."),
+};
 
 export const complianceRows: ComplianceRow[] = [
   {
     id: "hpl-exterior",
-    product: "Exterior phenolic (HPL) compact panels, 6 to 12 mm",
+    product: "Compactwood exterior wood fiber HPL panel",
     materialSlug: "exterior-hpl-panels",
     cells: {
-      e84: inProgress("Material-level test at an ILAC-accredited laboratory; class to be published with the report number."),
-      nfpa285: planned("Assembly test quoted with Intertek, UL Solutions and QAI; a generic steel-stud, gypsum and mineral-wool rainscreen assembly is proposed."),
-      listing: planned("Intertek CCRR or ICC-ES listing after the assembly test."),
-      s134: planned("Separate Canadian assembly test; NFPA 285 data is not assumed to be accepted."),
-      s102: inProgress("Flame-spread rating to be published with the report number."),
-      e136: na("Phenolic panels are combustible by definition; specified by assembly test, not by E136."),
-      e330: planned("Tested with the attachment system named on /systems/."),
-      formaldehyde: na("Phenolic resin core; EPA and ECCC positions on veneer-over-phenolic to be confirmed for the veneer line, not this one."),
-      lacey: na("No real wood content; kraft paper core."),
+      e84: unverified("Request the report for the exact Compactwood panel and finish."),
+      nfpa285: unverified("No report for the proposed complete North American wall assembly has been verified."),
+      listing: unverified("No North American listing number has been verified for the selected construction."),
+      s134: unverified("Request Canadian wall-assembly evidence if the project requires it."),
+      s102: unverified("Request the product-specific flame-spread report."),
+      e136: unverified("The manufacturer cites Chinese GB 8624 B1/B2 grades; these do not establish ASTM E136 noncombustibility."),
+      e330: unverified("Request structural evidence for the selected panel and attachment system."),
+      formaldehyde: unverified("Confirm the exact construction and any applicable emissions requirements; no product-specific certificate was reviewed."),
+      lacey: unverified("Wood fiber is described in the core; confirm declaration requirements and material origin for the shipment."),
     },
   },
   {
     id: "hpl-interior",
-    product: "Interior HPL panels",
+    product: "Compactwood interior decorative board (HPL status to confirm)",
     materialSlug: "interior-hpl-panels",
     cells: {
-      e84: inProgress("Material-level test; interior finish class to be published."),
+      e84: unverified("Request a report for the selected core and decorative surface."),
       nfpa285: na("Interior use only."),
-      listing: na("Not required for interior finishes; test reports are supplied instead."),
+      listing: unverified("No North American listing or evaluation number has been reviewed."),
       s134: na("Interior use only."),
-      s102: inProgress("Flame-spread rating to be published."),
-      e136: na("Combustible by definition."),
+      s102: unverified("Request the product-specific flame-spread report."),
+      e136: unverified("No ASTM E136 report has been reviewed for either described core option."),
       e330: na("Interior use only."),
-      formaldehyde: planned("Applies only to variants with particleboard or MDF substrates; those variants are certified before they are offered."),
-      lacey: na("No real wood content."),
+      formaldehyde: unverified("Confirm whether the ordered board uses a wood fiber core and what emissions documentation applies."),
+      lacey: unverified("Confirm core material, origin and declaration requirements for the actual shipment."),
     },
   },
   {
-    id: "acm-fr",
-    product: "Aluminum composite (ACM) panels, FR mineral-filled core, 4 mm",
+    id: "almine-a2",
+    product: "ALMINE A2 Fireproof Metal Composite Panel",
     materialSlug: "acm-panels",
-    cells: {
-      e84: inProgress("Material-level test; class to be published."),
-      nfpa285: planned("Assembly test scheduled after the HPL assembly; until then sold for interiors and exterior walls below 40 ft only."),
-      listing: planned("ICC-ES ESL/ESR under AC25 after the assembly test."),
-      s134: planned("Canadian assembly test; Canadian ACM brands hold QAI listings on this basis."),
-      s102: inProgress("Flame-spread rating to be published."),
-      e136: planned("Core noncombustibility, where a project specifies it."),
-      e330: planned("Tested with the route-and-return system named on /systems/."),
-      formaldehyde: na("No wood content."),
-      lacey: na("No wood content."),
-    },
+    cells: almineReportStatus,
   },
   {
-    id: "acm-pe",
-    product: "Aluminum composite (ACM) panels, standard PE core",
+    id: "almine-tunnel",
+    product: "ALMINE Tunnel Traffic Dedicated Panel",
     materialSlug: "acm-panels",
-    cells: {
-      e84: inProgress("Material-level test; interior class to be published."),
-      nfpa285: na("Not offered for exterior walls where NFPA 285 applies."),
-      listing: na("Not offered for exterior use above 40 ft."),
-      s134: na("Not offered for noncombustible construction."),
-      s102: inProgress("Flame-spread rating to be published."),
-      e136: na("Polyethylene core is combustible."),
-      e330: na("Interior and low-rise signage-free uses only."),
-      formaldehyde: na("No wood content."),
-      lacey: na("No wood content."),
-    },
+    cells: almineReportStatus,
+  },
+  {
+    id: "almine-medical",
+    product: "ALMINE Medical Antibacterial Special Panel",
+    materialSlug: "acm-panels",
+    cells: almineReportStatus,
   },
   {
     id: "veneer-phenolic",
@@ -175,6 +174,7 @@ export const complianceRows: ComplianceRow[] = [
 
 export const complianceStatusLabel: Record<ComplianceStatus, string> = {
   available: "Available",
+  unverified: "Not verified",
   "in-progress": "In progress",
   planned: "Planned",
   "not-applicable": "Not applicable",

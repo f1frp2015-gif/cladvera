@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import JsonLd from "@/components/seo/JsonLd";
 import RegionBlock from "@/components/region/RegionBlock";
 import { Callout, Cta, Faq, PageHeader, Section } from "@/components/ui";
@@ -15,7 +17,7 @@ export const metadata = buildPageMetadata({
 });
 
 const drivers = [
-  { material: "ACM", items: "Core (PE or FR), coating system, colour (standard or custom), sheet width, quantity, and the duty stack in the destination country" },
+  { material: "ALMINE metal composite", items: "The offered panel construction, face metal, coating, size, quantity, fabrication, freight and applicable import treatment all need confirmation" },
   { material: "Phenolic HPL", items: "Thickness, decor, single or double face, cut-to-size work, quantity and container mix" },
   { material: "Wood veneer", items: "Species, cut, range matching and sequence sets, core type, quantity" },
   { material: "UHPC", items: "Texture and mould cost, panel size and number of unique panels, thickness, anchor type, freight weight" },
@@ -24,7 +26,7 @@ const drivers = [
 const faq = [
   {
     q: "How much do ACM panels cost per square foot?",
-    a: "Material cost depends on core, coating, colour, width and quantity; for imports into the United States the duty stack is the largest single item. We quote landed cost against drawings within two business days and a budget range within one; no fixed per-square-foot price is published here.",
+    a: "No verified per-square-foot price is available for the ALMINE range. Provide the project location, panel use, approximate area, finish preference and drawings so the offered SKU, documents and quote basis can be checked.",
   },
   {
     q: "How much do UHPC panels cost per square foot?",
@@ -37,6 +39,8 @@ const faq = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/pricing-guide")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Pricing guide", description, path: "/pricing-guide" })} />

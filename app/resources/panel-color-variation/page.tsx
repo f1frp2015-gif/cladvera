@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import JsonLd from "@/components/seo/JsonLd";
 import { Callout, Cta, Faq, PageHeader, Section, Steps } from "@/components/ui";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
@@ -56,6 +58,8 @@ const faq = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/resources/panel-color-variation")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Panel colour variation", description, path: "/resources/panel-color-variation" })} />

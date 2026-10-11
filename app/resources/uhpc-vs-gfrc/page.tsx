@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { Callout, Cta, Faq, PageHeader, Section } from "@/components/ui";
@@ -30,6 +32,8 @@ const faq = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/resources/uhpc-vs-gfrc")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "UHPC vs GFRC", description, path: "/resources/uhpc-vs-gfrc" })} />

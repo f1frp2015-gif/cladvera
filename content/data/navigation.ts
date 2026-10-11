@@ -1,3 +1,5 @@
+import { catalogCategories } from "./catalog";
+
 /**
  * Navigation and the route registry.
  *
@@ -19,133 +21,53 @@ export interface NavGroup {
   links: NavLink[];
 }
 
-export const mainNav: NavGroup[] = [
-  {
-    label: "Materials",
-    href: "/materials",
-    links: [
-      {
-        label: "Exterior Phenolic (HPL) Panels",
-        href: "/materials/exterior-hpl-panels",
-        description: "Compact laminate for facades, soffits and cladding",
-      },
-      {
-        label: "UHPC Facade Panels",
-        href: "/materials/uhpc-panels",
-        description: "Thin ultra high performance concrete, with an engineering partner",
-      },
-      {
-        label: "Aluminum Composite (ACM) Panels",
-        href: "/materials/acm-panels",
-        description: "FR core for interiors and low-rise exteriors",
-      },
-      {
-        label: "Wood Veneer Panels",
-        href: "/materials/wood-veneer-panels",
-        description: "Real veneer on a thermoset core; classification pending for the US",
-      },
-      {
-        label: "Interior HPL Panels",
-        href: "/materials/interior-hpl-panels",
-        description: "Decorative laminate panels for commercial interiors",
-      },
-      {
-        label: "Compare ACM, HPL and UHPC",
-        href: "/resources/acm-vs-hpl-vs-uhpc",
-        description: "Thickness, weight, fire tests and cost bands side by side",
-      },
-      {
-        label: "Commercial Interior Wall Panels",
-        href: "/applications/interior-wall-panels",
-        description: "Materials by interior use",
-      },
-    ],
-  },
-  {
-    label: "Finishes",
-    href: "/finishes",
-    links: [
-      { label: "All finishes", href: "/finishes", description: "Filter by material and interior or exterior use" },
-      { label: "Wood-grain finishes", href: "/finishes/wood-grain", description: "Real veneer, printed decor and wood-grain ACM compared" },
-      { label: "Concrete textures", href: "/finishes/textured-concrete", description: "Smooth, sandblasted, ribbed and board-formed UHPC" },
-    ],
-  },
-  {
-    label: "Technical",
-    links: [
-      { label: "Technical resources", href: "/technical-resources", description: "Data sheets, CSI sections, CAD and BIM" },
-      { label: "Compliance", href: "/compliance", description: "Test status by product, country and assembly" },
-      { label: "Systems", href: "/systems", description: "Compatible attachment systems and design responsibility" },
-      { label: "Fabrication", href: "/fabrication", description: "Routing, folding, CNC and protective film" },
-      { label: "Color variation", href: "/resources/panel-color-variation", description: "Batch matching, range samples and ΔE tolerances" },
-    ],
-  },
-  {
-    label: "Supply",
-    links: [
-      { label: "Stock and lead times", href: "/stock-and-lead-times", description: "What is held, MOQ and transit by port" },
-      { label: "Supply and delivery", href: "/supply-and-delivery", description: "Incoterms, importer of record, documents" },
-      { label: "Warranty", href: "/warranty", description: "Coating, material and maintenance terms" },
-      { label: "Pricing guide", href: "/pricing-guide", description: "What moves a quote, without fixed prices" },
-      { label: "Canada", href: "/canada", description: "Surtax, CAN/ULC S134 and GST notes" },
-    ],
-  },
-  { label: "Projects", href: "/projects", links: [] },
-  { label: "Architects", href: "/architects", links: [] },
-  { label: "Fabricators & Distributors", href: "/for-contractors", links: [] },
+export const productNavLinks: NavLink[] = [
+  { label: "All products", href: "/products", description: "Browse and compare the complete product library" },
+  ...catalogCategories.map(category => ({
+    label: category.label,
+    href: category.path,
+    description: category.description,
+  })),
 ];
 
+export const mainNav: NavGroup[] = [
+  { label: "Products", href: "/products", links: productNavLinks },
+  { label: "Applications", href: "/applications", links: [] },
+  { label: "Architects", href: "/architects", links: [] },
+  { label: "Procurement", href: "/procurement", links: [
+    { label: "Procurement & RFQ", href: "/procurement", description: "Prepare quantities, approvals and a comparable quote" },
+    { label: "Sourcing from China", href: "/sourcing/china", description: "Product scope, export preparation and import planning" },
+  ] },
+  { label: "Technical resources", href: "/technical-resources", links: [] },
+];
 export const ctaNav: NavLink[] = [
   { label: "Samples", href: "/samples" },
-  { label: "Request a Quote", href: "/request-quote" },
+  { label: "Request a quote", href: "/request-quote" },
 ];
-
 export const footerNav: Array<{ heading: string; links: NavLink[] }> = [
-  {
-    heading: "Materials",
-    links: [
-      { label: "Exterior phenolic (HPL) panels", href: "/materials/exterior-hpl-panels" },
-      { label: "UHPC facade panels", href: "/materials/uhpc-panels" },
-      { label: "Aluminum composite (ACM) panels", href: "/materials/acm-panels" },
-      { label: "Wood veneer panels", href: "/materials/wood-veneer-panels" },
-      { label: "Interior HPL panels", href: "/materials/interior-hpl-panels" },
-      { label: "Finishes", href: "/finishes" },
-    ],
-  },
-  {
-    heading: "Technical",
-    links: [
-      { label: "Technical resources", href: "/technical-resources" },
-      { label: "Compliance", href: "/compliance" },
-      { label: "Systems", href: "/systems" },
-      { label: "Fabrication", href: "/fabrication" },
-      { label: "ACM vs HPL vs UHPC", href: "/resources/acm-vs-hpl-vs-uhpc" },
-      { label: "UHPC vs GFRC", href: "/resources/uhpc-vs-gfrc" },
-    ],
-  },
-  {
-    heading: "Supply",
-    links: [
-      { label: "Stock and lead times", href: "/stock-and-lead-times" },
-      { label: "Supply and delivery", href: "/supply-and-delivery" },
-      { label: "Warranty", href: "/warranty" },
-      { label: "Pricing guide", href: "/pricing-guide" },
-      { label: "Canada", href: "/canada" },
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Architects", href: "/architects" },
-      { label: "Fabricators and distributors", href: "/for-contractors" },
-      { label: "Projects", href: "/projects" },
-      { label: "Samples", href: "/samples" },
-      { label: "Request a quote", href: "/request-quote" },
-      { label: "Contact", href: "/contact" },
-      { label: "Privacy", href: "/privacy" },
-    ],
-  },
+  { heading: "Products", links: [
+    { label: "All products", href: "/products" },
+    { label: "TAKTL UHPC facade panels", href: "/suppliers/taktl" },
+    { label: "ALMINE metal composite", href: "/materials/acm-panels" },
+    { label: "Exterior HPL facade panels", href: "/materials/exterior-hpl-panels" },
+    { label: "Compactwood interior boards", href: "/materials/interior-hpl-panels" },
+    { label: "Custom GFRP elements", href: "/materials/gfrp-custom-elements" },
+    { label: "TAKTL attachment components", href: "/suppliers/taktl/hardware" },
+  ] },
+  { heading: "Design & selection", links: [
+    { label: "Facade & interior applications", href: "/applications" },
+    { label: "Panel specification for architects", href: "/architects" },
+    { label: "Facade material selection guide", href: "/guides/facade-materials" },
+    { label: "Compare shortlist", href: "/compare" },
+    { label: "Technical resources", href: "/technical-resources" },
+    { label: "Request samples", href: "/samples" },
+  ] },
+  { heading: "Project procurement", links: [
+    { label: "Procurement process", href: "/procurement" },
+    { label: "Sourcing panels from China", href: "/sourcing/china" },
+    { label: "Request a quote", href: "/request-quote" },
+    { label: "Request documents", href: "/request-quote?intent=documents" },
+  ] },
 ];
 
 export type RoutePriority = "P0" | "P1" | "P2";
@@ -160,18 +82,36 @@ export interface RouteEntry {
 }
 
 export const routes: RouteEntry[] = [
+  { path: "/sourcing/china", title: "Sourcing Architectural Panels from China", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/guides/facade-materials", title: "Facade Material Selection Guide", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/products", title: "Product Finder", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/applications", title: "Applications", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/procurement", title: "Procurement", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/compare", title: "Compare Products", priority: "P1", changeFrequency: "monthly", index: false },
+  { path: "/materials/gfrp-custom-elements", title: "Custom GFRP Architectural Elements", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/", title: "Home", priority: "P0", changeFrequency: "weekly", index: true },
-  { path: "/materials", title: "Materials", priority: "P0", changeFrequency: "monthly", index: true },
-  { path: "/materials/exterior-hpl-panels", title: "Exterior Phenolic (HPL) Panels", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/materials", title: "Materials", priority: "P0", changeFrequency: "monthly", index: false },
+  { path: "/materials/exterior-hpl-panels", title: "Compactwood Exterior HPL Panels", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/materials/exterior-hpl-panels/wood-fiber-facade", title: "Compactwood Wood-Fiber HPL Facade Board", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/materials/uhpc-panels", title: "UHPC Facade Panels", priority: "P0", changeFrequency: "monthly", index: true },
-  { path: "/materials/acm-panels", title: "Aluminum Composite (ACM) Panels", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/suppliers/taktl", title: "TAKTL Architectural UHPC", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/suppliers/taktl/facade-elements", title: "TAKTL A|UHPC Facade Elements", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/suppliers/taktl/korsa-aggregate", title: "TAKTL KORSA Aggregate Panels", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/suppliers/taktl/sola", title: "TAKTL SOLA Self-Cleaning Panels", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/suppliers/taktl/custom-elements", title: "TAKTL Custom Elements", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/suppliers/taktl/hardware", title: "TAKTL Hardware", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/materials/acm-panels", title: "ALMINE Metal Composite (ACM / MCM)", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/materials/acm-panels/a2-fireproof", title: "ALMINE A2 Metal Composite Panels", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/materials/acm-panels/tunnel-traffic", title: "ALMINE Tunnel Traffic Panels", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/materials/acm-panels/medical-antibacterial", title: "ALMINE Medical Antibacterial Panels", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/materials/wood-veneer-panels", title: "Wood Veneer Panels", priority: "P0", changeFrequency: "monthly", index: true },
-  { path: "/materials/interior-hpl-panels", title: "Interior HPL Panels", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/materials/interior-hpl-panels", title: "Compactwood Interior Decorative Boards", priority: "P1", changeFrequency: "monthly", index: true },
+  { path: "/materials/interior-hpl-panels/paste-special-board", title: "Compactwood Paste Special Board", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/finishes", title: "Finishes", priority: "P0", changeFrequency: "weekly", index: true },
   { path: "/finishes/wood-grain", title: "Wood-Grain Finishes", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/finishes/textured-concrete", title: "Concrete Textures", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/architects", title: "For Architects and Designers", priority: "P0", changeFrequency: "monthly", index: true },
-  { path: "/for-contractors", title: "For Fabricators, Distributors and Contractors", priority: "P0", changeFrequency: "monthly", index: true },
+  { path: "/for-contractors", title: "For Fabricators, Distributors and Contractors", priority: "P0", changeFrequency: "monthly", index: false },
   { path: "/technical-resources", title: "Technical Resources", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/compliance", title: "Compliance", priority: "P0", changeFrequency: "monthly", index: true },
   { path: "/systems", title: "Systems", priority: "P1", changeFrequency: "monthly", index: true },
@@ -181,8 +121,8 @@ export const routes: RouteEntry[] = [
   { path: "/warranty", title: "Warranty", priority: "P0", changeFrequency: "yearly", index: true },
   { path: "/pricing-guide", title: "Pricing Guide", priority: "P1", changeFrequency: "monthly", index: true },
   { path: "/canada", title: "Canada", priority: "P1", changeFrequency: "monthly", index: true },
-  { path: "/samples", title: "Samples", priority: "P0", changeFrequency: "monthly", index: true },
-  { path: "/request-quote", title: "Request a Quote", priority: "P0", changeFrequency: "yearly", index: true },
+  { path: "/samples", title: "Samples", priority: "P0", changeFrequency: "monthly", index: false },
+  { path: "/request-quote", title: "Request a Quote", priority: "P0", changeFrequency: "yearly", index: false },
   { path: "/about", title: "About", priority: "P0", changeFrequency: "yearly", index: true },
   { path: "/contact", title: "Contact", priority: "P0", changeFrequency: "yearly", index: true },
   { path: "/projects", title: "Projects", priority: "P1", changeFrequency: "monthly", index: true },

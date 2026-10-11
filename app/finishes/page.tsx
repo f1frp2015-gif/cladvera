@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import JsonLd from "@/components/seo/JsonLd";
 import { Badge, Callout, Cta, PageHeader, Section } from "@/components/ui";
 import { FinishCard } from "@/components/ui/Swatch";
@@ -6,7 +8,7 @@ import { materials } from "@/content/data/materials";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description =
-  "Panel finishes for ACM, phenolic HPL, veneer and UHPC: colour, gloss, texture, grain direction and variation class, each with samples.";
+  "Illustrative veneer and UHPC finishes; request current Compactwood HPL and ALMINE metal-panel colour cards, selected SKUs and approval samples.";
 
 export const metadata = buildPageMetadata({
   title: "Panel Finishes, Textures and Color Variation",
@@ -15,26 +17,28 @@ export const metadata = buildPageMetadata({
 });
 
 export default function Page() {
+  if (!isPublishedPath("/finishes")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "Finishes", description, path: "/finishes", type: "CollectionPage" })} />
       <PageHeader
         eyebrow="Finishes"
         title="Finishes, textures and colour variation"
-        lede="Every finish is listed with its gloss, texture, direction and variation class, and whether range samples are issued. Printed patterns and real surface texture are labelled separately."
+        lede="The swatches below are pre-launch placeholders for veneer and UHPC. Compactwood HPL and ALMINE metal-panel finishes require current colour cards, selected SKUs and approval samples."
         crumbs={[{ name: "Finishes", path: "/finishes" }]}
         actions={<Cta href="/samples">Build a sample set</Cta>}
       >
         <div className="mt-[16px] flex flex-wrap gap-[6px]">
-          {materials.map((m) => (
+          {materials.filter((m) => m.slug === "uhpc-panels" || m.slug === "wood-veneer-panels").map((m) => (
             <Badge key={m.slug}>{m.shortName}</Badge>
           ))}
         </div>
       </PageHeader>
 
       <Section>
-        <Callout tone="warn" title="Placeholder library">
-          Codes, names and swatches illustrate the structure. Real SKUs with photographed swatches, full-sheet images and gloss readings replace them before launch.
+        <Callout tone="warn" title="Finish data pending">
+          Codes, names and swatches below are placeholders for veneer and UHPC. No Compactwood HPL or ALMINE metal-panel finish SKU is listed here. Request each manufacturer&apos;s current colour card, confirm the selected construction and approve a physical sample.
         </Callout>
       </Section>
 

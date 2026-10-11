@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import RegionBlock from "@/components/region/RegionBlock";
@@ -19,7 +21,7 @@ export const metadata = buildPageMetadata({
 const notes: Record<string, { clean: string; uses: string }> = {
   "exterior-hpl-panels": { clean: "High; resists cleaning chemicals and impact", uses: "Corridors, washrooms, healthcare" },
   "interior-hpl-panels": { clean: "High for compact; depends on substrate for thin HPL", uses: "Lobbies, offices, hospitality" },
-  "acm-panels": { clean: "High; dents under hard impact", uses: "Column covers, retail, ceilings" },
+  "acm-panels": { clean: "ALMINE describes a washable transit face and an antibacterial medical face; request cleaning and impact reports", uses: "Architectural and healthcare interiors, subject to the ordered SKU" },
   "wood-veneer-panels": { clean: "Moderate; overlay protects the veneer", uses: "Lobbies, hospitality, boardrooms" },
   "uhpc-panels": { clean: "Moderate; sealed surface", uses: "Feature walls, lobbies, retail" },
 };
@@ -32,6 +34,8 @@ const faq = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/applications/interior-wall-panels")) notFound();
+
   const interiorFinishes = finishes.filter((f) => f.use.includes("interior")).slice(0, 8);
   return (
     <>

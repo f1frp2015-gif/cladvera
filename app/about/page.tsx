@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { Callout, Cta, KeyValueList, PageHeader, Section, Steps } from "@/components/ui";
@@ -21,6 +23,8 @@ const quality = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/about")) notFound();
+
   return (
     <>
       <JsonLd data={buildWebPageSchema({ name: "About", description, path: "/about", type: "AboutPage" })} />

@@ -2,8 +2,8 @@
  * Site identity and supply facts.
  *
  * Everything here is read by the layout, metadata, structured data, llms.txt
- * and the forms. Values marked TBC are placeholders for launch: replace them
- * with verified facts before NEXT_PUBLIC_SITE_STAGE is set to "live".
+ * and the forms. Values marked TBC remain draft placeholders. Reviewed
+ * public routes are controlled separately in publication.ts.
  */
 
 export const site = {
@@ -12,7 +12,9 @@ export const site = {
   brandNote:
     "Cladvera is a working name pending trademark clearance. Change `site.brand` once the name is confirmed.",
   tagline:
-    "Specification-ready architectural panels for North American fabricators, distributors and contractors",
+    "Architectural panel sourcing and China export supply for design teams, buyers, fabricators and contractors",
+  description:
+    "Cladvera coordinates architectural panel sourcing and China export supply for North American projects. TAKTL is presented as a separate manufacturer collection.",
   /** Set NEXT_PUBLIC_SITE_URL on Vercel once a domain is attached. */
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
@@ -20,11 +22,11 @@ export const site = {
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "https://cladvera.vercel.app"),
   /**
-   * "draft" renders the pre-launch notice and sends noindex. Set
-   * NEXT_PUBLIC_SITE_STAGE=live on the production deployment to remove both.
+   * Controls draft presentation only. Changing this flag never publishes
+   * unreviewed routes; publication.ts remains the public-page allowlist.
    */
   stage: process.env.NEXT_PUBLIC_SITE_STAGE === "live" ? "live" : "draft",
-  origin: "Made in China. Supplied to the United States and Canada.",
+  origin: "China-sourced ranges; TAKTL is a separate manufacturer collection. Manufacturing origin is confirmed for the offered product.",
   markets: ["United States", "Canada"] as const,
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "sales@cladvera.com",
@@ -46,9 +48,9 @@ export const site = {
    * repeated on /supply-and-delivery/ and in llms.txt.
    */
   commitments: [
-    "Drawings-based project quotes within two business days; budget ranges within one business day without drawings.",
-    "Sample sets dispatched within two business days after a 48-hour verification of the request.",
-    "Every SKU ships with a document pack: commercial invoice, packing list, origin statement, bill of materials and the test reports listed on /compliance/.",
+    "Project quote timing is confirmed after drawings, sourcing and the requested panel construction are reviewed.",
+    "Sample availability and dispatch timing are confirmed for the requested product and finish.",
+    "Shipment documents and available product test reports are confirmed for the ordered SKU and project requirements.",
     "Duties, taxes and brokerage are payable by the importer; quotes state the Incoterm and what it excludes.",
   ],
   /** Claims the site must not make. Rendered on /compliance/. */

@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { isPublishedPath } from "@/content/data/publication";
 import JsonLd from "@/components/seo/JsonLd";
 import { Callout, Cta, Faq, PageHeader, Section } from "@/components/ui";
 import { FinishCard } from "@/components/ui/Swatch";
@@ -21,6 +23,8 @@ const faq = [
 ];
 
 export default function Page() {
+  if (!isPublishedPath("/finishes/textured-concrete")) notFound();
+
   const items = finishesInFamily("textured-concrete");
   return (
     <>
