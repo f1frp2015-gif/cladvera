@@ -24,7 +24,9 @@ npm run build          # fails if a title is over 60 chars or a description is o
 
 ## Deploying on Vercel
 
-1. Import this repository at https://vercel.com/new (framework preset: Next.js; no build settings to change).
+The site deploys to the Vercel team `ori-project-workspace` (https://vercel.com/ori-project-workspace, owner account `f1frp2015-6628`) as its own project, `cladvera`. The same team hosts f1composite: never deploy this site into that project or any other existing project, and never into another Vercel account or team.
+
+1. Open https://vercel.com/new, select `ori-project-workspace` in the account switcher, and import `f1frp2015-gif/cladvera` as a new project named `cladvera`. Framework preset: Next.js. Root Directory: `./`. No build settings to change.
 2. Add the environment variables from `.env.example`. None are required for the first deploy; without `RESEND_API_KEY` and `INQUIRY_NOTIFY_EMAILS` the forms accept submissions and log them to the function logs instead of emailing.
 3. The site starts in draft stage: a pre-launch banner shows, every page is `noindex`, and `robots.txt` disallows crawling. Set `NEXT_PUBLIC_SITE_STAGE=live` on the Production environment only after the placeholder data below is replaced.
 4. After attaching a domain, set `NEXT_PUBLIC_SITE_URL` to it so canonical URLs, the sitemap and structured data use the domain.
