@@ -64,6 +64,13 @@ test("search handles punctuation and word order in existing product construction
   assert.deepEqual(filterCatalog({ q: "HPL façade" }).map(product => product.id), ["compactwood-exterior"]);
   assert.deepEqual(filterCatalog({ q: "thermoset glass fiber" }).map(product => product.id), ["compactwood-interior"]);
 });
+test("smart glass is searchable as facade glazing without interior or healthcare classification", () => {
+  assert.deepEqual(filterCatalog({ q: "PDLC curtain wall", category: "smart-glass", application: "facade", manufacturer: "Singyes New Materials" }).map(product => product.id), ["singyes-smart-glass"]);
+  assert.deepEqual(filterCatalog({ q: "smart glass facade" }).map(product => product.id), ["singyes-smart-glass"]);
+  assert.deepEqual(filterCatalog({ category: "smart-glass", application: "interior" }), []);
+  assert.deepEqual(filterCatalog({ category: "smart-glass", application: "healthcare" }), []);
+  assert.deepEqual(parseProductIds("singyes-smart-glass,singyes-smart-glass,unlisted-glass"), ["singyes-smart-glass"]);
+});
 test("search terms remain constrained by every selected filter", () => {
   assert.deepEqual(filterCatalog({ q: "ACM", category: "mcm", application: "healthcare", manufacturer: "ALMINE" }).map(product => product.id), ["almine-medical"]);
   assert.deepEqual(filterCatalog({ q: "glass fiber", category: "gfrp", application: "facade", manufacturer: "Shandong Jinguang Group (Kinflare)" }).map(product => product.id), ["gfrp-custom"]);

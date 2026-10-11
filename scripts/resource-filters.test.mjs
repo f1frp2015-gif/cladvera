@@ -24,7 +24,7 @@ const ids = filters => filterTechnicalResources(filters).map(product => product.
 
 test("the default resource register preserves every product and its stable order", () => {
   assert.deepEqual(ids(), catalogProducts.map(product => product.id));
-  assert.equal(filterTechnicalResources().length, 11);
+  assert.equal(filterTechnicalResources().length, 12);
 });
 
 test("source pages do not count as linked documents", () => {
@@ -33,7 +33,8 @@ test("source pages do not count as linked documents", () => {
   assert.deepEqual(linked, ["taktl-facade", "taktl-korsa", "taktl-sola", "gfrp-custom"]);
   assert.ok(request.includes("almine-a2"));
   assert.ok(request.includes("compactwood-exterior"));
-  assert.equal(request.length, 7);
+  assert.ok(request.includes("singyes-smart-glass"));
+  assert.equal(request.length, 8);
   assert.equal(new Set([...linked, ...request]).size, catalogProducts.length);
 });
 
@@ -52,6 +53,10 @@ test("material, application, document access and query all constrain a result", 
   assert.deepEqual(ids({ category: "mcm", availability: "linked" }), []);
   assert.deepEqual(ids({ category: "hpl", application: "interior" }), []);
   assert.deepEqual(ids({ q: "KORSA unknownreport" }), []);
+  assert.deepEqual(ids({ q: "curtain wall controller", category: "smart-glass", application: "facade", availability: "request" }), ["singyes-smart-glass"]);
+  assert.deepEqual(ids({ category: "smart-glass", availability: "linked" }), []);
+  assert.deepEqual(ids({ category: "smart-glass", application: "interior" }), []);
+  assert.deepEqual(ids({ category: "smart-glass", application: "healthcare" }), []);
 });
 
 test("invalid filter values do not silently broaden the register", () => {

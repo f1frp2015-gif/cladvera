@@ -71,7 +71,11 @@ export default function ProductJourney({ productId }: { productId: string }) {
             See the <Link href={product.collectionPath} className="font-semibold text-accent underline underline-offset-4">{product.manufacturer} {hardware ? "Architectural UHPC" : category?.label} collection</Link> for material context and manufacturer information.
           </p>
         )}
-        {!hardware && <p className="mb-[20px] text-f14 text-ink-2">Review material terminology and specification inputs in the <Link href="/guides/facade-materials" className="text-accent underline underline-offset-4">ACM, HPL, UHPC and GFRP selection guide</Link>.</p>}
+        {!hardware && (product.category === "smart-glass" ? (
+          <p className="mb-[20px] text-f14 text-ink-2">Coordinate samples, drawings and specification evidence with the <Link href="/architects" className="text-accent underline underline-offset-4">architect&apos;s material review workflow</Link>.</p>
+        ) : (
+          <p className="mb-[20px] text-f14 text-ink-2">Review material terminology and specification inputs in the <Link href="/guides/facade-materials" className="text-accent underline underline-offset-4">ACM, HPL, UHPC and GFRP selection guide</Link>.</p>
+        ))}
         {related.length > 0 ? (
           <>
             {!hardware && <p className="mb-[16px] max-w-[780px] text-f14 text-ink-2">The following products share a listed application. Compare their construction, design intent and evidence before considering them for the same project.</p>}
