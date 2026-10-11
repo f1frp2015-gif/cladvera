@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import AlmineVisual from "@/components/almine/AlmineVisual";
+import SmartGlassVisual from "@/components/smart-glass/SmartGlassVisual";
 import { catalogCategories, catalogProducts } from "@/content/data/catalog";
 import { compactwoodImages } from "@/content/data/compactwood";
 
@@ -19,13 +20,15 @@ export default function CollectionGallery() {
         const product = catalogProducts.find(item => item.id === collectionImages[category.id]);
         const imageUrl = category.id === "hpl" ? compactwoodImages.supplierProject : product?.imageUrl;
         const contained = ["interior-board", "gfrp", "hardware"].includes(category.id);
-        const caption = category.id === "mcm" ? "Material illustration" : category.id === "hpl" ? "Compactwood / facade reference" : category.id === "interior-board" ? "Compactwood / construction diagram" : category.id === "gfrp" ? "Kinflare / supplier reference" : "TAKTL / manufacturer reference";
+        const caption = category.id === "smart-glass" ? "Smart glass facade / concept illustration" : category.id === "mcm" ? "Material illustration" : category.id === "hpl" ? "Compactwood / facade reference" : category.id === "interior-board" ? "Compactwood / construction diagram" : category.id === "gfrp" ? "Kinflare / supplier reference" : "TAKTL / manufacturer reference";
 
         return (
           <Link key={category.id} href={category.path} className="group block min-w-0" aria-label={`Explore ${category.label}`}>
             <figure>
               <div className="relative aspect-[4/3] overflow-hidden bg-paper-2">
-                {category.id === "mcm" ? (
+                {category.id === "smart-glass" ? (
+                  <SmartGlassVisual />
+                ) : category.id === "mcm" ? (
                   <AlmineVisual visual="a2" className="h-full w-full border-0 [&_span]:hidden" />
                 ) : imageUrl ? (
                   <Image src={imageUrl} alt={category.id === "hpl" ? "Facade reference published by Compactwood" : product?.imageAlt || category.label} fill sizes="(min-width: 1440px) 430px, (min-width: 1024px) 30vw, 45vw" className={contained ? "object-contain p-[12px] md:p-[24px]" : "object-cover transition-transform duration-500 group-hover:scale-[1.035]"} />

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AlmineVisual from "@/components/almine/AlmineVisual";
+import SmartGlassVisual from "@/components/smart-glass/SmartGlassVisual";
 import type { AlmineProduct } from "@/content/data/almine";
 import type { CatalogProduct } from "@/content/data/catalog";
 
@@ -20,6 +21,15 @@ export default function CatalogVisual({
 }) {
   const illustration = almineVisuals[product.id];
   const isDiagram = product.manufacturer === "Compactwood";
+
+  if (product.category === "smart-glass") {
+    return (
+      <figure aria-label="Smart glass: architectural illustration" className={`relative aspect-[4/3] w-full overflow-hidden bg-paper-2 ${className}`}>
+        <div className="absolute inset-x-0 bottom-[36px] top-0"><SmartGlassVisual /></div>
+        <figcaption className="absolute inset-x-[12px] bottom-[10px] font-mono text-[10px] leading-[1.5] text-ink-3">Illustration · not a product sample</figcaption>
+      </figure>
+    );
+  }
 
   if (illustration) {
     return (

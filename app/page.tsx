@@ -63,12 +63,12 @@ export default function Page() {
       <div className="site-container py-[56px] md:py-[88px]">
         <div className="mb-[32px] grid gap-[24px] md:mb-[48px] md:grid-cols-[1fr_2fr]">
           <p className="eyebrow">01 / Material collections</p>
-          <div><h2 id="collections-title" className="editorial-title">Different materials.<br /><span className="editorial-serif">Distinct expressions.</span></h2><p className="mt-[20px] max-w-[590px] text-f16 text-ink-2">Architectural concrete, metal composite, decorative boards and custom forms. Explore the surface, then the construction behind it.</p></div>
+          <div><h2 id="collections-title" className="editorial-title">Different materials.<br /><span className="editorial-serif">Distinct expressions.</span></h2><p className="mt-[20px] max-w-[590px] text-f16 text-ink-2">Architectural concrete, metal composite, decorative boards, facade smart glass and custom forms. Explore the surface, then the construction behind it.</p></div>
         </div>
         <CollectionGallery />
         <div className="mt-[36px] flex flex-wrap items-center justify-between gap-[20px] border-t border-line-strong pt-[20px]">
           <p className="max-w-[630px] text-f12 text-ink-3">Manufacturer and supplier references introduce each family. Confirm finishes with physical samples; review attachment components with the selected panel system.</p>
-          <Cta href="/products" variant="ghost">View all 11 product families <span aria-hidden="true">↗</span></Cta>
+          <Cta href="/products" variant="ghost">View all {catalogProducts.length} product families <span aria-hidden="true">↗</span></Cta>
         </div>
       </div>
     </section>
@@ -108,7 +108,7 @@ export default function Page() {
       <div className="site-container grid gap-[32px] py-[56px] md:py-[80px] lg:grid-cols-[1fr_1.5fr] lg:gap-[96px]">
         <div><p className="eyebrow">05 / Sourcing & supply</p><h2 className="mt-[24px] text-[36px] font-normal leading-[1.1] tracking-[-0.045em] md:text-[48px]">A clear material.<br /><span className="editorial-serif">A defined supply route.</span></h2></div>
         <div>
-          <p className="max-w-[650px] text-f18 text-ink-2">Cladvera is an architectural panel supplier for United States and Canadian project inquiries. Explore China-sourcing options for ALMINE metal composite panels, Compactwood exterior HPL and interior boards, and custom GFRP elements. TAKTL architectural UHPC is a separately identified manufacturer range.</p>
+          <p className="max-w-[650px] text-f18 text-ink-2">Cladvera is an architectural panel supplier for United States and Canadian project inquiries. Explore China-sourcing options for ALMINE metal composite panels, Compactwood exterior HPL and interior boards, <Link href="/materials/smart-glass" className="text-accent underline underline-offset-4">Singyes smart glass facade panels</Link>, and custom GFRP elements. TAKTL architectural UHPC is a separately identified manufacturer range.</p>
           <p className="mt-[18px] max-w-[650px] text-f14 text-ink-2">Confirm the manufacturing origin, offered construction, shipment route and project documents with each quotation.</p>
           <div className="mt-[28px] flex flex-wrap gap-x-[32px] gap-y-[16px]"><Cta href="/sourcing/china" variant="ghost">Sourcing architectural panels from China ↗</Cta><Cta href="/guides/facade-materials" variant="ghost">Compare facade material types ↗</Cta></div>
         </div>
