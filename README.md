@@ -24,12 +24,15 @@ npm run build          # fails if a title is over 60 chars or a description is o
 
 ## Deploying on Vercel
 
-The site deploys to the Vercel team `ori-project-workspace` (https://vercel.com/ori-project-workspace, owner account `f1frp2015-6628`) as its own project, `cladvera`. The same team hosts f1composite: never deploy this site into that project or any other existing project, and never into another Vercel account or team.
+Use the existing [Cladvera project](https://vercel.com/ori-project-workspace/cladvera) in the Vercel team `ori-project-workspace` (owner account `f1frp2015-6628`). It is connected to GitHub `f1frp2015-gif/cladvera`, with production branch `main`, the Next.js framework preset and Root Directory `./`. Never deploy this site into f1composite, another project, account or team.
 
-1. Open https://vercel.com/new, select `ori-project-workspace` in the account switcher, and import `f1frp2015-gif/cladvera` as a new project named `cladvera`. Framework preset: Next.js. Root Directory: `./`. No build settings to change.
-2. Add the environment variables from `.env.example`. None are required for the first deploy; without `RESEND_API_KEY` and `INQUIRY_NOTIFY_EMAILS` the forms accept submissions and log them to the function logs instead of emailing.
-3. The site starts in draft stage: a pre-launch banner shows, every page is `noindex`, and `robots.txt` disallows crawling. Set `NEXT_PUBLIC_SITE_STAGE=live` on the Production environment only after the placeholder data below is replaced.
-4. After attaching a domain, set `NEXT_PUBLIC_SITE_URL` to it so canonical URLs, the sitemap and structured data use the domain.
+1. Create a `codex/` branch from `origin/main`, make the change and run the checks above. Commit and push the branch to GitHub, then open a pull request targeting `main`.
+2. Review the Vercel preview deployment and verify the changed pages before merging the pull request.
+3. Merge the reviewed pull request into `main` to trigger the production deployment. Production releases go through this GitHub workflow; do not run `vercel --prod` from a local tree.
+
+The canonical public origin defaults to `https://cladvera.com` in `content/data/site.ts`. If `NEXT_PUBLIC_SITE_URL` is configured for Production, set it to `https://cladvera.com` without a trailing slash. This build-time value supplies canonical URLs, social metadata, structured data, the sitemap and the text index; changing it requires a new deployment build.
+
+Public rendering follows the reviewed-route allowlist in `content/data/publication.ts`. Only reviewed routes also marked indexable in `content/data/navigation.ts` enter the sitemap and receive indexable metadata. Request and comparison workflows remain `noindex`, and unreviewed legacy pages remain unavailable. `NEXT_PUBLIC_SITE_STAGE` controls the draft notice only; changing it does not publish unreviewed pages or change this indexing policy.
 
 ## Before going live
 

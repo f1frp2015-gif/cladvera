@@ -82,8 +82,8 @@ def schema_nodes(schemas):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--base',default='https://cladvera.vercel.app')
-    parser.add_argument('--canonical-origin',default='https://cladvera.vercel.app',help='Expected canonical origin, independent of the crawled site')
+    parser.add_argument('--base',default='https://cladvera.com')
+    parser.add_argument('--canonical-origin',default='https://cladvera.com',help='Expected canonical origin, independent of the crawled site')
     parser.add_argument('--output',required=True)
     args=parser.parse_args(); base=args.base.rstrip('/')
     config=json.loads(subprocess.check_output(['node','-e',CONFIG_JS],cwd=ROOT,text=True))
