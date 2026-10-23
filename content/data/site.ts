@@ -15,12 +15,8 @@ export const site = {
     "Architectural panel sourcing and China export supply for design teams, buyers, fabricators and contractors",
   description:
     "Cladvera coordinates architectural panel sourcing and China export supply for North American projects. TAKTL is presented as a separate manufacturer collection.",
-  /** Set NEXT_PUBLIC_SITE_URL on Vercel once a domain is attached. */
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : "https://cladvera.vercel.app"),
+  /** Canonical public origin. Any build-time override should omit a trailing slash. */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cladvera.com",
   /**
    * Controls draft presentation only. Changing this flag never publishes
    * unreviewed routes; publication.ts remains the public-page allowlist.
