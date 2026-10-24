@@ -45,6 +45,7 @@ export default function UhpcProductPage({ slug }: { slug: UhpcProductSlug }) {
               <p className="eyebrow mb-[16px]">Architectural UHPC / Design inquiry</p>
               <h1 id="product-title" className="max-w-[620px] text-[clamp(2.4rem,3.6vw,3.5rem)] font-normal leading-[1.05] tracking-[-0.05em]">{product.name}</h1>
               <p className="mt-[16px] text-f12 text-ink-3">Manufacturer: To be confirmed</p>
+              <p className="mt-[8px] text-f12 text-ink-3">Production location: {product.productionLocation ?? "To be confirmed"}</p>
               <p className="mt-[20px] max-w-[600px] text-f16 leading-[1.65] text-ink-2">{product.summary}</p>
               <div className="mt-[28px] flex flex-wrap gap-[10px]">
                 <Cta href={productRequestHref(product.id)}>Discuss your design brief <span aria-hidden="true">↗</span></Cta>
@@ -92,7 +93,7 @@ export default function UhpcProductPage({ slug }: { slug: UhpcProductSlug }) {
               {product.confirmations.map(item => <li key={item} className="flex gap-[16px] py-[20px] text-f16 text-ink-2"><span aria-hidden="true" className="text-accent">—</span><span>{item}</span></li>)}
             </ul>
             <Cta href={productRequestHref(product.id, "documents")} className="mt-[24px]">Request a technical review <span aria-hidden="true">↗</span></Cta>
-            <p className="mt-[18px] text-f12 leading-[1.7] text-ink-3">Cladvera coordinates sourcing and project inquiries as a supplier. Product identity, manufacturing origin, sample scope, price and lead time are confirmed in the project proposal.</p>
+            <p className="mt-[18px] text-f12 leading-[1.7] text-ink-3">Cladvera coordinates sourcing and project inquiries as a supplier. Product identity, origin documents, sample scope, price and lead time are confirmed in the project proposal.</p>
           </div>
         </div>
         <nav aria-label="Other UHPC design inquiries" className="mt-[48px] border-t border-line-strong pt-[24px]">

@@ -7,10 +7,10 @@ import JsonLd from "@/components/seo/JsonLd";
 import { Cta, PageHeader, Section } from "@/components/ui";
 import { findCatalogProduct, productRequestHref } from "@/content/data/catalog";
 import { isPublishedPath } from "@/content/data/publication";
-import { uhpcCollectionPath, uhpcProducts } from "@/content/data/uhpc";
+import { uhpcCollectionPath, uhpcProductionLocation, uhpcProducts } from "@/content/data/uhpc";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-const description = "Explore architectural UHPC design inquiries for facade panels, aggregate surfaces, textures and custom forms. Confirm the proposed source and product evidence.";
+const description = "Source architectural UHPC panels and custom elements from Xuzhou, Jiangsu, China. Define finishes, project requirements and evidence needed for specification.";
 export const metadata = buildPageMetadata({ title: "Architectural UHPC Design Inquiries | Cladvera", description, path: uhpcCollectionPath });
 const sections = [{ id: "design-inquiries", label: "Design inquiries" }, { id: "project-brief", label: "Project brief" }, { id: "evidence", label: "Evidence" }] as const;
 
@@ -27,6 +27,7 @@ export default function Page() {
         crumbs={[{ name: "Products", path: "/products" }, { name: "Architectural UHPC", path: uhpcCollectionPath }]}
         actions={<><Cta href="#design-inquiries">Explore design inquiries <span aria-hidden="true">↓</span></Cta><Cta href={productRequestHref("uhpc-facade")} variant="secondary">Discuss your project <span aria-hidden="true">↗</span></Cta></>}
       >
+        <p className="mt-[24px] text-f14 leading-[1.7] text-ink-2">UHPC panels and custom elements are produced in {uhpcProductionLocation}. Manufacturer identity remains to be confirmed. Attachment-component production location is confirmed separately.</p>
         <p className="mt-[24px] max-w-[780px] border-l-2 border-accent pl-[20px] text-f14 leading-[1.7] text-ink-3">These categories organize architectural design requests. Manufacturer, composition, dimensions, finishes, performance evidence and supply availability are to be confirmed for each proposal. Illustrations show design studies only.</p>
       </PageHeader>
       <ProductSectionNav items={sections} />
@@ -58,7 +59,7 @@ export default function Page() {
         <div className="grid gap-[32px] lg:grid-cols-2">
           <div>
             <p className="text-f16 leading-[1.75] text-ink-2">Before specification, obtain documents that identify the proposed manufacturer, product designation, construction and relevant test conditions. The project team should assess whether those documents apply to the proposed panel, attachment, wall assembly and destination.</p>
-            <p className="mt-[18px] text-f16 leading-[1.75] text-ink-2">Cladvera acts as a supplier coordinating the inquiry. Source identity, manufacturing origin and availability remain to be confirmed. Samples and illustrations support design discussion; they do not replace technical verification.</p>
+            <p className="mt-[18px] text-f16 leading-[1.75] text-ink-2">Cladvera acts as a supplier coordinating the inquiry. Manufacturer identity and availability remain to be confirmed; origin documents are reviewed for the actual shipment. Samples and illustrations support design discussion; they do not replace technical verification.</p>
           </div>
           <div className="border-y border-line-strong py-[24px]">
             <h3 className="text-f20 font-medium">Prepare for the technical review</h3>
