@@ -19,12 +19,12 @@ export const materialGuide = [
   },
   {
     id: "uhpc", label: "Architectural UHPC", name: "Ultra-high performance concrete panels",
-    meaning: "UHPC means ultra-high performance concrete. TAKTL describes its A|UHPC formulation as developed for architectural envelopes, with flat facade elements, aggregate surfaces and custom forms.",
-    candidate: "Concrete surfaces, texture, aggregate expression and cast architectural geometry. Review the selected TAKTL family and its attachment components together.",
+    meaning: "UHPC means ultra-high performance concrete. Cladvera uses this material category to organize inquiries for facade panels, aggregate surfaces, textured panels and custom elements. Manufacturer and formulation remain to be confirmed.",
+    candidate: "Concrete surfaces, texture, aggregate expression and cast architectural geometry. Define the desired appearance and request evidence for the proposed panel and attachment design.",
     review: "Confirm panel construction, weight, dimensions, handling, support loads, anchorage and finish range. A general UHPC designation does not identify a complete facade system.",
     request: "Panel layout, return geometry, finish and texture, joint dimensions, attachment approach and drawing revision.",
-    href: "/suppliers/taktl", link: "TAKTL architectural UHPC",
-    source: "https://www.taktl-llc.com/taktl-architectural-uhpc-panels/", sourceLabel: "TAKTL architectural UHPC",
+    href: "/materials/uhpc-panels", link: "Architectural UHPC inquiries",
+    source: "", sourceLabel: "",
   },
   {
     id: "gfrp", label: "GFRP / GRP", name: "Glass-fiber reinforced polymer elements",
@@ -52,5 +52,5 @@ export const materialGuideFaq = [
   { q: "Can I substitute interior decorative board for exterior HPL?", a: "Do not assume interchangeability. The current Compactwood entries are separate exterior HPL and interior decorative board families. Confirm the grade, exposure, fixing method and relevant test evidence for the intended location; the interior board's exact HPL classification is unconfirmed." },
   { q: "Which facade panel material is best for my project?", a: "Start with the application, design intent, geometry, support conditions and required evidence. Compare the exact offered constructions against the same brief. The catalogue identifies candidates, while the project design team evaluates material suitability and the complete assembly." },
   { q: "Does an A2 panel designation approve the complete facade?", a: "The ALMINE A2 name is a manufacturer product designation. Request the classification report for the offered panel and the assembly evidence required by the project jurisdiction. The product name alone does not establish a North American wall-assembly approval." },
-  { q: "Are all materials in this guide supplied from China?", a: "No. Cladvera's China-sourcing inquiry covers ALMINE metal composite, Compactwood boards and custom GFRP. TAKTL is a separate named manufacturer that describes its architectural UHPC as made in the United States. Confirm the manufacturing origin, dispatch location and supply route for each quoted order." },
+  { q: "Are all materials in this guide supplied from China?", a: "The catalogue supports China-sourcing inquiries, but the manufacturing origin, dispatch location and supply route must be confirmed for each offered product. The UHPC manufacturer and origin remain to be confirmed; a material category does not establish either." },
 ];

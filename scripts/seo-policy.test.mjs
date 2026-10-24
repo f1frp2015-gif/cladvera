@@ -44,7 +44,7 @@ for (const stage of ["draft", "live"]) {
     const load = loader(stage);
     const { buildPageMetadata } = load("lib/seo.ts");
     const metadata = path => buildPageMetadata({ title: "Architectural Panels | Cladvera", description, path });
-    for (const path of ["/finishes", "/compliance", "/materials/uhpc-panels", "/unregistered-page"]) {
+    for (const path of ["/finishes", "/compliance", "/suppliers/taktl", "/unregistered-page"]) {
       assert.equal(metadata(path).robots.index, false, path);
     }
     for (const path of ["/compare", "/samples", "/request-quote"]) {
@@ -131,7 +131,7 @@ test("the text index uses configured identity and links only indexable reviewed 
   const { routes } = load("content/data/navigation.ts");
   assert.ok(text.includes("project-desk@example.test"));
   assert.ok(!text.includes("sales@cladvera.com"));
-  assert.ok(text.includes("TAKTL manufacturer collection are distinct"));
+  assert.ok(!/taktl|korsa|\bsola\b/i.test(text));
   const links = [...text.matchAll(/\]\((https:\/\/[^)]+)\)/g)].map(match => new URL(match[1]));
   assert.ok(links.length > 0);
   for (const url of links) {
@@ -151,4 +151,14 @@ test("organization identity stays separate from product manufacturing claims", (
   assert.equal(websiteSchema.publisher["@id"], organizationSchema["@id"]);
   assert.equal(organizationSchema.countryOfOrigin, undefined);
   assert.equal(organizationSchema.address, undefined, "Unconfirmed legal address is not structured data");
+});
+
+test("withdrawn brand listings return 410 and stay crawlable for removal", async () => {
+  const load = loader("live");
+  const response = load("app/suppliers/taktl/[[...slug]]/route.ts").GET();
+  assert.equal(response.status, 410);
+  assert.match(response.headers.get("x-robots-tag"), /noindex/);
+  assert.ok(!/taktl|korsa|\bsola\b|a\|uhpc/i.test(await response.text()));
+  assert.ok(load("app/robots.ts").default().rules[0].allow.includes("/suppliers/taktl"));
+  assert.ok(load("app/sitemap.ts").default().every(entry => !entry.url.includes("/suppliers/taktl")));
 });

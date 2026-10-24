@@ -21,6 +21,7 @@ export default function CatalogVisual({
 }) {
   const illustration = almineVisuals[product.id];
   const isDiagram = product.manufacturer === "Compactwood";
+  const isConcept = product.category === "uhpc" || product.id === "uhpc-attachments";
 
   if (product.category === "smart-glass") {
     return (
@@ -48,7 +49,7 @@ export default function CatalogVisual({
   return (
     <figure className={`relative aspect-[4/3] w-full overflow-hidden bg-paper-2 ${className}`}>
       {product.imageUrl ? (
-        <div className="absolute inset-x-0 bottom-[36px] top-0 overflow-hidden">
+        <div className={`absolute inset-x-0 top-0 overflow-hidden ${isConcept ? "bottom-[56px]" : "bottom-[36px]"}`}>
           <Image
             src={product.imageUrl}
             alt={product.imageAlt || product.name}
@@ -61,7 +62,7 @@ export default function CatalogVisual({
         <div className="flex h-full items-center justify-center p-[24px] text-center text-f14 text-ink-2">Product image pending</div>
       )}
       <figcaption className="absolute inset-x-[12px] bottom-[10px] font-mono text-[10px] leading-[1.5] text-ink-3">
-        {isDiagram ? "Manufacturer construction diagram" : product.manufacturer === "TAKTL" ? "Image: TAKTL" : "Image: supplier presentation"}
+        {isConcept ? "Concept illustration · not an installed project or product sample" : isDiagram ? "Manufacturer construction diagram" : "Image: supplier presentation"}
       </figcaption>
     </figure>
   );

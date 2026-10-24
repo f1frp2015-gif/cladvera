@@ -24,9 +24,9 @@ export default function ProductJourney({ productId }: { productId: string }) {
   const hardware = product.category === "hardware";
   const category = catalogCategories.find(item => item.id === product.category);
   const related = hardware
-    ? catalogProducts.filter(candidate => candidate.manufacturer === "TAKTL" && candidate.category === "uhpc").slice(0, 3)
+    ? catalogProducts.filter(candidate => candidate.category === "uhpc").slice(0, 3)
     : relatedProducts(product);
-  const compatibleHardware = !hardware && product.manufacturer === "TAKTL" ? findCatalogProduct("taktl-hardware") : undefined;
+  const attachmentInquiry = product.category === "uhpc" ? findCatalogProduct("uhpc-attachments") : undefined;
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function ProductJourney({ productId }: { productId: string }) {
           <SelectionButton productId={product.id} />
           <Cta href="/compare" variant="secondary">Compare shortlist →</Cta>
           <Link href="/procurement" className="text-f14 font-semibold text-accent hover:underline">See the procurement process →</Link>
-          {product.manufacturer !== "TAKTL" && <Link href="/sourcing/china" className="text-f14 font-semibold text-accent hover:underline">Plan sourcing from China →</Link>}
+          <Link href="/sourcing/china" className="text-f14 font-semibold text-accent hover:underline">Plan sourcing from China →</Link>
         </div>
         <div className="mt-[40px] grid gap-[28px] md:grid-cols-3 md:gap-[40px]">
           {[
@@ -53,9 +53,9 @@ export default function ProductJourney({ productId }: { productId: string }) {
         <p className="mt-[14px] text-f12 text-ink-3">Each request includes {product.name}. Add other products in the request or bring your saved shortlist from the comparison page.</p>
       </Section>
 
-      <Section title={hardware ? "Coordinate with TAKTL panels" : "Continue your material review"}>
+      <Section title={hardware ? "Review the panel and attachment design" : "Continue your material review"}>
         {hardware ? (
-          <p className="mb-[20px] max-w-[780px] text-f14 text-ink-2">These attachment components belong to the TAKTL product system. Confirm the component schedule, panel geometry, substructure and engineered loads for the selected panel.</p>
+          <p className="mb-[20px] max-w-[780px] text-f14 text-ink-2">Attachment components are a project inquiry scope. Compatibility with any panel is unconfirmed and requires engineering review of the component schedule, panel geometry, substrate, loads and supporting evidence.</p>
         ) : (
           <div className="mb-[24px]">
             <p className="text-f14 text-ink-2">Explore the applications listed for this product:</p>
@@ -68,7 +68,7 @@ export default function ProductJourney({ productId }: { productId: string }) {
         )}
         {product.collectionPath !== product.path && (
           <p className="mb-[20px] text-f14 text-ink-2">
-            See the <Link href={product.collectionPath} className="font-semibold text-accent underline underline-offset-4">{product.manufacturer} {hardware ? "Architectural UHPC" : category?.label} collection</Link> for material context and manufacturer information.
+            See the <Link href={product.collectionPath} className="font-semibold text-accent underline underline-offset-4">{product.category === "uhpc" || hardware ? "Architectural UHPC" : `${product.manufacturer} ${category?.label}`} collection</Link> for material context and information to confirm.
           </p>
         )}
         {!hardware && (product.category === "smart-glass" ? (
@@ -87,7 +87,7 @@ export default function ProductJourney({ productId }: { productId: string }) {
                     <span className="mb-[16px] block font-mono text-[10px] uppercase tracking-[0.05em] text-ink-3">{candidate.manufacturer} · {catalogCategories.find(category => category.id === candidate.category)?.label}</span>
                     <CatalogVisual product={candidate} />
                     <h3 className="mt-[20px] text-f24 font-medium group-hover:text-accent">{candidate.name} <span aria-hidden="true">↗</span></h3>
-                    <p className="mt-[12px] text-f14 text-ink-2">{hardware ? "Review this panel family alongside its proposed TAKTL attachment schedule." : `Review for ${sharedApplication?.label.toLowerCase() || "the listed application"}: ${candidate.construction}`}</p>
+                    <p className="mt-[12px] text-f14 text-ink-2">{hardware ? "Review this panel inquiry with the proposed attachment design; compatibility requires project-specific engineering." : `Review for ${sharedApplication?.label.toLowerCase() || "the listed application"}: ${candidate.construction}`}</p>
                   </Link>
                 );
               })}
@@ -97,11 +97,11 @@ export default function ProductJourney({ productId }: { productId: string }) {
         ) : (
           <p className="text-f14 text-ink-2">This is the only current catalogue entry with this application. <Link href={productRequestHref(product.id, "documents")} className="font-semibold text-accent hover:underline">Request a project-specific technical review →</Link></p>
         )}
-        {compatibleHardware && (
+        {attachmentInquiry && (
           <div className="mt-[24px] rounded-card border border-line bg-paper-2 p-[20px]">
             <h3 className="text-f18 font-semibold">Coordinate the attachment system</h3>
-            <p className="mt-[6px] text-f14 text-ink-2">Review TAKTL rails, clips, anchors and fasteners with the selected panel. The final attachment schedule requires project-specific engineering.</p>
-            <Link href={compatibleHardware.path} className="mt-[10px] inline-block text-f14 font-semibold text-accent hover:underline">View TAKTL attachment components →</Link>
+            <p className="mt-[6px] text-f14 text-ink-2">Define rails, clips, anchors and fasteners for the proposed panel. Component compatibility, capacities and the final attachment schedule require project-specific engineering and product evidence.</p>
+            <Link href={attachmentInquiry.path} className="mt-[10px] inline-block text-f14 font-semibold text-accent hover:underline">Review attachment component inquiries →</Link>
           </div>
         )}
       </Section>

@@ -7,7 +7,7 @@ import { Cta } from "@/components/ui";
 import { catalogApplications, catalogProducts } from "@/content/data/catalog";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-const description = "Source facade panels and architectural materials for US and Canadian projects. Explore China-sourced HPL, metal composite and GFRP, plus the TAKTL UHPC range.";
+const description = "Explore facade panels for US and Canadian projects: UHPC, HPL, metal composite, smart glass and custom GFRP. Request product evidence and sourcing details.";
 export const metadata = buildPageMetadata({ title: "Facade Panel Supplier & Architectural Materials | Cladvera", description, path: "/" });
 
 const process = [
@@ -22,7 +22,7 @@ export default function Page() {
     <section aria-labelledby="cover-title" className="bg-paper">
       <figure>
         <div className="architectural-cover bg-slate text-paper">
-          <Image src={catalogProducts[0].imageUrl!} alt="Pale TAKTL architectural UHPC panels, glass and deep facade reveals at a building corner" fill sizes="100vw" className="object-cover" preload />
+          <Image src="/images/uhpc/facade-study.svg" alt="Conceptual facade illustration showing staggered concrete-colored panels and recessed joints; not an actual project" fill sizes="100vw" className="object-cover" preload />
           <div aria-hidden="true" className="architectural-cover-shade" />
           <div className="site-container relative z-10 flex min-h-[inherit] flex-col justify-between py-[28px] md:py-[40px]">
             <div className="flex items-start justify-between gap-[24px] border-t border-paper/40 pt-[16px]">
@@ -38,14 +38,14 @@ export default function Page() {
               </div>
               <div className="hidden border-l border-paper/40 pl-[24px] lg:block">
                 <p className="text-f16 leading-[1.7] text-paper/90">A considered material library for architects. From the first surface study to the project specification.</p>
-                <Link href="/suppliers/taktl/facade-elements" className="mt-[20px] inline-flex min-h-[44px] items-center gap-[20px] text-f12 text-paper/90 hover:text-[#ecd1bf]">Discover the featured material <span aria-hidden="true">↗</span></Link>
+                <Link href="/materials/uhpc-panels/facade-panels" className="mt-[20px] inline-flex min-h-[44px] items-center gap-[20px] text-f12 text-paper/90 hover:text-[#ecd1bf]">Discover the featured material <span aria-hidden="true">↗</span></Link>
               </div>
             </div>
           </div>
         </div>
         <figcaption className="site-container flex flex-wrap items-center justify-between gap-x-[24px] gap-y-[4px] py-[8px] text-[10px] leading-[1.6] text-ink-3">
-          <Link href="/suppliers/taktl/facade-elements" className="inline-flex min-h-[44px] items-center gap-[16px] hover:text-accent">TAKTL A|UHPC® / Manufacturer reference <span aria-hidden="true">↗</span></Link>
-          <span>Image: TAKTL. Material and project suitability reviewed separately.</span>
+          <Link href="/materials/uhpc-panels/facade-panels" className="inline-flex min-h-[44px] items-center gap-[16px] hover:text-accent">Architectural UHPC / Material inquiry <span aria-hidden="true">↗</span></Link>
+          <span>Cladvera conceptual illustration. Not an actual project or product sample.</span>
         </figcaption>
       </figure>
       <div className="site-container">
@@ -67,7 +67,7 @@ export default function Page() {
         </div>
         <CollectionGallery />
         <div className="mt-[36px] flex flex-wrap items-center justify-between gap-[20px] border-t border-line-strong pt-[20px]">
-          <p className="max-w-[630px] text-f12 text-ink-3">Manufacturer and supplier references introduce each family. Confirm finishes with physical samples; review attachment components with the selected panel system.</p>
+          <p className="max-w-[630px] text-f12 text-ink-3">References and labeled conceptual illustrations introduce each family. Confirm finishes with physical samples and review the proposed panel and attachment design together.</p>
           <Cta href="/products" variant="ghost">View all {catalogProducts.length} product families <span aria-hidden="true">↗</span></Cta>
         </div>
       </div>
@@ -108,7 +108,7 @@ export default function Page() {
       <div className="site-container grid gap-[32px] py-[56px] md:py-[80px] lg:grid-cols-[1fr_1.5fr] lg:gap-[96px]">
         <div><p className="eyebrow">05 / Sourcing & supply</p><h2 className="mt-[24px] text-[36px] font-normal leading-[1.1] tracking-[-0.045em] md:text-[48px]">A clear material.<br /><span className="editorial-serif">A defined supply route.</span></h2></div>
         <div>
-          <p className="max-w-[650px] text-f18 text-ink-2">Cladvera is an architectural panel supplier for United States and Canadian project inquiries. Explore China-sourcing options for ALMINE metal composite panels, Compactwood exterior HPL and interior boards, <Link href="/materials/smart-glass" className="text-accent underline underline-offset-4">Singyes smart glass facade panels</Link>, and custom GFRP elements. TAKTL architectural UHPC is a separately identified manufacturer range.</p>
+          <p className="max-w-[650px] text-f18 text-ink-2">Cladvera is an architectural panel supplier for United States and Canadian project inquiries. Explore China-sourcing options for ALMINE metal composite panels, Compactwood exterior HPL and interior boards, <Link href="/materials/smart-glass" className="text-accent underline underline-offset-4">Singyes smart glass facade panels</Link>, and custom GFRP elements. Explore <Link href="/materials/uhpc-panels" className="text-accent underline underline-offset-4">generic architectural UHPC inquiries</Link>; the manufacturer, origin and offered specifications remain to be confirmed.</p>
           <p className="mt-[18px] max-w-[650px] text-f14 text-ink-2">Confirm the manufacturing origin, offered construction, shipment route and project documents with each quotation.</p>
           <div className="mt-[28px] flex flex-wrap gap-x-[32px] gap-y-[16px]"><Cta href="/sourcing/china" variant="ghost">Sourcing architectural panels from China ↗</Cta><Cta href="/guides/facade-materials" variant="ghost">Compare facade material types ↗</Cta></div>
         </div>

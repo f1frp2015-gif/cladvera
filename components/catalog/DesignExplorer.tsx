@@ -41,6 +41,7 @@ export default function DesignExplorer() {
         const products = direction.productIds.map(id => catalogProducts.find(product => product.id === id)!);
         const visual = catalogProducts.find(product => product.id === direction.imageProductId)!;
         const isWarm = direction.id === "layered";
+        const isConcept = visual.category === "uhpc" || visual.id === "uhpc-attachments";
         const source = isWarm ? compactwoodSources.supplierProject : visual.sourceUrl;
         const imageUrl = isWarm ? compactwoodImages.supplierProject : visual.imageUrl;
         return (
@@ -57,8 +58,8 @@ export default function DesignExplorer() {
                     <span aria-hidden="true" className="absolute left-[16px] top-[16px] bg-paper px-[12px] py-[8px] font-mono text-[10px]">STUDY / 0{index + 1}</span>
                   </div>
                   <figcaption className="flex flex-wrap items-start justify-between gap-x-[20px] gap-y-[8px] border-b border-line py-[12px] text-[10px] leading-[1.7] text-ink-3">
-                    <span className="max-w-[370px]">{direction.id === "planar" ? "Illustration · not a finish sample or an installed project." : `Source: ${isWarm ? "Compactwood" : visual.manufacturer}. Manufacturer reference; not a Cladvera-delivered project.`}</span>
-                    <a href={source} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center gap-[8px] underline underline-offset-4 hover:text-accent">View source <span aria-hidden="true">↗</span></a>
+                    <span className="max-w-[370px]">{isConcept ? "Concept illustration · not an installed project or product sample" : direction.id === "planar" ? "Illustration · not a finish sample or an installed project." : `Source: ${isWarm ? "Compactwood" : visual.manufacturer}. Manufacturer reference; not a Cladvera-delivered project.`}</span>
+                    {!isConcept && source && <a href={source} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center gap-[8px] underline underline-offset-4 hover:text-accent">View source <span aria-hidden="true">↗</span></a>}
                   </figcaption>
                 </figure>
                 <p className="mt-[24px] max-w-[560px] border-l border-accent pl-[20px] font-editorial text-[24px] italic leading-[1.35] tracking-[-0.025em] text-ink-2 md:text-[30px]">{direction.question}</p>

@@ -68,8 +68,8 @@ export default function MaterialPage({ slug }: { slug: MaterialSlug }) {
         <SpecTable rows={m.specs} />
         {slug === "uhpc-panels" && (
           <div className="mt-[20px]">
-            <Callout title="TAKTL manufacturer collection">
-              Cladvera also supplies TAKTL&apos;s A|UHPC panels, KORSA, SOLA and hardware for project inquiries. Explore the <Link href="/suppliers/taktl" className="font-medium text-accent underline underline-offset-4">TAKTL product collection</Link>; its manufacturer specifications are separate from this Cladvera UHPC line.
+            <Callout title="Architectural UHPC inquiry">
+              Explore <Link href="/materials/uhpc-panels" className="font-medium text-accent underline underline-offset-4">architectural UHPC inquiry scopes</Link> for facade panels, surfaces and custom elements. Manufacturer, composition, dimensions, finishes, attachment design and performance evidence must be confirmed for the offered product.
             </Callout>
           </div>
         )}

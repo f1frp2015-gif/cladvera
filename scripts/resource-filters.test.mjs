@@ -30,16 +30,16 @@ test("the default resource register preserves every product and its stable order
 test("source pages do not count as linked documents", () => {
   const linked = ids({ availability: "linked" });
   const request = ids({ availability: "request" });
-  assert.deepEqual(linked, ["taktl-facade", "taktl-korsa", "taktl-sola", "gfrp-custom"]);
+  assert.deepEqual(linked, ["gfrp-custom"]);
   assert.ok(request.includes("almine-a2"));
   assert.ok(request.includes("compactwood-exterior"));
   assert.ok(request.includes("singyes-smart-glass"));
-  assert.equal(request.length, 8);
+  assert.equal(request.length, 11);
   assert.equal(new Set([...linked, ...request]).size, catalogProducts.length);
 });
 
 test("resource search includes document titles and source context", () => {
-  assert.deepEqual(ids({ q: "KORSA panel design guide" }), ["taktl-korsa"]);
+  assert.deepEqual(ids({ q: "KORSA panel design guide" }), []);
   assert.deepEqual(ids({ q: "Chinese 2023" }), ["gfrp-custom"]);
   assert.deepEqual(ids({ q: "Exterior HPL" }), ["compactwood-exterior"]);
   assert.deepEqual(ids({ q: " GLASS–FIBER " }), ["compactwood-interior", "gfrp-custom"]);
@@ -47,7 +47,7 @@ test("resource search includes document titles and source context", () => {
 });
 
 test("material, application, document access and query all constrain a result", () => {
-  assert.deepEqual(ids({ q: "TAKTL", category: "uhpc", application: "interior", availability: "linked" }), ["taktl-facade"]);
+  assert.deepEqual(ids({ q: "TAKTL", category: "uhpc", application: "interior", availability: "linked" }), []);
   assert.deepEqual(ids({ q: "ACM", category: "mcm", application: "healthcare", availability: "request" }), ["almine-medical"]);
   assert.deepEqual(ids({ q: "Kinflare", category: "gfrp", application: "custom", availability: "linked" }), ["gfrp-custom"]);
   assert.deepEqual(ids({ category: "mcm", availability: "linked" }), []);
@@ -63,5 +63,5 @@ test("invalid filter values do not silently broaden the register", () => {
   assert.deepEqual(ids({ availability: "unknown" }), []);
   assert.deepEqual(ids({ category: "unpublished" }), []);
   assert.deepEqual(ids({ application: "unverified-use" }), []);
-  assert.deepEqual(ids({ q: " — / ", category: "hardware" }), ["taktl-hardware"]);
+  assert.deepEqual(ids({ q: " — / ", category: "hardware" }), ["uhpc-attachments"]);
 });

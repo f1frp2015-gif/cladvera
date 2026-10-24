@@ -105,7 +105,7 @@ def main():
         except Exception as exc:
             if attempt < 2:return fetch(path, attempt+1)
             return {'path':path,'status':0,'error':str(exc),'page':None}
-    extras=['/robots.txt','/sitemap.xml','/?utm_source=seo-audit','/products?category=mcm','/technical-resources?application=facade','/samples?products=taktl-facade&intent=sample','/request-quote?intent=documents']
+    extras=['/robots.txt','/sitemap.xml','/?utm_source=seo-audit','/products?category=mcm','/technical-resources?application=facade','/samples?products=uhpc-facade&intent=sample','/request-quote?intent=documents']
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool: results={r['path']:r for r in pool.map(fetch,list(routes)+extras)}
     failed=[(p,r.get('error')) for p,r in results.items() if r['status']==0]
     if failed:raise RuntimeError(f'Incomplete crawl; do not score: {failed}')

@@ -6,11 +6,11 @@ import { catalogCategories, catalogProducts } from "@/content/data/catalog";
 import { compactwoodImages } from "@/content/data/compactwood";
 
 const collectionImages: Record<string, string> = {
-  uhpc: "taktl-korsa",
+  uhpc: "uhpc-facade",
   hpl: "compactwood-exterior",
   "interior-board": "compactwood-interior",
   gfrp: "gfrp-custom",
-  hardware: "taktl-hardware",
+  hardware: "uhpc-attachments",
 };
 
 export default function CollectionGallery() {
@@ -19,8 +19,9 @@ export default function CollectionGallery() {
       {catalogCategories.map((category, index) => {
         const product = catalogProducts.find(item => item.id === collectionImages[category.id]);
         const imageUrl = category.id === "hpl" ? compactwoodImages.supplierProject : product?.imageUrl;
-        const contained = ["interior-board", "gfrp", "hardware"].includes(category.id);
-        const caption = category.id === "smart-glass" ? "Smart glass facade / concept illustration" : category.id === "mcm" ? "Material illustration" : category.id === "hpl" ? "Compactwood / facade reference" : category.id === "interior-board" ? "Compactwood / construction diagram" : category.id === "gfrp" ? "Kinflare / supplier reference" : "TAKTL / manufacturer reference";
+        const contained = ["interior-board", "gfrp"].includes(category.id);
+        const isConcept = category.id === "uhpc" || category.id === "hardware";
+        const caption = isConcept ? "Concept illustration · not an installed project or product sample" : category.id === "smart-glass" ? "Smart glass facade / concept illustration" : category.id === "mcm" ? "Material illustration" : category.id === "hpl" ? "Compactwood / facade reference" : category.id === "interior-board" ? "Compactwood / construction diagram" : "Kinflare / supplier reference";
 
         return (
           <Link key={category.id} href={category.path} className="group block min-w-0" aria-label={`Explore ${category.label}`}>

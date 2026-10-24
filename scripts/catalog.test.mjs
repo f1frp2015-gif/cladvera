@@ -46,8 +46,8 @@ test("application and material filters combine without mixing hardware or interi
   assert.deepEqual(filterCatalog({ category: "gfrp", application: "custom" }).map(p => p.id), ["gfrp-custom"]);
   assert.deepEqual(filterCatalog({ category: "hpl", application: "interior" }), []);
   assert.deepEqual(filterCatalog({ application: "healthcare" }).map(p => p.id), ["almine-medical"]);
-  assert.ok(filterCatalog({ category: "uhpc" }).every(p => p.id !== "taktl-hardware"));
-  assert.deepEqual(filterCatalog({ q: "  koRSA  " }).map(p => p.id), ["taktl-korsa"]);
+  assert.ok(filterCatalog({ category: "uhpc" }).every(p => p.id !== "uhpc-attachments"));
+  assert.deepEqual(filterCatalog({ q: "  aggregate  " }).map(p => p.id), ["uhpc-aggregate"]);
   assert.deepEqual(filterCatalog({ manufacturer: "no-such-supplier" }), []);
 });
 test("search finds products using the material and application labels visitors see", () => {
@@ -80,10 +80,10 @@ test("search terms remain constrained by every selected filter", () => {
   assert.deepEqual(filterCatalog({ q: " — / ", category: "hpl" }).map(product => product.id), ["compactwood-exterior"]);
 });
 test("shared shortlist accepts only known IDs, deduplicates and caps at four", () => {
-  assert.deepEqual(parseProductIds("bad,taktl-facade,taktl-facade,gfrp-custom"), ["taktl-facade", "gfrp-custom"]);
+  assert.deepEqual(parseProductIds("bad,uhpc-facade,uhpc-facade,gfrp-custom"), ["uhpc-facade", "gfrp-custom"]);
   assert.equal(parseProductIds(catalogProducts.map(p => p.id).join(",")).length, MAX_SELECTION);
   assert.deepEqual(parseProductIds(null), []);
-  assert.deepEqual(parseProductIds(["taktl-facade", "gfrp-custom"]), []);
+  assert.deepEqual(parseProductIds(["uhpc-facade", "gfrp-custom"]), []);
 });
 test("sample, technical and quote paths carry the selected product and correct intent", () => {
   for (const intent of ["sample", "documents", "quote"]) {
@@ -108,4 +108,18 @@ test("public navigation and publication gates exclude unrelated draft routes", (
   assert.ok(isPublishedPath("/"));
   assert.equal(isPublishedPath("/suppliers/taktl/unreviewed-product"), false);
   assert.equal(isPublishedPath("/compliance"), false);
+});
+
+test("UHPC inquiries do not inherit retired brands, documents or saved selections", () => {
+  const inquiries = catalogProducts.filter(product => ["uhpc", "hardware"].includes(product.category));
+  assert.equal(inquiries.length, 5);
+  assert.ok(!/taktl|korsa|\bsola\b|a\|uhpc|cdn\.sanity\.io/i.test(JSON.stringify(catalogProducts)));
+  for (const product of inquiries) {
+    assert.equal(product.manufacturer, "To be confirmed");
+    assert.equal(product.documentUrl, undefined, "Third-party evidence cannot support these inquiries");
+    assert.ok(product.path.startsWith("/materials/uhpc-panels/"));
+  }
+  assert.deepEqual(parseProductIds("taktl-facade,taktl-korsa,taktl-sola,taktl-custom,taktl-hardware"), []);
+  assert.deepEqual(filterCatalog({ q: "TAKTL" }), []);
+  assert.ok(!publishedPaths.some(path => path.startsWith("/suppliers/taktl")));
 });

@@ -5,7 +5,7 @@ export const designDirections = [
     description: "Explore architectural concrete through texture, aggregate and the relationship between a panel and its joints.",
     question: "How should texture read from the street, and at arm’s length?",
     review: "Compare physical samples in the intended light. Coordinate panel divisions, corner details and the attachment system.",
-    productIds: ["taktl-facade", "taktl-korsa"], imageProductId: "taktl-korsa", category: "uhpc", collection: "/suppliers/taktl",
+    productIds: ["uhpc-facade", "uhpc-aggregate"], imageProductId: "uhpc-aggregate", category: "uhpc", collection: "/materials/uhpc-panels",
   },
   {
     id: "planar", label: "Precise & planar", title: "Find a rhythm in the facade.",
@@ -26,6 +26,6 @@ export const designDirections = [
     description: "Consider molded GFRP and custom UHPC as distinct material routes for architectural forms developed around the project.",
     question: "Where should the form divide into buildable, transportable pieces?",
     review: "Bring drawings or a 3D model. Review modules, tooling, finish, connections and prototypes with the project team.",
-    productIds: ["gfrp-custom", "taktl-custom"], imageProductId: "gfrp-custom", category: "gfrp", collection: "/materials/gfrp-custom-elements",
+    productIds: ["gfrp-custom", "uhpc-custom"], imageProductId: "gfrp-custom", category: "gfrp", collection: "/materials/gfrp-custom-elements",
   },
 ] as const;
