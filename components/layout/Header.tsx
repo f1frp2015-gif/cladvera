@@ -11,7 +11,7 @@ const projectPaths = [
   { href: "/#materials", label: "Explore by design intent", description: "Start with the surface, form and character of your project." },
   { href: "/applications", label: "Applications", description: "Find a starting point for your project context." },
   { href: "/technical-resources", label: "Technical resources", description: "Review documents for a named material." },
-  { href: "/samples", label: "Request samples", description: "Prepare a material and finish sample brief." },
+  { href: "/samples", label: "Request samples", description: "Send a sample or mock-up request." },
 ];
 
 function ProductNavigation({ group, active, pathname }: { group: NavGroup; active: boolean; pathname: string }) {
