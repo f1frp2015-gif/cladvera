@@ -1,224 +1,223 @@
 "use client";
 
-import { useRef, useState, type HTMLInputTypeAttribute } from "react";
-import Link from "next/link";
+import { useEffect, useRef, useState, type FormEvent, type HTMLInputTypeAttribute } from "react";
 import { catalogProducts, MAX_SELECTION } from "@/content/data/catalog";
 import { useSelection } from "@/lib/product-selection";
 import { site } from "@/content/data/site";
 
 const inputClass = "mt-[8px] min-h-[48px] w-full min-w-0 rounded-none border-0 border-b border-line-strong bg-paper-2 px-[12px] py-[12px] text-f16 font-normal md:text-f14";
-const secondaryButtonClass = "flex min-h-[48px] items-center justify-center border border-line-strong px-[18px] py-[12px] text-f14 transition-colors hover:border-ink";
+// Mirrors the limits in cloudflare/inquiry-relay/src/index.js.
+const MAX_FILES = 10;
+const MAX_TOTAL_BYTES = 15 * 1024 * 1024;
+const FILE_EXTENSIONS = ["pdf", "dwg", "dxf", "xlsx", "xls", "csv", "doc", "docx", "zip", "png", "jpg", "jpeg", "webp", "heic", "rvt", "skp", "ifc", "step", "stp"];
 type RequestField = { id: string; label: string; required?: boolean; type?: HTMLInputTypeAttribute; autoComplete?: string };
-const contactFields: RequestField[] = [
+const fields: RequestField[] = [
   { id: "name", label: "Your name", required: true, autoComplete: "name" },
   { id: "email", label: "Email", type: "email", required: true, autoComplete: "email" },
-  { id: "company", label: "Company / practice", autoComplete: "organization" },
+  { id: "company", label: "Company", autoComplete: "organization" },
+  { id: "location", label: "Project location (city, country)" },
 ];
-const projectFields: RequestField[] = [
-  { id: "location", label: "Project location (city, country)", required: true },
-  { id: "quantity", label: "Quantity and unit (m², ft² or pieces)" },
-  { id: "schedule", label: "Target delivery / project schedule" },
-];
-const technicalFields: RequestField[] = [
-  { id: "geometry", label: "Dimensions, thickness or custom geometry" },
-  { id: "finish", label: "Finish, color and sample reference" },
-  { id: "drawings", label: "Drawing / 3D model link and revision" },
-  { id: "attachment", label: "Substrate, support and fixing conditions" },
-];
-const fields = [...contactFields, ...projectFields, ...technicalFields];
 const requestKinds = [
-  { value: "quote", label: "Project quote", detail: "Scope and pricing" },
-  { value: "sample", label: "Samples / mock-up", detail: "Physical material review" },
-  { value: "documents", label: "Technical documents", detail: "Product-specific evidence" },
+  { value: "quote", label: "Project quote" },
+  { value: "sample", label: "Samples / mock-up" },
+  { value: "documents", label: "Technical documents" },
 ];
+type Status = { state: "idle" } | { state: "sending"; progress: number } | { state: "sent"; reference: string } | { state: "error"; message: string };
+type RelayReply = { ok?: boolean; ref?: string; error?: string };
+
+function formatSize(bytes: number) {
+  return bytes < 1024 * 1024 ? `${Math.max(1, Math.round(bytes / 1024))} KB` : `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+}
+function fetchToken() {
+  return fetch(`${site.contact.relay}/token`, { cache: "no-store" })
+    .then(res => (res.ok ? (res.json() as Promise<{ token?: string }>) : { token: "" }))
+    .then(json => json.token ?? "")
+    .catch(() => "");
+}
+// XMLHttpRequest rather than fetch, for upload progress on large drawing sets.
+function postInquiry(data: FormData, onProgress: (percent: number) => void) {
+  return new Promise<RelayReply>(resolve => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `${site.contact.relay}/inquiry`);
+    xhr.responseType = "json";
+    xhr.upload.onprogress = event => { if (event.lengthComputable) onProgress(Math.round((event.loaded / event.total) * 100)); };
+    xhr.onload = () => resolve((xhr.response as RelayReply | null) ?? { ok: false });
+    xhr.onerror = () => resolve({ ok: false, error: "Network error. Please check your connection and try again." });
+    xhr.send(data);
+  });
+}
 
 export default function ProjectRequest({ initialIds, intent }: { initialIds?: string[]; intent: string }) {
   const { ids: savedIds, setSelection } = useSelection();
   const [chosen, setChosen] = useState(initialIds);
   const ids = chosen ?? savedIds;
   const [kind, setKind] = useState(intent === "sample" ? "sample" : intent === "documents" ? "documents" : "quote");
-  const [values, setValues] = useState<Record<string, string>>({});
-  const [preparedBody, setPreparedBody] = useState<string | null>(null);
-  const [status, setStatus] = useState<{ body: string; message: string } | null>(null);
-  const previewRef = useRef<HTMLTextAreaElement>(null);
+  const [files, setFiles] = useState<File[]>([]);
+  const [fileError, setFileError] = useState("");
+  const [dragging, setDragging] = useState(false);
+  const [status, setStatus] = useState<Status>({ state: "idle" });
+  const token = useRef<Promise<string> | null>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
   const products = ids.flatMap(id => catalogProducts.filter(p => p.id === id));
-  const kindLabel = kind === "sample" ? "Sample request" : kind === "documents" ? "Technical document request" : "Project quote request";
-  const body = [
-    `${kindLabel} to Cladvera`, "", "PRODUCT SELECTION", ...products.map(p => `- ${p.manufacturer} / ${p.name}\n  ${site.url}${p.path}`),
-    ...(products.length ? [] : ["Please help select a product for the brief below."]), "", "PROJECT BRIEF",
-    ...fields.map(field => `${field.label}: ${values[field.id] || "To confirm"}`),
-    `Role: ${values.role || "To confirm"}`, `Project stage: ${values.stage || "To confirm"}`,
-    `Application and required performance / documents: ${values.requirements || "To confirm"}`,
-    `Additional scope, sample destination or commercial requirements: ${values.notes || "To confirm"}`,
-    "", "Please confirm the proposed product construction, scope, required documents, sample options and commercial terms for this project.",
-  ].join("\n");
-  const prepared = preparedBody === body;
-  const mailto = `mailto:${site.contact.email}?subject=${encodeURIComponent(`Cladvera — ${kindLabel}`)}&body=${encodeURIComponent(body)}`;
+  const available = catalogProducts.filter(p => !ids.includes(p.id));
+  const totalBytes = files.reduce((sum, file) => sum + file.size, 0);
+  const sending = status.state === "sending";
 
-  function invalidateBrief() {
-    setPreparedBody(null);
-    setStatus(null);
-  }
-  function change(id: string, value: string) {
-    setValues(current => ({ ...current, [id]: value }));
-    invalidateBrief();
-  }
+  // The relay only accepts a form whose signed token is a few seconds old, so fetch it as the page opens.
+  useEffect(() => { token.current = fetchToken(); }, []);
+
   function chooseProducts(next: string[]) {
     setChosen(next);
     setSelection(next);
-    invalidateBrief();
   }
-  function toggle(id: string) {
-    if (ids.includes(id)) chooseProducts(ids.filter(item => item !== id));
-    else if (ids.length < MAX_SELECTION) chooseProducts([...ids, id]);
+  function addFiles(list: FileList | null) {
+    if (!list) return;
+    const next = [...files];
+    let error = "";
+    for (const file of Array.from(list)) {
+      const ext = file.name.split(".").pop()?.toLowerCase() ?? "";
+      if (!FILE_EXTENSIONS.includes(ext)) { error = `${file.name}: .${ext} files are not accepted.`; continue; }
+      if (next.some(f => f.name === file.name && f.size === file.size)) continue;
+      if (next.length >= MAX_FILES) { error = `Attach at most ${MAX_FILES} files.`; break; }
+      if (next.reduce((sum, f) => sum + f.size, 0) + file.size > MAX_TOTAL_BYTES) { error = `${file.name} would take the files over 15 MB. Add a download link to the project details instead.`; continue; }
+      next.push(file);
+    }
+    setFiles(next);
+    setFileError(error);
   }
-  function renderField(field: RequestField) {
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    setStatus({ state: "sending", progress: 0 });
+    const data = new FormData(form);
+    data.set("kind", kind);
+    data.set("page", `${window.location.pathname}${window.location.search}`);
+    for (const p of products) data.append("products", `${p.manufacturer} / ${p.name} - ${site.url}${p.path}`);
+    for (const file of files) data.append("files", file, file.name);
+    let signed = await (token.current ?? fetchToken());
+    if (!signed) signed = await (token.current = fetchToken());
+    data.set("token", signed);
+    const reply = await postInquiry(data, progress => setStatus({ state: "sending", progress }));
+    if (reply.ok && reply.ref) {
+      setStatus({ state: "sent", reference: reply.ref });
+      form.reset();
+      setFiles([]);
+      token.current = fetchToken();
+    } else {
+      setStatus({ state: "error", message: reply.error || "The request could not be sent." });
+    }
+  }
+
+  if (status.state === "sent") {
     return (
-      <label key={field.id} className="min-w-0 text-f14 font-medium" htmlFor={`request-${field.id}`}>
-        {field.label}{field.required ? " *" : ""}
-        <input
-          id={`request-${field.id}`}
-          name={field.id}
-          required={field.required}
-          type={field.type || "text"}
-          autoComplete={field.autoComplete ?? "off"}
-          inputMode={field.id === "drawings" ? "url" : undefined}
-          maxLength={field.id === "drawings" ? 500 : 180}
-          className={inputClass}
-          value={values[field.id] || ""}
-          onChange={event => change(field.id, event.target.value)}
-        />
-      </label>
+      <div role="status" className="max-w-[680px] border-t border-ink pt-[24px]">
+        <p className="font-mono text-f12 text-accent">REQUEST SENT · {status.reference}</p>
+        <h2 className="mt-[14px] text-[28px] leading-[1.12] tracking-[-0.04em]">Thank you. Your request is with our team.</h2>
+        <p className="mt-[16px] text-f16 leading-[1.8] text-ink-2">We reply by email, normally within {site.contact.replyTime}. Quote the reference above if you write to us about this project.</p>
+        <button type="button" onClick={() => setStatus({ state: "idle" })} className="mt-[24px] flex min-h-[48px] items-center justify-center border border-line-strong px-[18px] py-[12px] text-f14 transition-colors hover:border-ink">Send another request</button>
+      </div>
     );
   }
 
   return (
-    <form
-      onSubmit={event => {
-        event.preventDefault();
-        setPreparedBody(body);
-        setStatus({ body, message: "Email brief prepared below. Review it, then open your email draft to send." });
-        requestAnimationFrame(() => previewRef.current?.focus());
-      }}
-      className="grid min-w-0 gap-[40px] md:gap-[56px]"
-    >
-      <section aria-labelledby="request-products-heading" className="grid min-w-0 gap-[28px] border-t border-ink pt-[24px] lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-[56px]">
-        <div>
-          <p className="mb-[14px] font-mono text-f12 text-accent">01 / SELECTION</p>
-          <h2 id="request-products-heading" className="text-[28px] leading-[1.12] tracking-[-0.04em]">Products &amp;<br className="hidden lg:block" /> purpose.</h2>
-          <p className="mt-[16px] max-w-[420px] text-f14 leading-[1.8] text-ink-2">Start with your materials and the kind of support you need.</p>
-        </div>
+    <form onSubmit={submit} className="relative grid min-w-0 gap-[28px] border-t border-ink pt-[24px] lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-[56px]">
+      <div>
+        <p className="mb-[14px] font-mono text-f12 text-accent">YOUR PROJECT</p>
+        <h2 className="text-[28px] leading-[1.12] tracking-[-0.04em]">Details and<br className="hidden lg:block" /> drawings.</h2>
+        <p className="mt-[16px] max-w-[420px] text-f14 leading-[1.8] text-ink-2">Required fields are marked *. Your files are emailed to our team with the request.</p>
+      </div>
+      <div className="grid min-w-0 gap-[28px]">
+        <fieldset className="min-w-0">
+          <legend className="mb-[12px] text-f14 font-medium">Request type</legend>
+          <div className="grid border-t border-line-strong sm:grid-cols-3">
+            {requestKinds.map(option => (
+              <label key={option.value} className={`flex cursor-pointer items-center gap-[10px] border-b border-line-strong px-[12px] py-[14px] text-f14 ${kind === option.value ? "bg-paper-2 font-medium" : "hover:bg-paper-2/60"}`}>
+                <input type="radio" name="intent" value={option.value} checked={kind === option.value} className="h-[16px] w-[16px] shrink-0 accent-accent" onChange={() => setKind(option.value)} />
+                {option.label}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
         <div className="min-w-0">
-          <fieldset className="min-w-0">
-            <legend className="mb-[14px] text-f14 font-medium">Request type</legend>
-            <div className="grid border-t border-line-strong sm:grid-cols-3">
-              {requestKinds.map(option => (
-                <label key={option.value} className={`flex cursor-pointer items-start gap-[10px] border-b border-line-strong px-[12px] py-[16px] ${kind === option.value ? "bg-paper-2" : "hover:bg-paper-2/60"}`}>
-                  <input type="radio" name="intent" value={option.value} checked={kind === option.value} className="mt-[4px] h-[16px] w-[16px] shrink-0 accent-accent" onChange={() => { setKind(option.value); invalidateBrief(); }} />
-                  <span className="min-w-0"><span className="block text-f14 font-medium">{option.label}</span><span className="mt-[4px] block text-f12 text-ink-3">{option.detail}</span></span>
-                </label>
+          <label className="text-f14 font-medium" htmlFor="request-product">Products <span className="font-normal text-ink-3">(optional, up to {MAX_SELECTION})</span></label>
+          {products.length > 0 && (
+            <ul className="mt-[10px] flex flex-wrap gap-[8px]">
+              {products.map(p => (
+                <li key={p.id} className="inline-flex min-w-0 items-center gap-[6px] border border-line-strong bg-paper-2 py-[4px] pl-[12px] pr-[4px] text-f14">
+                  <span className="min-w-0"><span className="text-ink-3">{p.manufacturer} · </span>{p.name}</span>
+                  <button type="button" aria-label={`Remove ${p.name}`} onClick={() => chooseProducts(ids.filter(id => id !== p.id))} className="flex h-[32px] w-[32px] shrink-0 items-center justify-center text-ink-2 hover:text-accent">×</button>
+                </li>
               ))}
-            </div>
-          </fieldset>
-
-          <fieldset className="mt-[28px] min-w-0" aria-describedby="request-selection-help">
-            <legend className="text-f14 font-medium">Product selection</legend>
-            <p id="request-selection-help" className="mt-[8px] text-f14 leading-[1.8] text-ink-2">Select up to {MAX_SELECTION} families, or leave blank for selection assistance.</p>
-            <div className="mt-[16px] flex flex-wrap items-center justify-between gap-x-[20px] gap-y-[8px] border-b border-line-strong pb-[12px]">
-              <p aria-live="polite" className="font-mono text-f12 text-ink-2">{ids.length} / {MAX_SELECTION} SELECTED</p>
-              <div className="flex flex-wrap items-center gap-x-[20px] gap-y-[4px] text-f12">
-                <button type="button" disabled={ids.length === 0} onClick={() => chooseProducts([])} className="min-h-[44px] underline underline-offset-4 hover:text-accent disabled:cursor-default disabled:text-ink-3 disabled:no-underline">Clear selection</button>
-                <Link href={`/compare?products=${encodeURIComponent(ids.join(","))}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center gap-[6px] text-accent underline underline-offset-4">Review selection (new tab) <span aria-hidden="true">↗</span></Link>
-              </div>
-            </div>
-            <div className="grid gap-x-[24px] md:grid-cols-2">
-              {catalogProducts.map(product => {
-                const selected = ids.includes(product.id);
-                const unavailable = !selected && ids.length >= MAX_SELECTION;
-                return (
-                  <label key={product.id} className={`flex min-w-0 items-start gap-[12px] border-b border-line py-[17px] pl-[10px] pr-[8px] ${selected ? "border-l-2 border-l-accent bg-paper-2" : "border-l-2 border-l-transparent"} ${unavailable ? "cursor-not-allowed text-ink-3" : "cursor-pointer hover:bg-paper-2"}`}>
-                    <input className="mt-[3px] h-[16px] w-[16px] shrink-0 accent-accent" type="checkbox" name="products" value={product.id} checked={selected} disabled={unavailable} onChange={() => toggle(product.id)} />
-                    <span className="min-w-0"><span className="block text-[10px] uppercase tracking-[0.08em] text-ink-3">{product.manufacturer}</span><span className={`mt-[4px] block text-f14 leading-[1.5] ${selected ? "font-medium" : ""}`}>{product.name}</span></span>
-                  </label>
-                );
-              })}
-            </div>
-            {ids.length >= MAX_SELECTION && <p className="mt-[12px] text-f12 text-ink-2">Selection is full. Remove a product to choose another.</p>}
-          </fieldset>
-        </div>
-      </section>
-
-      <section aria-labelledby="request-details-heading" className="grid min-w-0 gap-[28px] border-t border-ink pt-[24px] lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-[56px]">
-        <div>
-          <p className="mb-[14px] font-mono text-f12 text-accent">02 / PROJECT BRIEF</p>
-          <h2 id="request-details-heading" className="text-[28px] leading-[1.12] tracking-[-0.04em]">The details<br className="hidden lg:block" /> that matter.</h2>
-          <p className="mt-[16px] max-w-[420px] text-f14 leading-[1.8] text-ink-2">Required fields are marked *. Share what you know; other details can be confirmed together.</p>
-        </div>
-        <div className="grid min-w-0 gap-[32px]">
-          <fieldset className="min-w-0">
-            <legend className="mb-[18px] font-mono text-[11px] uppercase tracking-[0.1em] text-ink-3">Contact details</legend>
-            <div className="grid min-w-0 gap-x-[24px] gap-y-[20px] md:grid-cols-2">
-              {contactFields.map(renderField)}
-              <label className="min-w-0 text-f14 font-medium" htmlFor="request-role">Your role<select id="request-role" name="role" autoComplete="off" className={inputClass} value={values.role || ""} onChange={event => change("role", event.target.value)}><option value="">Select role</option>{["Architect / designer", "Procurement / developer", "Contractor / installer", "Fabricator / distributor", "Other project participant"].map(value => <option key={value}>{value}</option>)}</select></label>
-            </div>
-          </fieldset>
-          <fieldset className="min-w-0 border-t border-line pt-[24px]">
-            <legend className="pr-[12px] font-mono text-[11px] uppercase tracking-[0.1em] text-ink-3">Project &amp; schedule</legend>
-            <div className="grid min-w-0 gap-x-[24px] gap-y-[20px] md:grid-cols-2">
-              {projectFields.map(renderField)}
-              <label className="min-w-0 text-f14 font-medium" htmlFor="request-stage">Project stage<select id="request-stage" name="stage" autoComplete="off" className={inputClass} value={values.stage || ""} onChange={event => change("stage", event.target.value)}><option value="">Select stage</option>{["Concept / material selection", "Design development", "Technical review / specification", "Tender / procurement", "Approved for order", "Construction / replacement"].map(value => <option key={value}>{value}</option>)}</select></label>
-            </div>
-          </fieldset>
-          <fieldset className="min-w-0 border-t border-line pt-[24px]">
-            <legend className="pr-[12px] font-mono text-[11px] uppercase tracking-[0.1em] text-ink-3">Material &amp; technical requirements</legend>
-            <p className="mb-[20px] text-f14 leading-[1.8] text-ink-2">For custom GFRP or UHPC, include geometry, drawing revision, panelization and fixing conditions. Attach files in your email application after opening the draft.</p>
-            <div className="grid min-w-0 gap-x-[24px] gap-y-[20px] md:grid-cols-2">
-              {technicalFields.map(renderField)}
-              <label className="min-w-0 text-f14 font-medium md:col-span-2" htmlFor="request-requirements">Application and required performance / documents<textarea id="request-requirements" name="requirements" className={inputClass} rows={4} maxLength={1500} value={values.requirements || ""} onChange={event => change("requirements", event.target.value)} placeholder="Location of use, fire or environmental requirements, technical data, CAD/BIM needs, reports to review…" /></label>
-              <label className="min-w-0 text-f14 font-medium md:col-span-2" htmlFor="request-notes">Additional scope / sample destination / commercial requirements<textarea id="request-notes" name="notes" className={inputClass} rows={4} maxLength={1500} value={values.notes || ""} onChange={event => change("notes", event.target.value)} placeholder="Sample size and purpose, mold ownership, packaging, delivery terms, or other project questions…" /></label>
-            </div>
-          </fieldset>
-        </div>
-      </section>
-
-      <section aria-labelledby="request-review-heading" className="grid min-w-0 gap-[28px] border-t border-ink pt-[24px] lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-[56px]">
-        <div>
-          <p className="mb-[14px] font-mono text-f12 text-accent">03 / REVIEW &amp; SEND</p>
-          <h2 id="request-review-heading" className="text-[28px] leading-[1.12] tracking-[-0.04em]">Ready for<br className="hidden lg:block" /> a conversation.</h2>
-        </div>
-        <div className="min-w-0">
-          <p className="max-w-[680px] text-f14 leading-[1.8] text-ink-2">This page prepares a brief for <span className="break-all font-medium text-ink">{site.contact.email}</span>. You send it from your email application. Product availability, sample cost, timing and delivery terms are confirmed in the response.</p>
-          <p className="mt-[12px] max-w-[680px] text-f12 leading-[1.8] text-ink-3">Contact details stay in this form while you prepare the draft. Only product IDs are saved in this browser. Preparing a brief does not send it.</p>
-          <button type="submit" className="mt-[24px] inline-flex min-h-[52px] w-full items-center justify-between gap-[24px] bg-ink px-[20px] py-[14px] text-f14 font-medium text-paper transition-colors hover:bg-accent sm:w-auto">Prepare email brief <span aria-hidden="true">↗</span></button>
-          {prepared && (
-            <div className="mt-[32px] min-w-0 border-t border-line-strong pt-[24px]">
-              <label className="text-f14 font-medium" htmlFor="email-brief">Email brief preview</label>
-              <textarea ref={previewRef} id="email-brief" className={`${inputClass} scroll-mt-[110px] font-mono leading-[1.8]`} rows={16} readOnly value={body} aria-describedby="email-brief-help" />
-              <div className="mt-[20px] grid gap-[12px] sm:flex sm:flex-wrap">
-                <a href={mailto} className="flex min-h-[48px] items-center justify-center gap-[20px] bg-accent px-[18px] py-[12px] text-f14 font-medium text-paper transition-colors hover:bg-accent-hover">Open email draft <span aria-hidden="true">↗</span></a>
-                <button type="button" className={secondaryButtonClass} onClick={async () => {
-                  try {
-                    await navigator.clipboard.writeText(body);
-                    setStatus({ body, message: `Brief copied. Paste it into an email to ${site.contact.email}.` });
-                  } catch {
-                    setStatus({ body, message: "Copy the text from the email brief preview above." });
-                  }
-                }}>Copy brief</button>
-                <button type="button" className={secondaryButtonClass} onClick={() => {
-                  const url = URL.createObjectURL(new Blob([body], { type: "text/plain;charset=utf-8" }));
-                  const anchor = document.createElement("a");
-                  anchor.href = url;
-                  anchor.download = "cladvera-project-brief.txt";
-                  anchor.click();
-                  setTimeout(() => URL.revokeObjectURL(url), 1000);
-                }}>Download brief</button>
-              </div>
-              <p id="email-brief-help" className="mt-[14px] text-f12 leading-[1.8] text-ink-3">If your email app cannot open a long draft, copy or download the brief and attach it to an email. Add your drawings and supporting files in your email application.</p>
-            </div>
+            </ul>
           )}
-          <p role="status" className="mt-[16px] text-f14 leading-[1.7] text-accent">{prepared && status?.body === body ? status.message : ""}</p>
+          {ids.length < MAX_SELECTION && (
+            <select id="request-product" className={inputClass} value="" onChange={event => { if (event.target.value) chooseProducts([...ids, event.target.value]); }}>
+              <option value="">{products.length ? "Add another product" : "Select a product, or describe it below"}</option>
+              {[...new Set(available.map(p => p.manufacturer))].map(manufacturer => (
+                <optgroup key={manufacturer} label={manufacturer}>
+                  {available.filter(p => p.manufacturer === manufacturer).map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+                </optgroup>
+              ))}
+            </select>
+          )}
         </div>
-      </section>
+
+        <div className="grid min-w-0 gap-x-[24px] gap-y-[20px] md:grid-cols-2">
+          {fields.map(field => (
+            <label key={field.id} className="min-w-0 text-f14 font-medium" htmlFor={`request-${field.id}`}>
+              {field.label}{field.required ? " *" : ""}
+              <input id={`request-${field.id}`} name={field.id} required={field.required} type={field.type || "text"} autoComplete={field.autoComplete ?? "off"} maxLength={180} className={inputClass} />
+            </label>
+          ))}
+        </div>
+
+        <label className="min-w-0 text-f14 font-medium" htmlFor="request-message">
+          Project details{files.length === 0 ? " *" : ""}
+          <textarea id="request-message" name="message" required={files.length === 0} rows={5} maxLength={6000} className={inputClass} placeholder="Quantity (m², ft² or pieces), sizes or thickness, finish or colour, schedule, delivery destination, documents you need…" />
+        </label>
+
+        <div className="min-w-0">
+          <label className="text-f14 font-medium" htmlFor="request-files">Drawings and documents</label>
+          <div
+            onDragOver={event => { event.preventDefault(); setDragging(true); }}
+            onDragLeave={() => setDragging(false)}
+            onDrop={event => { event.preventDefault(); setDragging(false); addFiles(event.dataTransfer.files); }}
+            className={`mt-[8px] border border-dashed px-[16px] py-[22px] text-center ${dragging ? "border-accent bg-paper-2" : "border-line-strong"}`}
+          >
+            <p className="text-f14">Drag files here or <button type="button" onClick={() => fileInput.current?.click()} className="min-h-[44px] text-accent underline underline-offset-4">choose files</button></p>
+            <p className="mt-[4px] text-f12 leading-[1.7] text-ink-3">Up to {MAX_FILES} files, 15 MB in total. PDF, DWG, DXF, Excel, Word, ZIP, images, RVT, SKP, IFC or STEP. For larger sets, add a download link to the project details.</p>
+            <input ref={fileInput} id="request-files" type="file" multiple accept={FILE_EXTENSIONS.map(ext => `.${ext}`).join(",")} className="sr-only" onChange={event => { addFiles(event.target.files); event.target.value = ""; }} />
+          </div>
+          {files.length > 0 && (
+            <ul className="mt-[10px] grid gap-[4px]">
+              {files.map(file => (
+                <li key={`${file.name}-${file.size}`} className="flex min-w-0 items-center justify-between gap-[12px] border-b border-line py-[4px] text-f14">
+                  <span className="min-w-0 truncate">{file.name} <span className="text-ink-3">· {formatSize(file.size)}</span></span>
+                  <button type="button" aria-label={`Remove ${file.name}`} onClick={() => { setFiles(files.filter(f => f !== file)); setFileError(""); }} className="flex h-[32px] w-[32px] shrink-0 items-center justify-center text-ink-2 hover:text-accent">×</button>
+                </li>
+              ))}
+              <li className="pt-[4px] font-mono text-f12 text-ink-3">{files.length} / {MAX_FILES} FILES · {formatSize(totalBytes)} / 15 MB</li>
+            </ul>
+          )}
+          {fileError && <p role="alert" className="mt-[8px] text-f12 text-accent">{fileError}</p>}
+        </div>
+
+        <div aria-hidden="true" className="absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden">
+          <label>Company website<input type="text" name="company_website" tabIndex={-1} autoComplete="off" /></label>
+        </div>
+
+        <div className="min-w-0">
+          <button type="submit" disabled={sending} className="inline-flex min-h-[52px] w-full items-center justify-between gap-[24px] bg-ink px-[20px] py-[14px] text-f14 font-medium text-paper transition-colors hover:bg-accent disabled:opacity-70 sm:w-auto">
+            {sending ? `Sending${files.length ? ` ${status.progress}%` : "…"}` : "Send request"} <span aria-hidden="true">↗</span>
+          </button>
+          <p className="mt-[12px] max-w-[680px] text-f12 leading-[1.8] text-ink-3">Your request goes to <span className="break-all">{site.contact.email}</span>. Availability, sample cost, timing and delivery terms are confirmed in our reply.</p>
+          <p role="status" className="mt-[12px] text-f14 leading-[1.7] text-accent">
+            {status.state === "error" && <>{status.message} You can also email <a href={`mailto:${site.contact.email}`} className="underline">{site.contact.email}</a> with your files.</>}
+          </p>
+        </div>
+      </div>
     </form>
   );
 }
