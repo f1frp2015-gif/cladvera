@@ -5,7 +5,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { mainNav, type NavGroup } from "@/content/data/navigation";
 import SelectionLink from "@/components/catalog/SelectionLink";
-import BrandMark from "@/components/layout/BrandMark";
+import BrandLogo from "@/components/layout/BrandLogo";
 
 const projectPaths = [
   { href: "/#materials", label: "Explore by design intent", description: "Start with the surface, form and character of your project." },
@@ -159,12 +159,8 @@ export default function Header() {
       }}
     >
       <div className="site-container flex min-h-[72px] items-center justify-between gap-[16px] xl:min-h-[80px]">
-        <Link href="/" aria-label="Cladvera home" className="flex shrink-0 items-center gap-[10px] sm:gap-[12px]">
-          <BrandMark className="h-[33px] w-[33px] text-accent" />
-          <span className="flex flex-col gap-[5px]">
-            <span className="text-[20px] font-medium leading-none tracking-[0.055em] sm:text-[21px]">CLADVERA</span>
-            <span className="text-[8px] font-medium uppercase leading-none tracking-[0.15em] text-ink-3">Architectural materials</span>
-          </span>
+        <Link href="/" aria-label="Cladvera home" className="flex min-h-[44px] shrink-0 items-center">
+          <BrandLogo className="h-auto w-[184px] sm:w-[208px]" />
         </Link>
         <nav aria-label="Main" className="hidden items-center gap-[2px] xl:flex">
           {mainNav.map(item => item.links.length > 0 ? (

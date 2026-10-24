@@ -1,11 +1,11 @@
 import Link from "next/link";
-import BrandMark from "@/components/layout/BrandMark";
+import BrandLogo from "@/components/layout/BrandLogo";
 import { footerNav } from "@/content/data/navigation";
 import { site } from "@/content/data/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate text-paper">
+    <footer className="bg-slate text-paper" style={{ backgroundColor: "#292D2B" }}>
       <div className="site-container">
         <div className="grid gap-[36px] border-b border-paper/25 py-[48px] md:grid-cols-[1.15fr_1fr] md:gap-[72px] md:py-[72px]">
           <div>
@@ -39,9 +39,8 @@ export default function Footer() {
           ))}
         </div>
 
-        <Link href="/" aria-label="Cladvera home" className="flex items-end justify-between gap-[16px] border-b border-paper/25 pb-[28px] pt-[12px] sm:pb-[36px] lg:pt-[28px]">
-          <span aria-hidden="true" className="block text-[clamp(2.75rem,14.3vw,12.5rem)] font-medium leading-[0.82] tracking-[-0.065em]">CLADVERA</span>
-          <BrandMark className="mb-[2px] h-[36px] w-[36px] shrink-0 text-paper/90 sm:h-[56px] sm:w-[56px] lg:h-[100px] lg:w-[100px]" />
+        <Link href="/" aria-label="Cladvera home" className="block border-b border-paper/25 pb-[28px] pt-[12px] sm:pb-[36px] lg:pt-[28px]">
+          <BrandLogo reverse className="h-auto w-full" />
         </Link>
 
         <div className="grid gap-[16px] py-[24px] text-[11px] leading-[1.8] text-paper/60 lg:grid-cols-[1.7fr_1fr] lg:gap-[64px]">

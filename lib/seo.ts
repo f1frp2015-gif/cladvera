@@ -15,6 +15,12 @@ export const organizationSchema = {
   "@id": `${SITE_URL}/#organization`,
   name: site.brand,
   url: SITE_URL,
+  logo: {
+    "@type": "ImageObject",
+    url: absoluteUrl("/images/brand/cladvera-fold-v4-square.png"),
+    width: 512,
+    height: 512,
+  },
   description: site.description,
   areaServed: [
     { "@type": "Country", name: "United States" },
