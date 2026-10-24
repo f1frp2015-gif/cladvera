@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     // Keep faceted query URLs and unregistered paths blocked. Per-page
     // noindex still applies to the reviewed request and comparison workflows.
-    rules: [{ userAgent: "*", allow: [...new Set(crawlablePaths)].map(path => `${path}$`).concat(["/_next/", "/images/", "/documents/", "/sitemap.xml", "/llms.txt", "/opengraph-image", "/icon.svg"]), disallow: "/" }],
+    rules: [{ userAgent: "*", allow: [...new Set(crawlablePaths)].map(path => `${path}$`).concat(["/_next/", "/images/", "/documents/", "/sitemap.xml", "/llms.txt", "/opengraph-image", "/icon.svg", "/apple-icon.png"]), disallow: "/" }],
     sitemap: absoluteUrl("/sitemap.xml"),
   };
 }
