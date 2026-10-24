@@ -175,7 +175,7 @@ export const materials: Material[] = [
       "CA": 3
     },
     "intro": [
-      "Cladvera coordinates inquiries for architectural UHPC panels and custom elements. Availability and the proposed manufacturing source are confirmed for each quotation.",
+      "Cladvera coordinates inquiries for architectural UHPC panels and custom elements produced in Xuzhou, Jiangsu, China. Manufacturer identity and availability are confirmed for each quotation.",
       "Compare physical samples and independently verified product evidence against the project requirements before specification."
     ],
     "supply": {
@@ -200,7 +200,12 @@ export const materials: Material[] = [
     },
     "specs": [
       {
-        "label": "Manufacturer and origin",
+        "label": "Production location",
+        "value": "Xuzhou, Jiangsu, China",
+        "confirmed": true
+      },
+      {
+        "label": "Manufacturer",
         "value": "To be confirmed for the offered product and project",
         "confirmed": false
       },

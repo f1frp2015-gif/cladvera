@@ -13,6 +13,10 @@ The owner confirmed that the UHPC products offered are not TAKTL products. Earli
 
 Historical research and audit files elsewhere in `docs/` describe an earlier site state. They are not current product evidence; this correction supersedes their supplier-association and UHPC sourcing statements. Public assets are served only from `public/`, and current product data and publication controls govern the website.
 
+## Production location clarification — 24 October 2026
+
+After the cleanup was published, the owner supplied the UHPC production location as Jiangsu, Xuzhou. Public English copy now states **Xuzhou, Jiangsu, China** for concrete facade panels, aggregate and textured panels, and custom concrete elements. This supersedes the pending-location wording above. The information is owner-provided, not an independent factory audit. Manufacturer identity, technical specifications and certification remain unconfirmed. Attachment-component origin is not established by this clarification and remains pending; shipment-specific origin documentation still requires review.
+
 ## Validation
 
 - Lint, TypeScript, production build, sitemap registration and all 32 automated tests pass.

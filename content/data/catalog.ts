@@ -32,7 +32,7 @@ export const catalogProducts: CatalogProduct[] = [
     category: p.slug === "attachment-components" ? "hardware" : "uhpc",
     applications: p.slug === "custom-elements" ? ["facade", "custom"] : ["facade"],
     selectionType: p.type, summary: p.summary,
-    construction: p.slug === "attachment-components" ? "Connection design inquiry; component manufacturer, material and compatibility are to be confirmed." : "Architectural concrete design inquiry; manufacturer, composition, dimensions and finish are to be confirmed.",
+    construction: p.slug === "attachment-components" ? "Connection design inquiry; component manufacturer, production location, material and compatibility are to be confirmed." : `Architectural concrete panels and elements produced in ${p.productionLocation}; manufacturer identity, composition, dimensions and finish are to be confirmed.`,
     documentation: "Product-specific data and reports are not yet verified. Request evidence for the actual proposed supply.",
     confirm: p.confirmations.join(" "),
     sourceUrl: `${uhpcCollectionPath}/${p.slug}#product-evidence`,

@@ -1,5 +1,7 @@
 /** Original design-inquiry categories. Product capabilities remain unverified. */
 export const uhpcCollectionPath = "/materials/uhpc-panels";
+/** Production location supplied by the owner on 24 October 2026; not an attachment-component origin. */
+export const uhpcProductionLocation = "Xuzhou, Jiangsu, China";
 
 export type UhpcProductSlug =
   | "facade-panels"
@@ -13,6 +15,7 @@ export interface UhpcProduct {
   slug: UhpcProductSlug;
   name: string;
   type: string;
+  productionLocation?: string;
   summary: string;
   metaTitle: string;
   metaDescription: string;
@@ -27,9 +30,10 @@ export const uhpcProducts: UhpcProduct[] = [
     slug: "facade-panels",
     name: "UHPC facade panels",
     type: "Architectural concrete panel inquiry",
+    productionLocation: uhpcProductionLocation,
     summary: "Develop a project brief for architectural ultra-high performance concrete cladding. Panel construction, finish, manufacturer and technical evidence are to be confirmed for the proposed supply.",
     metaTitle: "UHPC Facade Panel Design Inquiries | Cladvera",
-    metaDescription: "Plan an architectural UHPC facade panel inquiry with Cladvera. Define panel layout, surface intent and the product evidence needed for project review.",
+    metaDescription: "Source architectural UHPC facade panels from Xuzhou, Jiangsu, China. Plan panel layout, surface intent and the product evidence needed for project review.",
     designIntent: "Start with the elevation: the scale of the panel, the rhythm of the joints and the relationship between solid surfaces and openings. These choices form the design brief; they do not establish an available panel size or an approved wall assembly.",
     brief: [
       { title: "Describe the panel layout", body: "Provide elevations with proposed panel boundaries, openings, visible edges and corner conditions. Identify repeated and unique pieces, and distinguish the desired joint pattern from dimensions already fixed by the supporting structure." },
@@ -37,7 +41,7 @@ export const uhpcProducts: UhpcProduct[] = [
       { title: "Coordinate the supporting wall", body: "Share the substrate, cavity intent, insulation zones and project design criteria. Ask the appointed engineer to review the proposed panel and connection together, including movement, tolerances and interfaces with adjacent construction." },
     ],
     confirmations: [
-      "Named manufacturer, product designation and manufacturing origin.",
+      "Named manufacturer, product designation and shipment-specific origin documents.",
       "Confirmed panel composition, dimensions, weight and fabrication limits.",
       "Relevant product and wall-assembly evidence for the project location.",
       "Approved connection design, sample, drawing revision and supply scope.",
@@ -48,6 +52,7 @@ export const uhpcProducts: UhpcProduct[] = [
     slug: "aggregate-panels",
     name: "Aggregate-finish UHPC panels",
     type: "Aggregate surface design inquiry",
+    productionLocation: uhpcProductionLocation,
     summary: "Describe an architectural concrete surface with visible aggregate for supplier feasibility review. Aggregate selection, surface treatment and the offered panel construction are to be confirmed.",
     metaTitle: "Aggregate-Finish UHPC Panel Inquiries | Cladvera",
     metaDescription: "Develop an aggregate-finish UHPC panel brief. Review surface intent, sample approval and the manufacturer evidence required before project specification.",
@@ -69,6 +74,7 @@ export const uhpcProducts: UhpcProduct[] = [
     slug: "textured-panels",
     name: "Textured UHPC panels",
     type: "Surface relief design inquiry",
+    productionLocation: uhpcProductionLocation,
     summary: "Explore a project-specific surface relief through drawings and sample development. Texture geometry, tooling, panel construction and manufacturing feasibility remain to be confirmed.",
     metaTitle: "Textured UHPC Panel Design Inquiries | Cladvera",
     metaDescription: "Prepare a textured UHPC panel inquiry with original surface geometry, joint intent and sample requirements. Product capabilities are confirmed by project.",
@@ -90,6 +96,7 @@ export const uhpcProducts: UhpcProduct[] = [
     slug: "custom-elements",
     name: "Custom UHPC elements",
     type: "Architectural form development inquiry",
+    productionLocation: uhpcProductionLocation,
     summary: "Prepare a brief for project-specific architectural concrete forms. Geometry, molds, handling, connections and the manufacturing source require a coordinated feasibility review.",
     metaTitle: "Custom UHPC Architectural Elements | Cladvera",
     metaDescription: "Brief custom UHPC architectural elements with Cladvera. Coordinate original geometry, tooling questions, mock-ups and project-specific evidence for review.",
