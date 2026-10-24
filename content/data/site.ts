@@ -25,7 +25,9 @@ export const site = {
   origin: "China-sourced ranges; TAKTL is a separate manufacturer collection. Manufacturing origin is confirmed for the offered product.",
   markets: ["United States", "Canada"] as const,
   contact: {
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "sales@cladvera.com",
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "inquiry@cladvera.com",
+    /** Cloudflare Worker that emails /request-quote submissions with their files (cloudflare/inquiry-relay). */
+    relay: process.env.NEXT_PUBLIC_INQUIRY_RELAY ?? "https://relay.cladvera.com",
     /** E.164, or empty to hide the phone link. */
     phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "",
     /** Digits only, or empty to hide the WhatsApp link. */

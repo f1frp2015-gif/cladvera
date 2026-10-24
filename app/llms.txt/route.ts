@@ -12,7 +12,7 @@ export function GET() {
     "Product descriptions are attributed to named manufacturer sources. Approval, availability, price, stock and delivery are confirmed for a specific offered construction and project.", "",
     "## Products", ...products.map(product => `- [${product.manufacturer} — ${product.name}](${absoluteUrl(product.path)}): ${product.summary}`), "",
     "## Design and procurement", ...routes.filter(route => route.index && isPublishedPath(route.path) && !products.some(product => product.path === route.path)).map(route => `- [${route.title}](${absoluteUrl(route.path)})`), "",
-    `Project requests: ${site.contact.email}. Product shortlists can be carried into samples, document requests and quote briefs.`,
+    `Project requests: ${site.contact.email}. Product shortlists can be carried into samples, document requests and quote requests, sent with drawings attached.`,
     "This index lists reviewed content pages. Request forms and comparison tools are available through the website; unreviewed legacy drafts are excluded.",
   ];
   return new Response(lines.join("\n"), { headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" } });

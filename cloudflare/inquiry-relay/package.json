@@ -1,0 +1,15 @@
+{
+  "name": "cladvera-inquiry-relay",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Worker cladvera-inquiry-relay (inquiry@cladvera.com and the website project request form). Bundled with esbuild and uploaded via the Cloudflare API; see README.md.",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --format=esm --platform=neutral --external:cloudflare:email --outfile=dist/index.js"
+  },
+  "dependencies": {
+    "postal-mime": "2.7.6"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

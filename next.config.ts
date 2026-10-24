@@ -5,7 +5,8 @@ const isProduction = process.env.NODE_ENV === "production";
 // Vercel Web Analytics and Speed Insights load from these hosts. Add a tag
 // manager or ad host here before adding its script to app/layout.tsx.
 const scriptHosts = ["https://va.vercel-scripts.com", "https://vitals.vercel-insights.com"];
-const connectHosts = ["https://vitals.vercel-insights.com", "https://va.vercel-scripts.com"];
+// The project request form posts to the inquiry relay Worker (cloudflare/inquiry-relay).
+const connectHosts = ["https://vitals.vercel-insights.com", "https://va.vercel-scripts.com", process.env.NEXT_PUBLIC_INQUIRY_RELAY ?? "https://relay.cladvera.com"];
 
 const contentSecurityPolicy = [
   "default-src 'self'",
