@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Folded surface and light study — concept illustration</title>
+<desc id="desc">Original Cladvera concept illustration. Not an installed project or product sample. Geometry, color and connections are illustrative only.</desc>
+<defs>
+<linearGradient id="ground" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#191f20"/><stop offset="1" stop-color="#333b3b"/></linearGradient>
+<linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9a9d94"/><stop offset="1" stop-color="#555e5d"/></linearGradient>
+<linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ddd8c9"/><stop offset="1" stop-color="#979d95"/></linearGradient>
+<linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#485250"/><stop offset="1" stop-color="#292f30"/></linearGradient>
+</defs>
+<rect width="1600" height="1000" fill="url(#ground)"/>
+<g transform="translate(285 110) skewY(-10)">
+<rect x="0" y="60" width="345" height="750" fill="#35403f"/>
+<path d="M0 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M22 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M34 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M56 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M68 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M90 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M102 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M124 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M136 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M158 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M170 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M192 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M204 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M226 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M238 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M260 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M272 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M294 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M306 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M328 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<rect x="365" y="60" width="345" height="750" fill="#35403f"/>
+<path d="M365 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M387 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M399 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M421 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M433 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M455 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M467 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M489 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M501 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M523 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M535 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M557 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M569 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M591 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M603 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M625 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M637 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M659 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M671 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M693 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<rect x="730" y="60" width="345" height="750" fill="#35403f"/>
+<path d="M730 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M752 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M764 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M786 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M798 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M820 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M832 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M854 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M866 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M888 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M900 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M922 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M934 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M956 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M968 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M990 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M1002 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M1024 57l12 3v750l-12 -3Z" fill="#68736f"/>
+<path d="M1036 60l22 -3v750l-22 3Z" fill="url(#light)"/>
+<path d="M1058 57l12 3v750l-12 -3Z" fill="#68736f"/>
+</g>
+<path d="M285 875H1370" stroke="#c9633e" stroke-width="2" opacity=".8"/>
+</svg>

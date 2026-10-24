@@ -110,11 +110,11 @@ function requestUrls(comparison) {
     .map(element => new URL(element.props.href, "https://cladvera.test"));
 }
 
-const first = catalog.catalogProducts.find(product => product.id === "taktl-facade");
+const first = catalog.catalogProducts.find(product => product.id === "uhpc-facade");
 const removeFirst = `Remove ${first.name} from comparison`;
 
 test("editing and clearing a shared selection leaves the saved shortlist untouched", () => {
-  const comparison = createComparison({ savedIds: ["almine-a2"], sharedIds: ["taktl-facade", "gfrp-custom"] });
+  const comparison = createComparison({ savedIds: ["almine-a2"], sharedIds: ["uhpc-facade", "gfrp-custom"] });
   comparison.click(removeFirst);
   assert.deepEqual(comparison.saved(), ["almine-a2"]);
   assert.equal(comparison.writes.length, 0);
@@ -130,7 +130,7 @@ test("editing and clearing a shared selection leaves the saved shortlist untouch
 });
 
 test("explicit Save persists the currently edited shared selection", () => {
-  const comparison = createComparison({ savedIds: ["almine-a2"], sharedIds: ["taktl-facade", "gfrp-custom"] });
+  const comparison = createComparison({ savedIds: ["almine-a2"], sharedIds: ["uhpc-facade", "gfrp-custom"] });
   comparison.click(removeFirst);
   comparison.click("Save this selection ↗");
   assert.deepEqual(comparison.saved(), ["gfrp-custom"]);
@@ -139,7 +139,7 @@ test("explicit Save persists the currently edited shared selection", () => {
 });
 
 test("returning from an edited shared view restores the saved selection without writes", () => {
-  const comparison = createComparison({ savedIds: ["almine-a2"], sharedIds: ["taktl-facade", "gfrp-custom"] });
+  const comparison = createComparison({ savedIds: ["almine-a2"], sharedIds: ["uhpc-facade", "gfrp-custom"] });
   comparison.click(removeFirst);
   comparison.click("View saved shortlist");
   assert.equal(comparison.writes.length, 0);
@@ -147,7 +147,7 @@ test("returning from an edited shared view restores the saved selection without 
 });
 
 test("removing a product from the saved shortlist persists the remaining selection", () => {
-  const comparison = createComparison({ savedIds: ["taktl-facade", "gfrp-custom"] });
+  const comparison = createComparison({ savedIds: ["uhpc-facade", "gfrp-custom"] });
   comparison.click(removeFirst);
   assert.deepEqual(comparison.saved(), ["gfrp-custom"]);
   assert.deepEqual(comparison.writes, [["gfrp-custom"]]);

@@ -1,15 +1,15 @@
-import { taktlProducts } from "./taktl";
+import { uhpcCollectionPath, uhpcProducts } from "./uhpc";
 import { almineProducts } from "./almine";
 import { compactwoodSources, compactwoodImages, compactwoodExteriorProductPath, compactwoodInteriorProductPath } from "./compactwood";
 
 export const catalogCategories = [
-  { id: "uhpc", label: "Architectural UHPC", path: "/suppliers/taktl", description: "Concrete panels, aggregate surfaces and custom cast forms." },
+  { id: "uhpc", label: "Architectural UHPC", path: uhpcCollectionPath, description: "Design inquiries for concrete panels, surfaces and custom forms." },
   { id: "mcm", label: "Metal composite (ACM / MCM)", path: "/materials/acm-panels", description: "Architectural, transit and healthcare panel families." },
   { id: "hpl", label: "Exterior HPL", path: "/materials/exterior-hpl-panels", description: "Decorative wood-fiber laminate for facade cladding." },
   { id: "interior-board", label: "Interior decorative boards", path: "/materials/interior-hpl-panels", description: "High-pressure-cured boards for interior surfaces." },
   { id: "smart-glass", label: "Smart glass facades", path: "/materials/smart-glass", description: "Project-specific smart glazing for facade and curtain-wall review." },
   { id: "gfrp", label: "Custom GFRP", path: "/materials/gfrp-custom-elements", description: "Molded glass-fiber reinforced polymer architectural elements." },
-  { id: "hardware", label: "Attachment components", path: "/suppliers/taktl/hardware", description: "Manufacturer-specific rails, clips, anchors and fasteners." },
+  { id: "hardware", label: "Attachment components", path: `${uhpcCollectionPath}/attachment-components`, description: "Project-specific panel connection and component review." },
 ] as const;
 export const catalogApplications = [
   { id: "facade", label: "Exterior facades", description: "Panel geometry, weather exposure and complete wall assemblies." },
@@ -24,18 +24,19 @@ export interface CatalogProduct {
   construction: string; documentation: string; confirm: string; sourceUrl: string;
   documentUrl?: string; documentLabel?: string; imageUrl?: string; imageAlt?: string;
 }
-const taktlIds: Record<string, string> = { "facade-elements": "taktl-facade", "korsa-aggregate": "taktl-korsa", sola: "taktl-sola", "custom-elements": "taktl-custom", hardware: "taktl-hardware" };
 const almineIds: Record<string, string> = { "a2-fireproof": "almine-a2", "tunnel-traffic": "almine-tunnel", "medical-antibacterial": "almine-medical" };
+const uhpcImages: Record<string, string> = { "facade-panels": "facade", "aggregate-panels": "aggregate", "textured-panels": "textured", "custom-elements": "custom", "attachment-components": "attachment" };
 export const catalogProducts: CatalogProduct[] = [
-  ...taktlProducts.map(p => ({
-    id: taktlIds[p.slug], name: p.name, manufacturer: "TAKTL", path: `/suppliers/taktl/${p.slug}`, collectionPath: "/suppliers/taktl",
-    category: p.slug === "hardware" ? "hardware" : "uhpc",
-    applications: p.slug === "custom-elements" ? ["facade", "custom"] : p.slug === "facade-elements" ? ["facade", "interior"] : ["facade"],
+  ...uhpcProducts.map(p => ({
+    id: p.id, name: p.name, manufacturer: "To be confirmed", path: `${uhpcCollectionPath}/${p.slug}`, collectionPath: uhpcCollectionPath,
+    category: p.slug === "attachment-components" ? "hardware" : "uhpc",
+    applications: p.slug === "custom-elements" ? ["facade", "custom"] : ["facade"],
     selectionType: p.type, summary: p.summary,
-    construction: p.slug === "hardware" ? "TAKTL-specific attachment components." : "TAKTL architectural ultra-high performance concrete; finish and geometry depend on the selected family.",
-    documentation: p.documentLabel || "Manufacturer product page; project documents by request.",
-    confirm: "Panel layout, finish sample, attachment engineering, current reports and production scope.",
-    sourceUrl: p.sourceUrl, documentUrl: p.documentUrl, documentLabel: p.documentLabel, imageUrl: p.imageUrl, imageAlt: p.imageAlt,
+    construction: p.slug === "attachment-components" ? "Connection design inquiry; component manufacturer, material and compatibility are to be confirmed." : "Architectural concrete design inquiry; manufacturer, composition, dimensions and finish are to be confirmed.",
+    documentation: "Product-specific data and reports are not yet verified. Request evidence for the actual proposed supply.",
+    confirm: p.confirmations.join(" "),
+    sourceUrl: `${uhpcCollectionPath}/${p.slug}#product-evidence`,
+    imageUrl: `/images/uhpc/${uhpcImages[p.slug]}-study.svg`, imageAlt: `Original geometric study for ${p.name.toLowerCase()}; illustration only, not a product sample`,
   })),
   ...almineProducts.map(p => ({
     id: almineIds[p.slug], name: p.name, manufacturer: "ALMINE", path: `/materials/acm-panels/${p.slug}`, collectionPath: "/materials/acm-panels",

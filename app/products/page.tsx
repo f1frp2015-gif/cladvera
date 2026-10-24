@@ -162,7 +162,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
               </div>
             )}
 
-            <p className="mt-[40px] border-t border-line pt-[20px] text-f12 leading-[1.6] text-ink-3">Application tags indicate candidates for review. They do not establish project approval, performance equivalence or stock availability. Attachment components support compatible systems and are listed separately.</p>
+            <p className="mt-[40px] border-t border-line pt-[20px] text-f12 leading-[1.6] text-ink-3">Application tags indicate candidates for review. They do not establish project approval, performance equivalence or stock availability. Attachment compatibility requires project-specific engineering and product evidence.</p>
           </section>
         </div>
       </div>

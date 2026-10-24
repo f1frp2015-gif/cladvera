@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Panel and support relationship — concept illustration</title>
+<desc id="desc">Original Cladvera concept illustration. Not an installed project or product sample. Geometry, color and connections are illustrative only.</desc>
+<defs>
+<linearGradient id="ground" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#191f20"/><stop offset="1" stop-color="#333b3b"/></linearGradient>
+<linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9a9d94"/><stop offset="1" stop-color="#555e5d"/></linearGradient>
+<linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ddd8c9"/><stop offset="1" stop-color="#979d95"/></linearGradient>
+<linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#485250"/><stop offset="1" stop-color="#292f30"/></linearGradient>
+</defs>
+<rect width="1600" height="1000" fill="url(#ground)"/>
+<g transform="translate(240 170) skewY(-10)">
+<path d="M55 100h250v610H55Z" fill="#3d4948" stroke="#78857d"/>
+<path d="M355 100h55v610h-55Z" fill="url(#light)"/>
+<path d="M410 100l28 20v610l-28 -20Z" fill="#66766e"/>
+<path d="M550 215h130v30H580v105h-30Z M550 545h130v30H580v105h-30Z" fill="#b8bcae"/>
+<path d="M740 80h310v690H740Z" fill="url(#panel)"/>
+<path d="M1050 80l22 20v690l-22 -20Z" fill="#56625d"/>
+<path d="M30 230h730M30 560h730" stroke="#c9633e" stroke-width="2" stroke-dasharray="8 10"/>
+<circle cx="606" cy="230" r="6" fill="#c9633e"/><circle cx="606" cy="560" r="6" fill="#c9633e"/>
+</g>
+<path d="M190 890H1400" stroke="#9ca89f" opacity=".4"/>
+
+</svg>

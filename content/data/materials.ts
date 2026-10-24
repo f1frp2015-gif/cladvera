@@ -160,106 +160,122 @@ export const materials: Material[] = [
     },
   },
   {
-    slug: "uhpc-panels",
-    priority: "P0",
-    name: "UHPC Facade Panels",
-    shortName: "UHPC",
-    metaTitle: "UHPC Facade Panels | Thin Ultra High Performance Concrete",
-    metaDescription:
-      "Thin UHPC facade panels, 15 to 30 mm, smooth or textured, supplied to North American projects with a precaster or engineer for the anchors.",
-    definition:
-      "UHPC facade panels are thin cladding panels cast from ultra high performance concrete, a fibre-reinforced mix with compressive strength above 120 MPa that allows 15 to 30 mm panels without conventional reinforcement.",
-    use: ["exterior", "interior"],
-    rank: { US: 2, CA: 3 },
-    intro: [
-      "UHPC panels carry the lowest duty stack of our lines into the United States, but they are not sold as panels only. Anchors, connections and wind-load design belong to a North American precaster or professional engineer under delegated design, and the panel and anchor are tested together.",
-      "The panel line therefore works in two modes: standard formats with cast-in inserts for a partner's system, or project-specific panels cast to the engineer's drawings.",
+    "slug": "uhpc-panels",
+    "priority": "P0",
+    "name": "UHPC Facade Panels",
+    "shortName": "UHPC",
+    "metaTitle": "Architectural UHPC Panel Inquiries | Cladvera",
+    "metaDescription": "Discuss architectural UHPC panels for facade projects. Define geometry, surface, attachment requirements and the product evidence needed before specification.",
+    "definition": "Architectural ultra-high performance concrete is a material category. The exact offered mix, panel construction, manufacturer and performance require verification.",
+    "use": [
+      "exterior"
     ],
-    supply: {
-      US: {
-        scenarios: [
-          "Exterior cladding on any building type, as a noncombustible panel, when a precaster or engineer of record takes the connection design.",
-          "Interior feature walls and lobbies on the same panel formats.",
-          "Not offered where the project requires a generic listing we do not hold; see /compliance/.",
+    "rank": {
+      "US": 2,
+      "CA": 3
+    },
+    "intro": [
+      "Cladvera coordinates inquiries for architectural UHPC panels and custom elements. Availability and the proposed manufacturing source are confirmed for each quotation.",
+      "Compare physical samples and independently verified product evidence against the project requirements before specification."
+    ],
+    "supply": {
+      "US": {
+        "scenarios": [
+          "Facade design inquiries subject to product and assembly review."
         ],
-        dutyNote:
-          "General rate plus Section 301 duties; no Section 232 or AD/CVD layer. The general rate differs between 6810 subheadings, so the broker confirms the classification before quoting landed cost.",
-        tariffReference: ["6810.19 (articles of cement or concrete, tiles and flagstones)", "6810.99 (other articles)"],
+        "dutyNote": "Origin, classification, duties and import requirements must be confirmed for the exact offered product by the importer and its broker.",
+        "tariffReference": [
+          "To be confirmed for the offered construction"
+        ]
       },
-      CA: {
-        scenarios: [
-          "Exterior cladding on combustible and noncombustible construction, as a noncombustible panel, with the assembly behind it designed by the project team.",
-          "Interior feature walls.",
+      "CA": {
+        "scenarios": [
+          "Facade design inquiries subject to product and assembly review."
         ],
-        dutyNote: "MFN rate plus GST; no surtax applies to concrete articles.",
-        tariffReference: ["6810.19 / 6810.99 (Canadian tariff)"],
-      },
+        "dutyNote": "Origin, classification, duties and import requirements must be confirmed for the exact offered product by the importer and its broker.",
+        "tariffReference": [
+          "To be confirmed for the offered construction"
+        ]
+      }
     },
-    specs: [
-      { label: "Thickness", value: "15, 20, 25 and 30 mm (5/8 to 1 1/4 in nominal)", confirmed: false },
-      { label: "Panel size", value: "Standard formats up to 1,200 × 3,000 mm (47 × 118 in); project formats by mould", confirmed: false },
-      { label: "Density", value: "2,400 to 2,500 kg/m³", confirmed: false },
-      { label: "Weight", value: "Approx. 36 kg/m² at 15 mm to 72 kg/m² at 30 mm (7.4 to 14.7 lb/ft²)", confirmed: false },
-      { label: "Compressive strength", value: "≥ 120 MPa (17,400 psi), tested to ASTM C1856", confirmed: false },
-      { label: "Flexural strength", value: "≥ 15 MPa (2,200 psi), tested to ASTM C1609", confirmed: false },
-      { label: "Reinforcement", value: "Steel or PVA micro-fibres; no conventional reinforcing bar", confirmed: false },
-      { label: "Surfaces", value: "Smooth, sandblasted, ribbed, board-formed and custom moulds; relief depth stated per texture", confirmed: false },
-      { label: "Fixing", value: "Cast-in inserts or undercut anchors, located to the engineer's drawings", confirmed: true },
-      { label: "Sealer", value: "Breathable anti-graffiti sealer applied at the plant (optional)", confirmed: false },
+    "specs": [
+      {
+        "label": "Manufacturer and origin",
+        "value": "To be confirmed for the offered product and project",
+        "confirmed": false
+      },
+      {
+        "label": "Panel dimensions and weight",
+        "value": "To be confirmed for the offered product and project",
+        "confirmed": false
+      },
+      {
+        "label": "Material strength and durability",
+        "value": "To be confirmed for the offered product and project",
+        "confirmed": false
+      },
+      {
+        "label": "Finish and sample range",
+        "value": "To be confirmed for the offered product and project",
+        "confirmed": false
+      },
+      {
+        "label": "Anchorage and assembly evidence",
+        "value": "To be confirmed for the offered product and project",
+        "confirmed": false
+      }
     ],
-    finishFamilies: ["textured-concrete"],
-    systems: [
-      "Aluminum sub-frame with undercut anchors (partner system).",
-      "Cast-in inserts on steel or aluminum rails for project-specific panels.",
-      "Interior hook-on rails for feature walls.",
+    "finishFamilies": [
+      "textured-concrete"
     ],
-    fabrication: [
-      "Panels are cast to size; on-site cutting is limited to diamond blades with dust control and leaves an unsealed edge.",
-      "Anchor positions are cast in; field drilling of undercut anchors follows the anchor manufacturer's procedure.",
-      "Crated vertically on A-frames; each panel is numbered to the shop drawings.",
+    "systems": [
+      "Connection type, subframe, corrosion protection and movement allowances require project-specific engineering."
     ],
-    stock: {
-      note: "No stock. Every order is cast to the project schedule.",
-      moq: "Per project; moulds are amortised over the order (TBC).",
-      leadTime: "Mock-up panels 4 to 6 weeks; production 8 to 12 weeks plus ocean transit (TBC).",
-      perCrate: "Weight governs: a 40 ft container carries roughly 500 to 600 m² of 20 mm panels (TBC).",
+    "fabrication": [
+      "Develop handling, fabrication, installation and packing procedures for the approved panel and connection design."
+    ],
+    "stock": {
+      "note": "Availability and order scope to be confirmed.",
+      "moq": "To be confirmed",
+      "leadTime": "To be confirmed",
+      "perCrate": "To be confirmed from the approved packing plan"
     },
-    documents: [
-      { name: "Mix and panel data sheet", status: "in-progress" },
-      { name: "Standard panel formats and insert layouts", status: "planned" },
-      { name: "CSI 03 45 00 guide specification", status: "planned" },
-      { name: "Test reports (ASTM C1856, C1609, C666)", status: "planned", note: "Published on /compliance/." },
-      { name: "Handling and installation guide", status: "planned" },
+    "documents": [
+      {
+        "name": "Offered manufacturer and product identification",
+        "status": "unverified"
+      },
+      {
+        "name": "Product-specific data sheet and relevant test reports",
+        "status": "unverified"
+      },
+      {
+        "name": "Project connection and handling details",
+        "status": "planned"
+      }
     ],
-    faq: [
+    "faq": [
       {
-        q: "Are UHPC and GFRC facade panels the same material?",
-        a: "No. UHPC is a dense cementitious mix with micro-fibres and compressive strength above about 120 MPa, cast 15 to 30 mm thick. GFRC is a sprayed or premixed glass-fibre concrete, usually 12 to 25 mm thick with a lower-strength matrix and a different reinforcement principle. The comparison page sets out density, strength and thickness side by side.",
+        "q": "What determines the panel specification?",
+        "a": "The offered construction, project loads, geometry, attachment design and applicable requirements determine the specification. Do not infer thickness, strength or approval from the general material category."
       },
       {
-        q: "How much do UHPC panels cost per square foot?",
-        a: "Cost is driven by texture (mould cost), panel size, thickness, the number of unique panels, the anchor system and freight weight. The only North American manufacturer that publishes a price lists a floor of about USD 20 per square foot for material with a minimum order of 5,000 square feet; our quotes are returned against drawings.",
-      },
-      {
-        q: "Who designs the anchors?",
-        a: "A North American precaster or professional engineer under delegated design. We supply panel data, insert positions and test data; the engineer of record stamps the connection design. We do not sell UHPC as panels only for exterior walls.",
-      },
-      {
-        q: "What thickness do I need?",
-        a: "Most rainscreen panels are 15 or 20 mm; larger panels or heavier textures go to 25 or 30 mm. Thickness is fixed by the engineer from span, wind load and the anchor type.",
-      },
-      {
-        q: "How is colour variation handled?",
-        a: "Pigmented mixes vary between casts and with curing. Colour and pinhole ranges are agreed on range samples, batches are recorded per panel, and weathering changes are explained on the colour variation guide.",
-      },
+        "q": "How are pricing and delivery established?",
+        "a": "Provide the panel schedule, drawings, finish requirements, project location and delivery expectations. Pricing, production scope and logistics are confirmed in the quotation."
+      }
     ],
-    masterformat: ["03 45 00 Precast Architectural Concrete", "03 49 00 Glass-Fiber-Reinforced Concrete (comparison only)"],
-    keywords: {
-      primary: ["UHPC facade panels"],
-      secondary: ["UHPC panels", "UHPC cladding panels", "ultra high performance concrete panels", "architectural UHPC", "UHPC panel thickness", "UHPC panel weight", "UHPC rainscreen panels", "UHPC panels cost per square foot"],
+    "masterformat": [],
+    "keywords": {
+      "primary": [
+        "UHPC facade panels"
+      ],
+      "secondary": [
+        "architectural UHPC",
+        "UHPC cladding",
+        "UHPC panel inquiries"
+      ]
     },
-    caveat:
-      "Exterior UHPC is supplied with a North American precaster or professional engineer responsible for anchors and wind-load design. Quotes without a named engineering partner are budget ranges only.",
+    "caveat": "General material terminology does not establish an approved wall assembly or equivalence to another manufacturer’s product."
   },
   {
     slug: "acm-panels",

@@ -14,7 +14,7 @@ export const site = {
   tagline:
     "Architectural panel sourcing and China export supply for design teams, buyers, fabricators and contractors",
   description:
-    "Cladvera coordinates architectural panel sourcing and China export supply for North American projects. TAKTL is presented as a separate manufacturer collection.",
+    "Cladvera coordinates architectural panel sourcing and China export inquiries for North American projects. Product evidence and supply scope require review.",
   /** Canonical public origin. Any build-time override should omit a trailing slash. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cladvera.com",
   /**
@@ -22,7 +22,7 @@ export const site = {
    * unreviewed routes; publication.ts remains the public-page allowlist.
    */
   stage: process.env.NEXT_PUBLIC_SITE_STAGE === "live" ? "live" : "draft",
-  origin: "China-sourced ranges; TAKTL is a separate manufacturer collection. Manufacturing origin is confirmed for the offered product.",
+  origin: "China-sourcing inquiries for architectural materials. Manufacturer and manufacturing origin are confirmed for each offered product.",
   markets: ["United States", "Canada"] as const,
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "inquiry@cladvera.com",

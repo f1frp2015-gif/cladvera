@@ -18,7 +18,7 @@ const reviewFactors: Record<string, string[]> = {
 };
 
 const applicationReferences: Record<string, { productId: string; indexLabel: string; caption: string }> = {
-  facade: { productId: "taktl-facade", indexLabel: "Facades", caption: "Manufacturer imagery introduces a candidate material family. Review the proposed panel construction and complete wall assembly." },
+  facade: { productId: "uhpc-facade", indexLabel: "Facades", caption: "Conceptual facade illustration, not an actual project or product sample. Review the proposed panel construction and complete wall assembly." },
   interior: { productId: "compactwood-interior", indexLabel: "Interiors", caption: "Manufacturer construction diagram for an interior board candidate. Confirm the offered core, grade and fixing method." },
   transit: { productId: "almine-tunnel", indexLabel: "Transit", caption: "Material illustration, not an installation photograph. Match the offered panel and supporting reports to authority requirements." },
   healthcare: { productId: "almine-medical", indexLabel: "Healthcare", caption: "Material illustration, not an installation photograph. Verify surface-performance claims for the specified finish." },
